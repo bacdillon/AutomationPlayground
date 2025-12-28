@@ -1,2 +1,2 @@
-# AutomationPlayground
+# Automation Playground
 
