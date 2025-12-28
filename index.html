@@ -17,7 +17,7 @@
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            border: 1px border: 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -32,8 +32,24 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .folder-item:hover {
-            background: rgba(59, 130, 246, 0.1);
+        .tech-badge {
+            display: inline-block;
+            background-color: rgba(71, 85, 105, 0.3);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-family: monospace;
+            font-size: 0.7rem;
+            color: #94a3b8;
+            margin-right: 0.5rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        
+        .tech-badge:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #60a5fa;
+            border-color: rgba(59, 130, 246, 0.4);
         }
     </style>
 </head>
@@ -42,11 +58,12 @@
     <!-- Navigation -->
     <nav class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- <div class="text-xl font-bold tracking-tight gradient-text">RPA.PROJECT.PORTFOLIO</div> -->
             <div class="text-xl font-bold tracking-tight gradient-text uppercase">AUTOMATION PLAYGROUND</div>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="#home" class="hover:text-blue-400 transition">Home</a>
-                <a href="#projects" class="hover:text-blue-400 transition">Featured Automations</a>
+                <a href="#uipath" class="hover:text-blue-400 transition">UiPath</a>
+                <a href="#power-automate" class="hover:text-blue-400 transition">Power Automate</a>
+                <a href="#copilot" class="hover:text-blue-400 transition">Copilot Studio</a>
             </div>
         </div>
     </nav>
@@ -60,31 +77,137 @@
                         Scaling Business with <br><span class="gradient-text">Digital Workers</span>
                     </h1>
                     <p class="text-lg text-slate-400 mb-0 max-w-2xl">
-                        I specialize in identifying bottleneck processes and designing end-to-end automations
-                        using UiPath, Microsoft Power Automate, and Microsoft Copilot Studio. Turning "busy work" into "efficient work."
+                        I specialize in identifying bottleneck processes and designing end-to-end automations using UiPath, Microsoft Power Automate, and Microsoft Copilot Studio. Turning "busy work" into "efficient work."
                     </p>
                 </div>
-                <!-- Profile Image section commented out as requested -->
-                <!-- 
-                <div class="relative w-64 h-64 md:w-80 md:h-80">
-                    <div class="absolute inset-0 bg-blue-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
-                    <div class="w-full h-full rounded-2xl border-2 border-blue-500/30 p-2 rotate-3 hover:rotate-0 transition duration-500">
-                        <div class="w-full h-full bg-slate-800 rounded-xl flex items-center justify-center overflow-hidden">
-                             <img src="image_d1abcc.jpg" alt="Profile Image" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://via.placeholder.com/400?text=RPA+Expert';">
-                        </div>
-                    </div>
-                </div>
-                -->
             </div>
         </div>
     </header>
 
-    <!-- 2 & 3 & 4. Robots & Descriptions & Demo Video -->
-    <section id="projects" class="py-6 px-6 bg-slate-900/50">
+    <!-- UiPath Section -->
+    <section id="uipath" class="py-12 px-6 bg-slate-900/30">
         <div class="max-w-6xl mx-auto">
             <div class="mb-10">
-                <h2 class="text-3xl font-bold mb-4">Featured Automations</h2>
+                <h2 class="text-3xl font-bold mb-4">UiPath</h2>
                 <div class="w-20 h-1 bg-blue-500 rounded"></div>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Robot 1 -->
+                <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-black flex items-center justify-center">
+
+<iframe width="1003" height="560" src="https://www.youtube.com/embed/iSIuXGBqJxo" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<!-- <iframe src="https://player.vimeo.com/video/1131539760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> -->
+<!-- <iframe src="https://player.vimeo.com/video/1149556142?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1892" height="1054" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="BMI_Queue_Process"></iframe>                     <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149556142?h=0f198cac12" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe> -->
+</div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3">Robot 1 : BMI Queue Process</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">UiPath Orhestrator</span>
+                            <span class="tech-badge">Body Mass Index (BMI) Calculator Website
+                            </span>
+                            <span class="tech-badge">MS Excel</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                          In UiPath queue terminology, the concepts of Dispatcher and Performer are often used, in transactional process automation. This define how queue items are added and processed.
+<br>
+Dispatcher - Adds items to the queue.
+Feeds the robot with work to process. Reads input data (e.g., Excel, database, web forms).
+<br>
+Performer - Processes items from the queue.Performs the actual business process on each transaction.
+<br>
+Set Transaction Status to mark each item as: Successful, Failed (with retry if enabled) Business Exception.
+                        </p>
+
+                    </div>
+                </div>
+
+                <!-- Robot 2 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Robot 2: Intelligent IT Desk Dispatcher</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">UiPath AI Center</span>
+                            <span class="tech-badge">Copilot Studio</span>
+                            <span class="tech-badge">ServiceNow</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Triages IT tickets based on sentiment and executes password resets or software installs autonomously via back-end robots.</p>
+                    </div>
+                </div> -->
+     
+       
+                <!-- Robot 3 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-black flex items-center justify-center">
+                    
+                            
+                     <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149556142?h=0f198cac12" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
+                      </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3">Robot 3 : BMI Queue Process</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">UiPath Document Understanding</span>
+                            <span class="tech-badge">AI Center</span>
+                            <span class="tech-badge">SQL</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                          In UiPath queue terminology, the concepts of Dispatcher and Performer are often used, in transactional process automation. This define how queue items are added and processed.
+<br>
+Dispatcher - Adds items to the queue.
+Feeds the robot with work to process. Reads input data (e.g., Excel, database, web forms).
+<br>
+Performer - Processes items from the queue.Performs the actual business process on each transaction.
+<br>
+Set Transaction Status to mark each item as: Successful, Failed (with retry if enabled) Business Exception.
+                        </p>
+                    </div>
+                </div>-->
+
+                <!-- Robot 4 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Robot 4: Intelligent IT Desk Dispatcher</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">UiPath AI Center</span>
+                            <span class="tech-badge">Copilot Studio</span>
+                            <span class="tech-badge">ServiceNow</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Triages IT tickets based on sentiment and executes password resets or software installs autonomously via back-end robots.</p>
+                    </div>
+                </div> -->
+
+    </section>
+
+    <!-- Power Automate Section -->
+    <section id="power-automate" class="py-12 px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold mb-4">Power Automate Workflows</h2>
+                <div class="w-20 h-1 bg-purple-500 rounded"></div>
             </div>
 
             <div class="space-y-20">
@@ -92,24 +215,32 @@
                 <div class="flex flex-col lg:flex-row gap-12 items-start">
                     <div class="flex-1 w-full">
                         <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
-                            <!-- Simulated Video Container -->
-                            <div class="absolute inset-0 bg-black flex items-center justify-center">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
                                 <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
-                                <div class="absolute bottom-4 left-4 text-xs bg-black/60 px-2 py-1 rounded">02:15 Demo Video</div>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-2">Robot 1: Invoice Intelligent Extractor</h3>
-                        <p class="text-blue-400 mb-4 font-mono text-sm">Tech: UiPath Document Understanding, AI Center, SQL</p>
+                        <h3 class="text-2xl font-bold mb-3">Robot 1: Automated Calculation Validation & Logging</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">Microsoft Teams</span>
+                            <span class="tech-badge">Windows Calculator Application</span>
+                             <span class="tech-badge">Microsoft Excel</span>                       
+                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            A high-volume automation that processes incoming PDF invoices from multiple vendors. It uses ML models to extract key-value pairs (Invoice ID, Tax, Total) even from unstructured layouts, validates them against the ERP database, and triggers approval workflows.
+                            A simple automation flow that performs calculations 
+                            through the Windows Calculator application and posts messages 
+                            to a chat or channel. 
+                            <br>
+                            The flow logs calculation results, 
+                            captures execution status, and handles errors gracefully, 
+                            providing clear insights for debugging and continuous improvement. All flows run unattended, ensuring detailed step-by-step and error logging throughout the process.
                         </p>
-                        <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 95% Accuracy on unstructured data</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Reduced manual entry time by 80%</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Exception handling via Action Center</li>
-                        </ul>
+<!--                         <ul class="space-y-2 mb-8 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Zero human error in account creation</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless integration with legacy ERP</li>
+                        </ul> -->
                     </div>
                 </div>
 
@@ -118,22 +249,121 @@
                     <div class="flex-1 w-full">
                         <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
-                                <div class="absolute bottom-4 left-4 text-xs bg-black/60 px-2 py-1 rounded">01:45 Demo Video</div>
+                                <i class="fas fa-robot text-6xl text-blue-500 opacity-30"></i>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-2">Robot 2: HR Onboarding Assistant</h3>
-                        <p class="text-blue-400 mb-4 font-mono text-sm">Tech: Power Automate Desktop, Microsoft Teams, AD</p>
+                        <h3 class="text-2xl font-bold mb-3">Robot 2: Automation Reporting with SQL Logging</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">MS SQL Server</span>
+                            <span class="tech-badge">MS Outlook</span>
+                        </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            Automates the setup of new hire accounts across Active Directory, Office 365, and internal payroll systems. The bot monitors a SharePoint list and initiates the sequence, notifying IT via Teams once hardware provisioning is ready.
+                        Automating reporting processes using Power Automate Desktop integrated with SQL databases. Logs are captured from Robot 1 (Automated Calculation Validation & Logging) and stored in a SQL database to generate reports for developers, business users, and management.
+                        <br>Beyond database automation, custom reports are produced for different stakeholders: developers receive detailed error and diagnostic information, business users are provided with flow completion and status updates, and management receives high-level performance metrics via email. 
+                        <br>This approach enables seamless, end-to-end automated reporting across multiple platforms.
                         </p>
-                        <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Zero human error in account creation</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 24/7 Monitoring of onboarding queue</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless integration with legacy ERP</li>
-                        </ul>
+<!--                         <ul class="space-y-2 mb-8 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Eliminated double-booking errors</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 25% Increase in patient throughput</li>
+                        </ul> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+        <!-- Copilot Studio Section -->
+    <section id="copilot" class="py-12 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold mb-4">Copilot Studio Agents</h2>
+                <div class="w-20 h-1 bg-teal-500 rounded"></div>
+            </div>
+
+            <div class="space-y-20">
+                <!-- Intelligent IT Helpdesk Support -->
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Digital%20IT%20Helpdesk%20Support.png">
+                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Intelligent IT Helpdesk Support</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Microsoft Copilot Studio</span>
+                            <span class="tech-badge">ServiceNow</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            A Copilot Studio agent integrated with ServiceNow that 
+                            assists users in checking the status of their IT helpdesk 
+                            tickets (incidents). The agent provides real-time updates, 
+                            improves self-service accessibility, and reduces the need for 
+                            manual follow-ups with the IT support team.
+                        </p>
+<!--                         <ul class="space-y-2 mb-8 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 70% First-contact resolution rate</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Real-time handoff to live agents</li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <!-- Hair For Hope Agent -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Hair%20For%20Hope%20Agent.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Hair For Hope Agent</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Microsoft Copilot Studio</span>
+                            <span class="tech-badge">Hair For Hope Website</span>
+                       </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            The Hair for Hope Virtual Assistant guides users with 
+                            registration, donations, and event info — spreading the 
+                            caring spirit of Singapore’s head-shaving event for children 
+                            with cancer. 🎗️ https://hairforhope.org.sg/
+                        </p>
+<!--                         <ul class="space-y-2 mb-8 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Reduces HR ticket volume by 40%</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 24/7 Availability for global staff</li>
+                        </ul> -->
+                    </div>
+                </div>
+
+                <!-- Holland America Deck Plans -->
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Rotterdam.png">                   
+                                <!-- <i class="fas fa-headset text-6xl text-teal-500 opacity-30"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">Holland America Deck Plans</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Microsoft Copilot Studio</span>
+                             <p class="text-slate-400 mb-6 leading-relaxed">
+                            Copilot Studio Agent uses uploaded images of Holland America cruise ship deck plans, stored in Dataverse. The images are automatically chunked and vectorized, allowing the Copilot to answer questions about ship layouts, such as locations of amenities like casinos. The current focus is on the deck plans for the Rotterdam ship.
+                            </p>
+<!--                         <ul class="space-y-2 mb-8 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless ticket escalation flow</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Real-time sentiment analysis</li>
+                        </ul> -->
                     </div>
                 </div>
             </div>
