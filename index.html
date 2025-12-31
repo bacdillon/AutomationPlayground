@@ -17,13 +17,13 @@
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 0px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .glass-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0px 0px 0px rgba(59, 130, 246, 0.3);
         }
 
         .gradient-text {
@@ -35,7 +35,7 @@
         .tech-badge {
             display: inline-block;
             background-color: rgba(71, 85, 105, 0.3);
-            border: 1px solid rgba(148, 163, 184, 0.2);
+            border: 0px solid rgba(148, 163, 184, 0.2);
             border-radius: 9999px;
             padding: 4px 12px;
             font-family: monospace;
@@ -93,7 +93,7 @@
             </div>
 
             <div class="space-y-20">
-                <!-- Robot 1 -->
+                <!-- BMI Queue Process -->
                 <div class="flex flex-col lg:flex-row gap-12">
                     <div class="flex-1 w-full">
                         <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
@@ -107,7 +107,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3">Robot 1 : BMI Queue Process</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3">BMI Queue Process</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Orhestrator</span>
                             <span class="tech-badge">Body Mass Index (BMI) Calculator Website
@@ -128,7 +128,7 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
                     </div>
                 </div>
 
-                <!-- Robot 2 -->
+                <!--  Invoice Processing Automation -->
                     <div class="flex flex-col lg:flex-row gap-12">
                     <div class="flex-1 w-full">
                         <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
@@ -142,7 +142,7 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Robot 2: Invoice Processing Automation</h3>
+                        <h3 class="text-2xl font-bold mb-3">Invoice Processing Automation</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath ReFramework</span>
                             <span class="tech-badge">UiPath Document Understanding</span>
@@ -220,7 +220,7 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
             </div>
 
             <div class="space-y-20">
-                <!-- Robot 1 -->
+                <!-- Automation Validation & Logging -->
                 <div class="flex flex-col lg:flex-row gap-12 items-start">
                     <div class="flex-1 w-full">
                         <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
@@ -235,7 +235,7 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Robot 1: Automation Validation & Logging</h3>
+                        <h3 class="text-2xl font-bold mb-3">Automation Validation & Logging</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power Automate</span>
                             <span class="tech-badge">Microsoft Teams</span>
@@ -252,25 +252,21 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
                             providing clear insights for debugging and continuous improvement. 
                             Ensuring detailed step-by-step and error logging throughout the process.
                         </p>
-<!--                         <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Zero human error in account creation</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless integration with legacy ERP</li>
-                        </ul> -->
                     </div>
                 </div>
 
-                <!-- Robot 2 -->
+                <!-- Automation Reporting with SQL -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
                     <div class="flex-1 w-full">
                         <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
                                <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149973560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> 
-                                <!-- <i class="fas fa-robot text-6xl text-blue-500 opacity-30"></i> -->
+                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Robot 2: Automation Reporting with SQL</h3>
+                        <h3 class="text-2xl font-bold mb-3">Automation Reporting with SQL</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power Automate</span>
                             <span class="tech-badge">MS SQL Server</span>
@@ -281,17 +277,43 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
                         <br>Beyond database automation, custom reports are produced for different stakeholders: developers receive detailed error and diagnostic information, business users are provided with flow completion and status updates, and management receives high-level performance metrics via email. 
                         <br>This approach enables seamless, end-to-end automated reporting across multiple platforms.
                         </p>
-<!--                         <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Eliminated double-booking errors</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 25% Increase in patient throughput</li>
-                        </ul> -->
                     </div>
                 </div>
             </div>
+            
+           <div class="space-y-20">
+                <!-- Loan Application Processing -->
+                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                    <div class="flex-1 w-full">
+                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                           <iframe title="vimeo-player" src="https://player.vimeo.com/video/1150601039?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3">UiBank Loan Application Processing</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">UiBank Loan Home</span>
+                             <span class="tech-badge">Microsoft Excel</span>
+                         </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                       An automated loan application and validation process built using Power Automate Desktop, based on the UiBank loan application portal. 
+                       <br>The automation simulates user interactions to calculate loan eligibility, validate inputs, and streamline the loan application workflow, demonstrating end-to-end RPA capabilities for financial services.
+                        </p>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
         </div>
-
-
-    </section>
+   </section>
 
 
         <!-- Copilot Studio Section -->
