@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RPA Developer Portfolio</title>
+    <title>Dillon Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -17,13 +17,13 @@
         .glass-card {
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            border: 0px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .glass-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0px 0px 0px rgba(59, 130, 246, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
         }
 
         .gradient-text {
@@ -35,7 +35,7 @@
         .tech-badge {
             display: inline-block;
             background-color: rgba(71, 85, 105, 0.3);
-            border: 0px solid rgba(148, 163, 184, 0.2);
+            border: 1px solid rgba(148, 163, 184, 0.2);
             border-radius: 9999px;
             padding: 4px 12px;
             font-family: monospace;
@@ -51,6 +51,54 @@
             color: #60a5fa;
             border-color: rgba(59, 130, 246, 0.4);
         }
+
+        .robot-item {
+            padding-top: 2rem;
+            padding-bottom: 4rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .robot-item:last-child {
+            border-bottom: none;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 56.25%; 
+            background: #000;
+            border-radius: 0.75rem;
+            overflow: hidden;
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+            object-fit: cover;
+        }
+
+        .social-link {
+            transition: all 0.3s ease;
+            color: #94a3b8;
+        }
+
+        .social-link:hover {
+            color: #60a5fa;
+            transform: scale(1.1);
+        }
+
+        /* Subtle section headers */
+        .section-header {
+            position: sticky;
+            top: 64px;
+            z-index: 40;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(8px);
+        }
     </style>
 </head>
 <body class="bg-[#0f172a] text-slate-200 antialiased">
@@ -59,290 +107,462 @@
     <nav class="fixed w-full z-50 bg-[#0f172a]/80 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="text-xl font-bold tracking-tight gradient-text uppercase">AUTOMATION PLAYGROUND</div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
+            <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#home" class="hover:text-blue-400 transition">Home</a>
                 <a href="#uipath" class="hover:text-blue-400 transition">UiPath</a>
-                <a href="#power-automate" class="hover:text-blue-400 transition">Power Automate</a>
-                <a href="#copilot" class="hover:text-blue-400 transition">Copilot Studio</a>
+                <a href="#power-automate" class="hover:text-blue-400 transition">Microsoft Platform</a>
+                <a href="#Copilot Studio Agents" class="hover:text-blue-400 transition">Microsoft Copilot Studio</a>
+                <div class="flex items-center space-x-4 border-l border-slate-700 pl-8">
+                    <a href="https://github.com/bacdillon" class="social-link text-lg" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/bac-say-ron-dillon-00547196/" class="social-link text-lg" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <!-- <a href="mailto:bacdillon@gmail.com" class="social-link text-lg" title="Email"><i class="fas fa-envelope"></i></a> -->
+                </div>
             </div>
         </div>
     </nav>
 
-    <!-- 1. Introduction -->
-    <header id="home" class="relative pt-32 pb-4 px-6 overflow-hidden">
-        <div class="max-w-6xl mx-auto relative z-10">
-            <div class="flex flex-col md:flex-row items-center gap-12">
-                <div class="flex-1 text-center md:text-left">
-                    <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-                        Scaling Business with <br><span class="gradient-text">Digital Workers</span>
-                    </h1>
-                    <p class="text-lg text-slate-400 mb-0 max-w-2xl">
-                        I specialize in identifying bottleneck processes and designing end-to-end automations using UiPath, Microsoft Power Automate, and Microsoft Copilot Studio. Turning "busy work" into "efficient work."
-                    </p>
-                </div>
-            </div>
+    <!-- Hero Section -->
+    <header id="home" class="relative pt-16 pb-12 px-6 overflow-hidden">
+        <div class="max-w-6xl mx-auto relative z-10 text-center">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight pt-16">
+                Scaling Business with <br><span class="gradient-text">Digital Workers</span>
+            </h1>
+            <p class="text-lg text-slate-400 mb-6 max-w-3xl mx-auto leading-relaxed">
+                Building <strong>simple, human-centered digital systems</strong> through intelligent automation with 
+                <span class="text-blue-400">UiPath</span> and 
+                <span class="text-purple-400">Microsoft Platform</span>.
+            </p>
         </div>
     </header>
 
     <!-- UiPath Section -->
-    <section id="uipath" class="py-12 px-6 bg-slate-900/30">
+    <section id="uipath" class="pb-12 px-6 bg-slate-900/30">
         <div class="max-w-6xl mx-auto">
-            <div class="mb-10">
-                <h2 class="text-3xl font-bold mb-4">UiPath</h2>
-                <div class="w-20 h-1 bg-blue-500 rounded"></div>
+            <div class="section-header py-4 mb-8">
+                <h2 class="text-3xl font-bold text-blue-400">UiPath Solutions</h2>
+                <div class="w-20 h-1 bg-blue-500 rounded mt-2"></div>
             </div>
 
-            <div class="space-y-20">
-                <!-- BMI Queue Process -->
-                <div class="flex flex-col lg:flex-row gap-12">
+            <div class="flex flex-col">
+                <!-- Agentic Process + RPA + Human Approval-->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
-                            <div class="absolute inset-0 bg-black flex items-center justify-center">
-
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/1149556142?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
-<!-- <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149556142?h=0f198cac12" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
-
-<!-- <iframe src="https://player.vimeo.com/video/1131539760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> -->
-</div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3">BMI Queue Process</h3>
-                        <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">UiPath Orhestrator</span>
-                            <span class="tech-badge">Body Mass Index (BMI) Calculator Website
-                            </span>
-                            <span class="tech-badge">MS Excel</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-                          In UiPath queue terminology, the concepts of Dispatcher and Performer are often used, in transactional process automation. This define how queue items are added and processed.
-<br>
-Dispatcher - Adds items to the queue.
-Feeds the robot with work to process. Reads input data (e.g., Excel, database, web forms).
-<br>
-Performer - Processes items from the queue.Performs the actual business process on each transaction.
-<br>
-Set Transaction Status to mark each item as: Successful, Failed (with retry if enabled) Business Exception.
-                        </p>
-
-                    </div>
-                </div>
-
-                <!--  Invoice Processing Automation -->
-                    <div class="flex flex-col lg:flex-row gap-12">
-                    <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
-                            <div class="absolute inset-0 bg-black flex items-center justify-center">
-<iframe title="vimeo-player" src="https://player.vimeo.com/video/1131539760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
-
-<!-- <iframe title="vimeo-player" src="https://player.vimeo.com/video/1131539760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> -->
-
-                                <!-- <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149556142?h=0f198cac12" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
+                        <div class="glass-card rounded-2xl overflow-hidden p-0 border-none shadow-2xl">
+                            <div class="video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1165540035?h=aa83d88d87?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+                            </div>
+                            <br>
+                            <div class="video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1165860126?h=73a60fcd7e?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Invoice Processing Automation</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Agentic Process + RPA + Human Approval</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">UiPath ReFramework</span>
+                            <span class="tech-badge">UiPath Web Studio</span>
+                            <span class="tech-badge">UiPath Maestro</span>
+                            <span class="tech-badge">RPA Workflow</span>
+                            <span class="tech-badge">Google Drive Integration</span>
+
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">The workflow begins when a new invoice is uploaded. The system downloads the invoice and extracts the relevant details, which are then evaluated by an Invoice Decision Agent to determine whether the invoice can be automatically approved or requires human review.
+<br><br>If the invoice is approved (either automatically or after review), it is moved to the Google Drive “Approved” folder. If the invoice is rejected, it is moved to the Google Drive “Rejected” folder.
+<br><br>This workflow ensures efficient invoice processing by combining automated decision-making with human oversight, while clearly organizing outcomes in Google Drive.</p>
+                     </div>
+                </div>
+
+                <!-- BMI Queue Process -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <iframe src="https://player.vimeo.com/video/1165895087?h=f0a9d9875a?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">BMI Queue Process</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">UiPath Orhestrator</span>
+                            <span class="tech-badge">Gemini Canvas - Body Mass Index (BMI) Calculator Website</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            In UiPath queue terminology, the concepts of Dispatcher and Performer are often used, in transactional process automation. This define how queue items are added and processed.
+<br>Dispatcher - Adds items to the queue. Feeds the robot with work to process. Reads input data (e.g., Excel, database, web forms).
+<br>Performer - Processes items from the queue.Performs the actual business process on each transaction.
+<br>Set Transaction Status to mark each item as: Successful, Failed (with retry if enabled) Business Exception.
+<br>Unitlized Gemini Canvas for Rapid Prototyping. The HTML/CSS structure was iterated within the Canvas to visualize how data should be presented to end-users,tested the BMI calculation logic before building the robot's front-end.
+
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Invoice Processing Automation with REFramework -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <iframe src="https://player.vimeo.com/video/1131539760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Invoice Processing Automation with REFramework</h3>
+                        <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Document Understanding</span>
+                            <span class="tech-badge">UiPath REFramework</span>
                             <span class="tech-badge">CRM - Python Streamlit</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
                             Alfred is an automation bot that streamlines Finance & Accounting invoice processing, targeting a 70% reduction in processing time and improved accuracy.
-<br>
-It automatically monitors incoming emails, downloads invoice attachments, and uses UiPath REFramework and Document Understanding to classify and extract data from multiple invoice formats.
-<br>
-The bot posts validated data into the CRM, archives processed files, and sends summary status emails, including processing results and case assignment to relevant stakeholders.
+<br>It automatically monitors incoming emails, downloads invoice attachments, and uses UiPath REFramework and Document Understanding to classify and extract data from multiple invoice formats.
+<br>The bot posts validated data into the CRM, archives processed files, and sends summary status emails, including processing results and case assignment to relevant stakeholders.
                         </p>
                     </div>
                 </div>
 
-                <!-- Robot 3 -->
-<!--                 <div class="flex flex-col lg:flex-row gap-12">
+                <!-- UiPath Robot 4 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
-                            <div class="absolute inset-0 bg-black flex items-center justify-center">
-                    
-                            
-                     <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149556142?h=0f198cac12" width="640" height="360" frameborder="0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"   allowfullscreen></iframe>
-                      </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3">Robot 3 : BMI Queue Process</h3>
-                        <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">UiPath Document Understanding</span>
-                            <span class="tech-badge">AI Center</span>
-                            <span class="tech-badge">SQL</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-                          In UiPath queue terminology, the concepts of Dispatcher and Performer are often used, in transactional process automation. This define how queue items are added and processed.
-<br>
-Dispatcher - Adds items to the queue.
-Feeds the robot with work to process. Reads input data (e.g., Excel, database, web forms).
-<br>
-Performer - Processes items from the queue.Performs the actual business process on each transaction.
-<br>
-Set Transaction Status to mark each item as: Successful, Failed (with retry if enabled) Business Exception.
-                        </p>
-                    </div>
-                </div>-->
-
-                <!-- Robot 4 -->
-<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
-                    <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
+                                <i class="fas fa-chart-line text-6xl text-blue-500/30"></i>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Robot 4: Intelligent IT Desk Dispatcher</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Financial Reconciliation Bot</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">UiPath AI Center</span>
-                            <span class="tech-badge">Copilot Studio</span>
-                            <span class="tech-badge">ServiceNow</span>
+                            <span class="tech-badge">Excel Automation</span>
+                            <span class="tech-badge">Database SQL</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">Triages IT tickets based on sentiment and executes password resets or software installs autonomously via back-end robots.</p>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Automates daily bank statement reconciliation against internal ledger records, highlighting discrepancies for the finance team.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Monthly close time reduced by 2 days</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Reconciles 10,000+ rows in 5 minutes</li>
+                        </ul>
                     </div>
                 </div> -->
 
-    </section>
-
-    <!-- Power Automate Section -->
-    <section id="power-automate" class="py-12 px-6 bg-slate-900/50">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-10">
-                <h2 class="text-3xl font-bold mb-4">Power Automate Workflows</h2>
-                <div class="w-20 h-1 bg-purple-500 rounded"></div>
-            </div>
-
-            <div class="space-y-20">
-                <!-- Automation Validation & Logging -->
-                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                <!-- UiPath Robot 5 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149838001?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
-        
-                                <!-- <iframe src="https://player.vimeo.com/video/1149838001?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="2846" height="1784" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe> -->
-
-                                <!-- <iframe src="https://player.vimeo.com/video/1149838001?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="2846" height="1784" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Automation Validation &amp; Logging"></iframe> -->
-                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
+                                <i class="fas fa-user-shield text-6xl text-blue-500/30"></i>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Automation Validation & Logging</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">KYC Compliance Screener</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Power Automate</span>
-                            <span class="tech-badge">Microsoft Teams</span>
-                            <span class="tech-badge">Windows Calculator Application</span>
-                             <span class="tech-badge">Microsoft Excel</span>                       
-                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-                            A simple automation flow that performs calculations 
-                            through the Windows Calculator application and posts messages 
-                            to a chat or channel. 
-                            <br>
-                            The flow logs calculation results, 
-                            captures execution status, and handles errors gracefully, 
-                            providing clear insights for debugging and continuous improvement. 
-                            Ensuring detailed step-by-step and error logging throughout the process.
-                        </p>
+                            <span class="tech-badge">Entity Recognition</span>
+                            <span class="tech-badge">Web Automation</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Performs automated background checks for new bank clients across global sanctions lists and news databases.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 100% coverage of required watchlists</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Integrated risk scoring engine</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- UiPath Robot 6 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-boxes text-6xl text-blue-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Inventory Cycle Counter</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Mobile Automation</span>
+                            <span class="tech-badge">Orchestrator API</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Orchestrates inventory updates between mobile warehouse scanners and the central ERP to maintain stock accuracy.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Real-time stock visibility</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Eliminated paper-based tracking</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- UiPath Robot 7 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-laptop-code text-6xl text-blue-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Automated App Tester</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Test Suite</span>
+                            <span class="tech-badge">CI/CD Pipeline</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Executes regression test cases across web and desktop applications as part of the software deployment pipeline.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 85% reduction in manual testing</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Instant bug reporting to Jira</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- UiPath Robot 8 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-headset text-6xl text-blue-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Call Center Attended Bot</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Attended Automation</span>
+                            <span class="tech-badge">UiPath Apps</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">A side-by-side assistant that pulls customer data from multiple screens into a single view for live agents.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 30% reduction in AHT</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless legacy-to-modern bridge</li>
+                        </ul>
                     </div>
                 </div>
+            </div>
+        </div> -->
+    </section>
 
-                <!-- Automation Reporting with SQL -->
-                <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+    <!-- Microsoft Platform Section -->
+    <section id="power-automate" class="py-12 px-6 bg-slate-900/50">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header py-4 mb-8">
+                <h2 class="text-3xl font-bold text-purple-400">Microsoft Platform Solutions</h2>
+                <div class="w-20 h-1 bg-purple-500 rounded mt-2"></div>
+            </div>
+
+            <div class="flex flex-col">
+                <!-- Automation Validation & Logging -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                               <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149973560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> 
-                                <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i>
+                                 <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149838001?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Automation Reporting with SQL</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Automation Validation & Logging</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">Power Automate Desktop</span>
+                            <span class="tech-badge">Microsoft Teams</span>
+                            <span class="tech-badge">Windows Calculator Application</span>
+                            <span class="tech-badge">Microsoft Excel</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">                            A simple automation flow that performs calculations through the Windows Calculator application and posts messages to a chat or channel.
+                            <br>The flow logs calculation results, captures execution status, and handles errors gracefully, providing clear insights for debugging and continuous improvement. Ensuring detailed step-by-step and error logging throughout the process.</p></p>
+                        </div>
+                </div>
+
+                <!-- Automation Reporting with SQ -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149973560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automation Reporting with SQL</h3>
+                        <div class="flex flex-wrap mb-2">
+                           <span class="tech-badge">Power Automate Desktop</span>
                             <span class="tech-badge">MS SQL Server</span>
                             <span class="tech-badge">MS Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
                         Automating reporting processes using Power Automate Desktop integrated with SQL databases. Logs are captured from Robot 1 (Automated Calculation Validation & Logging) and stored in a SQL database to generate reports for developers, business users, and management.
-                        <br>Beyond database automation, custom reports are produced for different stakeholders: developers receive detailed error and diagnostic information, business users are provided with flow completion and status updates, and management receives high-level performance metrics via email. 
-                        <br>This approach enables seamless, end-to-end automated reporting across multiple platforms.
+<br>Beyond database automation, custom reports are produced for different stakeholders: developers receive detailed error and diagnostic information, business users are provided with flow completion and status updates, and management receives high-level performance metrics via email.
+<br>This approach enables seamless, end-to-end automated reporting across multiple platforms.
+    
                         </p>
                     </div>
                 </div>
-            </div>
-            
-           <div class="space-y-20">
-                <!-- Loan Application Processing -->
-                <div class="flex flex-col lg:flex-row gap-12 items-start">
+
+                <!-- UiBank Loan Application Processing  -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                           <iframe title="vimeo-player" src="https://player.vimeo.com/video/1150601039?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/1150601039?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">UiBank Loan Application Processing</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">UiBank Loan Application Processing</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">Power Automate Desktop</span>
                             <span class="tech-badge">UiBank Loan Home</span>
-                             <span class="tech-badge">Microsoft Excel</span>
-                         </div>
+                            <span class="tech-badge">Microsoft Excel</span>
+                        </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                       An automated loan application and validation process built using Power Automate Desktop, based on the UiBank loan application portal. 
-                       <br>The automation simulates user interactions to calculate loan eligibility, validate inputs, and streamline the loan application workflow, demonstrating end-to-end RPA capabilities for financial services.
+                            An automated loan application and validation process built using Power Automate Desktop, based on the UiBank loan application portal.
+                            The automation simulates user interactions to calculate loan eligibility, validate inputs, and streamline the loan application workflow, demonstrating end-to-end RPA capabilities for financial services.    
                         </p>
                     </div>
                 </div>
 
-
-
-
-
-
-
-
-        </div>
-   </section>
-
-
-        <!-- Copilot Studio Section -->
-    <section id="copilot" class="py-12 px-6 bg-slate-900/30">
-        <div class="max-w-6xl mx-auto">
-            <div class="mb-10">
-                <h2 class="text-3xl font-bold mb-4">Copilot Studio Agents</h2>
-                <div class="w-20 h-1 bg-teal-500 rounded"></div>
-            </div>
-
-            <div class="space-y-20">
-                <!-- Intelligent IT Helpdesk Support -->
-                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                <!-- Onboarding Validation-Dispatcher-Performe -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Digital%20IT%20Helpdesk%20Support.png">
-                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
+                        <iframe title="vimeo-player" src="https://player.vimeo.com/video/1150950716?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Intelligent IT Helpdesk Support</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Onboarding Validation-Dispatcher-Performer</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power Automate Desktop</span>
+                            <span class="tech-badge">Power Automate Work Queues</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        Work Queues in Power Automate Desktop with the Dispatcher/Performer architecture enable scalable and reliable automation by separating task creation from task execution. 
+                        <br>The Dispatcher flow adds individual work items to a queue, while the Performer flow processes each item independently, updating its status and handling errors. 
+                        <br>This approach improves performance, supports retries for failed tasks, and allows efficient handling of large workloads
+                        </p>
+                    </div>
+                </div>
+
+                <!-- MS Project 5 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-database text-6xl text-purple-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">SQL to Dataverse Sync</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">On-Prem Gateway</span>
+                            <span class="tech-badge">SQL Connector</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Bidirectional sync between on-premise SQL databases and cloud Dataverse to power PowerApps without data latency.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> 100% data consistency</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Low-code data migration</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- MS Project 6 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-shield-alt text-6xl text-purple-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">IT Security Alert Triage</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Sentinel Integration</span>
+                            <span class="tech-badge">Adaptive Cards</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Aggregates security alerts and presents them via Adaptive Cards in Teams for SOC analysts to block IPs with one click.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Rapid response to threats</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Reduced context switching</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- MS Project 7 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-envelope-open-text text-6xl text-purple-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Intelligent Email Inbox</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">NLP</span>
+                            <span class="tech-badge">Outlook</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Categorizes shared inbox emails using NLP to route sales leads, support tickets, and general queries to the right Teams channel.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Eliminated manual triage</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Improved response times by 50%</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- MS Project 8 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-cloud-download-alt text-6xl text-purple-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automated Report Distributer</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power BI API</span>
+                            <span class="tech-badge">OneDrive</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Triggers PDF exports of Power BI dashboards and distributes them to stakeholders based on a custom subscription list.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Personalized data delivery</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-purple-400"></i> Scheduled or event-based triggers</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </section>
+
+    <!-- Copilot Studio Section -->
+    <section id="Copilot Studio Agents" class="py-12 px-6 bg-slate-900/30">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header py-4 mb-8">
+                <h2 class="text-3xl font-bold text-teal-400">Copilot Studio Agents</h2>
+                <div class="w-20 h-1 bg-teal-500 rounded mt-2"></div>
+            </div>
+
+            <div class="flex flex-col">
+                <!-- Intelligent IT Helpdesk Support  -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Digital%20IT%20Helpdesk%20Support.png">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">Intelligent IT Helpdesk Support</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
                             <span class="tech-badge">ServiceNow</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            A Copilot Studio agent integrated with ServiceNow that 
+                                                            A Copilot Studio agent integrated with ServiceNow that 
                             assists users in checking the status of their IT helpdesk 
                             tickets (incidents). The agent provides real-time updates, 
                             improves self-service accessibility, and reduces the need for 
@@ -356,73 +576,183 @@ Set Transaction Status to mark each item as: Successful, Failed (with retry if e
 5. You can ask for which category is this ticket? <br>
 6. What department does my user profile say I am in? <br>
 7. Close the chat session: Thanks that was helpful 
-  
                         </p>
-<!--                         <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 70% First-contact resolution rate</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Real-time handoff to live agents</li>
-                        </ul> -->
-                    </div>
+                        </div>
                 </div>
 
                 <!-- Hair For Hope Agent -->
-                <div class="flex flex-col lg:flex-row-reverse gap-12 items-start">
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Hair%20For%20Hope%20Agent.png">
+                        <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Hair%20For%20Hope%20Agent.png">
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Hair For Hope Agent</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Hair For Hope Agent</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
                             <span class="tech-badge">Hair For Hope Website</span>
-                       </div>
+                        </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
                             The Hair for Hope Virtual Assistant guides users with 
                             registration, donations, and event info — spreading the 
                             caring spirit of Singapore’s head-shaving event for children 
                             with cancer. 🎗️ https://hairforhope.org.sg/
                         </p>
-<!--                         <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Reduces HR ticket volume by 40%</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 24/7 Availability for global staff</li>
-                        </ul> -->
-                    </div>
+                      </div>
                 </div>
 
                 <!-- Holland America Deck Plans -->
-                <div class="flex flex-col lg:flex-row gap-12 items-start">
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="aspect-video glass-card rounded-2xl overflow-hidden flex items-center justify-center relative group">
+                        <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Rotterdam.png">                   
-                                <!-- <i class="fas fa-headset text-6xl text-teal-500 opacity-30"></i> -->
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Rotterdam.png">                   
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3">Holland America Deck Plans</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">Holland America Deck Plans</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
-                             <p class="text-slate-400 mb-6 leading-relaxed">
-                            Copilot Studio Agent uses uploaded images of Holland America cruise ship deck plans, stored in Dataverse. The images are automatically chunked and vectorized, allowing the Copilot to answer questions about ship layouts, such as locations of amenities like casinos. The current focus is on the deck plans for the Rotterdam ship.
-                            </p>
-<!--                         <ul class="space-y-2 mb-8 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless ticket escalation flow</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Real-time sentiment analysis</li>
-                        </ul> -->
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        Copilot Studio Agent uses uploaded images of Holland America cruise ship deck plans, stored in Dataverse. The images are automatically chunked and vectorized, allowing the Copilot to answer questions about ship layouts, such as locations of amenities like casinos. The current focus is on the deck plans for the Rotterdam ship.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- CS Project 4 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-tools text-6xl text-teal-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Field Service Troubleshooting</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Dynamics 365</span>
+                            <span class="tech-badge">Visual Recognition</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Guides technicians through repair procedures based on diagnostic codes or photos of the equipment.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Hands-free voice interface</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Links to Dynamics 365 Work Orders</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- CS Project 5 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-chart-pie text-6xl text-teal-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">Executive Insight Agent</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power BI Connect</span>
+                            <span class="tech-badge">Natural Language Query</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Allows executives to ask "What were last month's sales in Europe?" and get instant data visualizations.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Conversational BI access</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> No technical training required</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- CS Project 6 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-user-graduate text-6xl text-teal-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Learning Path Coach</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">LMS Integration</span>
+                            <span class="tech-badge">Personalization</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Recommends training courses to employees based on their role, skill gaps, and career aspirations.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Increased LMS engagement</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Automated certification tracking</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- CS Project 7 -->
+<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-plane-departure text-6xl text-teal-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">Travel & Expense Assistant</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Concur Skills</span>
+                            <span class="tech-badge">Policy Checking</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">Assists in booking business travel while automatically checking bookings against company travel policy.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Guaranteed policy compliance</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Simplified expense submission</li>
+                        </ul>
+                    </div>
+                </div> -->
+
+                <!-- CS Project 8 -->
+<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <i class="fas fa-hand-holding-heart text-6xl text-teal-500/30"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Ethics & Compliance Intake</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Anonymous Auth</span>
+                            <span class="tech-badge">Secure Logging</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">A secure, anonymous portal for employees to report ethics concerns or ask for guidance on compliance matters.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Encrypted conversation logs</li>
+                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-teal-400"></i> Available 24/7 in 20+ languages</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </section>
 
     <!-- Footer -->
-    <footer id="contact" class="py-12 border-t border-slate-800 text-center px-6">
-        <p class="text-slate-500 text-sm">© 2026 Dillon's Portfolio.</p>
+    <footer id="contact" class="py-16 border-t border-slate-800 bg-slate-900/50 px-6">
+        <div class="max-w-6xl mx-auto flex flex-col items-center">
+            <h2 class="text-2xl font-bold mb-6 gradient-text tracking-widest uppercase">GET IN TOUCH</h2>
+            <div class="flex gap-10 mb-10">
+                <a href="https://github.com/bacdillon" class="social-link text-4xl" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/bac-say-ron-dillon-00547196/" class="social-link text-4xl" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <!-- <a href="mailto:bacdillon@gmail.com" class="social-link text-4xl" title="Email"><i class="fas fa-envelope"></i></a> -->
+            </div>
+            <p class="text-slate-500 text-sm">©2026 Dillon Bac Portfolio. Engineering the Future of Work.</p>
+        </div>
     </footer>
 
 </body>
