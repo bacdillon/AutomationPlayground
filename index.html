@@ -278,51 +278,61 @@
                     </div>
                 </div>
 
-                <!-- UiPath Robot 6 -->
-<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                <!-- Client Enrollment – HubSpot CRM with RPA Integration -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <i class="fas fa-boxes text-6xl text-blue-500/30"></i>
+                            <img src="https://raw.githubusercontent.com/bacdillon/RPA-UiPath/refs/heads/main/Client%20Enrollment/img/Client-Enrollment.gif?token=GHSAT0AAAAAADN464VKQGU4PNCVI3I7EWUG2NPYQEA" 
+                             class="w-full h-full object-cover rounded-lg">
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Inventory Cycle Counter</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Client Enrollment – HubSpot CRM with RPA Integration</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Mobile Automation</span>
-                            <span class="tech-badge">Orchestrator API</span>
+                            <span class="tech-badge">UiPath Sudio</span>
+                            <span class="tech-badge">HubSpot (Web-based CRM)</span>
+                            <span class="tech-badge">Source Data: Excel</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">Orchestrates inventory updates between mobile warehouse scanners and the central ERP to maintain stock accuracy.</p>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Real-time stock visibility</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Eliminated paper-based tracking</li>
-                        </ul>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                            The automation follows a linear sequence to bridge data from a spreadsheet into a web-based CRM.
+                           <br>Key Workflow Steps:
+                           <br>Authentication: It begins by invoking a separate workflow file (1. Logon Hubspot.xaml) to log into the HubSpot platform.
+                           <br>Data Extraction: It uses a Read Range Workbook activity to pull data from an Excel file.
+                           <br>Web Automation: It utilizes a Browser Chrome to performs actions like login, adding or updating contact records based on the Excel data.
+                         </p>
                     </div>
-                </div> -->
+                </div>
 
-                <!-- UiPath Robot 7 -->
-<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                <!-- Alfred: Customer Relationship Management (CRM) System with Automation -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <i class="fas fa-laptop-code text-6xl text-blue-500/30"></i>
+                            <img src="https://raw.githubusercontent.com/bacdillon/RPA-UiPath/refs/heads/main/CRM%20Alfred%20Bot/img/UIPATH-Alfred-Bot.gif?token=GHSAT0AAAAAADN464VK57JSWPJL53ZJ57UY2NPYTWQ" 
+                             class="w-full h-full object-cover rounded-lg">
                             </div>
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Automated App Tester</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Alfred: Customer Relationship Management (CRM) System with Automation</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Test Suite</span>
-                            <span class="tech-badge">CI/CD Pipeline</span>
+                            <span class="tech-badge">UiPath Studio</span>
+                            <span class="tech-badge">Python Flask (Web Framework)</span>
+                            <span class="tech-badge">Data: Excel (Source) & CRM Database (MS SQL)</span>
+                            <span class="tech-badge">Communication: Outlook</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">Executes regression test cases across web and desktop applications as part of the software deployment pipeline.</p>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 85% reduction in manual testing</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Instant bug reporting to Jira</li>
-                        </ul>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+           Alfred is an end-to-end intelligent automation ecosystem. It combines a custom-built Python Flask web application with a UiPath robotic workforce to eliminate manual data entry and streamline client onboarding.
+           <br><br><b>The Digital Workflow</b>
+<br><b>Trigger:</b> Alfred monitors a designated Gmail inbox for incoming client enrollment requests.
+<br><b>Extraction:</b> The robot identifies and downloads the challenge.xlsx attachment, parsing the raw customer data.
+<br><b>Integration:</b> Using a secure login, the robot interfaces with the Flask-based CRM, navigating the "Deutsche Bank" styled portal to input records field-by-field (Name, Code, Position, etc.).
+<br><b>Validation:</b> Every entry is cross-referenced; successful records are committed to the database, while errors are caught by a robust Exception Handling framework.
+<br><b>Completion:</b> Alfred updates the master spreadsheet with timestamps and status results, then emails a final report to the stakeholder
                     </div>
-                </div> -->
+                </div>
 
                 <!-- UiPath Robot 8 -->
 <!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
