@@ -400,27 +400,40 @@
 <br><b>Escalation:</b>Uniquely, the cycle concludes with a human-in-the-loop stage where a user troubleshoots errors and reviews the results for accuracy before the cycle repeats or completes.                        </div>
                 </div>
 
-                <!-- Automation Reporting with SQL -->
-                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                <!--  Documents Classification -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
-                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149973560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> 
-                            </div>
+                 
+                        <div class="absolute inset-0 bg-slate-200 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Power%20Platform%20Automated%20Ticket%20Management%20System.png">                   
+                         </div>
                         </div>
+
+                            <div class="video-wrapper">
+                                <iframe src="https://player.vimeo.com/video/1175030618?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
+                            </div>
+
+
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automation Reporting with SQL</h3>
-                        <div class="flex flex-wrap mb-2">
-                           <span class="tech-badge">Power Automate Desktop</span>
-                            <span class="tech-badge">MS SQL Server</span>
-                            <span class="tech-badge">MS Outlook</span>
-                        </div>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Documents Classification</h3>
+                            <div class="flex flex-wrap mb-2">
+                                <span class="tech-badge">Power Automate Desktop</span>
+                                <span class="tech-badge">Calling OpenAI model with prompt and document</span>
+                            </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                        Automating reporting processes using Power Automate Desktop integrated with SQL databases. Logs are captured from Robot executed (Automation Calculation Validation & Logging) and stored in a SQL database to generate reports for developers, business users, and management.
-<br>Beyond database automation, custom reports are produced for different stakeholders: developers receive detailed error and diagnostic information, business users are provided with flow completion and status updates, and management receives high-level performance metrics via email.
-<br>This approach enables seamless, end-to-end automated reporting across multiple platforms.
-    
+<b>Role:</b> The process begins by defining the AI as a Document Classifier Agent.
+<br>
+<b>Objective:</b> The specific goal is established, which is to create a system that can categorize documents.
+<br>
+<b>Context:</b> The agent is given background information, identifying it as a classification system specifically for Trade Finance.
+<br>
+<b>Tasks:</b> The agent executes three core actions: reading the prompt and document, classifying it into one of six categories, and preparing the data for a CSV file.
+<br>
+<b>Escalation:</b> A quality control step where the AI provides a confidence level and evidence; if confidence is low, the process flags that humans need to take action.
+<br>
+<b>Output:</b>The final result is delivered as a CSV file containing the document category, confidence score, and supporting evidence.    
                         </p>
                     </div>
                 </div>
