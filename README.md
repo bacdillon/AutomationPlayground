@@ -4,5 +4,5 @@ Digital Transformation is the process of using digital technologies to fundament
 
 <a href="https://player.vimeo.com/video/1178716396?h=eb77d3ec04">Digital Trnasformation</a>
 
- ![Alt Text](img/chat.png)
+ ![Alt Text](img/digital transformation.png)
 
