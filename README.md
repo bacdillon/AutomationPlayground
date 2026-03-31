@@ -2,7 +2,7 @@
 
 Digital Transformation is the process of using digital technologies to fundamentally change how a business operates, delivers value to customers, and adapts to market changes.
 
-<a href="https://player.vimeo.com/video/1178716396?h=eb77d3ec04">img/digitaltransformation.png</a>
+<a href="https://player.vimeo.com/video/1178716396?h=eb77d3ec04">(img/digitaltransformation.png)</a>
 
  # ![Alt Text](img/digitaltransformation.png)
   img/digitaltransformation.png
