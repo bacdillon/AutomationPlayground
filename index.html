@@ -372,7 +372,7 @@
             </div>
 
             <div class="flex flex-col">
-                <!-- Sentiment Analysis -->
+                <!-- Agentic WorkFlow with Power Automate DesktopSentiment Analysis -->
                  <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -391,16 +391,19 @@
 
 
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Sentiment Analysis</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Agentic WorkFlow with Power Automate Desktop - Sentiment Analysis</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power Automate Desktop</span>
                             <span class="tech-badge">Call ChatGPT API (HTTP Web Service)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Role & Objective:</b>The process starts by defining the AI as a Sentiment Analysis Agent with the specific goal of analyzing downloaded product reviews and providing a numerical sentiment rating.
-<br><b>Context & Tasks:</b> It sets the scope (product reviews) and breaks down the operation into three mechanical steps: reading an Excel file, generating the rating, and writing the data back.
-<br><b>Output:</b> The framework specifies a strict format, requiring the results to be placed in Column B with the sentiment label and a rating in brackets (e.g., "Positive (5)").
-<br><b>Escalation:</b>Uniquely, the cycle concludes with a human-in-the-loop stage where a user troubleshoots errors and reviews the results for accuracy before the cycle repeats or completes.                        </div>
+<b>Use Gen AI to Assist in Agentic Design</b><BR>
+Prompt:
+I would like to design a Sentiment Analysis agent with Power Automate Desktop.<BR>
+First, it will prompt me to open an Excel File which has 2 columns: Review and Sentiment. The review column will consist rows of reviews. The sentiment column will be empty which is to be populated later.
+<BR>Thereafter, it will go through each excel row, in which the agent will do a web service call with ChatGPT API. Based on the sentiment, I will write back into the excel cell row.
+<BR>How should I go about designing the flow with Power Automate Desktop?
+</div>
                 </div>
 
                 <!--  Documents Classification -->
