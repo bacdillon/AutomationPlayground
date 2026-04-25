@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dillon Portfolio</title>
+    <title>Automation Playground</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,6 +12,7 @@
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
+            /*color: #ffffff;*/
         }
 
         .glass-card {
@@ -41,6 +42,7 @@
             font-family: monospace;
             font-size: 0.7rem;
             color: #94a3b8;
+            /*color: #ffffff;*/
             margin-right: 0.5rem;
             margin-bottom: 0.75rem;
             transition: all 0.2s ease;
@@ -57,6 +59,14 @@
             padding-bottom: 4rem;
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        .robot-item h2, .robot-item h3 {
+            color: #ffffff;
+        }
+
+        /*.robot-item p { */
+            /*color: #ffffff;*/
+        /*}*/
 
         .robot-item:last-child {
             border-bottom: none;
@@ -147,7 +157,7 @@
             </div>
 
             <div class="flex flex-col">
-                <!-- Agentic Process + RPA + Human Approval-->
+                <!--Agentic RPA: Invoice Processing with Human-in-the-Loop-->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="glass-card rounded-2xl overflow-hidden p-0 border-none shadow-2xl">
@@ -161,7 +171,7 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Agentic Process + RPA + Human Approval</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Agentic RPA: Invoice Processing with Human-in-the-Loop</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Web Studio</span>
                             <span class="tech-badge">UiPath Maestro</span>
@@ -169,13 +179,22 @@
                             <span class="tech-badge">Google Drive Integration</span>
 
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">The workflow begins when a new invoice is uploaded. The system downloads the invoice and extracts the relevant details, which are then evaluated by an Invoice Decision Agent to determine whether the invoice can be automatically approved or requires human review.
-<br><br>If the invoice is approved (either automatically or after review), it is moved to the Google Drive “Approved” folder. If the invoice is rejected, it is moved to the Google Drive “Rejected” folder.
-<br><br>This workflow ensures efficient invoice processing by combining automated decision-making with human oversight, while clearly organizing outcomes in Google Drive.</p>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Bridging intelligent decision-making with structured execution.</b>
+<br>This hybrid workflow combines AI-driven analysis with RPA and human oversight to ensure 100% accuracy in financial operations.
+<br><br>
+<b>The Workflow</b><br>
+<b>Intelligent Extraction:</b> Automatically detects and downloads new invoice uploads, extracting key data points for processing.
+<br>
+<b>Agentic Decisioning:</b> An Invoice Decision Agent evaluates the data to determine if it meets "Auto-Approval" criteria or requires Human-in-the-Loop review.
+<br>
+<b>Automated Filing:</b> <b>[Approved]</b> Moved to the "Approved" folder.
+<b>[Rejected]</b> Routed to the "Rejected" folder for further action.
+</p>
                      </div>
                 </div>
 
-                <!-- BMI Queue Process -->
+                <!-- BMI Queue Process: Dispatcher & Performer -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -185,23 +204,38 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-100">BMI Queue Process</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">BMI Queue Process: Dispatcher & Performer</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Orhestrator</span>
-                            <span class="tech-badge">Gemini Canvas - Body Mass Index (BMI) Calculator Website</span>
+                            <span class="tech-badge">Vibe Coding - Body Mass Index (BMI) Calculator Website</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            In UiPath queue terminology, the concepts of Dispatcher and Performer are often used, in transactional process automation. This define how queue items are added and processed.
-<br>Dispatcher - Adds items to the queue. Feeds the robot with work to process. Reads input data (e.g., Excel, database, web forms).
-<br>Performer - Processes items from the queue.Performs the actual business process on each transaction.
-<br>Set Transaction Status to mark each item as: Successful, Failed (with retry if enabled) Business Exception.
-<br>Unitlized Gemini Canvas for Rapid Prototyping. The HTML/CSS structure was iterated within the Canvas to visualize how data should be presented to end-users,tested the BMI calculation logic before building the robot's front-end.
+<b>Transactional automation with a "Vibe Coding" approach.</b>
+<BR>This workflow demonstrates Dispatcher/Performer architecture in UiPath to manage and process BMI calculations at scale.
+<br><br>
+<b>The Architecture</b><br>
+<b>The Dispatcher:</b> It reads raw input (Excel/Database) and populates the UiPath Queue with standardized transactions.
+<br>
+<b>The Performer:</b> Executes the core business logic. It retrieves queue items and processes them, setting a Transaction Status (Successful, System Exception, or Business Exception) for full auditability.
+<br><br>
+<b>The Development Strategy</b><br>
+<b>Vibe Coding for Rapid Prototyping:</b> Used an AI-assisted "Vibe Coding" workflow to iterate on the HTML/CSS structure within the Canvas.
+<br>
+<b>Logic Validation:</b> Prototyped and tested the BMI calculation logic in a web-front end before building the robot’s final execution layer.
+<br><br>
+<b>Business Impact</b>
+<br>
+<b>Scalability:</b> Decoupling data entry from processing allows multiple robots to work on the same queue simultaneously.
+<br>
+<b>Resilience:</b> Built-in retry mechanisms and exception handling ensure no transaction is lost during system or data errors.
+<br>
 
-                        </p>
+
+</p>
                     </div>
                 </div>
 
-                <!-- Invoice Processing Automation with REFramework -->
+                <!-- Alfred: Invoice Processing (REFramework) -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -211,21 +245,25 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Invoice Processing Automation with REFramework</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Alfred: Invoice Processing (REFramework)</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Document Understanding</span>
                             <span class="tech-badge">UiPath REFramework</span>
                             <span class="tech-badge">CRM - Python Streamlit</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            Alfred is an automation bot that streamlines Finance & Accounting invoice processing, targeting a 70% reduction in processing time and improved accuracy.
-                        <br>It automatically monitors incoming emails, downloads invoice attachments, and uses UiPath REFramework and Document Understanding to classify and extract data from multiple invoice formats.
-                        <br>The bot posts validated data into the CRM, archives processed files, and sends summary status emails, including processing results and case assignment to relevant stakeholders.
-                        </p>
+Alfred is an enterprise-grade automation bot designed to streamline Finance & Accounting operations, targeting a 70% reduction in processing time.
+<br><br>
+<b>The Solution</b><br>
+<b>Intelligent:</b> Monitors incoming emails and identifies invoice attachments across multiple formats.
+<br>
+<b>REFramework & Document Understanding:</b> Utilizes UiPath’s industry-standard framework and AI-driven extraction to classify and pull data with high precision.
+<br>
+<b>End-to-End Integration:</b> Automatically posts validated data to the CRM, archives files, and dispatches summary reports to stakeholders.                        </p>
                     </div>
                 </div>
 
-                <!-- CSM - IT Service Request System-->
+                <!-- CSM: IT Service Request System-->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -242,7 +280,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="text-2xl font-bold mb-3 text-blue-100">
-                         CSM - IT Service Request System 
+                         CSM: IT Service Request System
                          </h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Python (Streamlit)</span>
@@ -250,12 +288,26 @@
                             <span class="tech-badge">MS SQL server</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                        A web-based service desk solution that organizes IT support workflows. The application allows users to submit requests through a structured form, while providing administrators with a dashboard to monitor priority levels and system health.
-                        </p>
+<b>Centralizing IT support through structured orchestration.</b>
+<br>This web-based service desk solution replaces fragmented communication with a streamlined workflow for ticket submission and lifecycle management.
+<br><br>
+<b>Key Features</b><br>
+<b>Standardized Intake:</b> A structured form ensures all critical data is captured at the point of submission, reducing back-and-forth.
+<br>
+<b>Admin Command Center:</b> An interactive dashboard provides real-time visibility into ticket volume, priority levels, and system health.
+<br>
+<b>Workflow Automation:</b> Organizes requests by urgency and category to ensure high-impact issues are prioritized.                        
+<br><br>
+<b>Business Value</b><br>
+<b>Improved Response Times:</b> Routing and clearer visibility reduce the time from submission to resolution.
+<br>
+<b>Operational Insight:</b> Data-driven tracking allows IT Department to identify recurring system bottlenecks and optimize resource allocation.
+
+</p>
                        </div>
                 </div>
 
-                <!-- Asset Management: Track Equipment Maintenance Schedule -->
+                <!-- Asset Management: Medical Equipment Tracker -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                        <div class="video-wrapper glass-card">
@@ -266,7 +318,7 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">
-                        Asset Management: Track Equipment Maintenance Schedule
+                        Asset Management: Medical Equipment Tracker
                         </h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Python (Streamlit)</span>
@@ -276,12 +328,26 @@
                             <span class="tech-badge">Microsoft Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                         A dual-layered automation solution that monitors medical equipment lifecycles. It eliminates manual date tracking by using a robot to identify overdue maintenance and notify technical teams instantly.                        
-                        </p>
-                    </div>
+                    Ensuring operational readiness through automated lifecycle monitoring. This dual-layered solution replaces manual date tracking with proactive maintenance alerts, minimizing equipment downtime and ensuring regulatory compliance.                       
+                <BR><br>
+<b>Key Features</b><br>
+<b>Automated Surveillance:</b> A "Digital Watchdog" robot continuously monitors maintenance schedules across all medical assets.
+<br>
+<b>Intelligent Triggers:</b> Instantly identifies overdue or upcoming service dates based on predefined safety intervals.
+<br>
+<b>Instant Notification:</b> Automatically alerts technical teams via email or system notifications to ensure immediate action.
+<br><br>
+<b>Business Impact</b>
+<br>
+<b>Risk Mitigation:</b> Reduces the risk of equipment failure during critical medical procedures.
+<br>
+<b>Operational Efficiency:</b> Eliminates the administrative burden of manual log reviews.
+<br>
+<b>Extended Asset Lifespan:</b> Ensures timely servicing, protecting high-value capital investments.
+                 </p></div>
                 </div>
 
-                <!-- Client Enrollment – HubSpot CRM with RPA Integration -->
+                <!-- Client Enrollment: HubSpot CRM Integration -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -292,23 +358,34 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Client Enrollment – HubSpot CRM with RPA Integration</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Client Enrollment: HubSpot CRM Integration</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Sudio</span>
                             <span class="tech-badge">HubSpot (Web-based CRM)</span>
                             <span class="tech-badge">Source Data: Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            The automation follows a linear sequence to bridge data from a spreadsheet into a web-based CRM.
-                           <br>Key Workflow Steps:
-                           <br>Authentication: It begins by invoking a separate workflow file (1. Logon Hubspot.xaml) to log into the HubSpot platform.
-                           <br>Data Extraction: It uses a Read Range Workbook activity to pull data from an Excel file.
-                           <br>Web Automation: It utilizes a Browser Chrome to performs actions like login, adding or updating contact records based on the Excel data.
-                         </p>
+<B>Bridging legacy data with modern CRM systems.</B>
+<br>This RPA solution automates the linear transfer of client records from spreadsheets to HubSpot, ensuring data consistency and eliminating manual entry.
+<br><br>
+<b>The Workflow</b><br>
+<b>Secure Authentication:</b> Invokes a dedicated login module (Logon Hubspot.xaml) to handle credential entry and session management securely.
+<br>
+<b>Batch Data Extraction:</b> Utilizes a Read Range activity to instantly pull high volumes of client data from Excel workbooks.
+<br>
+<b>Automated CRM Sync:</b> Executes browser-based actions in Chrome to dynamically add or update contact records based on the extracted data.
+<br><br>
+
+<b>Business Value</b><br>
+<b>Data Integrity:</b> Eliminates "copy-paste" errors, ensuring that CRM records perfectly match source documentation.
+<br>
+<b>Rapid Onboarding:</b> Accelerates the client enrollment process, allowing sales teams to engage with new leads faster.
+<br>
+<b>Modular Design:</b> The use of separate workflow files for authentication makes the process easy to maintain and scale.                         </p>
                     </div>
                 </div>
 
-                <!-- Alfred: Customer Relationship Management (CRM) System with Automation -->
+                <!-- Alfred: Intelligent CRM Automation -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -319,22 +396,25 @@
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Alfred: Customer Relationship Management (CRM) System with Automation</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Alfred: Intelligent CRM Automation</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Studio</span>
                             <span class="tech-badge">Python Flask (Web Framework)</span>
-                            <span class="tech-badge">Data: Excel (Source) & CRM Database (MS SQL)</span>
-                            <span class="tech-badge">Communication: Outlook</span>
+                            <span class="tech-badge">Data source: Excel & CRM Database (MS SQL)</span>
+                            <span class="tech-badge">MS Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-           Alfred is an end-to-end intelligent automation ecosystem. It combines a custom-built Python Flask web application with a UiPath robotic workforce to eliminate manual data entry and streamline client onboarding.
-           <br><br><b>The Digital Workflow</b>
-<br><b>Trigger:</b> Alfred monitors a designated Gmail inbox for incoming client enrollment requests.
-<br><b>Extraction:</b> The robot identifies and downloads the challenge.xlsx attachment, parsing the raw customer data.
-<br><b>Integration:</b> Using a secure login, the robot interfaces with the Flask-based CRM, navigating the "Deutsche Bank" styled portal to input records field-by-field (Name, Code, Position, etc.).
-<br><b>Validation:</b> Every entry is cross-referenced; successful records are committed to the database, while errors are caught by a robust Exception Handling framework.
-<br><b>Completion:</b> Alfred updates the master spreadsheet with timestamps and status results, then emails a final report to the stakeholder
-                    </div>
+<b>An end-to-end ecosystem bridging web applications and robotics.</b>
+<br>Alfred integrates a custom Python Flask CRM with a UiPath robotic workforce to eliminate manual entry and accelerate client onboarding.
+<br><br>
+<b>The Digital Workflow</b><br>
+<b>Intelligent Monitoring:</b> Alfred continuously scans Gmail for new enrollment requests and extracts customer data from attachments.
+<br>
+<b>Seamless Integration:</b> The robot securely logs into the Flask-based CRM (styled after the Deutsche Bank portal) to input records with field-level precision.
+<br>
+<b>Validation & Resilience:</b> Every entry is cross-referenced against the database, with a robust Exception Handling framework capturing data discrepancies.
+<br>
+<b>Finalized Reporting:</b> Updates the master file with timestamps and dispatches a comprehensive status report to stakeholders.                    </div>
                 </div>
 
                 <!-- UiPath Robot 8 -->
@@ -372,7 +452,65 @@
             </div>
 
             <div class="flex flex-col">
-                <!-- Agentic WorkFlow with Power Automate DesktopSentiment Analysis -->
+
+                
+
+                <!-- Automation Validation & Logging -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                 <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149838001?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Automation Validation & Logging</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Power Automate Desktop</span>
+                            <span class="tech-badge">Microsoft Teams</span>
+                            <span class="tech-badge">Windows Calculator Application</span>
+                            <span class="tech-badge">Microsoft Excel</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        A simple RPA flow that automates the Windows Calculator to 
+                        perform arithmetic and notify a chat channel. 
+                        <br><br>The flow focuses on design by logging every 
+                        calculation result, tracking step-by-step execution status, 
+                        and managing errors to ensure easier for debugging and auditing purposes.                        
+                    </div>
+                </div>
+
+                <!-- Automation Reporting with SQL -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149973560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> 
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automation Reporting with SQL</h3>
+                        <div class="flex flex-wrap mb-2">
+                           <span class="tech-badge">Power Automate Desktop</span>
+                            <span class="tech-badge">MS SQL Server</span>
+                            <span class="tech-badge">MS Outlook</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+The flow demonstrates the use of Power Automate Desktop to capture the logs from the previous process <b>Automation Validation & Logging</b> and store them in a SQL database.
+<br><br>
+This creates a multi-tier reporting system tailored to every stakeholder:<br>
+- Diagnostics and error logs for Developers<br>
+- Real-time status and completion updates for Business Users.<br>
+- Performance KPIs delivered to Management via email.
+
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Agentic WorkFlow with Power Automate Desktop Sentiment Analysis -->
                  <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -397,12 +535,16 @@
                             <span class="tech-badge">Call ChatGPT API (HTTP Web Service)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Use Gen AI to Assist in Agentic Design</b><BR>
-Prompt:
-I would like to design a Sentiment Analysis agent with Power Automate Desktop.<BR>
-First, it will prompt me to open an Excel File which has 2 columns: Review and Sentiment. The review column will consist rows of reviews. The sentiment column will be empty which is to be populated later.
-<BR>Thereafter, it will go through each excel row, in which the agent will do a web service call with ChatGPT API. Based on the sentiment, I will write back into the excel cell row.
-<BR>How should I go about designing the flow with Power Automate Desktop?
+<b>Overview</b><br>
+The framework defines a workflow where Sentiment Analysis Agent reads product reviews from an Excel file, evaluates the sentiment, and records the results back into a structured format. The process includes a human-in-the-loop "Escalation" step to ensure accuracy through manual troubleshooting and review.
+<br><br>
+<b>Framework Breakdown</b><br>
+<b>Role:</b> Sentiment Analysis Agent.<br>
+<b>Objective:</b> To analyze downloaded reviews and provide a sentiment rating for each.<br>
+<b>Context:</b> Applied to reviews for a product.<br>
+<b>Tasks:</b> Read the review Excel file. Provide a sentiment rating. Output the results into an Excel file.<br>
+<b>Escalation:</b> The user will troubleshoot and review the results to ensure quality control.<br>
+<b>Output:</b> Data is written into Column B of the Excel file, containing both the sentiment description and a numerical rating in brackets.
 </div>
                 </div>
 
@@ -429,70 +571,29 @@ First, it will prompt me to open an Excel File which has 2 columns: Review and S
                                 <span class="tech-badge">Calling OpenAI model with prompt and document</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Role:</b> The process begins by defining the AI as a Document Classifier Agent.
+<b>Overview</b><br>
+This framework outlines an automated Document Classification System
+designed for the Trade Finance sector. 
+It utilizes an AI agent to read, categorize, and validate documents, 
+ensuring that any results with low confidence are flagged for human intervention 
+to maintain high accuracy in financial processing.<br><br>
+<b>Framework Breakdown</b><br>
+<b>Role:</b> Document Classifier Agent
 <br>
-<b>Objective:</b> The specific goal is established, which is to create a system that can categorize documents.
+<b>Objective:</b> To create a document classifier to categorizing documents types.
 <br>
-<b>Context:</b> The agent is given background information, identifying it as a classification system specifically for Trade Finance.
+<b>Context:</b> A document classification system for Trade Finance.
 <br>
-<b>Tasks:</b> The agent executes three core actions: reading the prompt and document, classifying it into one of six categories, and preparing the data for a CSV file.
+<b>Tasks:</b> Read the prompt and document. Classify the document into 6 categories.
+Output the results into a CSV file.
 <br>
-<b>Escalation:</b> A quality control step where the AI provides a confidence level and evidence; if confidence is low, the process flags that humans need to take action.
+<b>Escalation:</b> Provide confidence levels and evidence. In cases of low confidence, human operators will take action to review or correct the results.
 <br>
-<b>Output:</b>The final result is delivered as a CSV file containing the document category, confidence score, and supporting evidence.    
-                        </p>
+<b>Output:</b> A CSV file containing the designated category, the confidence score, and the supporting evidence.                     </p>
                     </div>
                 </div>
 
 
-
-                <!-- Automation Validation & Logging -->
-                <div class="flex flex-col lg:flex-row gap-12 robot-item">
-                    <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
-                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                 <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149838001?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>                                <!-- <i class="fas fa-play-circle text-6xl text-white/50 group-hover:text-blue-500 transition cursor-pointer"></i> -->
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Automation Validation & Logging</h3>
-                        <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Power Automate Desktop</span>
-                            <span class="tech-badge">Microsoft Teams</span>
-                            <span class="tech-badge">Windows Calculator Application</span>
-                            <span class="tech-badge">Microsoft Excel</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-                        A simple automation flow that performs calculations through the Windows Calculator application and posts messages to a chat channel.
-                            <br>The flow logs calculation results, captures execution status, and handles errors gracefully, providing clear insights for debugging and continuous improvement. Ensuring detailed step-by-step and error logging throughout the process.</p>
-                        </div>
-                </div>
-
-                <!-- Automation Reporting with SQL -->
-                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
-                    <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
-                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                    <iframe title="vimeo-player" src="https://player.vimeo.com/video/1149973560?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe> 
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automation Reporting with SQL</h3>
-                        <div class="flex flex-wrap mb-2">
-                           <span class="tech-badge">Power Automate Desktop</span>
-                            <span class="tech-badge">MS SQL Server</span>
-                            <span class="tech-badge">MS Outlook</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-                        Automating reporting processes using Power Automate Desktop integrated with SQL databases. Logs are captured from Robot executed (Automation Calculation Validation & Logging) and stored in a SQL database to generate reports for developers, business users, and management.
-<br>Beyond database automation, custom reports are produced for different stakeholders: developers receive detailed error and diagnostic information, business users are provided with flow completion and status updates, and management receives high-level performance metrics via email.
-<br>This approach enables seamless, end-to-end automated reporting across multiple platforms.
-    
-                        </p>
-                    </div>
-                </div>
 
                 <!-- UiBank Loan Application Processing  -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
@@ -511,13 +612,14 @@ First, it will prompt me to open an Excel File which has 2 columns: Review and S
                             <span class="tech-badge">Microsoft Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            An automated loan application and validation process built using Power Automate Desktop, based on the UiBank loan application portal.
-                            The automation simulates user interactions to calculate loan eligibility, validate inputs, and streamline the loan application workflow, demonstrating end-to-end RPA capabilities for financial services.    
-                        </p>
+Streamline financial workflows with end-to-end RPA. This automation uses Power Automate 
+Desktop to manage loan applications via the UiBank portal. 
+<br><br>By simulating user interactions 
+to validate inputs and calculate eligibility, this is to ensures an error-free approach to financial service processing.                        </p>
                     </div>
                 </div>
 
-                <!-- Onboarding Validation-Dispatcher-Performer -->
+                <!-- Onboarding Validation: Dispatcher & Performer -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -527,20 +629,24 @@ First, it will prompt me to open an Excel File which has 2 columns: Review and S
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Onboarding Validation-Dispatcher-Performer</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Onboarding Validation: Dispatcher & Performer</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power Automate Desktop</span>
                             <span class="tech-badge">Power Automate Work Queues</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                        Work Queues in Power Automate Desktop with the Dispatcher/Performer architecture enable scalable and reliable automation by separating task creation from task execution. 
-                        <br>The Dispatcher flow adds individual work items to a queue, while the Performer flow processes each item independently, updating its status and handling errors. 
-                        <br>This approach improves performance, supports retries for failed tasks, and allows efficient handling of large workloads
+                        <b>Scale automation with the Dispatcher/Performer architecture. </b>
+                        <br>The automation workflow uses Power Automate Desktop Work Queues to separate task preparation from execution for maximum reliability.
+                        <br><br><b>Dispatcher:</b> Extracts employee data from Excel and populates the Work Queue for centralized management.
+                        <br><br><b>Performer:</b> Processes items individually, applying business rules (e.g., salary and date validation) and updating queue statuses in real-time.
+                        <br><br>This approach enables parallel processing, automatic retries, and handling of high-volume workloads.
+
+
                         </p>
                     </div>
                 </div>
 
-                <!-- Inventory Management System App-->
+                <!-- Inventory Management System (Kiddy Lah!)-->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -550,21 +656,21 @@ First, it will prompt me to open an Excel File which has 2 columns: Review and S
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Inventory Management System App</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Inventory Management System (Kiddy Lah!)</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power App</span>
                             <span class="tech-badge">Power Automate Flow</span>
                             <span class="tech-badge">Dataverse</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-The Inventory Management App prototype was developed for Kiddy Lah! Toy Shop to solve  the challenges that caused by manual inventory tracking using spreadsheets and paper logs. These issues included poor visibility of stock, missed low-stock alerts, and an unstructured inventory request process.
-<br>
-The prototype was built using MS Power Apps (Model-Driven App), Dataverse, and Power Automate, the app modernizes operations by:
-<br>
-- Providing real-time stock visibility<br>
-- Enabling easy item management (add/update)<br>
-- Triggers an email alert when the quantity of an item is low than 10 <br>
-- Supporting traceable inventory request and approval workflows<br>
+                        This Model-Driven App replaces manual spreadsheets and paper logs for Kiddy Lah! Toy Shop, addressing poor visibility and unstructured request processes.
+Built using MS Power Apps, Dataverse, and Power Automate, the system optimizes operations by:
+<BR><br>
+<b>Real-Time Visibility:</b> Instant tracking of stock levels across the inventory.
+<BR>
+<b>Centralized Management:</b> Streamlined interface to add or update items.
+<BR>
+<b>Low-Stock Alerts:</b> Automated email triggers when inventory falls below 10 units.
 </p>
                     </div>
                 </div>
@@ -585,9 +691,19 @@ The prototype was built using MS Power Apps (Model-Driven App), Dataverse, and P
                             <span class="tech-badge">Data Visualization</span>
                             <span class="tech-badge">DAX</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">This dashboard provides a snapshot of key performance indicators for KiddyLah! Toyshop. 
-                        <br>It highlights: Total Orders: 41,830 Total Revenue: $640,778 Total Profit: $174,620
-                        <br>Performance trends are visualized over time with line and area charts for orders, revenue, and profit. The "Total Orders by Product Category" chart shows Toys as the top-selling category, followed by Games and Art & Crafts. A slicer allows filtering by store location (Airport, Commercial, Downtown, Residential) for focused analysis.</p>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+Data-driven insights for retail optimization. This dashboard tracks key performance indicators (KPIs) to monitor the health of Kiddy Lah! Toy Shop.
+<br><br>
+<b>Key Highlights:</b>
+<br>
+<b>Financial Overview:</b> Total Revenue of $640,778 and a Profit of $174,620 across 41,830 orders.
+<br>
+<b>Trend Analysis:</b> Line and area charts visualize growth patterns for orders and revenue over time.
+<br>
+<b>Category Insights:</b> Identifies Toys as the top-selling category, followed by Games and Arts & Crafts.
+<br>
+<b>Interactive Filtering:</b> Slicers enable deep-dives into specific store locations (Airport, Commercial, Downtown, and Residential).                    
+                    </p>
                     </div>
                 </div>
                 
@@ -612,7 +728,7 @@ The prototype was built using MS Power Apps (Model-Driven App), Dataverse, and P
                     </div>
                 </div>
 
-                <!-- Sales Funnel Report -Data Story Telling -->
+                <!-- Sales Funnel Report: A Data Storytelling Approach -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -622,23 +738,37 @@ The prototype was built using MS Power Apps (Model-Driven App), Dataverse, and P
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Sales Funnel Report -Data Story Telling</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Sales Funnel Report: A Data Storytelling Approach</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power BI</span>
                             <span class="tech-badge">Data Visualization</span>
                             <span class="tech-badge">Dashboard Design</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-During the first two months, Alex signed two contracts, Mary also signed two, Victor signed one, and Peter did not sign any contracts.
-<br>Looking at Alex’s results, he achieved two signed contracts with a conversion rate of 8%. However, he stopped making offers and did not attract new customers. Instead of waiting for contracts to close, he should continue calling potential clients and making more offers.
-<br>Mary also signed two contracts, but her lead conversion rate is only 33%, compared to Alex’s 62% and Victor’s 70%. This indicates that her weakness is in generating leads, while her conversion through later stages is acceptable. To improve results, she was paired with Victor, who is strong in lead generation but weaker in making offers and closing contracts.
-<br>Peter initially appeared unsuccessful since he signed no contracts during the first two months. However, he started contacting clients later because he was assigned to another project. His conversion between stages is strong. After three months, Peter turned out to be the top performer, signing six contracts.
-<br>Meanwhile, Alex improved his lead generation to maintain a sustainable pipeline, and Mary and Victor worked together to achieve a balanced conversion performance.
-                    </div>
+                        <b>Turning performance metrics into actionable coaching.</b><br>
+                        This report analyzes team conversion trends over a three-month 
+                        period to optimize the sales pipeline.<br>
+                        <br><b>Individual Performance & Interventions:</b>
+                        <br><b>Alex:</b> Initially focused on closing but neglected lead 
+                        generation. By shifting focus back to top-of-funnel activity, 
+                        he maintained a more sustainable pipeline. 
+                        <br><b>Mary & Victor:</b> Identified as a strategic pair. 
+                        Mary struggled with lead generation ($33\%$), while Victor excelled 
+                        at it ($70\%$). Their collaboration balanced Victor’s lead-gen 
+                        strength with Mary’s closing consistency.
+                        <br><b>Peter:</b> A "late bloomer" 
+                        due to a temporary project reassignment. Despite a slow start, 
+                        his high conversion rates across all stages eventually made him the 
+                        top performer with 6 signed contracts.
+                        <br><b>The Outcome:</b> By addressing 
+                        individual bottlenecks—such as Alex's prospecting gaps and Mary's 
+                        lead generation—the team moved from isolated successes to a balanced, high-performing sales funnel.
+                        </p>
+                        </div>
                 </div>
 
 
-                <!-- Airline+Flight+Delays-->
+                <!-- Airline Flight Delays Dashboard -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -648,39 +778,32 @@ During the first two months, Alex signed two contracts, Mary also signed two, Vi
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Airline Flight Delays</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Airline Flight Delays Dashboard</h3>
                             <div class="flex flex-wrap mb-2">
                                 <span class="tech-badge">Power BI</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<!-- <b>Dashboard Overview</b> -->
-The top of the dashboard features three large KPI (Key Performance Indicator) cards that summarize the overall data:
-<br>Total Flights: 2 million
-<br>Delayed Flights: 790,000
-<br>Canceled Flights: 29,000
+This interactive dashboard visualizes performance metrics for 2 million flights, highlighting bottlenecks in scheduling and reliability.
+<br><br>
+<b>Key Performance Indicators (KPIs):</b><br>
+<b>Total Flights:</b> 2,000,000<br>
+<b>Delayed Flights:</b> 790,000 (41%)<br>
+<b>Canceled Flights:</b> 29,000 (1%) <br><br>
 
-<!-- <b>Key Visualizations</b><br> -->
-The dashboard is organized into several interactive charts:
-<b>Total Flights by City: </b>A horizontal bar chart on the left side ranking cities like Atlanta, Chicago, and Dallas-Fort Worth by their flight volume.
-<b>Delayed Flights by Airline: </b>A central horizontal bar chart showing delay counts for major carriers, including United Air Lines, Southwest Airlines, and American Airlines.
-<b>Canceled Flights by Reason: </b>A donut chart on the right that categorizes cancellations into reasons such as Weather, Airline/Carrier, National Aviation System, and Security.
-<b>Flight Status Summary: </b>At the bottom left, three small cards display the overall performance ratios:
-
-% On-Time: 0.58
-
-% Delayed: 0.41
-
-% Canceled: 0.01
-
-Total Flights by Status: A stacked column chart at the bottom showing the distribution of on-time, delayed, and canceled flights over a specific period.
-
-Interactivity and User Actions
-when hovering over "Dallas-Fort Worth," the dashboard highlights that city's specific flight counts and delay statistics.
-                        </p>
+<b>Visual Insights:</b><br>
+<b>Volume by City:</b> Ranks high-traffic hubs like Atlanta, Chicago, and Dallas-Fort Worth by total flight volume.<br>
+<b>Carrier Reliability:</b> Compares delay counts across major airlines, including United, Southwest, and American Airlines.
+<br>
+<b>Cancellation Analysis:</b> A donut chart breaks down disruptions by cause, such as Weather, Carrier, or National Aviation System.
+<br>
+<b>Temporal Trends:</b> A stacked column chart displays the distribution of on-time versus disrupted flights over time.
+<br><br>
+<b>Interactivity:</b><br>
+The dashboard supports cross-filtering; for instance, selecting "Dallas-Fort Worth" instantly isolates that city’s specific delay statistics and cancellation reasons for targeted analysis.                        </p>
                     </div>
                 </div>
 
-                <!--Power Platform Automated Ticket Management System -->
+                <!--Automated Ticket Management System -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -697,7 +820,7 @@ when hovering over "Dallas-Fort Worth," the dashboard highlights that city's spe
 
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Power Platform Automated Ticket Management System</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Automated Ticket Management System</h3>
                             <div class="flex flex-wrap mb-2">
                                 <span class="tech-badge">MS Power Automate Cloud Flow</span>
                                 <span class="tech-badge">MS Planner</span>
@@ -705,12 +828,26 @@ when hovering over "Dallas-Fort Worth," the dashboard highlights that city's spe
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 
-This demonstrates an automated ticket management solution built using Microsoft Power Platform. Incoming issue emails are captured through Microsoft Outlook and processed using Microsoft Power Automate to extract key email information such as Issue Title, Sender Email, Issue Description and priority. 
-<br>The system automatically creates and assigns tasks in Microsoft Planner for tracking and resolution. Additionally, real-time notifications are sent to the support team through Microsoft Teams to ensure prompt response and visibility of new issues.
-<br>The solution improves operational efficiency by reducing manual ticket logging, enhancing collaboration among support teams, and providing a structured approach for tracking issue resolution.                        </div>
-                        </p>  </div>
+<b>Streamlining support operations through the Power Platform.</b>
+<br>This solution automates the end-to-end lifecycle of support tickets, transforming incoming emails into actionable tasks.
+<br><br>
+<b>The Workflow</b><br>
+<b>Intelligent Capture:</b> Uses Power Automate to monitor Outlook, extracting critical data such as Issue Title, Description, and Priority.
+<br>
+<b>Task Orchestration:</b> Automatically generates and assigns tracking cards in Microsoft Planner for structured resolution.
+<br>
+<b>Real-Time Alerts:</b> Sends instant notifications to the support team via Microsoft Teams to ensure rapid response times.
+<br><br>
+<b>Business Impact</b><br>
+<b>Operational Efficiency:</b> Eliminates manual data entry and ticket logging.
+<br>
+<b>Enhanced Collaboration:</b> Centralizes issue tracking for better team visibility.
+<br>
+<b>Reliable Resolution:</b> Provides a structured, audit-ready framework for managing support requests.
+</div>
+</p>  </div>
 
-                <!-- Demonstration - My Budgee Expense Tracker -->
+                <!-- My Budgee: Expense Tracker -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -720,7 +857,7 @@ This demonstrates an automated ticket management solution built using Microsoft 
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Demonstration - My Budgee Expense Tracker</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">My Budgee: Expense Tracker</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power Apps</span>
                             <span class="tech-badge">Power Automate Cloud Flows - Expense Approval Workflow</span>
@@ -728,19 +865,21 @@ This demonstrates an automated ticket management solution built using Microsoft 
                             <span class="tech-badge">Dashboard Design - Track approval status and history</span>
                        </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-Welcome to My Budgee Expense Tracker<br>
-<br>The My Budgee Expense Tracker prototype is a mobile-first app that helps users easily log, track, and manage expenses—addressing the inefficiencies of spreadsheets and manual tracking with a more accessible and real-time solution.
-<br>
-<br>With this app, users can:
-<br>•	Submit expenses on the go
-<br>•	Monitor spending against a budget
-<br>•	View categorized summaries and reports
-<br>•	Edit or delete past expense records
-<br>•	Upload receipts for approval
-<br>•	Track approval status and history
+<B>Personal finance management, simplified.</B>
+<BR>This mobile-first app replaces cumbersome spreadsheets with a real-time, accessible solution for tracking and managing expenses on the go.
+<BR><BR>
+<B>Key Features:</B><BR>
 
-<br><br>This app empowers users to stay financially aware and make smarter spending decisions—anytime, anywhere.
-</p>
+<B>Smart Logging:</B> Submit expenses instantly and upload receipts for approval.
+<BR>
+<B>Budget Monitoring:</B> Track real-time spending against pre-set financial goals.
+<BR>
+<B>Visual Summaries:</B> Access categorized reports to identify spending patterns.
+<BR>
+<B>Full Control:</B> Easily edit or delete past records and monitor approval history.
+<BR><BR>
+<B>The Impact:</B>
+To maintain financial awareness and make informed spending decisions—anytime, anywhere.</p>
                         </div>
                 </div>
 
@@ -768,25 +907,26 @@ Welcome to My Budgee Expense Tracker<br>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 
-<B>The Business Challenge</B><br>
-The current manual process of managing daily sales orders is a significant operational bottleneck. Every evening, team members spend approximately one hour manually filtering SharePoint lists, cleaning data, and formatting reports for the warehouse.
+<b>Eliminating bottlenecks through scheduled automation.</b>
+<br>This solution replaces a manual, hour-long evening task with a "zero-touch" workflow, ensuring the warehouse receives accurate fulfillment data without delay.
+<br><br>
+<b>The Business Challenge</b>
+<br>The manual process of filtering SharePoint lists, cleaning data, and formatting reports was time-consuming and highly susceptible to human error, delaying warehouse operations.
+<br><br>
 
-<BR>This process is not only time-consuming and repetitive, but also highly susceptible to human error. 
+<b>The Solution</b><br>
+Using Microsoft Power Automate, this workflow acts as a digital concierge to handle end-to-end order processing:
+<br><br>
+<b>Scheduled Triggers:</b> Initiates automatically every evening at a pre-set time.
+<br>
+<b>Dynamic Filtering:</b> Instantly isolates "Today’s" orders from SharePoint.
+<br>
+<b>Automated Formatting:</b> Transforms raw data into a professional, high-readability HTML table.
+<br>
+<b>Seamless Delivery:</b> Dispatches a standardized summary to the warehouse for immediate fulfillment.
+</p>  </div>
 
-<BR><BR><B>The Solution</B>
-<BR>To eliminate these inefficiencies, an automated workflow using Microsoft Power Automate. This solution acts as a "digital checklist" that monitors and processes orders without requiring a single click from the team.
-
-<BR>Key features include:
-<BR>Scheduled Triggers: The system automatically initiates the process at a set time every evening.
-<BR>Dynamic Filtering: It instantly scans the SharePoint list to isolate only "Today’s" orders.
-<BR>Automated Formatting: Data is transformed into a clean, professional HTML table for maximum readability.
-<BR>Seamless Delivery: The warehouse receives a standardized email summary immediately, ensuring they can begin fulfillment without delay.
-                        </p>  </div>
-
-
-
-
-            </div>
+           </div>
         </div>
     </section>
 
@@ -799,6 +939,80 @@ The current manual process of managing daily sales orders is a significant opera
             </div>
 
             <div class="flex flex-col">
+
+                <!-- Expense Report Reviewer Agent -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Expense%20Report%20Reviewer%20Agent%201.png">
+                            </div>
+                        </div>
+
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Expense%20Report%20Reviewer%20Agent%202.png">
+                            </div>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Expense Report Reviewer Agent</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Microsoft Copilot Studio</span>
+                            <span class="tech-badge">Multi-agent orchestration</span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+<B>The Expense Report Reviewer Agent</B> in Microsoft Copilot Studio reviews Excel expense reports to check if they meet reimbursement rules.
+<BR><BR>
+Users upload a report in chat, and the agent flags issues such as duplicate entries or incorrect accounting codes.
+<BR><BR>
+It uses multi-agent orchestration, where separate child agents handle different types of checks.</p>
+                    </div>
+                </div>
+
+                <!-- PowerPoint Generation Agent -->
+                <div class="flex flex-col lg:flex-row gap-12 robot-item">
+                    <div class="flex-1 w-full">
+                        <div class="video-wrapper glass-card">
+                              <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <iframe src="https://player.vimeo.com/video/1171285218?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">PowerPoint Generation Agent</h3>
+                        <div class="flex flex-wrap mb-2">
+                            <span class="tech-badge">Microsoft Copilot Studio</span>
+                            <span class="tech-badge">Sharepoint Library Document</span> 
+                      </span>
+                        </div>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Automating document generation for high-volume workflows.</b>
+<br>
+This agent is transforming user requests into professional, presentation-ready files.
+<br><br>
+<b>The Workflow</b><br>
+<b>Intelligent Orchestration:</b> Automatically identifies and executes predefined workflows based on natural language inputs.
+<br>
+<b>On-Demand Generation:</b> Triggered by specific requests (e.g., "Generate a certificate of completion"), the agent pulls dynamic data, including Student Name, Course, Instructor, and Date.
+<br>
+<b>Seamless Output:</b> Maps data points directly into PowerPoint templates, producing a formatted, error-free.
+<br><br>
+<b>Business Impact</b>
+<br>
+<b>Accuracy & Consistency:</b> Ensures every generated file adheres to standards and correct data mapping.
+<br>
+<b>Scalable Productivity:</b> Allows for the bulk generation of presentation documents, significantly improving turnaround times for educational and corporate milestones.                        </p>
+
+                    </div>
+                </div>
+
+
+
+
                 <!-- Dataverse Knowledge Integration -->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
@@ -835,26 +1049,35 @@ Example Queries:<br>
                     </div>
                 </div>
 
-                <!-- PowerPoint Generator Agent -->
+                <!-- Your Guide to MS Copilot -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
-                              <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <iframe src="https://player.vimeo.com/video/1171285218?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Your%20Guide%20to%20MS%20Copilot.png">
                             </div>
                         </div>
+                        <div class="video-wrapper glass-card">
+                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Your%20Guide%20to%20MS%20Copilot%201.png">
+                            </div>
+                        </div>
+
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">PowerPoint Generator Agent</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">Your Guide to MS Copilot</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">Sharepoint Library Document</span> 
+                            <span class="tech-badge">Microsoft Copilot learning hub</span> 
                       </span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                      The agent helps streamline the process of generating PowerPoint documents by automatically running predefined tools and workflows.
-                    When a user requests a certificate of completion, the agent triggers the “Generate New Certificate” tool to automatically produce a certificate based on the provided details, such as student name, course name, instructor, and completion date. This eliminates manual document preparation and improves efficiency.      
-                        </p>
+<b>Your authoritative source for Copilot expertise.</b>
+<br>This agent acts as a specialized knowledge layer, providing precise, documentation-backed guidance to help users navigate the Microsoft Copilot ecosystem.
+<br><br>
+<B>Core Purpose</B><br>
+To eliminate guesswork by delivering verified, step-by-step instructions and feature explanations derived exclusively from official Microsoft documentation.
+</p>
 
                     </div>
                 </div>
@@ -885,11 +1108,6 @@ Built-in validation steps and Teams-based approval flows ensure human oversight,
 
                     </div>
                 </div>
-
-
-
-
-
 
 
 
@@ -947,7 +1165,7 @@ Thanks, that was helpful<br>
                         </div>
                 </div>
 
-                <!-- Hair For Hope Agent -->
+                <!-- Hair for Hope: Virtual Assistant-->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
@@ -964,17 +1182,27 @@ Thanks, that was helpful<br>
 
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Hair For Hope Agent</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Hair for Hope: Virtual Assistant</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
                             <span class="tech-badge">Hair For Hope Website</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                            The Hair for Hope Virtual Assistant guides users with 
-                            registration, donations, and event info — spreading the 
-                            caring spirit of Singapore’s head-shaving event for children 
-                            with cancer. 🎗️ https://hairforhope.org.sg/
-                            <br><br>
+
+<b>Digital support for Singapore’s signature head-shaving campaign.</b>
+<br>This assistant orchestrates community engagement for the Children’s Cancer Foundation, simplifying the path to participation and advocacy.
+<br>
+<br>
+<b>Registration Hub:</b> Provides streamlined guidance for individual shavees and satellite event organizers to complete sign-ups efficiently.
+<br>
+<b>Donation Advocacy:</b> Delivers step-by-step instructions for secure contributions and automatic 250% tax-deduction processing.
+
+<b>Event Intelligence:</b> Offers real-time access to event schedules, physical locations, and participation requirements.
+<br><br>
+<b>The Mission</b><br>
+By digitizing the support experience, the assistant amplifies the "caring spirit," allowing the community to focus on raising awareness and hope for children with cancer. 🎗️
+
+<a href="https://hairforhope.org.sg/" target="_blank">Visit Hair for Hope to support the children</a>
 
                             <!-- Launch the chat window 👉 <a href="https://bacdillon.github.io/Digital-IT-Helpdesk-Support/" target="_blank">Digital-IT-Helpdesk-Support</a> -->
                         </p>
@@ -1005,7 +1233,8 @@ Thanks, that was helpful<br>
                             <span class="tech-badge">Microsoft Copilot Studio</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-                        Copilot Studio Agent uses uploaded images of Holland America cruise ship deck plans, stored in Dataverse. The images are automatically chunked and vectorized, allowing the Copilot to answer questions about ship layouts, such as locations of amenities like casinos. The current focus is on the deck plans for the Rotterdam ship.
+                        Copilot Studio Agent uses uploaded images of Holland America cruise ship deck plans, stored in Dataverse. 
+                        <br><br>The images are automatically chunked and vectorized, allowing the Copilot to answer questions about ship layouts, such as locations of amenities like casinos. The current focus is on the deck plans for the Rotterdam ship.
                             <br><br>
                             You can ask:<br>
                             1. Which deck is the casino on the Rotterdam?<br>
