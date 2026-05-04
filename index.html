@@ -141,11 +141,12 @@
             </h1>
             <p class="text-lg text-slate-400 mb-6 max-w-3xl mx-auto leading-relaxed">
                 Designing and delivering human-centered 
-        <!-- <span class="text-purple-400"><a href="https://bacdillon.github.io/Digital-Transformation/">Digital Transformations</a></strong></span> solutions through intelligent automation -->
-                 <span class="text-purple-400"><strong>Digital Transformations</strong></span> solutions through intelligent automation
+        <!-- <span class="text-purple-400"><a href="https://bacdillon.github.io/Digital-Transformation/">Digital Transformations</a></strong></span> Solution:s through intelligent automation -->
+                 <span class="text-white-400"><strong>Digital Transformations</strong></span> solutions through intelligent automation
 
-                and data-driven insights, leveraging <span class="text-blue-400"><a href="#uipath">UiPath,</a>
-                <a href="#power-automate">Microsoft Power Platform</a> and <a href="#Copilot Studio Agents">Microsoft Copilot Studio</a></span>.
+                and data-driven insights, leveraging <span class="text-blue-400"><a href="#uipath">UiPath,</a></span> <span class="text-purple-400">
+                <a href="#power-automate">Microsoft Power Platform</a></span> and <span class="text-teal-400">
+                <a href="#Copilot Studio Agents">Microsoft Copilot Studio</a></span>.
             </p>
         </div>
     </header>
@@ -154,7 +155,8 @@
     <section id="uipath" class="pb-12 px-6 bg-slate-900/30">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
-                <h2 class="text-3xl font-bold text-blue-400">UiPath</h2>
+                <h2 class="text-3xl font-bold text-blue-400">UiPath: Agentic & Enterprise RPA</h2>
+                  <h2 class="text-xl font-bold text-blue-400">Transforming business processes into scalable, high-reliability digital workflows.</h2>
                 <div class="w-20 h-1 bg-blue-500 rounded mt-2"></div>
             </div>
 
@@ -177,15 +179,22 @@
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 
-<b>Description:</b> RPA workflow for intelligent invoice processing and decisioning
+<b>Overview:</b> 
+An AI-driven RPA solution that automates invoice validation and decisioning with human-in-the-loop controls for exception handling.
 <br><br>
-<b>Problem:</b> Manual invoice validation is time-consuming, error-prone, and lacks consistency.
+<b>Business Problem:</b> 
+Manual invoice validation is time-consuming, inconsistent, and prone to errors, impacting financial accuracy and compliance.
 <br><br>
-<b>Solution:</b> Implemented an AI-driven decision agent to classify invoices, with Human-in-the-Loop review via UiPath Action Center for exception handling.
+<b>Solution Approach:</b> 
+Implemented an agentic RPA workflow using AI-based decisioning to classify invoices, with UiPath Action Center enabling human review for edge cases.
 <br><br>
-<b>What it Does:</b> Automatically evaluates invoices and routes them to approved, rejected, or human review queues based on predefined criteria.
-<br><br>
-<b>Impact:</b> Improves accuracy and ensures compliant financial processing.
+<b>Key Capabilities:</b>
+<br>
+- Automatically evaluates and classifies invoices<br>
+- Routes invoices to approved, rejected, or review queues<br>
+- Supports human-in-the-loop validation via Action Center<br>
+- Applies business rules for compliance checks<br><br>
+<b>Business Impact:</b> Improves accuracy and ensures compliant financial processing.
 </p>
                      </div>
                 </div>
@@ -206,14 +215,20 @@
                             <span class="tech-badge">BMMI Calculator (Vibe Coding Prototype)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> Scalable RPA solution using queue-based architecture for transactional processing<br>
+<b>Overview:</b> 
+A scalable RPA solution using dispatcher-performer architecture to process high-volume transactions efficiently.
+<br><br>
+<b>Business Problem:</b> 
+Single-threaded automation limits scalability and cannot efficiently handle large volumes of transactions.
+<br><br>
+<b>Key Capabilities:</b>
 <br>
-<b>Problem:</b> Single-threaded automation limits scalability and processing efficiency for high-volume transactions<br>
-<br>
-<b>Solution:</b> Implemented a Dispatcher-Performer model using UiPath Orchestrator queues to decouple data ingestion from processing<br>
-<br><b>What it Does:</b> The Dispatcher captures and standardizes input data into queues, while the Performer processes transactions, applies business logic, and updates status with full exception handling<br>
-<br><b>Impact:</b> Enables parallel processing, scalability, and better fault tolerance.
-
+- Centralises transactions using queues<br>
+- Enables parallel processing across multiple bots<br>
+- Applies business logic per transaction<br>
+- Handles exceptions with retry mechanisms<br>
+<br><b>Business Impact:</b> 
+Improves scalability, increases throughput, and enhances reliability of automation processes.
 
 </p>
                     </div>
@@ -236,16 +251,22 @@
                             <span class="tech-badge">CRM (Python Streamlit)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> Enterprise-grade intelligent automation bot for finance operations
+<b>Overview:</b> 
+An enterprise automation bot that streamlines invoice processing using AI extraction and structured workflow orchestration.<br><br>
+<b>Business Problem:</b> 
+Manual invoice processing is time-consuming, error-prone, and limits operational efficiency.
 <br><br>
-<b>Problem:</b> Manual invoice processing is time-consuming, error-prone, and limits operational efficiency
+<b>Solution Approach:</b> 
+Built using UiPath REFramework and Document Understanding to extract, validate, and integrate invoice data into CRM systems.
 <br><br>
-<b>Solution:</b> Implemented UiPath REFramework with Document Understanding to extract, validate, and process invoice data, integrated with CRM systems for end-to-end automation
-<br><br>
-<b>What it Does:</b>
-<br>Automatically captures invoice data from multiple formats, validates information, updates CRM records, archives documents, and generates reporting outputs
-<br><br>
-<b>Impact:</b> Reduces processing time, improves data accuracy, and enhances scalability and reliability of finance operations
+<b>Key Capabilities:</b>
+<br>
+- Extracts invoice data from multiple formats<br>
+- Validates and processes financial data<br>
+- Integrates with CRM systems<br>
+- Archives documents and generates reports<br>
+<br>
+<b>Business Impact:</b> Reduces processing time, improves data accuracy, and enhances scalability and reliability of finance operations.
               </p></div>
                 </div>
 
@@ -274,16 +295,25 @@
                             <span class="tech-badge">MS SQL server</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> Centralised IT service management platform with workflow automation<br>
+<b>Overview:</b> 
+A centralised IT service management platform integrated with automation workflows for efficient ticket handling.
+<br><br>
+<b>Business Problem:</b> 
+Fragmented IT request channels result in delays, poor visibility, and inefficient support operations.
+<br><br>
+<b>Solution Approach:</b> 
+Developed a web-based ticketing system with structured data capture and integrated automation for workflow orchestration.
+<br><br>
+<b>Key Capabilities:</b>
 <br>
-<b>Problem:</b> Fragmented and unstructured IT requests lead to delays, inefficiencies, and poor visibility into support operations<br>
+- Centralised ticket submission and tracking<br>
+- Real-time dashboards for monitoring<br>
+- Automated prioritisation and workflow routing<br>
+- Integration with backend systems<br>
 <br>
-<b>Solution:</b> Developed a web-based ticketing system with structured data capture, integrated with automation workflows to streamline request handling and prioritisation<br>
-<br>
-<b>What it Does:</b> Let users to submit and track IT service requests through a centralised portal, while providing real-time dashboards for monitoring ticket status, priorities, and system performance<br>
-<br>
-<b>Impact:</b> Improves response times, enhances operational visibility, and enables data-driven decision-making for IT support optimisation
 
+<b>Business Impact:</b> 
+Improves response times, enhances visibility, and enables data-driven IT service optimisation.
 </p>
                        </div>
                 </div>
@@ -309,16 +339,24 @@
                             <span class="tech-badge">Microsoft Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> Automated asset lifecycle monitoring solution for maintenance management
+<b>Overview:</b> 
+An automated asset lifecycle management solution for monitoring equipment maintenance and compliance.
 <br><br>
-<b>Problem:</b> Manual tracking of equipment maintenance schedules leads to missed servicing, increased downtime, and compliance risks
+<b>Business Problem:</b> 
+Manual tracking of maintenance schedules leads to missed servicing, downtime, and compliance risks.
 <br><br>
-<b>Solution:</b> Implemented an automated monitoring system with predefined maintenance rules and email alert notifications for upcoming and overdue servicing
+<b>Solution Approach:</b> 
+Implemented automated monitoring with rule-based triggers and notification workflows for proactive maintenance.
 <br><br>
-<b>What it Does:</b> Continuously tracks equipment maintenance schedules, identifies service due dates, and triggers automated alerts to relevant teams for timely action
-<br><br>
-<b>Impact:</b> Reduces equipment downtime, ensures regulatory compliance, and improves operational efficiency through proactive maintenance management
-                 </p></div>
+<b>Key Capabilities:</b>
+<br>
+- Tracks maintenance schedules continuously<br>
+- Identifies upcoming and overdue servicing<br>
+- Sends automated alerts to stakeholders<br>
+- Maintains asset lifecycle records<br>
+<br>
+<b>Business Impact:</b> 
+Reduces downtime, ensures compliance, and improves operational efficiency through proactive asset management.                 </p></div>
                 </div>
 
                 <!-- Client Enrollment: HubSpot CRM Integration -->
@@ -339,16 +377,24 @@
                             <span class="tech-badge">Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> Automated client onboarding and CRM data integration solution
+<b>Overview:</b> 
+An RPA solution that automates client onboarding by synchronising data from Excel into CRM systems.
 <br><br>
-<b>Problem:</b> Manual data entry into CRM systems is time-consuming, error-prone, and delays client onboarding
+<b>Business Problem:</b> 
+Manual CRM data entry is time-consuming, error-prone, and delays client onboarding.
 <br><br>
-<b>Solution:</b> Implemented an RPA-driven workflow to automate data extraction from Excel and seamless entry into HubSpot CRM
+<b>Solution Approach:</b> 
+Automated extraction and entry of client data into HubSpot CRM using UiPath workflows.
 <br><br>
-<b>What it Does:</b> Extracts client data from structured sources and automatically creates or updates records in HubSpot, ensuring accurate and consistent data synchronisation
+<b>Key Capabilities:</b>
+<br>
+- Extracts structured data from Excel<br>
+- Automates CRM record creation and updates<br>
+- Ensures data consistency and accuracy<br>
+- Supports batch processing
 <br><br>
-<b>Impact:</b> Improves data accuracy, accelerates onboarding processes, and reduces manual effort, enabling faster engagement with new clients<br><br>
-</p>                    </div>
+<b>Business Impact:</b> 
+Improves data accuracy, accelerates onboarding, and reduces manual workload.</p>                    </div>
                 </div>
 
                 <!-- Alfred: Intelligent CRM Automation -->
@@ -370,12 +416,24 @@
                             <span class="tech-badge">Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> End-to-end CRM automation system integrating RPA, web application, and database validation.<br><br>
-<b>Problem:</b> CRM updates are manual and inconsistent.<br><br>
-<b>Solution:</b> Automated workflow combining email processing, validation, and CRM updates.<br><br>
-<b>What it Does:</b> Extracts email data, validates records, and updates CRM with reporting.<br><br>
-<b>Impact:</b> Improves data integrity and accelerates onboarding processes.
-                </p></div>
+<b>Overview:</b> 
+An end-to-end CRM automation solution integrating RPA, web applications, and database validation.
+<br><br>
+<b>Business Problem:</b>
+Manual CRM updates are inconsistent, error-prone, and inefficient for scaling operations.
+<br><br>
+<b>Solution Approach:</b>
+Developed an integrated workflow combining email monitoring, data validation, and automated CRM updates.
+<br><br>
+<b>Key Capabilities:</b>
+<br>
+- Extracts data from incoming emails<br>
+- Validates records against database<br>
+- Updates CRM systems automatically<br>
+- Generates reports and notifications<br>
+<br>
+<b>Business Impact:</b> 
+Improves data integrity, accelerates onboarding, and enhances operational efficiency.                </p></div>
 
                 <!-- UiPath Robot 8 -->
 <!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
@@ -408,6 +466,7 @@
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
                 <h2 class="text-3xl font-bold text-purple-400">Microsoft Power Platform</h2>
+                                <h2 class="text-xl font-bold text-purple-400">Bridging the gap between raw data and actionable business intelligence.</h2>
                 <div class="w-20 h-1 bg-purple-500 rounded mt-2"></div>
             </div>
 
@@ -437,24 +496,28 @@
 <br>
 A RPA workflow that performs automated calculations while capturing 
 detailed logs for every step. Designed with built-in validation and monitoring, 
-it ensures transparency and reliability across the automation lifecycle.<br><br>
-<b>Problem:</b> 
+it ensures transparency and reliability across the automation lifecycle.
+<br><br>
+<b>Business Problem:</b> 
 <br>
-Lack of visibility and traceability in automation processes makes debugging difficult.
+Automation processes often lack visibility and traceability, making debugging, auditing, and issue resolution difficult.
 <br><br>
-<b>Solution:</b> Automated calculator workflow with step-by-step logging, error handling, and Teams notification.
+<b>Solution Approach:</b> 
+Developed a structured automation workflow with detailed step-level logging, validation checks, and real-time notifications via Teams.
 <br><br>
-<b>What it Does:</b> <br>
-1. Executes calculation tasks using the Windows Calculator application<br>
-2. Logs each step, input, and output for full traceability<br>
-3. Validates data and flags anomalies or invalid entries<br>
-4. Handles errors gracefully with detailed diagnostics<br>
-5. Sends alerts and updates to Microsoft Teams<br>
-6.Stores logs and results in Microsoft Excel for review and reporting
+<b>Key Capabilities:</b>
+<br>
+- Executes calculations via Windows Calculator<br>
+- Logs every step, input, and output<br>
+- Validates data and flags anomalies<br>
+- Handles errors with detailed diagnostics<br>
+- Sends alerts via Microsoft Teams<br>
+- Stores logs in Excel for audit and reporting
+
 <br><br>
-<b>Impact:</b> 
-<br>Improves auditability, simplifies debugging, and enhances process transparency
-                    </div>
+<b>Business Impact:</b> 
+<br>
+Improves auditability, simplifies troubleshooting, and enhances transparency in automation workflows.                    </div>
                 </div>
 
                 <!-- Automation Reporting with SQL -->
@@ -474,24 +537,28 @@ Lack of visibility and traceability in automation processes makes debugging diff
                             <span class="tech-badge">MS Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b><br>An automated reporting solution that uses Power Automate Desktop to capture and centralize logs 
+<b>Overview:</b><br>An automated reporting solution, that uses Power Automate Desktop to capture and centralize logs 
 from the previous Automation Validation & Logging process into a structured SQL database. 
 It enables consistent tracking, analysis, and distribution of automation performance 
 insights.<br><br>
-<b>Problem:</b><br>Automation logs are fragmented, making it difficult for stakeholders to access, interpret, and act on performance data.<br>
+<b>Business Problem:</b><br>
+Fragmented logs make it difficult to track performance, identify issues, and provide insights to stakeholders.
+<br><br>
+<b>Solution Approach:</b>
 <br>
-<b>Solution:</b><br>Centralizes automation logs in MS SQL Server and delivers customized, stakeholder-ready reports via Outlook, improving visibility and decision-making.<br>
+Integrated automation logs into a central SQL database and automated report generation and distribution via email.
+<br><br>
+<b>Key Capabilities:</b>
 <br>
-<b>What it Does:</b><br>
-1. Extracts and consolidates automation logs into a SQL database<br>
-2. Validates and structures data for accurate reporting<br>
-3. Generates performance summaries and insights<br>
-4. Automatically distributes reports to relevant stakeholders via email<br>
+- Consolidates logs into MS SQL Server<br>
+- Structures and validates data<br>
+- Generates performance insights<br>
+- Distributes reports via Outlook<br>
 <br>
-<b>Impact:</b> 
+<b>Business Impact:</b> 
 <br>
-Provides a clear, reliable view of robot performance, enabling faster issue detection, 
-improved transparency, and data-driven optimization.<br>
+Provides visibility into automation performance, enabling faster issue detection and data-driven optimisation.
+<br>
 <!-- <b>Sample Output (Robot Performance Report):</b><br>
 Invalid entries detected: 50<br>
 Valid entries processed: 50<br>
@@ -527,33 +594,23 @@ Overall success rate: 0%<br> -->
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-An agent-driven automation framework that analyzes product reviews using AI-powered 
-sentiment analysis. The workflow reads review data from Excel, evaluates sentiment 
-through the OpenAI API, and writes structured results back into the file. 
-A built-in human-in-the-loop escalation step ensures accuracy through validation 
-and refinement.<br><br>
-<b>Framework Breakdown:</b><br>
-<b>Role:</b> Sentiment Analysis Agent<br>
-<b>Objective:</b> Analyze product reviews and assign clear, consistent sentiment ratings<br>
-<b>Context:</b> Applied to customer reviews for a given product<br>
-<br>
-<b>What It Does:</b><br>
-
-1. Extracts review data from an Excel file<br>
-2. Sends each review to the OpenAI API for sentiment evaluation<br>
-3. Classifies sentiment (e.g., Positive, Neutral, Negative) with a corresponding numerical score<br>
-4. Writes results into a structured Excel format (Column B)<br>
-5. Flags uncertain or ambiguous outputs for human review<br>
-<br>
-<b>Escalation (Human-in-the-Loop):</b>
-Incorporates a review checkpoint where users can validate, correct, or troubleshoot results—ensuring higher accuracy and continuous improvement of the workflow.
+An agent-driven automation that analyses customer reviews and assigns sentiment scores with human-in-the-loop validation.
 <br><br>
-<b>Output:</b>
-Each review is enriched with a sentiment label and a numerical rating (e.g., Positive (4)) in Column B of the Excel file.
+<b>Business Problem:</b><br>
+Manual sentiment analysis is time-consuming and inconsistent, limiting scalability and accuracy.
 <br><br>
-<b>Impact:</b><br>
-Streamlines large-scale sentiment analysis, improves consistency in evaluation, and balances automation efficiency with human oversight for quality assurance.
-</p>
+<b>Solution Approach:</b><br>
+Built an agent-based workflow that integrates AI sentiment analysis with structured output and human validation checkpoints.
+<br><br>
+<b>Key Capabilities:</b><br>
+- Extracts review data from Excel<br>
+- Performs sentiment analysis via API<br>
+- Classifies sentiment with scoring<br>
+- Writes structured results<br>
+- Flags uncertain outputs for human review<br>
+<br>
+<b>Business Impact:</b><br>
+Improves consistency, scales analysis, and balances automation with quality assurance.</p>
 </div>
                 </div>
 
@@ -581,33 +638,24 @@ Streamlines large-scale sentiment analysis, improves consistency in evaluation, 
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-A document classification framework tailored for the Trade Finance sector. It automates the reading, categorization, and validation of documents while incorporating confidence scoring and human-in-the-loop escalation to ensure high accuracy in critical financial workflows.
+An AI-powered document classification framework for trade finance processes with confidence scoring and validation.
 <br><br>
-<b>Framework Breakdown:</b><br>
-<b>Role:</b> Document Classifier Agent<br>
-<b>Objective:</b> Accurately categorize documents into predefined types<br>
-<b>Context:</b> Trade Finance document processing and validation<br>
+<b>Business Problem:</b><br>
+Manual document classification is slow, error-prone, and difficult to scale in high-volume financial workflows.
+<br><br>
+<b>Solution Approach:</b><br>
+Implemented AI-based classification with confidence scoring and human-in-the-loop validation for accuracy.
+<br><br>
+<b>Key Capabilities:</b><br>
+- Classifies documents into predefined categories<br>
+- Assigns confidence scores<br>
+- Extracts supporting evidence<br>
+- Outputs structured results (CSV)<br>
+- Flags low-confidence cases for review<br>
 <br>
-<b>What It Does:</b><br>
-
-1. Ingests documents and associated prompts via Power Automate Desktop<br>
-2. Analyzes content using an OpenAI model to determine document type<br>
-3. Classifies each document into one of six predefined categories<br>
-4. Assigns a confidence score to each classification<br>
-5. Extracts supporting evidence to justify the classification<br>
-6. Outputs structured results into a CSV file<br>
-<br>
-<b>Escalation (Human-in-the-Loop):</b>
-Flags low-confidence classifications for manual review, enabling human to validate or correct results and maintain data integrity.
-<br><br>
-<b>Output:</b><br>
-A CSV file containing:<br>
-- Document category<br>
-- Confidence score<br>
-- Supporting evidence for the classification
-<br><br>
-<b>Impact:</b><br>
-Improves processing speed and consistency in Trade Finance operations while maintaining high accuracy through transparent AI decisions and human oversight.                    </div>
+<b>Business Impact:</b><br>
+Improves processing speed, consistency, and accuracy in financial document workflows.
+</p></div>
                 </div>
 
 
@@ -632,21 +680,21 @@ Improves processing speed and consistency in Trade Finance operations while main
 <b>Overview:</b><br>
 The automation simulates user interactions within the UiBank Loan platform to manage applications from submission to evaluation, reducing manual effort and operational delays.
 <br><br>
-<b>Problem:</b><br>
-Manual loan processing is time-consuming, error-prone, and lacks consistency, leading to delays and potential compliance risks.
+<b>Business Problem:</b><br>
+Manual loan processing is time-consuming, inconsistent, and prone to errors.
 <br><br>
-<b>Solution:</b><br>
-Implements a reliable RPA workflow that standardizes loan processing, minimizes human error, and accelerates decision-making.
+<b>Solution Approach:</b><br>
+Automated data extraction, validation, and submission processes using RPA.
 <br><br>
-<b>What It Does:</b><br>
-1. Extracts and processes applicant data from Microsoft Excel<br>
-2. Automates form entry and navigation within the UiBank Loan portal<br>
-3. Validates input data to ensure accuracy and completeness<br>
-4. Performs eligibility checks based on predefined criteria<br>
-5. Flags errors or inconsistencies for review<br>
+<b>Key Capabilities:</b><br>
+- Extracts applicant data from Excel<br>
+- Automates portal interactions<br>
+- Validates inputs and eligibility<br>
+- Flags inconsistencies<br>
+
 <br>
-<b>Impact:</b><br>
-Enhances processing speed and accuracy, reduces operational overhead, and delivers a more consistent, error-free approach to financial service workflows.                    
+<b>Business Impact:</b><br>
+Enhances processing speed, reduces errors, and improves consistency in financial operations.
 </p></div>
                 </div>
 
@@ -669,32 +717,25 @@ Enhances processing speed and accuracy, reduces operational overhead, and delive
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-This automation leverages Power Automate Work Queues to manage and process the tasks, controlled, high-volume processing with real-time tracking.
+A scalable, queue-based automation framework for high-volume onboarding validation.
 <br><br>
-<b>Architecture:</b><br>
-<b>Dispatcher:</b>
-Extracts employee onboarding data from Microsoft Excel and populates the Work Queue, creating a centralized and structured pipeline of tasks.
+<b>Business Problem:</b><br>
+Traditional onboarding processes struggle with scalability, visibility, and error handling.
+<br><br>
+<b>Solution Approach:</b>
 <br>
-<b>Performer:</b>
-Retrieves queue items individually and executes validation logic, such as salary thresholds and date checks, while updating statuses in real time.
+Implemented dispatcher-performer architecture with queue-based task management.
 <br><br>
-
-<b>Problem:</b><br>
-Traditional onboarding processes struggle with scalability, error handling, and visibility when dealing with large volumes of data.<br><br>
-<b>Solution:</b><br>
-Implements a queue-based, distributed automation model that separates the jobs and improves resilience.<br><br>
-
-<b>What It Does:</b><br>
-1. Centralizes onboarding tasks using Work Queues<br>
-2. Applies business rules and validations consistently<br>
-3. Updates processing status<br>
-4. Handles exceptions with retry mechanisms<br>
-5. Enables concurrent processing across multiple performers
+<b>Key Capabilities:</b><br>
+- Centralises tasks using queues<br>
+- Applies validation rules<br>
+- Updates processing status<br>
+- Supports parallel processing<br>
+- Handles retries and exceptions
 <br><br>
-<b>Impact:</b><br>
-Delivers high scalability and reliability, supports parallel processing, reduces failure rates through automated retries, and ensures efficient handling of large-scale onboarding workloads.
-                        </p>
-                    </div>
+<b>Business Impact:</b><br>
+Improves scalability, reliability, and efficiency for large-scale onboarding operations.                        </p>
+                        </P> </div> </div>
                 </div>
 
                 <!-- Inventory Management System (Kiddy Lah!)-->
@@ -715,24 +756,22 @@ Delivers high scalability and reliability, supports parallel processing, reduces
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-A modern, model-driven inventory management system built for Kiddy Lah! Toy Shop, replacing manual spreadsheets and paper-based tracking with a centralized digital platform. The solution improves operational efficiency, data accuracy, and real-time decision-making.<br><br>
-
-<b>Problem:</b><br>
-Inventory tracking was previously fragmented across spreadsheets and manual logs, leading to poor visibility, delayed updates, and inconsistent stock management.<b>Solution:</b><br>
+A centralised inventory management solution replacing manual tracking with real-time monitoring.
+<b>Business Problem:</b><br>
+Inventory tracking was previously fragmented across spreadsheets and manual logs, leading to poor visibility, delayed updates, and inconsistent stock management.<b>Solution Approach:</b><br>
 <br>
-<b>Solution:</b><br>
-A Microsoft Power Platform solution that integrates Power Apps, Dataverse, and Power Automate to centralize inventory data, automate workflows, and provide real-time stock monitoring.
+<b>Solution Approach:</b><br>
+Developed a Power Platform solution to centralise data and automate alerts.
 <br><br>
-<b>What It Does:</b><br>
-1. Stores all inventory data in Microsoft Dataverse<br>
-2. Provides a user-friendly Power Apps interface to add, update, and manage stock items<br>
-3. Tracks stock levels in real time across all products<br>
-4. Automatically triggers low-stock alerts when inventory falls below 10 units<br>
-5. Sends email notifications to relevant stakeholders using Power Automate
-<br><br>
-<b>Impact:</b><br>
-Improves stock visibility and control, reduces manual effort, minimizes errors, and enables faster, data-driven restocking decisions.</p>
-                    </div>
+<b>Key Capabilities:</b><br>
+- Real-time inventory tracking<br>
+- Centralised data in Dataverse<br>
+- Automated low-stock alerts<br>
+- User-friendly interface<br>
+<br>
+<b>Business Impact:</b><br>
+Improves visibility, reduces manual effort, and enables data-driven inventory decisions.                    
+</p></div>
                 </div>
 
                 <!-- KiddyLah! Toyshop KPI Dashboard -->
@@ -753,31 +792,32 @@ Improves stock visibility and control, reduces manual effort, minimizes errors, 
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-A data-driven analytics dashboard designed to monitor and evaluate the overall performance of Kiddy Lah! Toy Shop. It transforms raw sales data into actionable insights, for better decision-making for retail optimization and business growth.
+A performance dashboard transforming sales data into actionable insights.
 <br><br>
-<b>What It Does:</b><br>
-1. Consolidates sales, revenue, and order data into a unified Power BI model<br>
-2. Uses DAX measures to calculate key business metrics and KPIs<br>
-3. Visualizes performance trends across time, categories, and locations<br>
-4. Enables interactive filtering for deeper analysis of store performance<br><br>
-<b>Key Insights:</b><br>
-<b>Financial Performance:</b><br>
+<b>Business Problem:</b><br>
+Lack of visibility into business performance limits decision-making.
+<br><br>
+<b>Solution Approach:</b><br>
+Built an interactive dashboard with KPI tracking and trend analysis.
+<br><br>
+<b>Key Insights--</b><br>
+<b>Financial Performance:</b> 
 Total Revenue: $640,778
 Total Profit: $174,620
 Total Orders: 41,830
-<br><br>
-<b>Trend Analysis:</b><br>
-- Line and area charts display growth patterns in orders and revenue over time<br>
-- Helps identify seasonal trends and demand fluctuations<br><br>        
-<b>Category Performance:</b><br>
-- Toys is the top-performing product category<br>
+<br>
+<b>Trend Analysis:</b> 
+- Line and area charts display growth patterns in orders and revenue over time 
+- Helps identify seasonal trends and demand fluctuations<br>
+<b>Category Performance:</b> 
+- Toys is the top-performing product category 
 - Followed by Games and Arts & Crafts
-<br><br>
-<b>Location Insights:</b><br>
+<br>
+<b>Location Insights:</b> 
 - Interactive slicers allow analysis by store location: 
-<br> Airport, Commercial, Downtown, and Residential<br>
+<br> Airport, Commercial, Downtown, and Residential 
 - Supports comparison of performance across different retail environments<br>
-<br><b>Impact:</b><br>
+<br><b>Business Impact:</b><br>
 Improves visibility into business performance, supports data-driven decision-making, and helps identify growth opportunities across products and store locations.
 </p>
                     </div>
@@ -800,19 +840,22 @@ Improves visibility into business performance, supports data-driven decision-mak
                                 <span class="tech-badge">Spatial Analytics</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-An interactive Power BI dashboard that maps furniture inventory across floor plan. It combines spatial visualization with inventory analytics to provide a clear, room-by-room understanding of asset distribution.
+<b>Overview:</b><br>
+A spatial analytics dashboard mapping inventory across floor plans.
 <br><br>
-<b>What It Does:</b>
+<b>Business Problem:</b><br>
+Lack of spatial visibility makes asset tracking inefficient.
+<br><br>
+<b>Solution Approach:</b><br>
+Combined inventory data with floor plan visualisation.
+<br><br>
+<b>Key Capabilities:</b><br>
+- Maps inventory to rooms<br>
+- Interactive filtering<br>
+- Identifies stock gaps<br>
 <br>
-1. Visualizes furniture items directly on a floor plan using a Synoptic Panel<br>
-2. Maps inventory data to specific rooms for spatial awareness<br>
-3. Breakdown of furniture distribution across the property<br>
-4. Filtering and interaction to explore inventory by room or category<br>
-5. Supports quick identification of overstocked, understocked, or empty areas<br>
-<br>
-<b>Impact:</b><br>
-Improves inventory visibility through spatial context, enhances asset tracking efficiency, and supports faster decision-making by linking data directly to physical spaces.
+<b>Business Impact:</b><br>
+Improves asset tracking and operational efficiency.
 </p>
 
                         </div>
@@ -828,22 +871,20 @@ Improves inventory visibility through spatial context, enhances asset tracking e
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Sales Funnel Report: A Data Storytelling Approach</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Sales Funnel Report</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power BI</span>
                             <span class="tech-badge">Data Visualization</span>
                             <span class="tech-badge">Dashboard Design</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-A narrative-driven Power BI report that transforms sales performance data into actionable coaching insights. By analyzing conversion trends over a three-month period, the dashboard highlights individual and team dynamics to optimize the overall sales pipeline.
+<b>Overview:</b><br>
+A data storytelling dashboard analysing sales performance and conversion trends.<br><br>
+<b>Business Problem:</b><br>
+Lack of insight into pipeline performance limits optimisation.
 <br><br>
-<b>What It Does:</b><br>
-1. Tracks conversion rates across each stage of the sales funnel<br>
-2. Identifies individual performance patterns and bottlenecks<br>
-3. Translates data into targeted coaching actions<br>
-4. Visualizes trends to support continuous performance improvement<br>
-<br>
+<b>Solution Approach:</b><br>
+Visualised funnel stages and performance patterns.<br><br>
 <b>Provides insights for individual performance & interventions<br></b>
 
 <b>Alex:</b> Initially over-focused on closing deals while neglecting lead generation. By rebalancing efforts toward top-of-funnel activities, he built a more sustainable and consistent pipeline.
@@ -852,11 +893,12 @@ A narrative-driven Power BI report that transforms sales performance data into a
 <br><br>
 <b>Peter:</b> A late bloomer due to temporary project reassignment. Despite a slower start, his strong conversion rates across all stages led to a top performance outcome, closing 6 contracts.
 <br><br>
-<b>Outcome:</b>
+<b>Key Capabilities:</b><br>
+- Tracks conversion rates<br>
+- Identifies bottlenecks<br>
+- Supports coaching insights<br>
 <br>
-By addressing individual gaps, such as Alex’s prospecting imbalance and Mary’s lead generation challenges—the team evolved from isolated high performers into a cohesive, high-functioning sales unit with a balanced and efficient funnel.
-<br><br>
-<b>Impact:</b>
+<b>Business Impact:</b>
 A data-driven coaching, improves pipeline health, and drives more consistent sales performance through targeted, insight led interventions.
 
                         </p>
@@ -879,14 +921,20 @@ A data-driven coaching, improves pipeline health, and drives more consistent sal
                                 <span class="tech-badge">Power BI</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<B>Description:</B><br>
-An interactive dashboard analyzing 2 million flights to uncover patterns in delays, cancellations, and overall airline performance.
+<B>Overview:</B><br>
+An analytics dashboard identifying delay patterns across large-scale flight data.
 <br><br>
-<b>Key KPIs:</b><br>
-Total Flights: 2,000,000<br>
-Delayed Flights: 790,000 (41%)<br>
-Canceled Flights: 29,000 (1%)<br><br>
-
+<b>Business Problem:</b><br>
+Operational inefficiencies are hard to identify without data insights.
+<br><br>
+<b>Solution Approach:</b><br>
+Built a dashboard analysing delays, cancellations, and trends.
+<br><br>
+<b>Key Capabilities:</b><br>
+- Delay and cancellation analysis<br>
+- Airline comparison<br>
+- Trend visualisation<br>
+<br>
 <b>What It Shows:</b><br>
 
 1. Ranks high-traffic cities like Atlanta, Chicago, and Dallas-Fort Worth by flight volume<br>
@@ -894,7 +942,7 @@ Canceled Flights: 29,000 (1%)<br><br>
 3. Breaks down cancellation causes (Weather, Carrier, National Aviation System)<br>
 4. Visualizes on-time vs delayed trends over time
 <br><br>
-<b>Impact:</b><br>
+<b>Business Impact:</b><br>
 Enables quick identification of operational bottlenecks and supports data-driven decisions to improve scheduling and reliability.                    
 </p></div>
                 
@@ -924,22 +972,21 @@ Enables quick identification of operational bottlenecks and supports data-driven
                                 <span class="tech-badge">Microsoft Teams</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-An end-to-end automation that converts incoming emails into structured support tickets, streamlining tracking and resolution.
+<b>Overview:</b><br>
+An end-to-end workflow that converts emails into structured support tickets.
 <br><br>
-<b>Problem:</b><br>
-Support requests sent via email are unstructured and require manual logging, leading to delays, missed tickets, and inconsistent tracking across teams.
+<b>Business Problem:</b><br>
+Unstructured email requests lead to missed tickets and delays.
 <br><br>
-<b>Solution:</b><br>
-An automated workflow using Power Automate that converts incoming emails into structured information, assigns them in Microsoft Planner, and notifies teams via Microsoft Teams.
+<b>Solution Approach:</b><br>
+Automated ticket creation, assignment, and notification.
 <br><br>
-<b>What It Does:</b><br>
-1. Captures ticket details from Outlook (title, description, priority)<br>
-2. Creates and assigns tasks in Microsoft Planner<br>
-3. Sends real-time alerts to teams via Microsoft Teams
-<br><br>
-<b>Impact:</b><br>
-Reduces manual effort, improves team visibility, and ensures faster, more reliable ticket resolution.
+<b>Key Capabilities:</b><br>
+- Extracts ticket data from emails<br>
+- Creates tasks in Planner<br>
+- Sends alerts via Teams<br><br>
+<b>Business Impact:</b><br>
+Improves tracking, reduces manual effort, and speeds up resolution.
 
                         </div>
 </p>  </div>
@@ -961,24 +1008,23 @@ Reduces manual effort, improves team visibility, and ensures faster, more reliab
                             <span class="tech-badge">Email Automation</span>
                        </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-A mobile expense tracking app that replaces spreadsheets with a real-time solution for managing personal finances.
+<b>Overview:</b><br>
+A digital expense management solution that automates submission, approval, and reporting.
 <br><br>
-<b>Problem:</b><br>
-Expense tracking using spreadsheets is manual, error-prone, and lacks real-time visibility, making it difficult to monitor budgets and spending accurately.
+<b>Business Problem:</b><br>
+Manual expense tracking leads to inefficiencies and poor visibility.
 <br><br>
-<b>Solution:</b><br>
-A mobile expense tracking app built with Power Apps and Power Automate that digitizes expense logging, automates approval workflows, and provides real-time budget tracking and reporting.
+<b>Solution Approach:</b><br>
+Built a Power Platform solution for structured expense workflows.
 <br><br>
-<b>What It Does:</b><br>
-1. Logs expenses with receipt uploads and approval workflow<br>
-2. Tracks spending against budget goals in real time<br>
-3. Provides visual summaries of spending patterns<br>
-4. Maintains approval status and history for full transparency
-<br><br>
-<b>Impact:</b><br>
-Simplifies expense management, improves financial visibility, and supports smarter spending decisions anytime, anywhere.
+<b>Key Capabilities:</b><br>
+- Expense submission and approval<br>
+- Real-time tracking<br>
+- Reporting and audit trail<br>
 
+<br>
+<b>Business Impact:</b><br>
+Improves financial visibility and workflow efficiency.
                         </p>
                         </div>
                 </div>
@@ -1006,24 +1052,24 @@ Simplifies expense management, improves financial visibility, and supports smart
                                 <span class="tech-badge">Email with Table Formatting</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-A scheduled, zero-touch workflow that automates daily sales order reporting, ensuring the warehouse receives accurate and timely fulfillment data.
+<b>Overview:</b><br>
+A scheduled automation that generates and distributes daily sales order reports.
 <br><br>
-<b>Problem:</b><br>
-Daily sales order reporting is manually prepared and sent, leading to delays, formatting inconsistencies, and risk of human error that can affect warehouse fulfillment accuracy.
+<b>Business Problem:</b><br>
+Manual reporting causes delays and inconsistencies.
 <br><br>
-<b>Solution:</b><br>
-A scheduled Power Automate cloud flow that automatically extracts “today’s” orders from SharePoint Lists, formats them into a structured report, and emails them to the warehouse in a consistent format.
+<b>Solution Approach:</b><br>
+Automated extraction, formatting, and email delivery.
 <br><br>
-<b>What It Does:</b><br>
-1. Runs automatically at a scheduled time each day<br>
-2. Filters and extracts “Today’s” orders from SharePoint Lists<br>
-3. Formats data into a clean, readable HTML table<br>
-4. Sends a standardized report to the warehouse via email<br>
-<br>
-<b>Impact:</b><br>
-Eliminates manual processing, reduces errors, and accelerates order fulfillment with consistent, reliable reporting.
+<b>Key Capabilities:</b><br>
+- Scheduled execution<br>
+- Data extraction from SharePoint<br>
+- HTML report generation<br>
+- Email distribution<br>
 
+<br>
+<b>Business Impact:</b><br>
+Improves accuracy, reduces manual work, and accelerates fulfillment.
 
                         </p>  </div>
 
@@ -1036,6 +1082,7 @@ Eliminates manual processing, reduces errors, and accelerates order fulfillment 
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
                 <h2 class="text-3xl font-bold text-teal-400">Microsoft Copilot Studio</h2>
+                <h2 class="text-xl font-bold text-teal-400">Empowering users through natural language interfaces and multi-agent orchestration.</h2>
                 <div class="w-20 h-1 bg-teal-500 rounded mt-2"></div>
             </div>
 
@@ -1066,23 +1113,23 @@ Eliminates manual processing, reduces errors, and accelerates order fulfillment 
                             <span class="tech-badge">Multi-agent orchestration</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-An agent that reviews and validates expense reports through a conversational interface, automating compliance checks and reducing manual review effort.
+<b>Overview:</b><br>
+An agent that automates expense report validation through conversational interaction, ensuring compliance and reducing manual review effort.
 <br><br>
-<b>Problem:</b><br>
-Manual expense report review is time-consuming, inconsistent, and prone to human error, making it difficult to ensure compliance with company policies.
+<b>Business Problem:</b><br>
+Manual expense review is time-consuming, inconsistent, and prone to human error, making it difficult to enforce policy compliance at scale.
 <br><br>
-<b>Solution:</b><br>
-A Microsoft Copilot Studio multi-agent system that automatically reviews uploaded Excel expense reports, performs layered validation checks, detects errors or policy violations, and provides structured feedback through a conversational interface.
+<b>Solution Approach:</b><br>
+Built a Microsoft Copilot Studio multi-agent system that analyses uploaded Excel reports, performs layered validation checks, and provides structured feedback via chat.
 <BR><BR>
-<b>What It Does:</b><br>
+<b>Key Capabilities:</b><br>
 
 1. Analyzes uploaded Excel expense reports via chat<br>
 2. Detects duplicates, incorrect entries, and policy violations<br>
 3. Uses multi-agent orchestration for layered validation checks<br>
 4. Flags anomalies and provides actionable feedback<br>
 <br>
-<b>Impact:</b><br>
+<b>Business Impact:</b><br>
 Reduces manual workload, improves accuracy, and ensures consistent compliance in expense reimbursement processes.                    
 </p></div>
                 </div>
@@ -1104,22 +1151,24 @@ Reduces manual workload, improves accuracy, and ensures consistent compliance in
                       </span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-An agent that automates the creation of PowerPoint presentations such as certificates, reports, and proposals, using templates and dynamic data.
+<b>Overview:</b><br>
+An automated document generation Copilot agent that creates PowerPoint presentations such as certificates, reports, and proposals, using templates and structured data.
 <br><br>
-<b>Problem:</b><br>
-Creating PowerPoint presentations (e.g., certificates, reports, proposals) is manual, time-consuming, and often leads to inconsistent formatting and inefficient use of structured data.
+<b>Business Problem:</b><br>
+Manual creation of presentations is time-consuming, inconsistent, and inefficient when handling high-volume document generation.
 <br><br>
-<b>Solution:</b><br>
-A Microsoft Copilot Studio agent that automates PowerPoint generation by using templates and pulling structured data from SharePoint, dynamically generating consistent presentations based on user input.
+<b>Solution Approach:</b><br>
+Developed a Copilot agent that pulls structured data from SharePoint and dynamically generates formatted PowerPoint files based on user prompts.
 <br><br>
-<b>What It Does:</b><br>
-1. Generates PowerPoint files from user prompts<br>
-2. Pulls structured data from SharePoint document libraries<br>
-3. Applies standardized templates for consistent formatting<br>
-4. Customizes content dynamically based on input<br>
+<b>Key Capabilities:</b><br>
+
+1. Generates PowerPoint files from natural language prompts<br>
+2. Retrieves structured data from SharePoint libraries<br>
+3. Applies standardized templates for consistency<br>
+4. Customizes content dynamically<br>
+
 <br>
-<b>Impact:</b><br>
+<b>Business Impact:</b><br>
 Reduces manual effort, improves consistency, and enables scalable, high-volume document generation.
 
                         </p>
@@ -1145,23 +1194,24 @@ Reduces manual effort, improves consistency, and enables scalable, high-volume d
                             <span class="tech-badge">Microsoft Dataverse</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-A conversational AI solution that connects users to structured business data, enabling quick and intuitive access through chat.
+<b>Overview:</b><br>
+A conversational AI solution that enables intuitive access to structured business data through natural language queries.
 <br><br>
-<b>Problem:</b><br>
-Business data stored in Dataverse is not easily accessible to non-technical users, requiring manual queries or technical knowledge to retrieve insights.
+<b>Business Problem:</b><br>
+Business data stored in systems like Dataverse is not easily accessible to non-technical users, creating dependency on manual queries or technical teams.
 <br><br>
-<b>Solution:</b><br>
-A Microsoft Copilot Studio conversational AI that connects to Microsoft Dataverse and allows users to query and retrieve structured business data (e.g., Accounts, Contacts) through natural language chat.
+<b>Solution Approach:</b><br>
+Implemented a Copilot Studio solution connected to Dataverse, allowing users to retrieve and interpret business data via chat.
 <br><br>
-<b>What It Does:</b><br>
-1. Retrieves data from Dataverse (e.g., Accounts, Contacts) in real time<br>
-2. Interprets and presents insights in a conversational format<br>
-3. Enables users to query business data without technical knowledge<br>
+<b>Key Capabilities:</b><br>
+1. Retrieves real-time data (e.g. Accounts, Contacts)<br>
+2. Interprets and presents insights conversationally<br>
+3. Eliminates need for technical querying<br>
+
 <br>
-<b>Impact:</b><br>
-Improves data accessibility, accelerates decision-making, and empowers users with instant, data-driven insights.</p>
-                    </div>
+<b>Business Impact:</b><br>
+Improves data accessibility, accelerates decision-making, and empowers users with self-service insights.
+</p>                    </div>
                 </div>
 
                 <!-- Your Guide to MS Copilot -->
@@ -1183,21 +1233,26 @@ Improves data accessibility, accelerates decision-making, and empowers users wit
                         <h3 class="text-2xl font-bold mt-0 mb-3 text-teal-100">Your Guide to MS Copilot</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">Microsoft Copilot Learning hub</span> 
                       </span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-An agent that provides guided support for using Copilot effectively.<br><br>
-<b>What it Does:</b> <br>
-Supports users through:<br><br>
-- Task-based questions<br>
-- Concept & definition queries<br>
-- Troubleshooting issues<br>
-- Build and development guidance<br>
-- Best practices and recommendations <br><br>
-<b>Impact:</b><br>
-Improves user adoption and reduces learning curve for Copilot tools
+<b>Overview:</b><br>
+An AI enablement Copilot that guides users on how to effectively use Microsoft Copilot tools.
+<br><br>
+<b>Business Problem:</b><br>
+Users often struggle to understand how to use Copilot effectively, leading to low adoption and underutilisation.
+<br><br>
+<b>Solution Approach:</b><br>
+Developed a guided Copilot assistant that provides structured support across different learning scenarios.
+<br><br>
+<b>Key Capabilities:</b><br>
+1. Supports task-based guidance<br>
+2. Explains concepts and definitions<br>
+3. Provides troubleshooting support<br>
+4. Guides development and build scenarios<br>
+5. Recommends best practices<br><br>
+<b>Business Impact:</b><br>
+Improves user adoption, reduces learning curve, and enhances effective use of AI tools across teams.
 </p>
 
                     </div>
@@ -1227,20 +1282,22 @@ Improves user adoption and reduces learning curve for Copilot tools
                             <span class="tech-badge">ServiceNow</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b><br>
-AI agent integrated with ServiceNow to provide real-time IT ticket status and support.
+<b>Overview:</b><br>
+A conversational AI agent that provides real-time IT ticket support and self-service capabilities.
 <br><br>
-<b>Problem:</b><br>
-Users rely on manual follow-ups for ticket updates.
+<b>Business Problem:</b><br>
+Users rely on manual follow-ups for ticket updates, increasing support workload and response time.
 <br><br>
-<b>Solution:</b><br>
-Chat-based Copilot agent with real-time updates and multi-language support.
+<b>Solution Approach:</b><br>
+Built a Copilot integrated with ServiceNow to provide real-time ticket status and support through chat.
 <br><br>
-<b>What it Does:</b><br>
-- Check ticket status<br>
-- Retrieve user and ticket details<br>
-- Answer IT helpdesk queries<br><br>
-<b>Impact:</b><br>
+<b>Key Capabilities:</b><br>
+1. Retrieves ticket status and details<br>
+2. Answers IT helpdesk queries<br>
+3. Supports multi-language interaction<br>
+4. Reduces dependency on manual support
+<br><br>
+<b>Business Impact:</b><br>
 Enhances user experience, reduces support workload, and improves response efficiency.
 <br><br>
 <b>How to Use:</b><br>
@@ -1286,16 +1343,26 @@ Example queries:<br>
                             <span class="tech-badge">Hair For Hope Website</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Description:</b> <br>
-A digital platform supporting Singapore’s iconic head-shaving campaign, designed to drive community engagement for the Children’s Cancer Foundation. It streamlines participation, empowers advocacy, and makes it easier for individuals and groups to take part in a meaningful cause.<br><br>
-<b>Problem:</b><br>
-Participation and donation processes can be fragmented and unclear.<br><br>
-<b>Solution:</b><br>
-Guides users on registration, donations, and event details.<br><br>
-<b>What it Does:</b><br>
-Provides quick help for participation, FAQs, and event information.<br><br>
-<b>Impact:</b><br>
-Boosts engagement, simplifies participation, and strengthens community outreach.<br><br>
+<b>Overview:</b> <br>
+A digital assistant designed to support community engagement and participation for a large-scale fundraising campaign.
+<br><br>
+<b>Business Problem:</b>
+<br>
+Event participation and donation processes are often fragmented, making it difficult for users to engage effectively.
+<br><br>
+<b>Solution Approach:</b><br>
+Developed a Copilot agent that guides users through registration, donation, and event information.
+<br><br>
+<b>Key Capabilities:</b><br>
+
+1. Provides registration guidance<br>
+2. Supports donation process queries<br>
+3. Answers FAQs and event details<br>
+4. Simplifies participation journey<br>
+<br>
+<b>Business Impact:</b><br>
+Improves engagement, simplifies participation, and enhances community outreach.
+<br><br>
 <b>Mission:</b><br>
     By digitizing the support experience, the assistant amplifies the "caring spirit," allowing the community to focus on raising awareness and hope for children with cancer. 🎗️
 <a href="https://hairforhope.org.sg/" target="_blank">Visit Hair for Hope to support the children.</a><br>
@@ -1329,15 +1396,22 @@ Boosts engagement, simplifies participation, and strengthens community outreach.
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 
-<b>Description:</b><br>
-An Agent that answers questions using deck plan images of Holland America Line ships (focused on MS Rotterdam).
+<b>Overview:</b><br>
+An Agent that enables users to navigate cruise ship layouts using image-based deck plan data.
 <br><br>
-<b>Solution:</b><br>
-Uses image-based data (chunked and vectorized in Dataverse) to interpret ship layouts.
+<b>Business Problem:</b><br>
+Passengers find it difficult to interpret complex deck plans and locate amenities efficiently.
 <br><br>
-<b>What it does:</b><br>
-Helps users locate amenities, navigate decks, and check room details.
+<b>Solution Approach:</b><br>
+Used vectorised image data stored in Dataverse to allow Copilot to interpret and respond to spatial queries.
 <br><br>
+<b>Key Capabilities:</b><br>
+
+1. Answers location-based queries from deck plans<br>
+2. Helps navigate between facilities<br>
+3. Identifies amenities and room details<br>
+4. Supports natural language interaction<br>
+<br>
 Example queries:<br>
 
 Which deck is the casino on Rotterdam?<br>
@@ -1345,8 +1419,8 @@ How do I get to the sports court?<br>
 What’s the closest bar to the sea view pool?<br>
 Is room VC6154 handicap accessible?<br><br>
 
-<b>Impact:</b><br>
-Improves onboard navigation and enhances passenger experience.            
+<b>Business Impact:</b><br>
+Improves onboard navigation and enhances passenger experience through intuitive access to spatial information.
 </p>
                       </div>
                </div>
