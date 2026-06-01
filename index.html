@@ -455,21 +455,16 @@ Improves data integrity and operational efficiency at scale.
                             <span class="tech-badge">Microsoft Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-This automation framework enhances transparency, exception tracking, and end-to-end traceability in automated workflows through structured validation and logging.
-A step-level validation, centralized logging, automated calculations, and alerts thru Teams to improve reliability, auditability, and troubleshooting efficiency. 
+This automation framework provides end-to-end traceability in automated workflows through structured validation and logging.
+A step-level validation, centralized logging, automated calculations, to improve reliability, auditability, and troubleshooting efficiency. 
 Here's how the workflow operates:
 <br><br>
 1. The workflow performs system-driven calculations using the Windows Calculator application as part of a controlled automation sequence.
 <br><br>
-2. Each execution stage including input values, calculated outputs, timestamps, and workflow actions is automatically captured and recorded for traceability.
+2. Each execution stage including input values, calculated outputs, timestamps, and workflow actions is automatically captured and recorded
+and stored in Microsoft Excel, providing a audit trail for operational review and reporting.
+At the same time posted to Microsoft Teams channels to notify the stakeholders.
 <br><br>
-3. The automation validates processed values against predefined logic rules, unexpected outputs, or failed validation conditions during runtime.
-<br><br>
-4. Detailed information is generated to support troubleshooting, and root cause analysis of failed transactions.
-<br><br>
-5. When validation failures or exceptions occur, alerts are triggered through Microsoft Teams to notify the stakeholders.
-<br><br>
-6. Execution logs and validation records are stored in Microsoft Excel, providing a audit trail for operational review and reporting.
 </p>
 </div>
                 </div>
@@ -484,24 +479,20 @@ Here's how the workflow operates:
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automation Reporting with SQL (Centralized Logging & Insights)</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automation Reporting with SQL (Performance Insights & Email Distribution)</h3>
                         <div class="flex flex-wrap mb-2">
                            <span class="tech-badge">Power Automate Desktop</span>
                             <span class="tech-badge">MS SQL Server</span>
                             <span class="tech-badge">Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-This automation extends the validation and logging framework by introducing a centralized reporting layer that consolidates workflow execution data into a structured SQL-based repository for analysis and monitoring.
-How the workflow operates:
+This workflow extends the previous Automation Validation & Logging layer by introducing a reporting mechanism that extracts logged execution data from a SQL database and converts it into actionable performance insights.
 <br><br>
-1. Automation execution logs are captured and aggregated into Microsoft SQL Server, creating a single source for all workflow activities.
+The automation establishes a secure ODBC connection to a Microsoft SQL Server database, where processed case logs are stored. It executes SQL queries to aggregate results by process outcome and calculates key metrics such as total transactions and success rate percentage.
 <br><br>
-2. Incoming log records are stored in defined database schemas to ensure consistency and data integrity across automation runs.
+The processed results are then formatted into a structured email body, summarizing robot performance in a readable report format.
 <br><br>
-3. Stored data is leveraged to derive operational insights such as execution trends, failure patterns, and process performance indicators.
-<br><br>
-4. Summarized reports are automatically generated and sent via Microsoft Outlook to stakeholders for monitoring and decision-making.
-
+Finally, the workflow launches Outlook and automatically sends a “Robot Performance Report” email to stakeholders, ensuring timely visibility of automation performance metrics.
                         </p>
                     </div>
                 </div>
