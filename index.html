@@ -209,18 +209,17 @@ A second invoice (invoice-0022.pdf) is processed, but the Decision Agent flags i
                             <span class="tech-badge">BMMI Calculator (Vibe Coding Prototype)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b> 
-Queue-based RPA architecture for scalable, high-volume transaction processing.
+The workflow built in UiPath Studio designed to process Body Mass Index (BMI) calculations created by using Vibe Coding.
 <br><br>
-<b>Key Capabilities:</b>
+The automation works step-by-step:
 <br>
-- Centralised queue management<br>
-- Parallel bot execution<br>
-- Transaction-level business logic<br>
-- Retry and exception handling<br>
-
-<br><b>Impact:</b> 
-Increases throughput, scalability, and process reliability.
+1. Data Extraction & Queuing: The bot begins by reading patient or user data (Height and Weight) from a local Excel spreadsheet (TestData.xlsx). It filters for rows marked "Ready to process" and uploads them as individual transaction items into a UiPath Orchestrator Queue (BMIQueue).
+<br><br>
+2. Web Automation: The automation then launches a Google Chrome browser and navigates to an online BMI Calculator web application.
+<br><br>
+3. Automated Data Entry: Using a dispatcher-performer model, the bot pulls down one transaction item at a time from the Orchestrator Queue. It automatically types the specific height and weight into the web form and triggers the calculation.
+<br><br>
+4. Transaction Management: Once the calculation is completed on the web page, the bot logs back into UiPath Orchestrator and marks that specific queue transaction as Successful.
 </p>
                     </div>
                 </div>
