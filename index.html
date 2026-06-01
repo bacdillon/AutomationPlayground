@@ -213,13 +213,12 @@ The workflow built in UiPath Studio designed to process Body Mass Index (BMI) ca
 <br><br>
 The automation works step-by-step:
 <br>
-1. Data Extraction & Queuing: The bot begins by reading patient or user data (Height and Weight) from a local Excel spreadsheet (TestData.xlsx). It filters for rows marked "Ready to process" and uploads them as individual transaction items into a UiPath Orchestrator Queue (BMIQueue).
+<b>1. Data Extraction & Queuing:</b> The bot begins by reading the data table (Height and Weight). It filters for rows marked "Ready to process" and uploads them as individual transaction items into a UiPath Orchestrator Queue (BMIQueue).
+The process navigates to an online BMI Calculator web application.
 <br><br>
-2. Web Automation: The automation then launches a Google Chrome browser and navigates to an online BMI Calculator web application.
+<b>2. Automated Data Entry:</b> Using a dispatcher-performer architecture, the bot pulls one transaction item at a time from the Orchestrator Queue. It automatically types the specific height and weight into the web form and triggers the calculation.
 <br><br>
-3. Automated Data Entry: Using a dispatcher-performer model, the bot pulls down one transaction item at a time from the Orchestrator Queue. It automatically types the specific height and weight into the web form and triggers the calculation.
-<br><br>
-4. Transaction Management: Once the calculation is completed on the web page, the bot logs back into UiPath Orchestrator and marks that specific queue transaction as Successful.
+<b>3. Transaction Management:</b> Once the transaction is completed, the bot logs back into UiPath Orchestrator and marks that specific queue transaction as Successful.
 </p>
                     </div>
                 </div>
@@ -234,25 +233,25 @@ The automation works step-by-step:
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Alfred: Invoice Processing (REFramework)</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Meet Alfred: Invoice Processing (REFramework)</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">UiPath Document Understanding</span>
                             <span class="tech-badge">REFramework</span>
                             <span class="tech-badge">Python Streamlit CRM</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b> 
-Enterprise invoice automation combining AI extraction with structured workflow orchestration.
+Alfred is an automation bot designed to completely streamlining how invoices are processed. 
+The main goals is to slashing processing times by 70% and wiping out manual data-entry. 
+Here is how Alfred handles the heavy lifting from start to finish:
 <br><br>
-<b>Key Capabilities:</b>
-<br>
-- Extracts data from multiple invoice formats<br>
-- Validates and processes financial data<br>
-- Integrates with CRM systems<br>
-- Archives documents and generates reports<br>
-<br>
-<b>Impact:</b> 
-Reduces processing time and improves data accuracy and scalability.
+1. Alfred constantly monitors incoming emails, instantly downloading any invoice attachments the moment they arrive.
+<br><br>
+2. Using UiPath’s REFramework paired with Document Understanding, 
+the bot intelligently reads, classifies, and extracts key data fields from various invoice layouts.
+<br><br>
+3. Once the data is validated, Alfred inputs the information into the CRM.
+<br><br>
+4. Alfred archives the original and extracted files. Follow by triggers a summary email to the team, updating everyone on the results.
               </p></div>
                 </div>
 
@@ -265,35 +264,30 @@ Reduces processing time and improves data accuracy and scalability.
                             </div>
                         </div>
 
-                                                <div class="video-wrapper glass-card">
+                      <!--                           <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
                                 <iframe src="https://player.vimeo.com/video/1188278034?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <div class="flex-1">
                         <h3 class="text-2xl font-bold mb-3 text-blue-100">
-                         CSM: IT Service Request System
-                         </h3>
+                        CSM IT Service Request Automation</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Python (Streamlit)</span>
                             <span class="tech-badge">UiPath Studio</span>
                             <span class="tech-badge">MS SQL server</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b> 
-Centralised IT service platform with automated ticket handling and workflow orchestration.
+An automation workflow designed to streamline IT service request that does not expose API integration.
 <br><br>
-<b>Key Capabilities:</b>
-<br>
-- Unified ticket submission and tracking<br>
-- Real-time monitoring dashboards<br>
-- Automated prioritisation and routing<br>
-- Backend system integration<br>
-<br>
+The bot initiates by launching a dropdown selection menu, letting a human operator choose the exact system action to perform.
+Based on the selected input, the workflow dynamically routes execution to the relevant process.
+<br><br>
+The bot interacts directly with the CSM application, performing end-to-end updates such as status changes, log entries, and  clearing in bulk, eliminating repetitive manual data entry.
+<br><br>
+This approach improves processing speed, reduces human error, and enables scalable automation for systems that lack modern integration capabilities.
 
-<b>Impact:</b> 
-Enhances visibility, speeds up response times, and improves IT operations.
 </p>
                        </div>
                 </div>
@@ -309,7 +303,7 @@ Enhances visibility, speeds up response times, and improves IT operations.
                     </div>
                     <div class="flex-1">
                         <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">
-                        Asset Management: Medical Equipment Tracker
+                        Medical Equipment Maintenance & Calibration Automation
                         </h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Python (Streamlit)</span>
@@ -319,18 +313,23 @@ Enhances visibility, speeds up response times, and improves IT operations.
                             <span class="tech-badge">Microsoft Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b> 
-Automated solution for tracking asset maintenance and compliance.
+This automation solution provides proactive monitoring of medical equipment maintenance 
+and calibration schedules to ensure compliance and reduce operational risk.
+Here's the workflow
 <br><br>
-<b>Key Capabilities:</b>
-<br>
-- Continuous maintenance tracking<br>
-- Identifies upcoming and overdue servicing<br>
-- Sends automated alerts<br>
-- Maintains lifecycle records<br>
-<br>
-<b>Impact:</b> 
-Reduces downtime and ensures compliance through proactive management.
+<b>Asset Data Processing:</b> 
+The bot retrieves equipment records from the 
+data table, including critical medical devices such as CT scanners, MRI machines, and other regulated assets.
+<br><br>
+<b>Compliance Evaluation:</b> 
+The workflow iterates through each record and evaluates the key fields such as Next Maintenance Date and Calibration Due Date, comparing them against the current system date to detect overdue or upcoming service requirements.
+<br><br>
+<b>Exception Detection:</b> 
+When a upcoming deadline is identified, the bot flags the specific asset and prepares an exception record for reporting.
+An Outlook notification is automatically generated and sent to the engineering and biomedical teams.
+<br><br>
+<b>Maintenance Report:</b> 
+Each alert includes key operational details such as Equipment ID, location, serial number, and deviation timeline, enabling teams to immediately schedule maintenance without manual data extraction.
 </p></div>
                 </div>
 
@@ -352,20 +351,20 @@ Reduces downtime and ensures compliance through proactive management.
                             <span class="tech-badge">Microsoft Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b> 
-RPA solution that automates client onboarding by syncing Excel data with CRM.
+This automation solution streamlines client onboarding by synchronizing structured enrollment data from Excel into the CRM platform through a UiPath-driven workflow.
 <br><br>
-<b>Key Capabilities:</b>
+<b>How the workflow operates</b>
 <br>
-- Extracts structured data from Excel<br>
-- Automates CRM record creation and updates<br>
-- Ensures data consistency<br>
-- Supports batch processing<br>
-<br>
-<b>Impact:</b> 
-Accelerates onboarding and improves data accuracy.
-</p>                    </div>
-                </div>
+1. The bot retrieves and validates client enrollment information from standardized Excel worksheets, including customer details, contact information, and onboarding fields.
+<br><br>
+2. Using UiPath Studio, the workflow automatically creates new client records or updates existing profiles within the CRM system based on predefined business rules.
+<br><br>
+3. The automation performs basic validation checks to reduce duplicate entries, incomplete records, and formatting inconsistencies before submission into the CRM environment.
+
+</p></div>          
+
+
+</div>
 
                 <!-- Alfred: Intelligent CRM Automation -->
 <!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
