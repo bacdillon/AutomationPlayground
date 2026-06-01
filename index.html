@@ -184,10 +184,11 @@ The invoice processing automation built with UiPath, integrating Google Drive an
 <br><br>
 <b>Scenario 1: Automated Approval</b>
 <br>
-The automation picks up a new invoice (invoice-001d.pdf) from Google Drive. An AI-driven "Decision Agent" evaluates the extracted details, determines it meets the criteria for automatic approval, and seamlessly moves the file to the "Approved" folder without requiring any human intervention.
-<b>Scenario 2: Human-in-the-Loop (Review & Rejection)</b>
+The automation picks up a new invoice (invoice-001d.pdf) from Google Drive. An AI-driven "Decision Agent" evaluates the extracted details, determines it meets the criteria for automatic approval, and seamlessly moves the file to the "Approved" folder.
 <br><br>
-A second invoice (invoice-0022.pdf) is processed, but the Decision Agent flags it for being "Over limit" (totaling $10,825). The workflow automatically pauses and creates a review task in the UiPath Action Center. A human user takes over, reviews the flagged details, and manually hits "Reject." The automation instantly resumes, routing the file into the "Rejected" folder in Google Drive.
+<b>Scenario 2: Human-in-the-Loop (Review & Rejection)</b>
+<br>
+A second invoice (invoice-0022.pdf) is processed, but the Decision Agent flags it for being "Over limit" (totaling $10,825). The workflow automatically pauses and creates a review task in the UiPath Action Center. A human user takes over, reviews the details, and clicks "Reject." The automation instantly resumes, routing the file into the "Rejected" folder in Google Drive.
 </p>
                      </div>
                 </div>
