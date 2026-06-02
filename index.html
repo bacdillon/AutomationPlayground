@@ -366,63 +366,6 @@ This automation solution streamlines client onboarding by synchronizing structur
 
 </div>
 
-                <!-- Alfred: Intelligent CRM Automation -->
-<!--                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
-                    <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
-                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/UIPATH-Alfred-Bot.gif" 
-                             class="w-full h-full object-cover rounded-lg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Alfred: Intelligent CRM Automation</h3>
-                        <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">Python Flask</span>
-                            <span class="tech-badge">MS SQL</span>
-                            <span class="tech-badge">Outlook</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b> 
-End-to-end CRM automation integrating email processing, validation, and system updates.
-<br><br>
-<b>Key Capabilities:</b>
-<br>
-- Extracts data from incoming emails<br>
-- Validates against database records<br>
-- Updates CRM systems automatically<br>
-- Generates reports and notifications<br>
-<br>
-<b>Impact:</b> 
-Improves data integrity and operational efficiency at scale.
-</p></div> -->
-
-                <!-- UiPath Robot 8 -->
-<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
-                    <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
-                            <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <i class="fas fa-headset text-6xl text-blue-500/30"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Call Center Attended Bot</h3>
-                        <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Attended Automation</span>
-                            <span class="tech-badge">UiPath Apps</span>
-                        </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">A side-by-side assistant that pulls customer data from multiple screens into a single view for live agents.</p>
-                        <ul class="space-y-2 text-sm">
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 30% reduction in AHT</li>
-                            <li class="flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Seamless legacy-to-modern bridge</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> -->
     </section>
 
     <!-- Microsoft Platform Section -->
@@ -552,24 +495,21 @@ The process prompts users to select an Excel file containing review data, then i
 
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Documents Classification</h3>
+                        <h3 class="text-2xl font-bold mt-0 mb-3 text-purple-100">Agentic Workflow with Power Automate Desktop – Document Classification</h3>
                             <div class="flex flex-wrap mb-2">
                                 <span class="tech-badge">Power Automate Desktop</span>
                                 <span class="tech-badge">OpenAI Integration</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b><br>
-AI-powered classification framework with confidence scoring and validation.
+The diagram illustrates how an AI agent operates within a business context. It consists of a closed-loop automation framework designed for intelligent document classification with confidence scoring and validation.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Classifies documents into categories<br>
-- Assigns confidence scores<br>
-- Extracts supporting evidence<br>
-- Outputs structured results (CSV)<br>
-- Flags low-confidence cases<br>
+<b>Here’s the automation workflow:</b>
 <br>
-<b>Impact:</b><br>
-Improves speed, accuracy, and scalability in document-heavy workflows.
+This agentic AI workflow automates the classification of documents using Power Automate Desktop integrated with the OpenAI API.
+<br><br>
+The process begins by prompting users to select a folder or Excel file containing document records. The workflow then iterates through each document entry and sends the content to the AI service for category classification, confidence scoring, and supporting evidence extraction.
+<br><br>
+The results are automatically written back into a structured Excel output, including the category, confidence score, and extracted justification. Documents with low confidence scores are flagged for human review to ensure accuracy and governance.
 </p></div>
                 </div>
 
@@ -617,7 +557,7 @@ Reduces processing time and improves consistency in financial operations.
                         </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Onboarding Validation: Dispatcher & Performer</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-purple-100">Automated Workflow with Power Automate Desktop – Onboarding Validation (Dispatcher & Performer)</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Power Automate Desktop</span>
                             <span class="tech-badge">Work Queues</span>
@@ -625,18 +565,14 @@ Reduces processing time and improves consistency in financial operations.
 
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b><br>
-Queue-based automation framework for scalable onboarding validation.
+The workflow using Dispatcher–Performer framework, orchestrated through work queues.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Centralised queue management<br>
-- Applies validation rules<br>
-- Tracks processing status<br>
-- Enables parallel execution<br>
-- Handles retries and exceptions<br>
-<br>
-<b>Impact:</b><br>
-Improves scalability, reliability, and processing efficiency.
+The Dispatcher process extracts records from Excel and publishes them into a centralised work queue. 
+<br><br>
+The Performer process continuously retrieves items from the queue. It performs each record data checks, verifies completeness, and ensures compliance with business requirements.
+<br><br>
+Processing status is continuously updated back into the queue system. The framework also supports parallel execution, allowing multiple performers to process items simultaneously.
+Error handling mechanisms are built in, including retries for transient failures and exception logging for failed transactions.
                         </P> </div> </div>
                 </div>
 
@@ -657,19 +593,21 @@ Improves scalability, reliability, and processing efficiency.
                             <span class="tech-badge">Dataverse</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed"><b>Overview:</b><br>
-Centralised inventory solution with real-time tracking and automated alerts.
+<b>Overview:</b>
+A centralised inventory management solution designed to provide real-time stock visibility, automated alerts, and streamlined inventory operations.
 <br><br>
-<b>Problem:</b><br>
-Inventory tracking was previously fragmented across spreadsheets and manual logs, leading to poor visibility, delayed updates, and inconsistent stock management.<b>Solution:</b><br>
+<b>Here’s the automation workflow:</b>
 <br>
-<b>Key Capabilities:</b><br>
-- Real-time inventory monitoring<br>
-- Centralised data storage<br>
-- Automated low-stock alerts<br>
-- User-friendly interface<br>
-<br>
+This solution digitises and automates inventory tracking using Power Apps for the user interface, Dataverse for centralised data storage, and Power Automate for workflow automation.
+<br><br>
+Users can update and monitor inventory in real time through a mobile-friendly Power Apps interface. All inventory transactions are stored centrally in Dataverse, ensuring a single source of truth across the system.
+<br><br>
+Power Automate workflows continuously monitor stock levels and trigger automated low-stock alerts when predefined thresholds are reached. This ensures timely replenishment and prevents stockouts.
+<br><br>
+The system replaces fragmented spreadsheets and manual logs with a unified, automated inventory platform that improves operational control and accuracy.
+<br><br>
 <b>Impact:</b><br>
-Enhances visibility and supports data-driven inventory decisions.
+Enhances inventory visibility, reduces manual tracking errors, and supports faster, data-driven decision-making for stock management.
 </p></div>
                 </div>
 
@@ -691,28 +629,21 @@ Enhances visibility and supports data-driven inventory decisions.
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-Interactive dashboard transforming sales data into actionable insights.
+An interactive Power BI dashboard that transforms sales data into meaningful business insights for performance tracking and decision-making.
 <br><br>
-<b>KEY INSIGHTS</b><br>
-<b>Financial Performance:</b> 
-Total Revenue: $640,778
-Total Profit: $174,620
-Total Orders: 41,830
-<br><br>
-<b>Trend Analysis:</b> 
-- Line and area charts display growth patterns in orders and revenue over time 
-- Helps identify seasonal trends and demand fluctuations<br>
+<b>Here’s the analytics workflow:</b>
 <br>
-<b>Category Performance:</b> 
-- Toys is the top-performing product category 
-- Followed by Games and Arts & Crafts
+The dashboard connects and models sales data using DAX measures to generate key business metrics such as revenue, profit, and order volume.
 <br><br>
-<b>Location Insights:</b> 
-- Interactive slicers allow analysis by store location: 
-<br> Airport, Commercial, Downtown, and Residential 
-- Supports comparison of performance across different retail environments<br>
-<br><b>Impact:</b><br>
-Improves visibility into business performance, supports data-driven decision-making, and helps identify growth opportunities across products and store locations.
+It enables trend analysis through time-series visualisations, highlighting seasonal patterns and fluctuations in sales performance.
+<br><br>
+Category-level analysis identifies top-performing product segments such as Toys, Games, and Arts & Crafts, while interactive filters allow segmentation by store locations including Airport, Commercial, Downtown, and Residential outlets.
+<br><br>
+This enables dynamic exploration of business performance across multiple dimensions, supporting both operational and strategic decisions.
+<br><br>
+<b>Impact:</b>
+<br>
+Improves visibility into financial and operational performance, enabling data-driven decisions and identification of growth opportunities across products and locations.
 </p>
                     </div>
                 </div>
@@ -736,13 +667,16 @@ Improves visibility into business performance, supports data-driven decision-mak
 <b>Overview:</b><br>
 Interactive dashboard mapping inventory across physical layouts.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Maps assets to floor plans<br>
-- Enables interactive filtering<br>
-- Identifies stock gaps<br>
+<b>Here’s the analytics workflow:</b>
 <br>
+This solution uses Power BI Synoptic Panel to map inventory items directly onto floor plan layouts.
+<br><br>
+Users can interactively visualise furniture placement, filter by category, and identify gaps or under utilised space layout areas in real time.
+<br><br>
+The spatial representation allows teams to quickly understand inventory distribution within physical environments, improving operational awareness and planning.
+<br><br>
 <b>Impact:</b><br>
-Improves asset visibility and operational efficiency.
+Improves furniture asset visibility, improves spatial inventory management, and increases operational efficiency in physical space environments.
 </p>
 
                         </div>
@@ -765,7 +699,13 @@ Improves asset visibility and operational efficiency.
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-Data storytelling dashboard analysing conversion performance and pipeline health.
+A data storytelling dashboard that analyses sales pipeline performance and identifies conversion bottlenecks across the funnel.
+<br><br>
+<b>Here’s the analytics workflow:</b>
+<br>
+The dashboard tracks lead progression across multiple sales stages and calculates conversion rates using Power BI measures.
+<br><br>
+It identifies behavioural and performance patterns across sales representatives, highlighting strengths and gaps in pipeline management.
 <br><br>
 <b>Alex:</b> Initially over-focused on closing deals while neglecting lead generation. By rebalancing efforts toward top-of-funnel activities, he built a more sustainable and consistent pipeline.
 <br><br>
@@ -773,14 +713,10 @@ Data storytelling dashboard analysing conversion performance and pipeline health
 <br><br>
 <b>Peter:</b> A late bloomer due to temporary project reassignment. Despite a slower start, his strong conversion rates across all stages led to a top performance outcome, closing 6 contracts.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Tracks conversion rates by stage<br>
-- Identifies bottlenecks<br>
-- Supports coaching insights<br>
-<br>
+<!-- Stage-level breakdowns help identify bottlenecks and optimise funnel efficiency for improved conversion outcomes.
+<br><br> -->
 <b>Impact:</b>
-Improves pipeline performance through targeted, data-driven interventions.
-                        </p>
+Improves sales performance through data-driven coaching insights and better pipeline visibility.                        </p>
                         </div>
                 </div>
 
@@ -801,16 +737,15 @@ Improves pipeline performance through targeted, data-driven interventions.
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <B>Overview:</B><br>
-Analytics dashboard identifying delay patterns across large-scale flight data.
+An analytics dashboard designed to identify delay patterns and operational inefficiencies in large-scale flight data.
 <br><br>
-<b>Key Capabilities:</b><br>
+<b>Here’s the analytics workflow:</b>
+<br>
 - Analyses delays and cancellations<br>
 - Compares airline performance<br>
 - Visualises trends over time<br>
 </p>
 <p class="text-slate-400 mb-6 leading-relaxed">
-<b>What It Shows:</b><br>
-
 1. Ranks high-traffic cities like Atlanta, Chicago, and Dallas-Fort Worth by flight volume<br>
 2. Compares delay performance across major airlines (United, Southwest, American Airlines)<br>
 3. Breaks down cancellation causes (Weather, Carrier, National Aviation System)<br>
@@ -818,7 +753,7 @@ Analytics dashboard identifying delay patterns across large-scale flight data.
 </p>
 <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Impact:</b><br>
-Enables identification of operational bottlenecks and performance improvements.
+Supports operational optimisation by identifying delay patterns and improving airline performance visibility.
 </p></div>
                 
 </div>
@@ -826,12 +761,12 @@ Enables identification of operational bottlenecks and performance improvements.
                 <!--Automated Ticket Management System -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
+<!--                         <div class="video-wrapper glass-card">
                  
                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center">
                             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Power%20Platform%20Automated%20Ticket%20Management%20System.png">                   
                          </div>
-                        </div>
+                        </div> -->
 
                             <div class="video-wrapper">
                                 <iframe src="https://player.vimeo.com/video/1188310566?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
@@ -848,15 +783,18 @@ Enables identification of operational bottlenecks and performance improvements.
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-End-to-end workflow converting emails into structured support tickets.
+An end-to-end workflow that automates incident and request management by converting emails into structured support tickets.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Extracts ticket data from emails<br>
-- Creates and assigns tasks in Planner<br>
-- Sends notifications via Teams<br><br>
+<b>Here’s the automation workflow:</b><br>
+The system monitors incoming emails and extracts relevant ticket details using Power Automate.
+<br><br>
+Each request is automatically converted into a structured task in Microsoft Planner and assigned to the appropriate support team.
+<br><br>
+Notifications are sent via Microsoft Teams to ensure real-time visibility and faster response times.
+<br><br>
+This removes manual ticket logging and improves workflow coordination across support teams.
 <b>Impact:</b><br>
-Improves tracking, reduces manual effort, and speeds up resolution.
-
+Reduces manual effort, improves incident tracking, and accelerates resolution time.
                         </div>
 </p>  </div>
 
@@ -879,29 +817,29 @@ Improves tracking, reduces manual effort, and speeds up resolution.
                        </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-Digital expense management solution with automated workflows.
+A digital expense tracking solution designed to streamline submission, approval, and reporting of employee expenses.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Expense submission and approval<br>
-- Real-time tracking<br>
-- Reporting and audit trail<br>
-
-<br>
+<b>Here’s the automation workflow:</b><br>
+Users submit expenses through a Power Apps interface, which triggers Power Automate workflows for approval routing and processing.
+<br><br>
+Approvals are managed through automated workflows integrated with Outlook notifications.
+<br><br>
+All expense records are tracked in real time, providing visibility and auditability across financial transactions.
+<br><br>
 <b>Impact:</b><br>
-Improves financial visibility and workflow efficiency.
-                        </p>
+Improves financial control, reduces manual processing, and enhances transparency in expense management.                        </p>
                         </div>
                 </div>
 
                 <!-- Automated Daily Sales Order Dispatch -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
+<!--                         <div class="video-wrapper glass-card">
                 
                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center">
                             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Automated%20Daily%20Sales%20Order.png">                   
                          </div>
-                        </div>
+                        </div> -->
 
                             <div class="video-wrapper">
                                 <iframe src="https://player.vimeo.com/video/1188313837?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
@@ -917,14 +855,13 @@ Improves financial visibility and workflow efficiency.
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview:</b><br>
-Scheduled automation for generating and distributing daily sales reports.
+A scheduled automation workflow that generates and distributes daily sales reports.<br><br>
+<b>Here’s the automation workflow:</b><br>
+The process is triggered on a scheduled basis using Power Automate, which extracts sales data stored in SharePoint.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Scheduled execution<br>
-- Extracts data from SharePoint<br>
-- Generates formatted reports<br>
-- Sends automated emails<br>
-
+The data is formatted into structured reports and automatically distributed via Outlook email to relevant stakeholders.
+<br><br>
+This eliminates manual report preparation and ensures timely delivery of business-critical information.
 <br>
 <b>Impact:</b><br>
 Improves reporting accuracy and reduces manual workload.
@@ -938,7 +875,7 @@ Improves reporting accuracy and reduces manual workload.
     <section id="Copilot Studio Agents" class="py-12 px-6 bg-slate-900/30">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
-                <h2 class="text-3xl font-bold text-teal-400">Microsoft Copilot Studio (AI Agents & Conversational Automation)</h2>
+                <h2 class="text-3xl font-bold text-teal-400">Microsoft Copilot Studio Agent</h2>
                 <!-- <h2 class="text-xl font-bold text-teal-400">Empowering users through natural language interfaces and multi-agent orchestration.</h2> -->
                 <div class="w-20 h-1 bg-teal-500 rounded mt-2"></div>
             </div>
@@ -968,25 +905,22 @@ Improves reporting accuracy and reduces manual workload.
 
                     
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Copilot Studio User Guide Agent</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Copilot Studio Guide Agent</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
                             <span class="tech-badge">Prompt Engineering</span>
                             <span class="tech-badge">Agent Evaluation</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b><br>
-Guided resource for building, evaluating, and optimising Copilot agents using structured prompt design.
-Evaluating agent performance, using test sets, and measuring quality within Copilot Studio.
+A conversational guidance agent designed to support users in learning and applying Microsoft Copilot Studio effectively, with emphasis on prompt engineering, agent evaluation, and governance best practices.
 <br><br>
-<b>Key Capabilities:</b><br>
-- Explains core Copilot Studio concepts and usage<br>
-- Provides prompt engineering best practices<br>
-- Introduces agent evaluation and performance measurement<br>
-- Supports structured testing with evaluation datasets<br><br>
-<b>Impact:</b><br>
-Improves agent quality, enables measurable evaluation, and supports continuous optimisation of AI solutions
-</p></div>
+This agent provides structured guidance on Microsoft Copilot Studio usage, including prompt engineering best practices, agent design principles, and conversational workflow optimisation.
+<br><br>
+It also supports users in joining the Copilot Studio mailing list to stay updated on platform enhancements and best practices.
+<br><br>
+In addition, the agent introduces agent evaluation techniques using structured validation sets, including pass/fail test cases, to assess response quality, accuracy, and consistency.
+<br><br>
+Security and governance guidance is also embedded, helping ensure that agents are built and tested in alignment with organisational compliance, data protection, and responsible AI principles.</p></div>
                 </div>
 
 
