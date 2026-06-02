@@ -180,7 +180,7 @@
                         <p class="text-slate-400 mb-6 leading-relaxed">
 
 
-The invoice processing automation built with UiPath, integrating Google Drive and UiPath Action Center to handle both automated decisions and human-in-the-loop exceptions.
+The invoice processing automation built with Web Studio, Maestro, integrating Google Drive and Action Center to handle both automated decisions and human-in-the-loop exceptions.
 <br><br>
 <b>Scenario 1: Automated Approval</b>
 <br>
@@ -523,18 +523,14 @@ Finally, the workflow launches Outlook and automatically sends a “Robot Perfor
                             <span class="tech-badge">OpenAI API (HTTP Web Service)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b><br>
-Agent-based automation that analyses customer reviews with AI and human validation checkpoints.
-<br><br>
-<b>Key Capabilities:</b><br>
-- Extracts review data from Excel<br>
-- Performs sentiment analysis via API<br>
-- Scores and classifies sentiment<br>
-- Flags uncertain results for review<br>
-- Outputs structured data<br>
+The diagram shows how an AI agent operates within a business context. Six key components arranged in a loop
+for Sentiment Analysis Agent.<br><br>
+Here's the automation workflow:
 <br>
-<b>Impact:</b><br>
-Scales analysis while maintaining quality and consistency.
+This agentic AI workflow automates sentiment analysis of product reviews using Power Automate Desktop and the OpenAI API.
+<br><br>
+The process prompts users to select an Excel file containing review data, then iterates through each row to send review content to the AI service for sentiment classification and rating generation.
+<br><br>The workflow automatically writes the sentiment results and numerical ratings back into Excel Column B, creating a structured output dataset for reporting and analysis.
 </p>
 </div>
                 </div>
