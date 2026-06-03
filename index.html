@@ -179,9 +179,12 @@
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 
-
+<b>Overview</b>
+<br>
 The invoice processing automation built with Web Studio, Maestro, integrating Google Drive and Action Center to handle both automated decisions and human-in-the-loop exceptions.
 <br><br>
+<b>How the automation works</b>
+<br>
 <b>Scenario 1: Automated Approval</b>
 <br>
 The automation picks up a new invoice (invoice-001d.pdf) from Google Drive. An AI-driven "Decision Agent" evaluates the extracted details, determines it meets the criteria for automatic approval, and seamlessly moves the file to the "Approved" folder.
@@ -209,9 +212,12 @@ A second invoice (invoice-0022.pdf) is processed, but the Decision Agent flags i
                             <span class="tech-badge">BMMI Calculator (Vibe Coding Prototype)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+
+<b>Overview</b>
+<br>
 The workflow built in UiPath Studio designed to process Body Mass Index (BMI) calculations created by using Vibe Coding.
 <br><br>
-The automation works step-by-step:
+<b>How the automation works</b>
 <br>
 <b>1. Data Extraction & Queuing:</b> The bot begins by reading the data table (Height and Weight). It filters for rows marked "Ready to process" and uploads them as individual transaction items into a UiPath Orchestrator Queue (BMIQueue).
 The process navigates to an online BMI Calculator web application.
@@ -240,10 +246,14 @@ The process navigates to an online BMI Calculator web application.
                             <span class="tech-badge">Python Streamlit CRM</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 Alfred is an automation bot designed to completely streamlining how invoices are processed. 
 The main goals is to slashing processing times by 70% and wiping out manual data-entry. 
 Here is how Alfred handles the heavy lifting from start to finish:
 <br><br>
+<b>How the automation works</b>
+<br>
 1. Alfred constantly monitors incoming emails, instantly downloading any invoice attachments the moment they arrive.
 <br><br>
 2. Using UiPath’s REFramework paired with Document Understanding, 
@@ -279,14 +289,18 @@ the bot intelligently reads, classifies, and extracts key data fields from vario
                             <span class="tech-badge">MS SQL server</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 An automation workflow designed to streamline IT service request that does not expose API integration.
 <br><br>
-The bot initiates by launching a dropdown selection menu, letting a human operator choose the exact system action to perform.
+<b>How the automation works</b>
+<br>
+1. The bot initiates by launching a dropdown selection menu, letting a human operator choose the exact system action to perform.
 Based on the selected input, the workflow dynamically routes execution to the relevant process.
 <br><br>
-The bot interacts directly with the CSM application, performing end-to-end updates such as status changes, log entries, and  clearing in bulk, eliminating repetitive manual data entry.
+2. The bot interacts directly with the CSM application, performing end-to-end updates such as status changes, log entries, and  clearing in bulk, eliminating repetitive manual data entry.
 <br><br>
-This approach improves processing speed, reduces human error, and enables scalable automation for systems that lack modern integration capabilities.
+3. This approach improves processing speed, reduces human error, and enables scalable automation for systems that lack modern integration capabilities.
 
 </p>
                        </div>
@@ -313,23 +327,22 @@ This approach improves processing speed, reduces human error, and enables scalab
                             <span class="tech-badge">Microsoft Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 This automation solution provides proactive monitoring of medical equipment maintenance 
 and calibration schedules to ensure compliance and reduce operational risk.
-Here's the workflow
 <br><br>
-<b>Asset Data Processing:</b> 
-The bot retrieves equipment records from the 
+<b>How the automation works</b>
+<br>
+1. The bot retrieves equipment records from the 
 data table, including critical medical devices such as CT scanners, MRI machines, and other regulated assets.
 <br><br>
-<b>Compliance Evaluation:</b> 
-The workflow iterates through each record and evaluates the key fields such as Next Maintenance Date and Calibration Due Date, comparing them against the current system date to detect overdue or upcoming service requirements.
+2. The workflow iterates through each record and evaluates the key fields such as Next Maintenance Date and Calibration Due Date, comparing them against the current system date to detect overdue or upcoming service requirements.
 <br><br>
-<b>Exception Detection:</b> 
-When a upcoming deadline is identified, the bot flags the specific asset and prepares an exception record for reporting.
+3. When a upcoming deadline is identified, the bot flags the specific asset and prepares an exception record for reporting.
 An Outlook notification is automatically generated and sent to the engineering and biomedical teams.
 <br><br>
-<b>Maintenance Report:</b> 
-Each alert includes key operational details such as Equipment ID, location, serial number, and deviation timeline, enabling teams to immediately schedule maintenance without manual data extraction.
+4. Each alert includes key operational details such as Equipment ID, location, serial number, and deviation timeline, enabling teams to immediately schedule maintenance without manual data extraction.
 </p></div>
                 </div>
 
@@ -351,9 +364,11 @@ Each alert includes key operational details such as Equipment ID, location, seri
                             <span class="tech-badge">Microsoft Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 This automation solution streamlines client onboarding by synchronizing structured enrollment data from Excel into the CRM platform through a UiPath-driven workflow.
 <br><br>
-<b>How the workflow operates</b>
+<b>How the automation works</b>
 <br>
 1. The bot retrieves and validates client enrollment information from standardized Excel worksheets, including customer details, contact information, and onboarding fields.
 <br><br>
@@ -398,14 +413,19 @@ This automation solution streamlines client onboarding by synchronizing structur
                             <span class="tech-badge">Microsoft Excel</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 This automation framework provides end-to-end traceability in automated workflows through structured validation and logging.
 A step-level validation, centralized logging, automated calculations, to improve reliability, auditability, and troubleshooting efficiency. 
-Here's how the workflow operates:
 <br><br>
+<b>How the automation works</b>
+<br>
 1. The workflow performs system-driven calculations using the Windows Calculator application as part of a controlled automation sequence.
 <br><br>
 2. Each execution stage including input values, calculated outputs, timestamps, and workflow actions is automatically captured and recorded
-and stored in Microsoft Excel, providing a audit trail for operational review and reporting.
+and stored in Microsoft Excel.
+<br><br>
+3. Providing a audit trail for operational review and reporting.
 At the same time posted to Microsoft Teams channels to notify the stakeholders.
 <br><br>
 </p>
@@ -429,13 +449,19 @@ At the same time posted to Microsoft Teams channels to notify the stakeholders.
                             <span class="tech-badge">Outlook</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-This workflow extends the previous Automation Validation & Logging layer by introducing a reporting mechanism that extracts logged execution data from a SQL database and converts it into actionable performance insights.
+<b>Overview</b>
+<br>
+This workflow extends from the previous Automation Validation & Logging layer by introducing a reporting mechanism that extracts logged execution data from a SQL database and converts it into actionable performance insights.
 <br><br>
-The automation establishes a secure ODBC connection to a Microsoft SQL Server database, where processed case logs are stored. It executes SQL queries to aggregate results by process outcome and calculates key metrics such as total transactions and success rate percentage.
+<b>How the automation works</b>
+<br>
+1. The automation establishes a secure ODBC connection to a Microsoft SQL Server database, where processed case logs are stored. 
 <br><br>
-The processed results are then formatted into a structured email body, summarizing robot performance in a readable report format.
+2. It executes SQL queries to aggregate results by process outcome and calculates key metrics such as total transactions and success rate percentage.
 <br><br>
-Finally, the workflow launches Outlook and automatically sends a “Robot Performance Report” email to stakeholders, ensuring timely visibility of automation performance metrics.
+3. The processed results are then formatted into a structured email body, summarizing robot performance in a readable report format.
+<br><br>
+4. Finally, the workflow launches Outlook and automatically sends a “Robot Performance Report” email to stakeholders, ensuring timely visibility of automation performance metrics.
                         </p>
                     </div>
                 </div>
@@ -466,14 +492,17 @@ Finally, the workflow launches Outlook and automatically sends a “Robot Perfor
                             <span class="tech-badge">OpenAI API (HTTP Web Service)</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 The diagram shows how an AI agent operates within a business context. Six key components arranged in a loop
 for Sentiment Analysis Agent.<br><br>
-Here's the automation workflow:
+<b>How the automation works</b>
 <br>
-This agentic AI workflow automates sentiment analysis of product reviews using Power Automate Desktop and the OpenAI API.
+1. This agentic AI workflow automates sentiment analysis of product reviews using Power Automate Desktop and the OpenAI API.
 <br><br>
-The process prompts users to select an Excel file containing review data, then iterates through each row to send review content to the AI service for sentiment classification and rating generation.
-<br><br>The workflow automatically writes the sentiment results and numerical ratings back into Excel Column B, creating a structured output dataset for reporting and analysis.
+2. The process prompts users to select an Excel file containing review data, then iterates through each row to send review content to the AI service for sentiment classification and rating generation.
+<br><br>
+3. The workflow automatically writes the sentiment results and numerical ratings back into Excel Column B, creating a structured output dataset for reporting and analysis.
 </p>
 </div>
                 </div>
@@ -501,15 +530,17 @@ The process prompts users to select an Excel file containing review data, then i
                                 <span class="tech-badge">OpenAI Integration</span>
                             </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 The diagram illustrates how an AI agent operates within a business context. It consists of a closed-loop automation framework designed for intelligent document classification with confidence scoring and validation.
 <br><br>
-<b>Here’s the automation workflow:</b>
+<b>How the automation works</b>
 <br>
-This agentic AI workflow automates the classification of documents using Power Automate Desktop integrated with the OpenAI API.
+1. This agentic AI workflow automates the classification of documents using Power Automate Desktop integrated with the OpenAI API.
 <br><br>
-The process begins by prompting users to select a folder or Excel file containing document records. The workflow then iterates through each document entry and sends the content to the AI service for category classification, confidence scoring, and supporting evidence extraction.
+2. The process begins by prompting users to select a folder or Excel file containing document records. The workflow then iterates through each document entry and sends the content to the AI service for category classification, confidence scoring, and supporting evidence extraction.
 <br><br>
-The results are automatically written back into a structured Excel output, including the category, confidence score, and extracted justification. Documents with low confidence scores are flagged for human review to ensure accuracy and governance.
+3. The results are automatically written back into a structured Excel output, including the category, confidence score, and extracted justification. Documents with low confidence scores are flagged for human review to ensure accuracy and governance.
 </p></div>
                 </div>
 
@@ -565,14 +596,19 @@ Reduces processing time and improves consistency in financial operations.
 
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 The workflow using Dispatcher–Performer framework, orchestrated through work queues.
 <br><br>
-The Dispatcher process extracts records from Excel and publishes them into a centralised work queue. 
+<b>How the automation works</b>
+<br>
+1. The Dispatcher process extracts records from Excel and publishes them into a centralised work queue. 
 <br><br>
-The Performer process continuously retrieves items from the queue. It performs each record data checks, verifies completeness, and ensures compliance with business requirements.
+2. The Performer process continuously retrieves items from the queue. It performs each record data checks, verifies completeness, and ensures compliance with business requirements.
 <br><br>
-Processing status is continuously updated back into the queue system. The framework also supports parallel execution, allowing multiple performers to process items simultaneously.
-Error handling mechanisms are built in, including retries for transient failures and exception logging for failed transactions.
+3. Processing status is continuously updated back into the queue system. The framework also supports parallel execution, allowing multiple performers to process items simultaneously.
+<br><br>
+4. Error handling mechanisms are built in, including retries for transient failures and exception logging for failed transactions.
                         </P> </div> </div>
                 </div>
 
@@ -592,21 +628,20 @@ Error handling mechanisms are built in, including retries for transient failures
                             <span class="tech-badge">Power Automate</span>
                             <span class="tech-badge">Dataverse</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed"><b>Overview:</b><br>
+                        <p class="text-slate-400 mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
 A centralised inventory management solution designed to provide real-time stock visibility, automated alerts, and streamlined inventory operations.
 <br><br>
-<b>Here’s the automation workflow:</b>
+<b>How the automation works</b>
 <br>
-This solution digitises and automates inventory tracking using Power Apps for the user interface, Dataverse for centralised data storage, and Power Automate for workflow automation.
+1. This solution digitises and automates inventory tracking using Power Apps for the user interface, Dataverse for centralised data storage, and Power Automate for workflow automation.
 <br><br>
-Users can update and monitor inventory in real time through a mobile-friendly Power Apps interface. All inventory transactions are stored centrally in Dataverse, ensuring a single source of truth across the system.
+2. Users can update and monitor inventory in real time through a mobile-friendly Power Apps interface. All inventory transactions are stored centrally in Dataverse, ensuring a single source of truth across the system.
 <br><br>
-Power Automate workflows continuously monitor stock levels and trigger automated low-stock alerts when predefined thresholds are reached. This ensures timely replenishment and prevents stockouts.
+3. Power Automate workflows continuously monitor stock levels and trigger automated low-stock alerts when predefined thresholds are reached. This ensures timely replenishment and prevents stockouts.
 <br><br>
-The system replaces fragmented spreadsheets and manual logs with a unified, automated inventory platform that improves operational control and accuracy.
-<br><br>
-<b>Impact:</b><br>
-Enhances inventory visibility, reduces manual tracking errors, and supports faster, data-driven decision-making for stock management.
+4. The system replaces fragmented spreadsheets and manual logs with a unified, automated inventory platform that improves operational control and accuracy.
 </p></div>
                 </div>
 
@@ -627,10 +662,10 @@ Enhances inventory visibility, reduces manual tracking errors, and supports fast
                             <span class="tech-badge">DAX</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
-<b>Overview:</b><br>
+<b>Overview</b><br>
 An interactive Power BI dashboard that transforms sales data into meaningful business insights for performance tracking and decision-making.
 <br><br>
-<b>Here’s the analytics workflow:</b>
+<b>Here’s the analytics workflow</b>
 <br>
 The dashboard connects and models sales data using DAX measures to generate key business metrics such as revenue, profit, and order volume.
 <br><br>
@@ -1155,7 +1190,7 @@ Improves user adoption, reduces learning curve, and enhances effective use of AI
                     </div>
                     </div>
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-100">IT Helpdesk Support Agent</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">IT Helpdesk Support Agent (ITSM)</h3>
                         <div class="flex flex-wrap mb-2">
                             <span class="tech-badge">Microsoft Copilot Studio</span>
                             <span class="tech-badge">UiPath</span>
