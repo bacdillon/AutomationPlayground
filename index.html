@@ -1487,45 +1487,49 @@ Reduces manual review effort and improves compliance consistency.
             </div>
 
             <div class="flex flex-col">
-                <!-- Copilot Studio Agents -->
-<!--                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
+                <!-- Business Process Modelling -->
+                <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
                     <div class="flex-1 w-full">
                         <div class="video-wrapper glass-card">
                               <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
-                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Copilot%20Montly%20Update.png">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/BPMN2.png">
                             </div>
                         </div>
 
-                        <div class="video-wrapper glass-card">
+<!--                         <div class="video-wrapper glass-card">
                             <div class="absolute inset-0 bg-slate-800 flex items-center justify-center">
                                 <iframe src="https://player.vimeo.com/video/1194244577?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="sys_ReFramework_Alfred_Intelligent_Document_Processing"></iframe>
                             </div>
-                        </div>
+                        </div> -->
 
                     </div>
 
                     
                     <div class="flex-1">
-                        <h3 class="text-2xl font-bold mb-3 text-teal-100">Copilot Studio Guide Agent</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-teal-100">A simple purchase request workflow</h3>
                         <div class="flex flex-wrap mb-2">
-                            <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">Prompt Engineering</span>
-                            <span class="tech-badge">Agent Evaluation</span>
+                            <span class="tech-badge">bizagi</span>
                         </div>
                         <p class="text-slate-400 mb-6 leading-relaxed">
 <b>Overview</b><br>
-A conversational guidance agent designed to help users learn and apply Microsoft Copilot Studio, with focus on prompt engineering, agent evaluation, and governance best practices.
+A simple purchase request workflow involving three roles: Requester, Boss (approver), and Purchase Department.
 <br><br>
-The agent provides guidance on prompt design, agent workflows, conversational optimisation, and platform best practices. It also supports Copilot Studio mailing list registration for platform updates.
-<br><br>
-<b>How it works</b>
+<b>Process Summary</b>
 <br>
-1. Provides step-by-step guidance on Copilot Studio concepts and agent development.
-<br><br>
-2. Introduces Agent Evaluation in Copilot Studio to test, measure, and validate AI agent quality using structured test cases and pass/fail criteria. 
-<br><br>
-3. Embeds security and governance guidance to support compliance, data protection, and responsible AI practices.</p></div>
-                </div> -->
+1. Start event triggers the process<br>
+2. Requester creates purchase request<br>
+3. Boss reviews and authorizes request<br>
+4. Decision gateway:<br>
+   &nbsp;&nbsp;- If changes required, notify to requester & ask for revise request<br>
+   &nbsp;&nbsp;- Requester revises request and resubmits for approval<br>
+   &nbsp;&nbsp;- If rejected, then send rejection notification and end the process<br>
+   &nbsp;&nbsp;- If approved, continue the process<br>
+5. Purchase department receives approval notification<br>
+6. Process quotations<br>
+7. Create purchase order<br>
+8. End event completes the workflow
+</p></div>
+                </div>
 
 
                 <!-- Property Intelligence Copilot -->
@@ -1654,7 +1658,7 @@ The agent supports prompt-based presentation creation or either bulk generation,
 3. This approach reduces manual effort, improves document consistency, and supports scalable, high-volume presentation generation.
                         </p>
                     </div>
-                </div>
+                </div> -->
 
 
 
