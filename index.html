@@ -142,7 +142,8 @@
                 Scaling Business <br><span class="gradient-text">Through Digital Solutions</span>
             </h1>
             <p class="text-lg text-slate-400 mb-6 max-w-3xl mx-auto leading-relaxed">
-        Designing and delivering business-focused<span class="text-white-400"><strong> digital solutions</strong></span> 
+        <!-- <p class="text-lg text-white mb-6 max-w-3xl mx-auto leading-relaxed"></p> -->
+                Designing and delivering business-focused<span class="text-white-400"><strong> digital solutions</strong></span> 
         that bridge business needs and technology through business analysis, software development, process standardisation, 
         intelligent automation, data analytics, and GenAI-enabled innovation.
         
@@ -184,26 +185,52 @@
                     </div>
                     <div class="flex-1">
                         <h3 class="text-2xl font-bold mt-0 mb-3 text-blue-100">Agentic Orchestration: Invoice Processing with Human-in-the-Loop</h3>
-                        <div class="flex flex-wrap mb-2">
+                        <!-- <div class="flex flex-wrap mb-2"> -->
+                        <div class="flex flex-wrap mb-2 text-white">
                             <span class="tech-badge">Web Studio</span>
                             <span class="tech-badge">Maestro (BPMN)</span>
                             <span class="tech-badge">Action Center</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-
+<p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-The invoice processing automation built with Web Studio, Maestro-Visual BPMN (Business Process Model and Notation), integrating Google Drive and Action Center to handle both automated decisions and human-in-the-loop exceptions.
-<br><br>
-<b>How Agentic Orchestration works</b>
+Designed and developed an intelligent invoice processing solution that combines BPMN-based workflow orchestration, AI-driven decision-making, and Human-in-the-Loop review. The solution streamlines invoice approvals while ensuring governance for exception scenarios through integration with Google Drive and UiPath Action Center.
 <br>
-<b>Scenario 1: Automated Approval</b>
+<ul style="list-style-type: square;">
+<b>Business Analysis Perspective</b>
+<li>Analysed the invoice approval process and identified automation opportunities.</li>
+<li>Designed the workflow using BPMN to standardise approval and exception handling.</li>
+<li>Defined business rules for automated approvals and Human-in-the-Loop reviews.</li>
+<li>Improved process efficiency while maintaining governance for high-value invoices.</li>
+</ul>
 <br>
-The automation picks up a new invoice (invoice-001d.pdf) from Google Drive. An AI-driven "Decision Agent" evaluates the extracted details, determines it meets the criteria for automatic approval, and seamlessly moves the file to the "Approved" folder.
-<br><br>
-<b>Scenario 2: Human-in-the-Loop (Review & Rejection)</b>
+<b>Solution Implementation</b>
 <br>
-A second invoice (invoice-0022.pdf) is processed, but the Decision Agent flags it for being "Over limit" (totaling $10,825). The workflow automatically pauses and creates a review task in the UiPath Action Center. A human user takes over, reviews the details, and clicks "Reject." The automation instantly resumes, routing the file into the "Rejected" folder in Google Drive.
+<ul style="list-style-type: square;">
+<b>Scenario 1 – Automated Approval</b>
+<br>
+<li>Developed an automated workflow that retrieves invoices from Google Drive.</li>
+<li>Implemented a Decision Agent to evaluate invoices against predefined business rules.</li>
+<li>Automatically routes eligible invoices to the Approved folder.</li>
+</ul>
+<br>
+<b>Scenario 2 – Human-in-the-Loop Review</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Implemented exception handling for invoices exceeding approval thresholds.</li>
+<li>Integrated UiPath Action Center to generate review tasks for business users.</li>
+<li>Automatically resumes the workflow after the review decision and routes invoices to the appropriate outcome.</li>
+</ul>
+<br>
+<b>Business Value</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Standardises invoice processing using BPMN workflows.</li>
+<li>Reduces manual effort through intelligent automation.</li>
+<li>Supports Human-in-the-Loop governance for business exceptions.</li>
+<li>Improves processing efficiency and decision consistency.</li>
+<li>Demonstrates business analysis, workflow orchestration, and automation development capabilities.</li>
+</ul>
 </p>
                      </div>
                 </div>
@@ -230,21 +257,48 @@ A second invoice (invoice-0022.pdf) is processed, but the Decision Agent flags i
                             <span class="tech-badge">UiPath Orhestrator</span>
                             <span class="tech-badge">BMMI Calculator (Vibe Coding Prototype)</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
-
+                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+<p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-The workflow built in UiPath Studio designed to execute Body Mass Index (BMI) application created by using Vibe Coding.
-<br><br>
-<b>How the automation works</b>
+Designed and developed a queue-based automation solution using the Dispatcher-Performer architecture to process BMI calculations. The solution demonstrates transaction-based processing, workload distribution, and centralized queue management through UiPath Orchestrator.
 <br>
-<b>1. Data Extraction & Queuing:</b> The bot begins by reading the data table (Height and Weight). It filters for rows marked "Ready to process" and uploads them as individual transaction items into a UiPath Orchestrator Queue (BMIQueue).
-The process navigates to an online BMI Calculator web application.
-<br><br>
-<b>2. Automated Data Entry:</b> Using a dispatcher-performer architecture, the bot pulls one transaction item at a time from the Orchestrator Queue. It automatically types the specific height and weight into the web form and triggers the calculation.
-<br><br>
-<b>3. Transaction Management:</b> Once the transaction is completed, the bot logs back into UiPath Orchestrator and marks that specific queue transaction as Successful.
+<ul style="list-style-type: square;">
+<b>Business Analysis Perspective</b>
+<li>Analysed the manual BMI calculation process and identified opportunities to automate repetitive data entry and calculation tasks.</li>
+<li>Designed a transaction-based workflow using the Dispatcher-Performer pattern to improve scalability and processing efficiency.</li>
+<li>Defined the business workflow for data validation, queue management, transaction processing, and status tracking.</li>
+<li>Standardised processing by ensuring each BMI record is handled as an individual transaction.</li>
+</ul>
+<br>
+<b>Solution Implementation</b>
+<br>
+<ul style="list-style-type: square;">
+<b>Data Preparation & Queue Management</b>
+<br>
+<li>Developed a Dispatcher workflow that reads height and weight data, filters records marked "Ready to Process", and uploads each record as a transaction into the UiPath Orchestrator Queue (BMIQueue)</li>
+<br>
+<b>Transaction Processing</b>
+<br>
+<li>Developed a Performer workflow that retrieves one transaction at a time, enters the data into the BMI Calculator application, and executes the calculation.</li>
+<br>
+<b>Transaction Monitoring</b>
+<br>
+<li>Configured UiPath Orchestrator to update each transaction status upon completion, providing centralized tracking and execution monitoring.</li>
+</ul>
+<br>
+<b>Business Value</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Demonstrates scalable transaction processing using the Dispatcher-Performer architecture.</li>
+<li>Improves processing efficiency through queue-based workload management.</li>
+<li>Enhances operational visibility with centralized transaction tracking in UiPath Orchestrator.</li>
+<li>Reduces repetitive manual data entry and standardises processing.</li>
+<li>Demonstrates business process analysis, workflow design, and automation implementation.</li>
+</ul>
 </p>
+
+
                     </div>
                 </div>
 
@@ -271,24 +325,53 @@ The process navigates to an online BMI Calculator web application.
                             <span class="tech-badge">REFramework</span>
                             <span class="tech-badge">Python Streamlit CRM</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+<p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Alfred is an automation bot designed to completely streamlining how invoices are processed. 
-The main goals is to slashing processing times by 70% and wiping out manual data-entry. 
-Here is how Alfred handles the heavy lifting from start to finish:
-<br><br>
-<b>How the automation works</b>
+Designed and developed an intelligent invoice processing solution that automates the end-to-end invoice lifecycle, from email retrieval and document data extraction to CRM updates and notification. The solution combines UiPath Document Understanding, REFramework, and a custom Python Streamlit CRM to improve processing efficiency, accuracy, and operational visibility.
 <br>
-1. Alfred constantly monitors incoming emails, instantly downloading any invoice attachments the moment they arrive.
-<br><br>
-2. Using UiPath’s REFramework paired with Document Understanding, 
-the bot intelligently reads, classifies, and extracts key data fields from various invoice layouts.
-<br><br>
-3. Once the data is validated, Alfred inputs the information into the CRM.
-<br><br>
-4. Alfred archives the original and extracted files. Follow by triggers a summary email to the team, updating everyone on the results.
-              </p></div>
+<ul style="list-style-type: square;">
+<b>Business Analysis Perspective</b>
+<li>Analysed the manual invoice processing workflow to identify automation opportunities and process bottlenecks.
+<li>Designed a standardised To-Be workflow for invoice capture, document processing, data validation, CRM integration, and reporting.
+<li>Defined business rules for document extraction, validation, exception handling, and record management.
+<li>Improved operational efficiency by reducing manual data entry and supporting a faster invoice processing cycle.
+</ul>
+<br>
+<b>Solution Implementation</b>
+<br>
+<ul style="list-style-type: square;">
+<b>Email & Document Capture</b>
+<br>
+<li>Developed an automated workflow to monitor incoming emails and retrieve invoice attachments for processing.</li>
+<br>
+<b>Intelligent Document Processing</b>
+<br>
+<li>Implemented UiPath Document Understanding with REFramework to classify invoices and extract key business information from multiple invoice formats.</li>
+<br>
+<b>CRM Integration</b>
+<br>
+<li>Developed integration to validate extracted data and automatically update invoice records within a Python Streamlit CRM application.</li>
+</ul>
+<br>
+<b>Document Management & Notification</b>
+<br>
+<li>Automated document archiving and generated summary email notifications to provide stakeholders with processing results and execution status.</li>
+</ul>
+<br>
+<b>Business Value</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Reduces invoice processing time through end-to-end automation.</li>
+<li>Minimises manual data entry and improves data accuracy.</li>
+<li>Standardises invoice processing across multiple document formats.</li>
+<li>Enhances document traceability through automated archiving and notifications.</li>
+<li>Demonstrates business process analysis, intelligent document processing, workflow automation, and enterprise application integration.</li>
+</ul>
+</p>
+
+</div>
                 </div>
 
                 <!-- CSM: IT Service Request System-->
@@ -316,20 +399,47 @@ the bot intelligently reads, classifies, and extracts key data fields from vario
                             <span class="tech-badge">UiPath Studio</span>
                             <span class="tech-badge">MS SQL server</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+
+<p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-An automation workflow designed to streamline IT service request that does not expose API integration.
-<br><br>
-<b>How the automation works</b>
+Designed and developed an automation solution to streamline IT service request processing for systems without API integration. The solution combines a Python Streamlit interface with UiPath automation to standardise service request execution, reduce manual effort, and improve operational efficiency.
 <br>
-1. The bot initiates by launching a dropdown selection menu, letting a human operator choose the exact system action to perform.
-Based on the selected input, the workflow dynamically routes execution to the relevant process.
-<br><br>
-2. The bot interacts directly with the CSM application, performing end-to-end updates such as status changes, log entries, and  clearing in bulk, eliminating repetitive manual data entry.
-<br><br>
-3. This approach improves processing speed, reduces human error, and enables scalable automation for systems that lack modern integration capabilities.
-
+<ul style="list-style-type: square;">
+<b>Business Analysis Perspective</b>
+<li>Analysed the IT service request process to identify repetitive manual activities and automation opportunities.
+<li>Designed a standardised workflow to support multiple service request types through a single automation interface.
+<li>Defined business rules to dynamically route requests based on user-selected actions.
+<li>Improved process consistency by reducing manual intervention for routine system updates.
+</ul>
+<br>
+<b>Solution Implementation</b>
+<br>
+<ul style="list-style-type: square;">
+<b>Request Selection & Workflow Routing</b>
+<br>
+<li>Developed a Python Streamlit interface that allows users to select predefined IT service request actions.</li>
+<li>Configured the workflow to dynamically route execution based on the selected business process.</li>
+<br>
+<b>System Automation</b>
+<br>
+<li>Developed a UiPath workflow to perform end-to-end updates within the CSM application, including status changes, log updates, and bulk processing.</li>
+<br>
+<b>Data Management</b>
+<br>
+<li>Integrated Microsoft SQL Server to support data management, transaction tracking, and operational reporting.</li>
+</ul>
+<br>
+<b>Business Value</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Standardises IT service request processing across multiple request types.</li>
+<li>Reduces repetitive manual effort and processing time.</li>
+<li>Improves accuracy and consistency through rule-based workflow execution.</li>
+<li>Enables automation for legacy systems without API integration.</li>
+<li>Demonstrates business process analysis, workflow design, enterprise application automation, and digital solution implementation.</li>
+</ul>
 </p>
                        </div>
                 </div>
@@ -361,24 +471,51 @@ Based on the selected input, the workflow dynamically routes execution to the re
                             <span class="tech-badge">Excel</span>
                             <span class="tech-badge">Microsoft Outlook</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+
+<p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-This automation solution provides proactive monitoring of medical equipment maintenance 
-and calibration schedules to ensure compliance and reduce operational risk.
-<br><br>
-<b>How the automation works</b>
+Designed and developed an automation solution to proactively monitor medical equipment maintenance and calibration schedules. The solution identifies upcoming and overdue service activities, generates exception notifications, and supports timely maintenance planning to improve compliance and reduce operational risk.<br>
+<ul style="list-style-type: square;">
+<b>Business Analysis Perspective</b>
+<li>Analysed the maintenance scheduling process to identify manual monitoring activities and opportunities for automation.
+<li>Designed a standardised workflow to monitor maintenance and calibration schedules for regulated medical equipment.
+<li>Defined business rules to identify upcoming and overdue maintenance activities based on service due dates.
+<li>Improved operational visibility by automating exception detection and maintenance notifications.</ul>
 <br>
-1. The bot retrieves equipment records from the 
-data table, including critical medical devices such as CT scanners, MRI machines, and other regulated assets.
-<br><br>
-2. The workflow iterates through each record and evaluates the key fields such as Next Maintenance Date and Calibration Due Date, comparing them against the current system date to detect overdue or upcoming service requirements.
-<br><br>
-3. When a upcoming deadline is identified, the bot flags the specific asset and prepares an exception record for reporting.
-An Outlook notification is automatically generated and sent to the engineering and biomedical teams.
-<br><br>
-4. Each alert includes key operational details such as Equipment ID, location, serial number, and deviation timeline, enabling teams to immediately schedule maintenance without manual data extraction.
-</p></div>
+<b>Solution Implementation</b>
+<br>
+<ul style="list-style-type: square;">
+<b>Equipment Monitoring</b>
+<br>
+<li>Developed an automated workflow to retrieve equipment records, including CT scanners, MRI machines, and other regulated medical assets.</li>
+<br>
+<b>Business Rule Evaluation</b>
+<br>
+<li>Implemented validation logic to compare maintenance and calibration due dates against the current system date and identify upcoming or overdue service requirements.</li>
+<br>
+<b>Exception Management</b>
+<br>
+<li>Generated exception records for equipment requiring maintenance and automatically notified engineering and biomedical teams through Microsoft Outlook.</li>
+</ul>
+<br>
+<b>Operational Reporting</b>
+<br>
+<li>Included key asset information such as Equipment ID, serial number, location, maintenance due date, and deviation timeline to support maintenance planning and follow-up actions.</li>
+</ul>
+<br>
+<b>Business Value</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Standardises maintenance and calibration monitoring processes.</li>
+<li>Improves regulatory compliance through proactive schedule monitoring.</li>
+<li>Reduces manual effort and the risk of missed maintenance activities.</li>
+<li>Enables timely decision-making through automated exception reporting and notifications.</li>
+<li>Demonstrates business process analysis, business rule implementation, workflow automation, and operational monitoring.</li>
+</ul>
+</p>
+</div>
                 </div>
 
                 <!-- Client Enrollment: HubSpot CRM Integration -->
@@ -401,24 +538,49 @@ An Outlook notification is automatically generated and sent to the engineering a
                             <span class="tech-badge">HubSpot CRM</span>
                             <span class="tech-badge">Microsoft Excel</span>
                         </div>
-                        <p class="text-slate-400 mb-6 leading-relaxed">
+                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+
+<p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-This automation solution streamlines client onboarding by synchronizing structured enrollment data from Excel into the CRM platform through a UiPath-driven workflow.
-<br><br>
-<b>How the automation works</b>
+Designed and developed a client onboarding solution that automates the synchronization of customer enrollment data from Microsoft Excel into HubSpot CRM. The solution standardises data validation, reduces manual data entry, and improves the accuracy and efficiency of the client enrollment process.
+<ul style="list-style-type: square;">
+<b>Business Analysis Perspective</b>
+<li>Analysed the client onboarding process to identify manual data entry activities and process improvement opportunities.</li>
+<li>Designed a standardised workflow for validating and synchronising customer enrollment data into the CRM system.</li>
+<li>Defined business rules to support record creation, profile updates, and data validation.</li>
+<li>Improved data quality by reducing duplicate records, incomplete information, and formatting inconsistencies.</li>
+</ul>
 <br>
-1. The bot retrieves and validates client enrollment information from standardized Excel worksheets, including customer details, contact information, and onboarding fields.
-<br><br>
-2. Using UiPath Studio, the workflow automatically creates new client records or updates existing profiles within the CRM system based on predefined business rules.
-<br><br>
-3. The automation performs basic validation checks to reduce duplicate entries, incomplete records, and formatting inconsistencies before submission into the CRM environment.
+<b>Solution Implementation</b>
+<br>
+<ul style="list-style-type: square;">
+<b>Data Validation & Preparation</b>
+<br>
+<li>Developed an automated workflow to retrieve and validate customer enrollment information from structured Microsoft Excel templates.</li>
+<br>
+<b>CRM Integration</b>
+<br>
+<li>Implemented UiPath automation to create new client records or update existing customer profiles in HubSpot CRM based on predefined business rules.</li>
+<br>
+<b>Data Quality Controls</b>
+<br>
+<li>Applied validation checks to identify duplicate entries, missing information, and formatting inconsistencies before updating CRM records.</li>
+</ul>
+<br>
+<b>Business Value</b>
+<br>
+<ul style="list-style-type: square;">
+<li>Standardises the client enrollment and onboarding process.</li>
+<li>Reduces manual data entry and improves data accuracy.</li>
+<li>Enhances data quality through automated validation and business rule enforcement.</li>
+<li>Improves operational efficiency by streamlining CRM record management.</li>
+<li>Demonstrates business process analysis, CRM integration, workflow automation, and digital solution implementation.</li>
+</ul>
+</p>
 
-</p></div>          
-
-
-</div>
-
+</div>          
+  </div>
     </section>
 
     <!-- Microsoft Platform Section -->
@@ -521,13 +683,12 @@ This workflow extends from the previous Automation Validation & Logging layer by
                 <!-- Agentic WorkFlow with Power Automate Desktop Sentiment Analysis -->
                  <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
+     <!--                    <div class="video-wrapper glass-card">
                  
                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center">
-                            <!-- <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/SentimentAnalysis.png">                    -->
                             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Agentic%20WorkFlow%20with%20Power%20Automate%20Desktop%20-%20Sentiment%20Analysis%2001.png">                   
                         </div>
-                    </div>
+                    </div> -->
 
                             <div class="video-wrapper">
                                 <iframe src="https://player.vimeo.com/video/1188304006?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
@@ -560,14 +721,14 @@ for Sentiment Analysis Agent.<br><br>
                 <!--  Documents Classification -->
                 <div class="flex flex-col lg:flex-row gap-12 robot-item">
                     <div class="flex-1 w-full">
-                        <div class="video-wrapper glass-card">
+     <!--                    <div class="video-wrapper glass-card">
                  
                         <div class="absolute inset-0 bg-slate-200 flex items-center justify-center">
-                            <!-- <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Documents%20Classification.png">                    -->
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Documents%20Classification.png">                   
                          <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Agentic%20Workflow%20with%20Power%20Automate%20Desktop%20%E2%80%93%20Document%20Classification%2001.png">                   
  
                         </div>
-                        </div>
+                        </div> -->
 
                             <div class="video-wrapper">
                                 <iframe src="https://player.vimeo.com/video/1188304747?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
