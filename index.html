@@ -190,10 +190,23 @@
                             <span class="tech-badge">Maestro (BPMN)</span>
                             <span class="tech-badge">Action Center</span>
                         </div>
+
+<!-- <p class="text-white mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
+Architected and orchestrated an intelligent invoice processing solution using UiPath Web Studio, UiPath Maestro (BPMN), and UiPath Action Center to automate invoice approvals while maintaining business governance through Human-in-the-Loop (HITL) review.
+<br><br>
+The solution retrieves invoices from Google Drive, evaluates them against predefined business rules using an Intelligent Decision Agent and automatically approves eligible invoices. For invoices requiring additional validation or exceeding approval thresholds, the workflow creates a review task in UiPath Action Center, allowing business users to make the final decision before the process resumes automatically.
+<br><br>
+From a Business Analysis perspective, the solution involved analysing the existing invoice approval process, identifying automation opportunities, defining business rules, modelling the workflow using BPMN, and designing exception handling to balance automation with governance.
+<br><br>
+This project demonstrates enterprise automation by combining workflow orchestration, AI-assisted decision-making, and Human-in-the-Loop collaboration to improve efficiency, standardise approval processes, and ensure consistent business decisions.
+</p> -->
+
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an intelligent invoice processing solution that combines BPMN-based workflow orchestration, AI-driven decision-making, and Human-in-the-Loop review. The solution streamlines invoice approvals while ensuring governance for exception scenarios through integration with Google Drive and UiPath Action Center.
+Architected and orchestrated an intelligent invoice processing solution that combines BPMN-based workflow orchestration, AI-driven decision-making, and Human-in-the-Loop review. The solution streamlines invoice approvals while ensuring governance for exception scenarios through integration with Google Drive and UiPath Action Center.
 <br>
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
@@ -255,11 +268,24 @@ Designed and developed an intelligent invoice processing solution that combines 
                             <span class="tech-badge">UiPath Orhestrator</span>
                             <span class="tech-badge">BMMI Calculator (Vibe Coding Prototype)</span>
                         </div>
-                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+
+<!-- <p class="text-white mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
+Built and implemented a queue-based BMI processing solution using the Dispatcher-Performer architecture with UiPath Orchestrator to demonstrate scalable transaction processing and centralized workload management. The solution automates BMI calculations by treating each record as an individual transaction, enabling efficient processing, monitoring, and status tracking.
+<br><br>
+The Dispatcher workflow reads height and weight data, filters records marked "Ready to Process", and uploads each record to the BMIQueue in UiPath Orchestrator. The Performer workflow retrieves transactions individually, enters the data into a BMI Calculator (Vibe Coding Prototype), performs the calculation, and updates the transaction status upon completion.
+<br><br>
+From a Business Analysis perspective, the project involved analysing the manual BMI calculation process, identifying automation opportunities, designing a transaction-based workflow, defining data validation and queue management rules, and standardising processing through centralized transaction handling.
+<br><br>
+This project demonstrates enterprise automation concepts including queue-based processing, workload distribution, transaction management, exception handling, and execution monitoring. It improves operational efficiency by reducing repetitive manual data entry, enabling scalable automation, and providing centralized visibility into transaction status through UiPath Orchestrator.
+</p> -->
+
+
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a queue-based automation solution using the Dispatcher-Performer architecture to process BMI calculations. The solution demonstrates transaction-based processing, workload distribution, and centralized queue management through UiPath Orchestrator.
+Built and implemented a queue-based automation solution using the Dispatcher-Performer architecture to process BMI calculations. The solution demonstrates transaction-based processing, workload distribution, and centralized queue management through UiPath Orchestrator.
 <br>
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
@@ -322,11 +348,21 @@ Designed and developed a queue-based automation solution using the Dispatcher-Pe
                             <span class="tech-badge">REFramework</span>
                             <span class="tech-badge">Python Streamlit CRM</span>
                         </div>
-                        <!-- <p class="text-slate-400 mb-6 leading-relaxed"> -->
+
+<!-- <p class="text-white mb-6 leading-relaxed">
+<b>Overview</b>
+<br>
+Designed and developed Alfred, an intelligent invoice processing solution that automates the end-to-end invoice lifecycle using UiPath Document Understanding, REFramework, and a custom Python Streamlit CRM. The solution streamlines invoice processing by automatically retrieving invoices from emails, extracting key business data using AI-powered document processing, validating information, updating CRM records, archiving processed documents, and notifying stakeholders of the processing outcome.
+<br><br>
+The automation monitors incoming emails for invoice attachments and uses UiPath Document Understanding to classify invoices and extract essential business information from multiple document formats. Built on UiPath's REFramework, the solution provides structured transaction processing, exception handling, logging, and recovery mechanisms to improve reliability and maintainability. Extracted data is validated before being automatically recorded in a custom Python Streamlit CRM, while processed documents are archived and summary notifications are generated to provide operational visibility.
+<br><br>From a Business Analysis perspective, the project involved analysing the existing invoice processing workflow, identifying manual bottlenecks, designing a standardised To-Be process, defining business rules for document extraction, validation, exception handling, and CRM integration, and ensuring the solution aligned with business requirements for accuracy, governance, and traceability.
+This project demonstrates enterprise Intelligent Document Processing (IDP), end-to-end workflow automation, system integration, structured exception handling using REFramework, and process standardisation. It improves operational efficiency by reducing manual data entry, increasing processing accuracy, standardising invoice handling across multiple document formats, and providing greater visibility through automated notifications and document management.
+</p> -->
+
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an intelligent invoice processing solution that automates the end-to-end invoice lifecycle, from email retrieval and document data extraction to CRM updates and notification. The solution combines UiPath Document Understanding, REFramework, and a custom Python Streamlit CRM to improve processing efficiency, accuracy, and operational visibility.
+Engineered and implemented an intelligent invoice processing solution that automates the end-to-end invoice lifecycle, from email retrieval and document data extraction to CRM updates and notification. The solution combines UiPath Document Understanding, REFramework, and a custom Python Streamlit CRM to improve processing efficiency, accuracy, and operational visibility.
 <br>
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
@@ -368,7 +404,7 @@ Designed and developed an intelligent invoice processing solution that automates
 </p>
 
 </div>
-                </div>
+        </div>
 
                 <!-- CSM: IT Service Request System-->
                 <div class="flex flex-col lg:flex-row-reverse gap-12 robot-item">
@@ -471,7 +507,7 @@ Designed and developed an automation solution to streamline IT service request p
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an automation solution to proactively monitor medical equipment maintenance and calibration schedules. The solution identifies upcoming and overdue service activities, generates exception notifications, and supports timely maintenance planning to improve compliance and reduce operational risk.<br>
+Developed and implemented an automation solution to proactively monitor medical equipment maintenance and calibration schedules. The solution identifies upcoming and overdue service activities, generates exception notifications, and supports timely maintenance planning to improve compliance and reduce operational risk.<br>
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the maintenance scheduling process to identify manual monitoring activities and opportunities for automation.
@@ -619,7 +655,7 @@ Designed and developed a client onboarding solution that automates the synchroni
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an automation framework that provides end-to-end validation, execution logging, and audit tracking for automated workflows. The solution improves process reliability, operational transparency, and troubleshooting by capturing execution details and notifying stakeholders of workflow outcomes.
+Established and implemented an automation framework that provides end-to-end validation, execution logging, and audit tracking for automated workflows. The solution improves process reliability, operational transparency, and troubleshooting by capturing execution details and notifying stakeholders of workflow outcomes.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed automation monitoring requirements to identify opportunities for improving traceability and operational governance.</li>
@@ -676,7 +712,7 @@ Designed and developed an automation framework that provides end-to-end validati
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an automated reporting solution that transforms workflow execution logs into operational performance insights. The solution retrieves automation data from Microsoft SQL Server, generates KPI-based reports, and distributes performance summaries to stakeholders through automated email notifications.
+Developed and implemented an automated reporting solution that transforms workflow execution logs into operational performance insights. The solution retrieves automation data from Microsoft SQL Server, generates KPI-based reports, and distributes performance summaries to stakeholders through automated email notifications.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed automation reporting requirements to identify key operational metrics and reporting needs.</li>
@@ -741,7 +777,7 @@ Designed and developed an automated reporting solution that transforms workflow 
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an AI-powered workflow that automates sentiment analysis of customer reviews using Power Automate Desktop and the OpenAI API. The solution transforms unstructured customer feedback into structured sentiment insights, enabling faster analysis and supporting data-driven business decisions.
+LLM-assisted sentiment analysis that automates sentiment analysis of customer reviews using Power Automate Desktop and the OpenAI API. The solution transforms unstructured customer feedback into structured sentiment insights, enabling faster analysis and supporting data-driven business decisions.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the customer feedback review process to identify opportunities for AI-assisted automation and reduce manual review effort.</li>
@@ -808,7 +844,7 @@ Designed and developed an AI-powered workflow that automates sentiment analysis 
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an AI-powered document classification solution that automates document categorisation using Power Automate Desktop and OpenAI integration. The solution applies AI-driven classification, confidence scoring, and validation to improve document processing accuracy while supporting human review for low-confidence results.
+Architected and implemented an intelligent document classification solution that automates document categorisation using Power Automate Desktop and OpenAI integration. The solution applies AI-driven classification, confidence scoring, and validation to improve document processing accuracy while supporting human review for low-confidence results.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the document classification process to identify opportunities for AI-driven automation and process standardisation.</li>
@@ -870,7 +906,7 @@ Designed and developed an AI-powered document classification solution that autom
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a real-time system performance monitoring solution that captures, stores, and visualises infrastructure performance metrics. The solution provides operational visibility through interactive dashboards, enabling proactive monitoring, trend analysis, and performance optimisation.
+Established and implemented a real-time system performance monitoring solution that captures, stores, and visualises infrastructure performance metrics. The solution provides operational visibility through interactive dashboards, enabling proactive monitoring, trend analysis, and performance optimisation.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed system monitoring requirements to identify key performance indicators (KPIs) for infrastructure health and operational performance.</li>
@@ -996,7 +1032,7 @@ The workflow using Dispatcher–Performer framework, orchestrated through work q
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a digital inventory management solution that centralises stock information, automates inventory processes, and provides real-time visibility into inventory levels. The solution improves inventory accuracy, streamlines stock management, and supports timely replenishment through automated workflows.
+Developed and implemented a digital inventory management solution that centralises stock information, automates inventory processes, and provides real-time visibility into inventory levels. The solution improves inventory accuracy, streamlines stock management, and supports timely replenishment through automated workflows.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed inventory management processes to identify manual activities, operational inefficiencies, and opportunities for digital transformation.</li>
@@ -1052,7 +1088,7 @@ Designed and developed a digital inventory management solution that centralises 
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an interactive Power BI dashboard that transforms sales data into actionable business insights. The solution enables stakeholders to monitor key performance indicators (KPIs), analyse sales trends, and evaluate business performance to support operational and strategic decision-making.
+Created and delivered an interactive Power BI dashboard that transforms sales data into actionable business insights. The solution enables stakeholders to monitor key performance indicators (KPIs), analyse sales trends, and evaluate business performance to support operational and strategic decision-making.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed inventory management processes to identify manual activities, operational inefficiencies, and opportunities for digital transformation.</li>
@@ -1107,7 +1143,7 @@ Designed and developed an interactive Power BI dashboard that transforms sales d
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an interactive spatial analytics dashboard that visualises furniture inventory across physical floor plans. The solution combines inventory data with location mapping to improve asset visibility, space utilisation, and operational planning.
+Created and delivered an interactive spatial analytics dashboard that visualises furniture inventory across physical floor plans. The solution combines inventory data with location mapping to improve asset visibility, space utilisation, and operational planning.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed inventory tracking and space management requirements to identify opportunities for improving asset visibility.</li>
@@ -1161,7 +1197,7 @@ Designed and developed an interactive spatial analytics dashboard that visualise
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an interactive sales funnel dashboard that analyses pipeline performance, conversion rates, and sales behaviours across multiple stages. The solution enables stakeholders to identify conversion bottlenecks, evaluate sales effectiveness, and make data-driven decisions to improve pipeline performance.
+Created and delivered an interactive sales funnel dashboard that analyses pipeline performance, conversion rates, and sales behaviours across multiple stages. The solution enables stakeholders to identify conversion bottlenecks, evaluate sales effectiveness, and make data-driven decisions to improve pipeline performance.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed sales pipeline data to identify key performance indicators (KPIs), conversion trends, and opportunities for process improvement.</li>
@@ -1215,7 +1251,7 @@ Designed and developed an interactive sales funnel dashboard that analyses pipel
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an interactive analytics dashboard that analyses airline operational performance using flight delay and cancellation data. The solution provides insights into delay patterns, airline performance, and operational trends to support data-driven decision-making and improve service efficiency.
+Created and delivered an interactive analytics dashboard that analyses airline operational performance using flight delay and cancellation data. The solution provides insights into delay patterns, airline performance, and operational trends to support data-driven decision-making and improve service efficiency.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed flight operations data to identify key performance indicators (KPIs), operational bottlenecks, and delay trends.
@@ -1277,7 +1313,7 @@ Designed and developed an interactive analytics dashboard that analyses airline 
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an automated ticket management solution that streamlines incident and service request handling by converting incoming emails into structured support tickets. The solution improves response times, standardises ticket processing, and enhances collaboration across support teams.
+Architected and implemented an automated ticket management solution that streamlines incident and service request handling by converting incoming emails into structured support tickets. The solution improves response times, standardises ticket processing, and enhances collaboration across support teams.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the incident and service request management process to identify manual activities and workflow improvement opportunities.
@@ -1333,7 +1369,7 @@ Designed and developed an automated ticket management solution that streamlines 
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a digital expense management solution that streamlines employee expense submission, approval, and tracking. The solution automates approval workflows, improves financial visibility, and enhances process efficiency through a low-code platform.
+Developed and implemented a digital expense management solution that streamlines employee expense submission, approval, and tracking. The solution automates approval workflows, improves financial visibility, and enhances process efficiency through a low-code platform.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the employee expense claim process to identify manual activities and opportunities for process automation.</li>
@@ -1395,7 +1431,7 @@ Designed and developed a digital expense management solution that streamlines em
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an automated reporting solution that generates and distributes daily sales order reports. The solution retrieves sales data from SharePoint, formats business reports, and delivers them to stakeholders through scheduled email distribution, improving reporting efficiency and information accessibility.
+Developed and implemented an automated reporting solution that generates and distributes daily sales order reports. The solution retrieves sales data from SharePoint, formats business reports, and delivers them to stakeholders through scheduled email distribution, improving reporting efficiency and information accessibility.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the daily sales reporting process to identify manual activities and opportunities for automation.</li>
@@ -1527,7 +1563,7 @@ Designed and developed a conversational AI agent that helps users learn and appl
                         <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a conversational IT support agent that streamlines IT service management by enabling users to track incidents, retrieve ticket information, and receive automated assistance through natural language conversations. The solution improves service accessibility, reduces manual support effort, and enhances the overall IT support experience.
+Implemented and configured an intelligent IT Helpdesk Support Agent that streamlines IT service management by enabling users to track incidents, retrieve ticket information, and receive automated assistance through natural language conversations. The solution improves service accessibility, reduces manual support effort, and enhances the overall IT support experience.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed IT service support processes to identify opportunities for improving ticket visibility and reducing manual enquiries.</li>
@@ -1585,7 +1621,7 @@ Designed and developed a conversational IT support agent that streamlines IT ser
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an AI-powered document generation agent that automates the creation of PowerPoint presentations using conversational prompts, structured templates, and SharePoint data. The solution streamlines document generation, improves consistency, and supports scalable production of business presentations.
+Implemented and configured an intelligent document generation agent that automates the creation of PowerPoint presentations using conversational prompts, structured templates, and SharePoint data. The solution streamlines document generation, improves consistency, and supports scalable production of business presentations.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed document creation processes to identify repetitive manual tasks and opportunities for automation.</li>
@@ -1714,7 +1750,7 @@ Designed and developed a conversational AI solution that helps users search, com
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed an AI-powered conversational agent that automates expense report validation through intelligent review and multi-agent orchestration. The solution analyses uploaded expense reports, validates claims against business policies, detects exceptions, and provides structured feedback to improve compliance, accuracy, and review efficiency.
+Architected and implemented an agentic expense report review solution that automates expense report validation through intelligent review and multi-agent orchestration. The solution analyses uploaded expense reports, validates claims against business policies, detects exceptions, and provides structured feedback to improve compliance, accuracy, and review efficiency.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed the expense claim review process to identify manual validation activities and opportunities for AI-driven automation.</li>
@@ -1831,7 +1867,7 @@ Designed and developed an AI-powered document generation agent that automates th
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a conversational AI solution that enables users to access and interpret structured business data stored in Microsoft Dataverse using natural language. The solution simplifies data retrieval, improves information accessibility, and supports faster business decision-making without requiring technical query skills.
+Implemented and configured a conversational knowledge solution that enables users to access and interpret structured business data stored in Microsoft Dataverse using natural language. The solution simplifies data retrieval, improves information accessibility, and supports faster business decision-making without requiring technical query skills.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed business information retrieval processes to identify opportunities for improving data accessibility through conversational AI.</li>
@@ -1896,7 +1932,7 @@ Designed and developed a conversational AI solution that enables users to access
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a conversational learning agent that helps business users understand, adopt, and effectively use Microsoft Copilot solutions. The agent provides guided assistance on Copilot concepts, troubleshooting, development scenarios, and best practices to improve user adoption and productivity.
+Developed and configured a conversational learning assistant that helps business users understand, adopt, and effectively use Microsoft Copilot solutions. The agent provides guided assistance on Copilot concepts, troubleshooting, development scenarios, and best practices to improve user adoption and productivity.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed user learning requirements and identified opportunities to improve Microsoft Copilot adoption through conversational guidance.</li>
@@ -2020,7 +2056,7 @@ Designed and developed a conversational IT support agent that streamlines IT ser
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a conversational virtual assistant that enhances user engagement by providing guided support for event participation, registration, donations, and frequently asked questions. The solution simplifies access to campaign information and improves the overall digital experience for participants and donors.
+Implemented and configured a conversational virtual assistant that enhances user engagement by providing guided support for event participation, registration, donations, and frequently asked questions. The solution simplifies access to campaign information and improves the overall digital experience for participants and donors.
 
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
@@ -2082,7 +2118,7 @@ Designed and developed a conversational virtual assistant that enhances user eng
 <p class="text-white mb-6 leading-relaxed">
 <b>Overview</b>
 <br>
-Designed and developed a conversational navigation agent that helps users explore cruise ship deck layouts through natural language interactions. The solution enables users to locate cabins, amenities, facilities, and points of interest using image-based deck plans and structured navigation information.
+Implemented and configured a conversational navigation assistant that helps users explore cruise ship deck layouts through natural language interactions. The solution enables users to locate cabins, amenities, facilities, and points of interest using image-based deck plans and structured navigation information.
 <ul style="list-style-type: square;">
 <b>Business Analysis Perspective</b>
 <li>Analysed user navigation requirements to identify opportunities for improving access to cruise ship information through conversational AI.</li>
