@@ -1,1 +1,0 @@
-Loan Application Processing from Process Discovery to Automation
