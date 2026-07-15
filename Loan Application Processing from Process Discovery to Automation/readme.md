@@ -19,9 +19,9 @@ Collaborated with business stakeholders to define automation objectives and expe
 
 Developed a comprehensive PDD covering:
 
-Business process overview
-Process scope and objectives
-Applications involved
+1. Business process overview
+2. Process scope and objectives
+3. Applications involved
 As-Is process flow
 Automation opportunities
 In-scope and out-of-scope activities
