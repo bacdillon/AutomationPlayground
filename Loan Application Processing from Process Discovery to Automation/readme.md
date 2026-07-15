@@ -65,6 +65,7 @@ Loan application must contain complete and valid input data.
 Business exception scenarios and expected robot actions were defined for missing emails, missing attachments, empty CSV files, and invalid business inputs.
 
 <b>Solution Architecture</b>
+
 Unattended UiPath Robot
 UiPath Orchestrator scheduling
 Configuration through Assets
