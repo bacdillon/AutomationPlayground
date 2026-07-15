@@ -22,14 +22,14 @@ Developed a comprehensive PDD covering:
 1. Business process overview
 2. Process scope and objectives
 3. Applications involved
-As-Is process flow
-Automation opportunities
-In-scope and out-of-scope activities
-Business rules
-Business exception scenarios
-Error handling requirements
-Reporting and monitoring requirements
-Supporting process documentation
+4. As-Is process flow
+5. Automation opportunities
+6. In-scope and out-of-scope activities
+7. Business rules
+8. Business exception scenarios
+9. Error handling requirements
+10. Reporting and monitoring requirements
+11. Supporting process documentation
 
 The PDD specifies business validation rules such as acceptable loan terms, applicant age requirements, loan amount limits, and handling of missing emails, missing attachments, or invalid input files. It also defines reporting requirements for process logs, transaction logs, and error monitoring.
 
@@ -39,17 +39,17 @@ Produced a Solution Design Document (SDD) describing the technical implementatio
 
 The document includes:
 
-Automation architecture
-Runtime configuration
-UiPath project structure
-Production environment
-Orchestrator configuration
-Scheduling strategy
-Asset configuration
-Logging and reporting
-Deployment prerequisites
-Future enhancements
-Technical glossary
+1. Automation architecture
+2. Runtime configuration
+3. UiPath project structure
+4. Production environment
+5. Orchestrator configuration
+6. Scheduling strategy
+7. Asset configuration
+8. Logging and reporting
+9. Deployment prerequisites
+10. Future enhancements
+11. Technical glossary
 
 The solution was designed as an Unattended Robot deployed through UiPath Orchestrator, using configuration files and Orchestrator Assets to support secure execution and centralized scheduling.
 
@@ -57,10 +57,10 @@ The solution was designed as an Unattended Robot deployed through UiPath Orchest
 
 Examples of business rules documented include:
 
-Loan Term must be 1, 3, 5, or 10 years.
-Applicant age must meet the minimum eligibility requirement.
-Requested loan amount must satisfy the bank's lending policy.
-Loan application must contain complete and valid input data.
+- [x] Loan Term must be 1, 3, 5, or 10 years.
+- [x] Applicant age must meet the minimum eligibility requirement.
+- [x] Requested loan amount must satisfy the bank's lending policy.
+- [x] Loan application must contain complete and valid input data.
 
 Business exception scenarios and expected robot actions were defined for missing emails, missing attachments, empty CSV files, and invalid business inputs.
 
