@@ -336,38 +336,81 @@
                     </div>
                 </div>
 
-                <!-- CARD 4: CSM IT Service Request -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
+                <!-- CARD 4: Loan Application Processing Automation (PDD & SDD)-->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath bpmn pdd sdd">
                     <div>
-                        <div class="video-wrapper mb-6">
-                            <iframe src="https://player.vimeo.com/video/1188277973?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="CSM IT Service Request"></iframe>
+
+                    <div class="video-wrapper glass-card">
+                        <div class="absolute inset-0 bg-slate-00">
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png" >
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-blue-100">CSM IT Service Request Automation</h3>
+                    </div>
+
+
+<!--                         <div class="video-wrapper mb-6">
+                           <iframe src="https://player.vimeo.com/video/1188277973?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="CSM IT Service Request"></iframe>
+                        </div> -->
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">Automation Opportunities Assessment (PDD, SDD, BPMN) - Loan Application Processing</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Python (Streamlit)</span>
                             <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">MS SQL Server</span>
+                            <span class="tech-badge">UiPath Orchestrator</span>
+                            <span class="tech-badge">BPMN</span>
+                            <span class="tech-badge">Process Definition Document (PDD)</span>
+                            <span class="tech-badge">Solution Design Document (SDD)</span>
                         </div>
                         
                         <div class="text-slate-300 text-sm leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Streamlined IT service ticket execution across legacy applications without API interfaces by pairing a Python front-end with an automated desktop RPA back-end.</p>
+                            <p><b>Overview:</b> 
+                                Analysed a manual loan application process and designed an enterprise automation solution using UiPath. The project involved documenting the business process, identifying automation opportunities, defining business rules and exception scenarios, and producing both a Process Definition Document (PDD) and Solution Design Document (SDD) to support implementation.
+                                <br><br>
+                                The automation processes loan applications submitted through UiBank by validating business rules, generating Loan IDs for approved applications, and notifying business users through automated email responses. The solution is designed to run as an unattended process scheduled through UiPath Orchestrator.
+                                </p>
 
                             <div class="bg-[#1e293b]/40 p-4 rounded-xl border border-slate-700/50">
                                 <h4 class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-4 space-y-1 text-slate-400 text-xs">
-                                    <li>Catalogued repetitive ticket types and created dynamic request rules.</li>
-                                    <li>Identified legacy UI bottlenecks to reduce navigation-based processing delays.</li>
-                                    <li>Standardised process consistency, eliminating ticket categorization errors.</li>
-                                </ul>
+<li>Reviewed the existing manual loan application workflow and assessed its suitability for automation.</li>
+<li>Conducted process analysis to identify repetitive, rule-based activities suitable for RPA.</li>
+<li>Documented the end-to-end business process using a Process Definition Document (PDD).</li>
+<li>Defined process scope, business rules, applications used, input/output requirements, and exception scenarios.</li>
+<li>Designed the future-state automated workflow and identified business exceptions requiring manual intervention.</li>
+<li>Collaborated with business stakeholders to define automation objectives and expected business outcomes.</li>
+<br>
+<a href="https://github.com/bacdillon/AutomationPlayground/blob/main/Loan%20Application%20Processing%20from%20Process%20Discovery%20to%20Automation/readme.md" class="text-blue-400 hover:text-blue-300 underline">continue readme</a>
+
+<br>
+</ul>
                             </div>
 
                             <div class="bg-[#1e293b]/20 p-4 rounded-xl border border-slate-800/80">
                                 <h4 class="text-xs font-semibold text-purple-400 uppercase tracking-wide mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-4 space-y-1 text-slate-400 text-xs">
-                                    <li><b>Frontend:</b> Built an easy interface to select predefined IT servie requests and submit bulk IT operations.</li>
-                                    <li><b>Integration:</b> Created secure SQL databases to queue actions for desktop execution.</li>
-                                </ul>
-                            </div>
+
+<b>Solution Design Document (SDD)</b>
+
+Produced a Solution Design Document (SDD) describing the technical implementation of the automation.
+
+The document includes:
+<br>
+<li>Automation architecture</li>
+<li>Runtime configuration</li>
+<li>UiPath project structure</li>
+<li>Production environment</li>
+<li>Orchestrator configuration</li>
+<li>Scheduling strategy</li>
+<li>Asset configuration</li>
+<li>Logging and reporting</li>
+<li>Deployment prerequisites</li>
+<li>Future enhancements</li>
+<li>Technical glossary</li>
+<br>
+The solution was designed as an Unattended Robot deployed through UiPath Orchestrator, using configuration files and Orchestrator Assets to support secure execution and centralized scheduling.                            
+<br><br>
+<a href="https://github.com/bacdillon/AutomationPlayground/blob/main/Loan%20Application%20Processing%20from%20Process%20Discovery%20to%20Automation/readme.md" class="text-blue-400 hover:text-blue-300 underline">continue readme</a>
+</ul>
+
+
+</div>
                         </div>
                     </div>
                 </div>
@@ -410,6 +453,49 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                <!-- CARD 6: CSM IT Service Request -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1188277973?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="CSM IT Service Request"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-blue-100">CSM IT Service Request Automation</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Python (Streamlit)</span>
+                            <span class="tech-badge">UiPath Studio</span>
+                            <span class="tech-badge">MS SQL Server</span>
+                        </div>
+                        
+                        <div class="text-slate-300 text-sm leading-relaxed space-y-4">
+                            <p><b>Overview:</b> Streamlined IT service ticket execution across legacy applications without API interfaces by pairing a Python front-end with an automated desktop RPA back-end.</p>
+
+                            <div class="bg-[#1e293b]/40 p-4 rounded-xl border border-slate-700/50">
+                                <h4 class="text-xs font-semibold text-blue-400 uppercase tracking-wide mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-400 text-xs">
+                                    <li>Catalogued repetitive ticket types and created dynamic request rules.</li>
+                                    <li>Identified legacy UI bottlenecks to reduce navigation-based processing delays.</li>
+                                    <li>Standardised process consistency, eliminating ticket categorization errors.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-[#1e293b]/20 p-4 rounded-xl border border-slate-800/80">
+                                <h4 class="text-xs font-semibold text-purple-400 uppercase tracking-wide mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                                <ul class="list-disc pl-4 space-y-1 text-slate-400 text-xs">
+                                    <li><b>Frontend:</b> Built an easy interface to select predefined IT servie requests and submit bulk IT operations.</li>
+                                    <li><b>Integration:</b> Created secure SQL databases to queue actions for desktop execution.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
 
             </div>
         </div>
