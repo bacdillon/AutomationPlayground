@@ -1,6 +1,6 @@
 <h1><b>Automation Opportunities Assessment (PDD, SDD, BPMN)</b></h1><br>
 <b>Loan Application Processing from Process Discovery to Automation</b>
-<br>
+
 <b>Overview</b>
 
 Analysed a manual loan application process and designed an enterprise automation solution using UiPath. The project involved documenting the business process, identifying automation opportunities, defining business rules and exception scenarios, and producing both a Process Definition Document (PDD) and Solution Design Document (SDD) to support implementation.
