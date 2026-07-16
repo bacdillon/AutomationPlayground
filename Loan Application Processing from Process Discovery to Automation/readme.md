@@ -1,5 +1,5 @@
-<h1><b>Automation Opportunities Assessment (PDD, SDD, BPMN)</b></h1><br>
-<b>Loan Application Processing from Process Discovery to Automation</b>
+<h1><b>Automation Opportunities Assessment</b></h1><br>
+<b>Loan Application Processing from Process Discovery to Automation(PDD, SDD, BPMN)</b>
 <br><br>
 <b>Overview</b>
 
