@@ -74,9 +74,3 @@ The **Revenue by Month** chart supports drill-down analytics. Right-clicking a s
 - Centralizes store performance monitoring (orders, revenue, profit) in a single self-service report
 - Enables location-level comparison without manual data slicing in spreadsheets
 - Reduces time-to-insight by surfacing daily-level detail on demand via drill-down, rather than requiring a separate report
-
----
-
-## Notes
-
-This project is part of a broader [Automation Playground](https://bacdillon.github.io/AutomationPlayground/) portfolio showcasing RPA, Power Platform, and BI solutions.
