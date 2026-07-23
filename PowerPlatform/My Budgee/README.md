@@ -6,7 +6,7 @@ A self-service expense management app built on **Power Apps (Canvas)** with an i
 
 ## Overview
 
-Manually tracking expenses via spreadsheets or email threads makes it hard to enforce budgets, chase down missing receipts, or keep a clear audit trail of who approved what. **My Budgee Expense Tracker** solves this with a guided, receipt backed submission flow, automated email notifications for approvers, and a full correction loop for rejected requests — all without leaving Power Apps.
+Manually tracking expenses via spreadsheets or email threads makes it hard to enforce budgets, chase down missing receipts, or keep a clear audit trail of who approved. **My Budgee Expense Tracker** solves this with a guided, receipt backed submission flow, automated email notifications for approvers.
 
 ## Solution Structure
 
