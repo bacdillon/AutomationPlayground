@@ -14,7 +14,7 @@ Manually tracking expenses via spreadsheets or email threads makes it hard to en
 |---|---|
 | **Home Dashboard** (Requestor) | Budget progress tracking and quick-launch navigation |
 | **Log New Expense** | Guided expense submission form with attachment support |
-| **View Past Expenses / History** | Requestor-facing status tracking |
+| **View Past Expenses / History** | Requestor facing status tracking |
 | **Approval Expense Reporting** (Approver) | Manager review queue with filtering |
 | **Approval Expense Reporting Details** | Decision screen with status, comments, and history |
 | **Settings Management** (Approver) | Configurable overall budget cap |
