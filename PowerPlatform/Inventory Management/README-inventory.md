@@ -96,9 +96,7 @@ The flow's run history in the **Power Automate portal** confirms a successful ru
 
 - The Inventory Request's BPF advances past the Approval stage, with Approval Date populated
 - The **Inventory Request Dashboard** reflects the new request (Top 5 Request Status, Reason Distribution chart showing "Bundle promotion")
-- The original **LEGO Marvel Iron Man Mech** inventory record shows the approved request linked in its related **Inventory Requests subgrid** — closing the loop from low-stock item to submitted, approved restock request
-
----
+- The original **LEGO Marvel Iron Man Mech** inventory record shows the approved request linked in its related **Inventory Requests subgrid** closing the loop from low-stock item to submitted, approved restock request
 
 ## Key Features
 
@@ -114,9 +112,3 @@ The flow's run history in the **Power Automate portal** confirms a successful ru
 - Reduces approval turnaround time by routing requests directly to managers via Teams/Outlook instead of manual follow-up
 - Improves auditability — every restock decision is timestamped, linked, and traceable back to the inventory record that triggered it
 - Gives leadership real-time visibility into stock health and request trends without manual reporting
-
----
-
-## Notes
-
-This project is part of a broader [Automation Playground](https://bacdillon.github.io/AutomationPlayground/) portfolio showcasing RPA, Power Platform, and BI solutions.
