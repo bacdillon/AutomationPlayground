@@ -26,11 +26,11 @@ The app opens on a Power Apps model-driven dashboard with live stock analytics:
 - **Stock Monitoring** Current Stock by Category chart
 - **Quick Stock Status Overview** A pie chart (In Stock / Low on Stock / Out of Stock)
 - **Top 5 Items with Highest Stock**
-- **Inventory by Category** breakdown
+- **Inventory by Category** Breakdown
 
 ## 2. Browsing the Inventory List
 
-The **"Active Inventories"** list is a Dataverse table of ~22 toy items (e.g., LEGO Creator Tree House, LEGO Marvel Iron Man Mech, Cute Plush Dinosaur, Nerf Rival Blaster, Hot Wheels Monster Truck), with columns for:
+The **"Active Inventories"** list is a Dataverse table of 22 toy items (e.g., LEGO Creator Tree House, LEGO Marvel Iron Man Mech, Cute Plush Dinosaur, Nerf Rival Blaster, Hot Wheels Monster Truck), with columns for:
 
 - Price
 - Current Quantity / Initial Quantity
@@ -74,14 +74,14 @@ Fields captured:
 
 ## 5. Triggering the Approval Flow
 
-Saving the request and clicking **Run Flow** launches the **"BPF Request Inventory Workflow"** — a Power Automate flow built on the **Standard Approvals connector**. The flow starts successfully and creates an approval task.
+Saving the request and clicking **Run Flow** launches the **"BPF Request Inventory Workflow"** A Power Automate flow built on the **Standard Approvals connector**. The flow starts successfully and creates an approval task.
 
 ## 6. Approval Notification and Decision
 
 The approval request is delivered two ways:
 
-- A **Microsoft Teams Approvals** notification: *"BAC SAY RON sent you a request — Inventory Item Request"*
-- An **Outlook email** from `flow-noreply@microsoft.com` with request details and a deep link back to the Dataverse record
+- A **Microsoft Teams Approvals** notification back to staff an Inventory Item has Request*
+- An **Outlook email** with request details and a link back to the Dataverse record
 
 The approver reviews and **approves** the request (comment: "approved"), confirmed by:
 
@@ -110,5 +110,5 @@ The flow's run history in the **Power Automate portal** confirms a successful ru
 
 - Replaces manual stock checks and ad hoc restock requests with a governed, guided process
 - Reduces approval turnaround time by routing requests directly to managers via Teams/Outlook instead of manual follow-up
-- Improves auditability — every restock decision is timestamped, linked, and traceable back to the inventory record that triggered it
+- Improves auditability for every restock decision is timestamped, linked, and traceable back to the inventory record that triggered it
 - Gives leadership real-time visibility into stock health and request trends without manual reporting
