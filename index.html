@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Showcase</title>
+    <title>Automation Playground</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
@@ -203,7 +203,7 @@
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Branding -->
             <div onclick="scrollToSection('home')" class="text-xl font-bold tracking-tight text-white uppercase cursor-pointer no-shadow-btn">
-                AUTOMATION SHOWCASE
+                AUTOMATION PLAYGROUND
             </div>
             
             <!-- Desktop Menu Options -->
@@ -744,38 +744,46 @@
                     </div>
                 </div>
 
-                <!-- CARD 2: Inventory Management System -->
+                <!-- CARD 2: Inventory Management System: Dataverse-Driven Stock Tracking with Automated Approval Workflow -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform python power-bi">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188308163?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Inventory Management System"></iframe>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Inventory Management System</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Inventory Management System: Dataverse-Driven Stock Tracking with Automated Approval Workflow</h3>
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge">Power Apps</span>
                             <span class="tech-badge">Power Automate</span>
                             <span class="tech-badge">Dataverse</span>
+                            <span class="tech-badge">Microsoft Teams</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Developed and implemented a digital inventory management solution that centralises stock information, automates inventory processes, and provides real-time visibility into inventory levels.</p>
+                            <p><b>Overview:</b> 
+                            Developed and implemented a digital inventory management solution built on Power Apps and Dataverse that centralizes toy-store stock data, visualizes stock health through live dashboards, and automates restock request approvals via Power Automate. Closing the loop from a low-stock alert to an approved, logged restock decision.    
+                            </p>
 
                             <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
                                 <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed inventory management processes to identify manual activities, operational inefficiencies, and opportunities for digital transformation.</li>
-                                    <li>Designed a standardised inventory workflow to support stock updates, inventory tracking, and automated replenishment notifications.</li>
-                                    <li>Defined business rules for inventory transactions, low-stock thresholds, and alert notifications.</li>
-                                    <li>Improved inventory visibility by replacing fragmented spreadsheets with a centralised digital solution.</li>
+                                    <li>Analyzed inventory tracking needs and identified stock status (In Stock / Low on Stock / Out of Stock) as the key operational signal for staff.</li>
+                                    <li>Designed a Business Process Flow to standardize the restock request lifecycle: Request, Approval, Inventory Check & Stock Update, Request Closure.</li>
+                                    <li>Defined approval routing rules so restock requests are automatically directed to the appropriate manager.</li>
+                                    <li>Improved inventory visibility by replacing manual stock checks with real-time dashboards and linked request history per item.</li>
                                 </ul>
                             </div>
 
                             <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
                                 <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Inventory Management:</b> Developed a mobile-friendly Power Apps application to manage inventory transactions and provide real-time stock visibility.</li>
-                                    <li><b>Data Management:</b> Implemented Microsoft Dataverse as the centralised data repository, providing a single source of truth for inventory records.</li>
-                                    <li><b>Workflow Automation:</b> Configured Power Automate flows to trigger low-stock alerts, automate stock replenishment requests, and notify relevant stakeholders.</li>
+                                    <b>Scenario 1 – Stock Monitoring</b><br>
+                                     <li>Built a model-driven Power Apps dashboard on Dataverse showing Active Inventories, Stock Status Overview, Top 5 Items with Highest Stock, and Inventory by Category.</li>
+                                    <li>Structured the Inventory table with fields for Current/Initial Quantity, Supplier, Category, Items Sold, and a computed Stock Status, surfacing at-risk items (e.g., a LEGO set down to 2 of 40 units).</li>
+                                         <br>
+                                    <b>Scenario 2 – Automated Restock Approval:</b><br>
+                                        <li>Created a guided Business Process Flow for submitting Inventory Requests, capturing quantity needed, reason, and approver.</li>
+                                        <li>Triggered a Power Automate flow using the Standard Approvals connector to route the request through Microsoft Teams and Outlook for manager sign-off.</li>
+                                        <li>Automatically updated the request's BPF stage and linked the approved outcome back to the originating inventory record, with dashboard reporting reflecting the new request in real time.</li>
                                 </ul>
                             </div>
                         </div>
@@ -788,13 +796,13 @@
                     </div>
                 </div>
 
-                <!-- CARD 3: Toyshop KPI Dashboard -->
+                <!-- CARD 3: Toyshop KPI Dashboard: Interactive Sales Analytics with Power BI -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform python power-bi">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188308585?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Toyshop Dashboard"></iframe>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Toyshop KPI Dashboard</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Toyshop KPI Dashboard: Interactive Sales Analytics with Power BI</h3>
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge">Power BI</span>
                             <span class="tech-badge">Data Visualization</span>
@@ -802,24 +810,30 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Created and delivered an interactive Power BI dashboard that transforms sales data into actionable business insights to support operational and strategic decision-making.</p>
+                            <p><b>Overview:</b>
+                            Created and delivered an interactive Power BI dashboard for a toy retailer that transforms sales data into actionable business insights, combining a portal-style landing page with a fully interactive KPI report. The solution enables stakeholders to monitor orders, revenue, and profit by store location and drill into trends at a granular level.
+                            </p>
 
                             <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
                                 <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed inventory management processes to identify manual activities, operational inefficiencies, and opportunities for digital transformation.</li>
-                                    <li>Designed a standardised inventory workflow to support stock updates, inventory tracking, and automated replenishment notifications.</li>
-                                    <li>Defined business rules for inventory transactions, low-stock thresholds, and alert notifications.</li>
-                                    <li>Improved inventory visibility by replacing fragmented spreadsheets with a centralised digital solution.</li>
+                                    <li>Analyzed multi-store sales data to identify the KPIs that matter most to stakeholders: total orders, revenue, and profit.</li>
+                                    <li>Designed a landing page experience that orients staff with company mission and quick links, rather than dropping users straight into raw charts.</li>
+                                    <li>Defined a store-location filtering model so performance can be compared consistently across Airport, Commercial, Downtown, and Residential locations.</li>
+                                    <li>Improved decision-making by enabling drill-down from monthly to daily revenue detail, rather than static monthly summaries.</li>
                                 </ul>
                             </div>
 
                             <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
                                 <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Data Modelling & KPI Development:</b> Developed a Power BI data model and DAX measures to calculate key business metrics, including revenue, profit, and order volume.</li>
-                                    <li><b>Business Analytics:</b> Implemented interactive visualisations to analyse sales trends, seasonal patterns, product category performance, and store-level performance.</li>
-                                    <li><b>Interactive Reporting:</b> Designed dynamic filters and drill-down capabilities, enabling users to explore sales performance by product category and store location.</li>
+                                    <b>Scenario 1 – Portal-Style Intro Page</b><br>
+                                     <li>Built an "Intro" page styled as an internal company portal, featuring a welcome message, mission statement, and a Quick Access panel linking to Employee Handbook, Product SKUs, Week Reports, Store Directory, and profile management.</li>
+                                    <br>
+                                     <b>Scenario 2 – Interactive KPI Reporting</b><br>
+                                      <li>Developed a KPI Report page with headline cards for Total Orders, Revenue, and Profit by Month, alongside Total Orders by Product Category and a Revenue by Month trend chart.</li>
+                                      <li>Implemented a Store Location slicer that dynamically cross-filters all KPI cards and visuals (e.g., isolating Downtown's 2,907 orders and $49,024 revenue from the full 41,830 orders and $640,778 company-wide).</li>
+                                      <li>Enabled drill-down interactivity on the Revenue by Month chart, allowing users to move from monthly totals down to a specific day's revenue figure.</li>
                                 </ul>
                             </div>
                         </div>
@@ -1069,7 +1083,7 @@
     <footer class="bg-black border-t border-zinc-900 py-12 px-6 text-center text-white text-xs">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div>
-                <p>&copy; 2026 AUTOMATION SHOWCASE. All rights reserved.</p>
+                <p>&copy; 2026 AUTOMATION PLAYGROUND. All rights reserved.</p>
             </div>
             <div class="flex space-x-6 text-lg">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition text-white"><i class="fab fa-github"></i></a>
