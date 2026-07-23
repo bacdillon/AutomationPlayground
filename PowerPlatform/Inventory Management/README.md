@@ -103,7 +103,7 @@ The flow's run history in the **Power Automate portal** confirms a successful ru
 - ✅ Real-time stock health dashboards (category, status, top items)
 - ✅ Guided restock request submission via Business Process Flow
 - ✅ Automated manager approval routing through Teams and Outlook
-- ✅ Two-way traceability — requests link back to their originating inventory item
+- ✅ Two-way traceability: requests link back to their originating inventory item
 - ✅ Full flow run auditability via Power Automate run history
 
 ## Business Value
