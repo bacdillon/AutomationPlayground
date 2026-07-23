@@ -6,7 +6,7 @@ A Dataverse-backed inventory management solution for a multi-location toy retail
 
 ## Overview
 
-Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across categories, plus a reliable way to request and approve restocks before items run out. This solution centralizes inventory data in Dataverse, surfaces stock health through Power Apps dashboards, and automates the restock approval cycle end-to-end using a Business Process Flow and Power Automate — so a low-stock alert can become an approved restock request without leaving the app.
+Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across categories, plus a reliable way to request and approve restocks before items run out. This solution centralizes inventory data in Dataverse, surfaces stock health through Power Apps dashboards, and automates the restock approval cycle end-to-end using a Business Process Flow and Power Automate. So a low-stock alert can become an approved restock request without leaving the app.
 
 ## Solution Structure
 
