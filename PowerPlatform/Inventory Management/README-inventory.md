@@ -1,6 +1,6 @@
 # Kiddy Lah! Inventory Management System
 
-A Dataverse-backed inventory management solution for a multi-location toy retailer, built on **Power Apps (model-driven)**, **Microsoft Dataverse**, and **Power Automate** — enabling staff to monitor stock levels via live dashboards, raise restock requests through a guided approval process, and keep every request traceable back to the originating inventory item.
+A Dataverse, backed inventory management solution for a multi-location toy retailer, built on **Power Apps (model-driven)**, **Microsoft Dataverse**, and **Power Automate** where enabling staff to monitor stock levels via live dashboards, raise restock requests through a guided approval process, and keep every request traceable back to the originating inventory item.
 
 **Tech stack:** Power Apps (Model-Driven) · Microsoft Dataverse · Power Automate · Business Process Flows · Microsoft Teams Approvals · Outlook
 
