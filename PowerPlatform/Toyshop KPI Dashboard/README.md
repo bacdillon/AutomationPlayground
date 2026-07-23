@@ -16,7 +16,6 @@ The `.pbix` file contains 3 pages:
 |---|---|
 | **Intro** | Company landing page: welcome message, mission statement, and a Quick Access panel of internal links |
 | **KPI Report** | Main analytical dashboard: KPI cards, category breakdown, and revenue trend with drill-down |
-| **Duplicate of Page 1** | Work-in-progress / template copy of the Intro page |
 
 ---
 
