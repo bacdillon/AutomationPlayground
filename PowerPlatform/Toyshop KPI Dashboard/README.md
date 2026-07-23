@@ -4,7 +4,7 @@ An interactive Power BI Desktop dashboard built for a multi-location toy retaile
 
 **Tech stack:** Power BI Desktop · DAX · Interactive Slicers · Drill-down Analytics
 
-## Overview1
+## Overview
 
 This report was designed for **Kiddy Lah! Toy Shop**, a multi-location toy retailer, to give staff and stakeholders a single place to check on company mission/onboarding info alongside real-time sales performance. Rather than dropping users straight into raw charts, the report opens with a friendly, portal-style landing page before moving into the analytical KPI dashboard.
 
