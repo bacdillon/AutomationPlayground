@@ -1,6 +1,6 @@
 # KiddyLah Toyshop KPI Report
 
-An interactive Power BI Desktop dashboard built for a multi-location toy retailer, combining a portal-style landing page with a fully interactive KPI reporting page — enabling stakeholders to monitor orders, revenue, and profit by store location and drill into daily trends.
+An interactive Power BI Desktop dashboard built for a multi-location toy retailer, combining a portal-style landing page with a fully interactive KPI reporting page where letting the stakeholders to monitor orders, revenue, and profit by store location and drill into daily trends.
 
 **Tech stack:** Power BI Desktop · DAX · Interactive Slicers · Drill-down Analytics
 
@@ -9,15 +9,10 @@ An interactive Power BI Desktop dashboard built for a multi-location toy retaile
 This report was designed for **Kiddy Lah! Toy Shop**, a multi-location toy retailer, to give staff and stakeholders a single place to check on company mission/onboarding info alongside real-time sales performance. Rather than dropping users straight into raw charts, the report opens with a friendly, portal-style landing page before moving into the analytical KPI dashboard.
 
 ## Report Structure
-
-The `.pbix` file contains 3 pages:
-
 | Page | Purpose |
 |---|---|
 | **Intro** | Company landing page: welcome message, mission statement, and a Quick Access panel of internal links |
 | **KPI Report** | Main analytical dashboard: KPI cards, category breakdown, and revenue trend with drill-down |
-
----
 
 ## 1. Intro / Landing Page
 
@@ -59,8 +54,6 @@ All KPI cards and visuals are fully **cross-filtered** by the Store Location sli
 ## 4. Drill-Down Interaction
 
 The **Revenue by Month** chart supports drill-down analytics. Right-clicking a specific data point (e.g., Thursday, December 1, 2022 — Revenue $505,342) surfaces a **"Drill down"** context menu option, allowing users to move from monthly totals down to a specific day's revenue figure.
-
----
 
 ## Key Features
 
