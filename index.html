@@ -846,13 +846,13 @@
                     </div>
                 </div>
 
-                <!-- CARD 4: My Budgee: Expense Tracker -->
+                <!-- CARD 4: My Budgee Expense Tracker -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188312760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Expense Tracker"></iframe>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">My Budgee: Expense Tracker</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">My Budgee Expense Tracker</h3>
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge">Power Apps</span>
                             <span class="tech-badge">Power Automate</span>
@@ -860,34 +860,41 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Developed and implemented a digital expense management solution that streamlines employee expense submission, approval, and tracking through a low-code platform.</p>
+                            <p><b>Overview:</b> Developed a self-service expense management app on Power Apps that lets employees log and track expenses against a budget, with Power Automate driving an end-to-end approval workflow, including email notifications, manager review, and a resubmission path for rejected requests.</p>
 
                             <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
                                 <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed the employee expense claim process to identify manual activities and opportunities for process automation.</li>
-                                    <li>Designed a standardised workflow for expense submission, approval routing, and expense tracking.</li>
-                                    <li>Defined business rules for approval routing, notification workflows, and expense record management.</li>
-                                    <li>Improved financial process visibility by replacing manual expense tracking with a digital solution.</li>
+                                    <li>Analyzed the expense submission process and identified the need for a guided, receipt backed request flow rather than ad hoc emails or spreadsheets.</li>
+                                    <li>Designed a role based experience separating the requestor view (Home, New Expense, Budget, Report) from the approver view (Main Screen, Reporting, Settings).</li>
+                                    <li>Defined a rejection-and-resubmission path so incomplete requests (e.g., missing receipts) can be corrected without restarting the process.</li>
+                                    <li>Improved accountability by requiring approver comments and a timestamped approval history on every decision.</li>
                                 </ul>
                             </div>
 
                             <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
                                 <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Expense Submission:</b> Developed a Power Apps application that enables employees to submit and track expense claims through a user-friendly interface.</li>
-                                    <li><b>Workflow Automation:</b> Implemented Power Automate workflows to route expense claims for approval based on predefined business rules and trigger Outlook notifications throughout the approval process.</li>
-                                    <li><b>Expense Tracking:</b> Automated the tracking of expense records, providing real-time visibility into submission status, approvals, and completed transactions.</li>
+                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
+                                    <b>Scenario 1 – Expense Submission & Budget Tracking</b><br>
+                                     <li>Built a Home dashboard showing Total Expense vs. Budget and Remaining Amount, with quick launch for logging and viewing expenses.</li>
+                                     <li>Developed a Log New Expense form capturing date, category, amount, description, requestor, assigned approver, and an optional receipt attachment.</li>
+                                     <li>Configured a Settings screen allowing the approver to set the overall Budgeted Amount.</li>
+                                     <br>
+                                     <b>Scenario 2 – Automated Approval Workflow</b><br>
+                                      <li>Triggered a Power Automate flow that emails the assigned approver whenever a new expense is submitted, linking back to the Power Apps portal.</li>
+                                      <li>Enabled the approver to review request details and attachments, then set a status (Approved/Rejected) with comments, automatically notifying the requestor of the outcome by email.</li>
+                                      <li>Supported a rejected request (e.g., missing receipt) can be edited and resubmitted by the requestor with the required attachment, then re-reviewed and approved, with every step logged in a time stamped Approval History.</li>
                                 </ul>
                             </div>
                         </div>
                     </div>
                     <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
+                    <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                         <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/PowerPlatform/My%20Budgee" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
                         </a>
-                    </div> -->
+                    </div>
                 </div>
 
                 <!-- CARD 5: Sales Funnel Dashboard -->
@@ -1074,6 +1081,52 @@
                         </a>
                     </div> -->
                 </div>
+
+                <!-- CARD 4: PowerPoint Generator Agent -->
+<!--                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1190715740?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">PowerPoint Generator Agent</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Microsoft Copilot Studio</span>
+                            <span class="tech-badge">SharePoint</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> Implemented and configured an intelligent document generation agent that automates the creation of PowerPoint presentations using conversational prompts, structured templates, and SharePoint data.</p>
+
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
+                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
+                                    <li>Analysed document creation processes to identify repetitive manual tasks and opportunities for automation.</li>
+                                    <li>Designed a standardised workflow for generating PowerPoint presentations based on business requirements, templates, and structured data.</li>
+                                    <li>Defined business rules for template selection, content generation, and document customisation to ensure consistency and accuracy.</li>
+                                    <li>Improved operational efficiency by reducing manual document preparation and supporting high-volume document generation.</li>
+                                </ul>
+                            </div>
+
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
+                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
+                                    <li><b>Conversational Document Generation:</b> Developed a Microsoft Copilot Studio agent that generates PowerPoint presentations through natural language prompts and guided workflows.</li>
+                                    <li><b>Template & Data Integration:</b> Implemented SharePoint integration to retrieve structured business data and populate predefined presentation templates with dynamic content.</li>
+                                    <li><b>Content Automation:</b> Applied business rules to customise presentation content based on user requirements.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!-- Repository Link -->
+<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
+                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/CopilotStudio/PowerPoint%20Generator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
+                    </div> -->
+                <!-- </div> -->
+
+
+
 
             </div>
         </div>
