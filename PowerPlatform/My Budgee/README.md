@@ -4,11 +4,9 @@ A self-service expense management app built on **Power Apps (Canvas)** with an i
 
 **Tech stack:** Power Apps (Canvas App) · Power Automate · Outlook · Dataverse/SharePoint (data source)
 
----
-
 ## Overview
 
-Manually tracking expenses via spreadsheets or email threads makes it hard to enforce budgets, chase down missing receipts, or keep a clear audit trail of who approved what. **My Budgee Expense Tracker** solves this with a guided, receipt-backed submission flow, automated email notifications for approvers, and a full correction loop for rejected requests — all without leaving Power Apps.
+Manually tracking expenses via spreadsheets or email threads makes it hard to enforce budgets, chase down missing receipts, or keep a clear audit trail of who approved what. **My Budgee Expense Tracker** solves this with a guided, receipt backed submission flow, automated email notifications for approvers, and a full correction loop for rejected requests — all without leaving Power Apps.
 
 ## Solution Structure
 
@@ -22,8 +20,6 @@ Manually tracking expenses via spreadsheets or email threads makes it hard to en
 | **Settings Management** (Approver) | Configurable overall budget cap |
 | **Power Automate Flow** | Email notifications on submission and status change |
 
----
-
 ## 1. Home Dashboard (Requestor View)
 
 The app opens on a dashboard showing:
@@ -31,7 +27,6 @@ The app opens on a dashboard showing:
 - **Total Expense vs. Budget** progress bar (e.g., $720 / $1,500)
 - **Remaining Amount**
 - Quick-launch tiles: **Log Expense**, **View Past Expenses/History**
-- A "Best Way to Track Your Money" tip card with shortcuts to **Submit Expense**, **Track My Expense**, and **Approval**
 
 ## 2. Submitting a New Expense
 
@@ -49,7 +44,7 @@ Submitting shows a **"Submitted Successfully"** confirmation, and the new entry 
 
 A Power Automate flow sends an email via Outlook to the approver:
 
-> **"Expense Approval Needed"** — a new expense has been submitted for your approval, including the requestor's name and a link back to the Power Apps portal.
+> **"Expense Approval Needed"** A new expense has been submitted for your approval, including the requestor's name and a link back to the Power Apps portal.
 
 ## 4. Approver Review
 
@@ -58,7 +53,7 @@ Logging in as the approver ("Jack Black"), the **Approval Expense Reporting** sc
 - Requestor's info
 - Amount and description
 - Attachments
-- **Approval Information** section — Status dropdown, Comments field
+- **Approval Information** section with Status dropdown, Comments field
 
 ## 5. First Decision — Rejection
 
@@ -70,7 +65,7 @@ The requestor's history list now shows **[Rejected]** for the affected entry.
 
 ## 6. Requestor Resubmission
 
-The requestor opens the **"Edit Submitted Expense"** screen for the rejected item, uploads the missing receipt (a screenshot attachment), and clicks **Update** to resubmit — with an **Approval History** timeline logging each status change with timestamps.
+The requestor opens the **"Edit Submitted Expense"** screen for the rejected item, uploads the missing receipt (a screenshot attachment), and clicks **Update** to resubmit with an **Approval History** timeline logging each status change with timestamps.
 
 ## 7. Second Decision — Approval
 
@@ -81,8 +76,6 @@ The approver reviews the resubmitted request (now with the attachment included),
 - The requestor's **View Past Expenses** list now shows multiple entries as **Approved** (e.g., Accommodation $300, Accommodation $120, team dinner $210), reflecting the cumulative approved total.
 - The approver's **Settings Management** screen allows configuring the overall **Budgeted Amount** (e.g., $2,000).
 - The **Approval Reporting** screen includes a **Sort/Filter by status** (Pending, Approved, Rejected) dropdown.
-
----
 
 ## Key Features
 
@@ -96,14 +89,8 @@ The approver reviews the resubmitted request (now with the attachment included),
 
 ## Business Value
 
-- Replaces manual, email-based expense approval with a governed, self-service workflow
+- Replaces manual, email-based expense approval with a governed, self service workflow
 - Reduces approval turnaround time through automatic email routing to the assigned approver
-- Improves compliance by requiring receipts before final approval, with a built-in correction path for missing documentation
-- Provides full auditability — every request, decision, comment, and timestamp is tracked end-to-end
+- Improves compliance by requiring receipts before final approval, with a built in correction path for missing documentation
+- Provides full auditability for every request, decision, comment, and timestamp is tracked end-to-end
 - Gives budget owners real-time visibility into spend against a configurable budget cap
-
----
-
-## Notes
-
-This project is part of a broader [Automation Playground](https://bacdillon.github.io/AutomationPlayground/) portfolio showcasing RPA, Power Platform, and BI solutions.
