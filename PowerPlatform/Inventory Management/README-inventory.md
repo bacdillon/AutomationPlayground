@@ -22,9 +22,9 @@ Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across
 
 The app opens on a Power Apps model-driven dashboard with live stock analytics:
 
-- **Active Inventories** counter
-- **Stock Monitoring** — Current Stock by Category chart
-- **Quick Stock Status Overview** pie chart (In Stock / Low on Stock / Out of Stock)
+- **Active Inventories** Counter
+- **Stock Monitoring** Current Stock by Category chart
+- **Quick Stock Status Overview** A pie chart (In Stock / Low on Stock / Out of Stock)
 - **Top 5 Items with Highest Stock**
 - **Inventory by Category** breakdown
 
