@@ -1,12 +1,12 @@
 # Kiddy Lah! Inventory Management System
 
-A Dataverse-backed inventory management solution for a multi-location toy retailer, built on **Power Apps (model-driven)**, **Microsoft Dataverse**, and **Power Automate** — enabling staff to monitor stock levels via live dashboards, raise restock requests through a guided approval process, and keep every request traceable back to the originating inventory item.
+A Dataverse, backed inventory management solution for a multi-location toy retailer, built on **Power Apps (model-driven)**, **Microsoft Dataverse**, and **Power Automate** where enabling staff to monitor stock levels via live dashboards, raise restock requests through a guided approval process, and keep every request traceable back to the originating inventory item.
 
 **Tech stack:** Power Apps (Model-Driven) · Microsoft Dataverse · Power Automate · Business Process Flows · Microsoft Teams Approvals · Outlook
 
 ## Overview
 
-Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across categories, plus a reliable way to request and approve restocks before items run out. This solution centralizes inventory data in Dataverse, surfaces stock health through Power Apps dashboards, and automates the restock approval cycle end-to-end using a Business Process Flow and Power Automate — so a low-stock alert can become an approved restock request without leaving the app.
+Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across categories, plus a reliable way to request and approve restocks before items run out. This solution centralizes inventory data in Dataverse, surfaces stock health through Power Apps dashboards, and automates the restock approval cycle end-to-end using a Business Process Flow and Power Automate. So a low-stock alert can become an approved restock request without leaving the app.
 
 ## Solution Structure
 
@@ -18,15 +18,13 @@ Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across
 | **BPF Request Inventory Workflow** (Power Automate flow) | Automates approval notifications via Teams and Outlook |
 | **Inventory Request Dashboard** | Reporting on request status and reasons |
 
----
-
 ## 1. Inventory Dashboard (Home)
 
 The app opens on a Power Apps model-driven dashboard with live stock analytics:
 
-- **Active Inventories** counter
-- **Stock Monitoring** — Current Stock by Category chart
-- **Quick Stock Status Overview** pie chart (In Stock / Low on Stock / Out of Stock)
+- **Active Inventories** Counter
+- **Stock Monitoring** Current Stock by Category chart
+- **Quick Stock Status Overview** A pie chart (In Stock / Low on Stock / Out of Stock)
 - **Top 5 Items with Highest Stock**
 - **Inventory by Category** breakdown
 
@@ -98,9 +96,7 @@ The flow's run history in the **Power Automate portal** confirms a successful ru
 
 - The Inventory Request's BPF advances past the Approval stage, with Approval Date populated
 - The **Inventory Request Dashboard** reflects the new request (Top 5 Request Status, Reason Distribution chart showing "Bundle promotion")
-- The original **LEGO Marvel Iron Man Mech** inventory record shows the approved request linked in its related **Inventory Requests subgrid** — closing the loop from low-stock item to submitted, approved restock request
-
----
+- The original **LEGO Marvel Iron Man Mech** inventory record shows the approved request linked in its related **Inventory Requests subgrid** closing the loop from low-stock item to submitted, approved restock request
 
 ## Key Features
 
@@ -116,9 +112,3 @@ The flow's run history in the **Power Automate portal** confirms a successful ru
 - Reduces approval turnaround time by routing requests directly to managers via Teams/Outlook instead of manual follow-up
 - Improves auditability — every restock decision is timestamped, linked, and traceable back to the inventory record that triggered it
 - Gives leadership real-time visibility into stock health and request trends without manual reporting
-
----
-
-## Notes
-
-This project is part of a broader [Automation Playground](https://bacdillon.github.io/AutomationPlayground/) portfolio showcasing RPA, Power Platform, and BI solutions.
