@@ -18,8 +18,6 @@ Retail staff at **Kiddy Lah! Toy Shop** need visibility into stock levels across
 | **BPF Request Inventory Workflow** (Power Automate flow) | Automates approval notifications via Teams and Outlook |
 | **Inventory Request Dashboard** | Reporting on request status and reasons |
 
----
-
 ## 1. Inventory Dashboard (Home)
 
 The app opens on a Power Apps model-driven dashboard with live stock analytics:
