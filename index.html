@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Playground</title>
+    <title>Automation Playground - Enterprise Digital Solutions</title>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f4f4f5',
+                            100: '#e4e4e7',
+                            800: '#27272a',
+                            900: '#18181b',
+                            950: '#09090b',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- FontAwesome Icons & Google Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
         body {
             font-family: 'Inter', sans-serif;
             scroll-behavior: smooth;
@@ -19,77 +44,87 @@
             color: #ffffff !important;
         }
 
-        /* Global White Typography Overrides */
+        /* Global Typography Overrides */
         body, p, span, div, li, h1, h2, h3, h4, h5, h6, header, section, footer, a {
             color: #ffffff;
         }
 
-        /* Filter Button Active & Inactive High-Contrast State Styling */
+        /* Active & Inactive Filter Button States */
         .btn-filter-active, .btn-filter-active span {
             background-color: #ffffff !important;
             color: #000000 !important;
             border-color: transparent !important;
-            box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
         }
 
         .btn-filter-inactive, .btn-filter-inactive span {
-            background-color: #18181b !important;
-            color: #ffffff !important;
+            background-color: #121215 !important;
+            color: #a1a1aa !important;
             border-color: #27272a !important;
         }
 
         .btn-filter-inactive:hover, .btn-filter-inactive:hover span {
             background-color: #27272a !important;
+            color: #ffffff !important;
             border-color: #3f3f46 !important;
         }
 
-        /* Custom Premium Glass Card optimized for pure black background */
+        /* Glassmorphism Card Design */
         .glass-card {
-            background: rgba(18, 18, 18, 0.9);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: rgba(18, 18, 20, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+                        border-color 0.35s ease, 
+                        box-shadow 0.35s ease, 
+                        opacity 0.35s ease;
         }
 
         .glass-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255, 255, 255, 0.35);
-            box-shadow: 0 20px 45px -15px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 20px 40px -15px rgba(255, 255, 255, 0.12);
         }
 
-        /* High-contrast gradient text to pop on pure black */
+        /* High-contrast Gradient Text */
         .gradient-text {
-            background: linear-gradient(90deg, #ffffff, #d4d4d8);
+            background: linear-gradient(135deg, #ffffff 0%, #e4e4e7 50%, #a1a1aa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Tech badge modified for pure black theme */
+        /* Tech Badge Styling */
         .tech-badge {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.18);
             border-radius: 9999px;
             padding: 4px 12px;
-            font-family: monospace;
-            font-size: 0.75rem;
-            color: #ffffff !important;
-            margin-right: 0.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.72rem;
+            color: #e4e4e7 !important;
+            margin-right: 0.4rem;
             margin-bottom: 0.5rem;
             transition: all 0.2s ease;
+            cursor: pointer;
+            user-select: none;
         }
         
         .tech-badge:hover {
-            background-color: rgba(255, 255, 255, 0.25);
-            border-color: rgba(255, 255, 255, 0.4);
+            background-color: rgba(255, 255, 255, 0.22);
+            border-color: rgba(255, 255, 255, 0.45);
+            color: #ffffff !important;
+            transform: scale(1.04);
         }
 
+        /* Video / Media Aspect Ratio Container */
         .video-wrapper {
             position: relative;
             width: 100%;
             padding-top: 56.25%; 
-            background: #080808;
+            background: #08080a;
             border-radius: 0.75rem;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.12);
@@ -112,27 +147,22 @@
 
         .social-link:hover {
             color: #ffffff !important;
-            transform: scale(1.1);
+            transform: translateY(-2px) scale(1.1);
         }
 
-        /* Enforcing pointer cursor and touchability */
-        nav button, nav a, .social-link, button, a {
-            cursor: pointer !important;
-            pointer-events: auto !important;
-        }
-
-        /* Section headers adapted for pure black theme sticky tracking */
+        /* Sticky Section Headers */
         .section-header {
             position: sticky;
-            top: 68px;
-            z-index: 40;
-            background: #000000;
-            padding-top: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            top: 65px;
+            z-index: 35;
+            background: rgba(0, 0, 0, 0.92);
+            backdrop-filter: blur(12px);
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
-        /* Custom scrollbar optimized for black/white style */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -140,152 +170,215 @@
             background: #000000;
         }
         ::-webkit-scrollbar-thumb {
-            background: #3f3f46;
+            background: #27272a;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #71717a;
+            background: #52525b;
         }
 
-        /* Custom Class to strip shadow/outlines on Click Actions */
         .no-shadow-btn {
             outline: none !important;
             box-shadow: none !important;
             -webkit-tap-highlight-color: transparent !important;
         }
 
-        /* Impact metric badge design */
-        .metric-pill {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(8px);
-            border-radius: 0.75rem;
-            padding: 0.5rem 0.75rem;
-            transition: all 0.2s ease;
-        }
-
-        .metric-pill:hover {
-            border-color: rgba(255, 255, 255, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Sticky Filter Navigation Bar */
+        /* Sticky Navigation Filter Bar */
         .sticky-filter-bar {
             position: sticky;
             top: 61px;
-            z-index: 50;
-            background: rgba(0, 0, 0, 0.92);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-            padding: 0.75rem 0;
+            z-index: 40;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 0.85rem 0;
         }
 
-        /* Increased Font Size for Business Analysis Perspective & Solution Implementation Lists */
+        /* Responsive Readability Text */
         .showcase-card ul.list-disc,
         .showcase-card ul.list-disc li,
         .ba-si-text {
-            font-size: 0.95rem !important; /* Increased font size for enhanced readability */
+            font-size: 0.925rem !important;
             line-height: 1.625rem !important;
-            color: #ffffff !important;
+            color: #e4e4e7 !important;
         }
 
         .showcase-card h4 {
             color: #ffffff !important;
-            font-size: 0.875rem !important;
-            letter-spacing: 0.05em;
+            font-size: 0.85rem !important;
+            letter-spacing: 0.06em;
+        }
+
+        /* Modal Overlay Transitions */
+        .modal-overlay {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Toast Popup */
+        #toast {
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* Active Nav Link Marker */
+        .nav-link.active-link {
+            color: #ffffff;
+            border-bottom: 2px solid #ffffff;
         }
     </style>
 </head>
-<body class="bg-black text-white antialiased">
+<body class="bg-black text-white antialiased selection:bg-white selection:text-black">
 
-    <!-- Navigation Bar -->
-    <nav class="sticky top-0 w-full z-[99999] bg-black border-b border-zinc-800 shadow-2xl">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Top Fixed Navigation Bar -->
+    <nav class="sticky top-0 w-full z-[9999] bg-black/90 backdrop-blur-md border-b border-zinc-800 shadow-2xl">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <!-- Branding -->
-            <div onclick="scrollToSection('home')" class="text-xl font-bold tracking-tight text-white uppercase cursor-pointer no-shadow-btn">
-                AUTOMATION PLAYGROUND
+            <div onclick="scrollToSection('home')" class="text-xl font-extrabold tracking-wider text-white uppercase cursor-pointer no-shadow-btn flex items-center gap-2 group">
+                <span>AUTOMATION PLAYGROUND</span>
             </div>
             
             <!-- Desktop Menu Options -->
             <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <button onclick="scrollToSection('home')" class="text-white hover:text-zinc-300 transition cursor-pointer focus:outline-none">Home</button>
-                <button onclick="scrollToSection('uipath')" class="text-white hover:text-zinc-300 transition cursor-pointer focus:outline-none">UiPath</button>
-                <button onclick="scrollToSection('power-platform')" class="text-white hover:text-zinc-300 transition cursor-pointer focus:outline-none">Power Platform</button>
-                <button onclick="scrollToSection('copilot-studio')" class="text-white hover:text-zinc-300 transition cursor-pointer focus:outline-none">Copilot Studio</button>
+                <button onclick="scrollToSection('home')" id="nav-home" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Home</button>
+                <button onclick="scrollToSection('uipath')" id="nav-uipath" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">UiPath</button>
+                <button onclick="scrollToSection('power-platform')" id="nav-power-platform" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Power Platform</button>
+                <button onclick="scrollToSection('copilot-studio')" id="nav-copilot-studio" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Copilot Studio</button>
                 <div class="flex items-center space-x-4 border-l border-zinc-800 pl-8">
-                    <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-lg text-white cursor-pointer" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-lg text-white cursor-pointer" title="GitHub Profile">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-1" aria-label="Toggle Navigation Menu">
-                <i class="fas fa-bars text-xl"></i>
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2 rounded-lg bg-zinc-900 border border-zinc-800" aria-label="Toggle Navigation Menu">
+                <i class="fas fa-bars text-lg"></i>
             </button>
         </div>
 
         <!-- Mobile Drawer Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black border-b border-zinc-900 px-6 py-4 space-y-4">
-            <button onclick="handleMobileNav('home')" class="block w-full text-left text-white transition py-2 font-medium focus:outline-none">Home</button>
-            <button onclick="handleMobileNav('uipath')" class="block w-full text-left text-white transition py-2 font-medium focus:outline-none">UiPath</button>
-            <button onclick="handleMobileNav('power-platform')" class="block w-full text-left text-white transition py-2 font-medium focus:outline-none">Power Platform</button>
-            <button onclick="handleMobileNav('copilot-studio')" class="block w-full text-left text-white transition py-2 font-medium focus:outline-none">Copilot Studio</button>
-            <div class="pt-4 border-t border-zinc-900 flex items-center">
-                <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-xl text-white" title="GitHub"><i class="fab fa-github"></i> GitHub</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-900 px-6 py-4 space-y-3">
+            <button onclick="handleMobileNav('home')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-home w-6 text-zinc-500"></i> Home</button>
+            <button onclick="handleMobileNav('uipath')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-robot w-6 text-zinc-500"></i> UiPath</button>
+            <button onclick="handleMobileNav('power-platform')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-chart-pie w-6 text-zinc-500"></i> Power Platform</button>
+            <button onclick="handleMobileNav('copilot-studio')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-brain w-6 text-zinc-500"></i> Copilot Studio</button>
+            <div class="pt-4 border-t border-zinc-900 flex items-center justify-between">
+                <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-sm text-zinc-300 hover:text-white flex items-center gap-2" title="GitHub">
+                    <i class="fab fa-github text-lg"></i> github.com/bacdillon
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- Header / Hero Section -->
-    <header id="home" class="scroll-mt-24 relative pt-12 pb-8 px-6 overflow-hidden bg-black">
+    <header id="home" class="scroll-mt-24 relative pt-16 pb-12 px-6 overflow-hidden bg-black">
         <div class="max-w-5xl mx-auto relative z-10 text-center">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight pt-10 text-white">
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-extrabold mb-6 leading-tight text-white tracking-tight">
                 Scaling Business <br><span class="gradient-text">Through Digital Solutions</span>
             </h1>
-            <p class="text-lg text-white mb-6 max-w-3xl mx-auto leading-relaxed">
-                A portfolio of business-focused <span class="text-white font-bold">digital solutions</span> 
+            <p class="text-base md:text-lg text-zinc-300 mb-8 max-w-3xl mx-auto leading-relaxed font-normal">
+                A portfolio of business-focused <span class="text-white font-semibold">digital solutions</span> 
                 that bridge business needs and technology through business analysis, software development, process standardisation, intelligent automation, data analytics, and GenAI.
-                Built using <span class="text-white hover:underline font-bold cursor-pointer"><button onclick="scrollToSection('uipath')" class="focus:outline-none">UiPath</button></span>, 
-                <span class="text-white hover:underline font-bold cursor-pointer"><button onclick="scrollToSection('power-platform')" class="focus:outline-none">Microsoft Power Platform</button></span>, 
-                <span class="text-white hover:underline font-bold cursor-pointer"><button onclick="scrollToSection('copilot-studio')" class="focus:outline-none">Microsoft Copilot Studio</button></span>, 
-                <span class="text-white hover:underline font-bold cursor-pointer"><button onclick="filterAndScroll('power-bi', 'power-platform')" class="focus:outline-none">Power BI</button></span>, and 
-                <span class="text-white hover:underline font-bold cursor-pointer"><button onclick="filterAndScroll('python', 'uipath')" class="focus:outline-none">Python</button></span> to improve operational efficiency, enable data-driven decision-making, and accelerate digital transformation.
+                Built using 
+                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="scrollToSection('uipath')" class="focus:outline-none">UiPath</button></span>, 
+                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="scrollToSection('power-platform')" class="focus:outline-none">Microsoft Power Platform</button></span>, 
+                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="scrollToSection('copilot-studio')" class="focus:outline-none">Microsoft Copilot Studio</button></span>, 
+                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="filterAndScroll('power-bi', 'power-platform')" class="focus:outline-none">Power BI</button></span>, and 
+                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="filterAndScroll('python', 'uipath')" class="focus:outline-none">Python</button></span> to improve operational efficiency, enable data-driven decision-making, and accelerate digital transformation.
             </p>
         </div>
     </header>
 
-    <!-- Sticky Navigation Filter Bar with Live Category Counters -->
-    <div class="sticky-filter-bar px-6 shadow-xl">
-        <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-2 md:gap-3">
-            <button onclick="filterShowcase('all')" id="btn-all" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-active focus:outline-none cursor-pointer">
-                SHOW ALL <span id="count-all" class="ml-1 opacity-80">(17)</span>
-            </button>
-            <button onclick="filterShowcase('uipath')" id="btn-uipath" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer">
-                UiPath <span id="count-uipath" class="ml-1 opacity-80">(9)</span>
-            </button>
-            <button onclick="filterShowcase('power-platform')" id="btn-power-platform" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer">
-                Power Platform <span id="count-power-platform" class="ml-1 opacity-80">(5)</span>
-            </button>
-            <button onclick="filterShowcase('copilot-studio')" id="btn-copilot-studio" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer">
-                Copilot Studio <span id="count-copilot-studio" class="ml-1 opacity-80">(3)</span>
-            </button>
-            <button onclick="filterShowcase('python')" id="btn-python" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer">
-                Python <span id="count-python" class="ml-1 opacity-80">(6)</span>
-            </button>
-            <button onclick="filterShowcase('api')" id="btn-api" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer">
-                API <span id="count-api" class="ml-1 opacity-80">(2)</span>
-            </button>
-            <button onclick="filterShowcase('power-bi')" id="btn-power-bi" class="px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer">
-                Power BI <span id="count-power-bi" class="ml-1 opacity-80">(5)</span>
-            </button>
+    <!-- Sticky Navigation Filter Bar with Search & Live Category Counters -->
+    <div class="sticky-filter-bar px-6 shadow-2xl">
+        <div class="max-w-6xl mx-auto space-y-4">
+            
+            <!-- Global Interactive Search Input -->
+            <div class="relative max-w-2xl mx-auto">
+                <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-zinc-400">
+                    <i class="fas fa-search text-sm"></i>
+                </div>
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    oninput="handleSearchInput(this.value)"
+                    placeholder="Search projects by keyword, technology, or business solution (e.g. Invoice, API, Power BI, ServiceNow)..."
+                    class="w-full pl-10 pr-10 py-2.5 bg-zinc-900/90 border border-zinc-700/80 rounded-xl text-sm text-white placeholder-zinc-400 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition"
+                />
+                <button 
+                    id="search-clear-btn" 
+                    onclick="clearSearch()"
+                    class="hidden absolute inset-y-0 right-0 pr-3.5 flex items-center text-zinc-400 hover:text-white transition focus:outline-none"
+                    title="Clear search"
+                >
+                    <i class="fas fa-times-circle text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Filter Dropdown Selection -->
+            <div class="max-w-xs mx-auto relative">
+                <select 
+                    id="category-select" 
+                    onchange="filterShowcase(this.value)"
+                    class="w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700 rounded-xl text-xs font-semibold tracking-wider text-white uppercase focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition appearance-none cursor-pointer pr-10 shadow-lg"
+                >
+                    <option value="all" id="opt-all" class="bg-zinc-900 text-white">SHOW ALL (17)</option>
+                    <option value="uipath" id="opt-uipath" class="bg-zinc-900 text-white">UiPath (9)</option>
+                    <option value="power-platform" id="opt-power-platform" class="bg-zinc-900 text-white">Power Platform (5)</option>
+                    <option value="copilot-studio" id="opt-copilot-studio" class="bg-zinc-900 text-white">Copilot Studio (3)</option>
+                    <option value="python" id="opt-python" class="bg-zinc-900 text-white">Python (6)</option>
+                    <option value="api" id="opt-api" class="bg-zinc-900 text-white">API (2)</option>
+                    <option value="power-bi" id="opt-power-bi" class="bg-zinc-900 text-white">Power BI (5)</option>
+                    <option value="machine-learning" id="opt-machine-learning" class="bg-zinc-900 text-white">Machine Learning (2)</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-zinc-400">
+                    <i class="fas fa-chevron-down text-xs"></i>
+                </div>
+            </div>
         </div>
+    </div>
+
+    <!-- Active Filter / Search Indicator Banner -->
+    <div id="filter-status-bar" class="hidden bg-zinc-900 border-b border-zinc-800 py-2.5 px-6 text-center text-xs text-zinc-300">
+        <span id="filter-status-text">Showing filtered results</span>
+        <button onclick="resetAllFilters()" class="ml-3 underline hover:text-white font-semibold focus:outline-none cursor-pointer">Reset all filters</button>
+    </div>
+
+    <!-- No Results Placeholder -->
+    <div id="no-results" class="hidden py-20 px-6 text-center max-w-lg mx-auto">
+        <div class="w-16 h-16 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center mx-auto mb-4 text-zinc-500 text-2xl">
+            <i class="fas fa-search-minus"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">No Matching Projects Found</h3>
+        <p class="text-sm text-zinc-400 mb-6">Try adjusting your search terms or clearing current filter selections.</p>
+        <button onclick="resetAllFilters()" class="px-5 py-2.5 bg-white text-black hover:bg-zinc-200 text-xs font-bold rounded-lg uppercase tracking-wider transition cursor-pointer">
+            Reset Filters
+        </button>
     </div>
 
     <!-- UiPath Section -->
     <section id="uipath" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
-                <h2 class="text-3xl font-bold text-white">UiPath (Agentic & Enterprise Automation)</h2>
-                <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">
+                            UiPath (Agentic & Enterprise Automation)
+                        </h2>
+                        <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                    </div>
+                </div>
             </div>
 
             <!-- Balanced Grid for Portfolio items -->
@@ -299,16 +392,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Agentic Orchestration: Invoice Processing with Human-in-the-Loop</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Web Studio</span>
-                            <span class="tech-badge">Maestro (BPMN)</span>
-                            <span class="tech-badge">Action Center</span>
+                            <span class="tech-badge" onclick="filterByTag('Web Studio')">Web Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('Maestro (BPMN)')">Maestro (BPMN)</span>
+                            <span class="tech-badge" onclick="filterByTag('Action Center')">Action Center</span>
                         </div>
 
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Architected and orchestrated an intelligent invoice processing solution that combines BPMN-based workflow orchestration, AI-driven decision-making, and Human-in-the-Loop review. The solution streamlines invoice approvals while ensuring governance for exception scenarios through integration with Google Drive and UiPath Action Center.</p>
                             
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed the invoice approval process and identified automation opportunities.</li>
                                     <li>Designed the workflow using BPMN to standardise approval and exception handling.</li>
@@ -317,8 +410,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Scenario 1 - Automated Approval:</b> Developed an automated workflow that retrieves invoices from Google Drive, validates extraction accuracy, and triggers a Decision Agent for high-confidence match rules.</li>
                                     <li><b>Scenario 2 - Human-in-the-Loop:</b> Integrates Action Center to route complex exceptions, low-confidence extractions, and high-value approvals to manual reviewers, auto-resuming once approved.</li>
@@ -326,15 +419,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Consistent Repository & Documentation Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Agentic%20Orchestration" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
-                <!-- CARD 2: Common Basic Test Automation: CRM Login Validation with SAP CX -->
+                <!-- CARD 2: SAP CX Test Automation -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
                     <div>
                         <div class="space-y-4 mb-6">
@@ -347,18 +434,18 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Common Basic Test Automation: CRM Login Validation with SAP CX</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">Testing Activities</span>
-                            <span class="tech-badge">Object Repository</span>
-                            <span class="tech-badge">Orchestrator</span>
-                            <span class="tech-badge">GitHub</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('Testing Activities')">Testing Activities</span>
+                            <span class="tech-badge" onclick="filterByTag('Object Repository')">Object Repository</span>
+                            <span class="tech-badge" onclick="filterByTag('Orchestrator')">Orchestrator</span>
+                            <span class="tech-badge" onclick="filterByTag('GitHub')">GitHub</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Built and hardened an automated test suite validating SAP CX CRM login flows with combining reusable workflows, exception handling, and version-controlled UI element repositories for reliable, auditable regression testing.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Defined test scenarios (valid/invalid login, logout) and success criteria based on logon status and role based routing.</li>
                                     <li>Designed a Catch-block strategy to handle failures gracefully while preserving accurate pass/fail reporting.</li>
@@ -366,8 +453,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Workflow Design:</b> Automated login via a shared Loginsteps.xaml workflow, verifying identity and landing page. Results are pushed to Test Manager.</li>
                                     <li><b>Defensive Coding:</b> Added dynamic error catching structures that gracefully capture network failures or simulated HTTP 404 errors, capturing screenshots and dispatching alerts to support teams.</li>
@@ -376,12 +463,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Test%20Automation%20SAP%20CX" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- CARD 3: BMI Queue Process -->
@@ -392,16 +473,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">BMI Queue Process: Dispatcher & Performer</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">UiPath Orchestrator</span>
-                            <span class="tech-badge">Dispatcher</span>
-                            <span class="tech-badge">Performer</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Orchestrator')">UiPath Orchestrator</span>
+                            <span class="tech-badge" onclick="filterByTag('Dispatcher')">Dispatcher</span>
+                            <span class="tech-badge" onclick="filterByTag('Performer')">Performer</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Built a queue-based automation solution using the Dispatcher-Performer architecture to process BMI calculations. The solution demonstrates transaction-based processing, workload distribution, and centralized queue management through UiPath Orchestrator.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed manual calculations and structured optimal workflows to reduce manual input mistakes.</li>
                                     <li>Designed a scalable transaction framework using standard Dispatcher and Performer design patterns.</li>
@@ -409,8 +490,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Dispatcher Component:</b> Reads structured spreadsheets, screens records for incomplete criteria, transforms inputs into uniform formats, and enqueues individual items to Orchestrator.</li>
                                     <li><b>Performer Component:</b> Pulls transactions asynchronously, inputs criteria into calculations apps, stores results, and reports logs directly back to centralized queues for monitoring.</li>
@@ -418,12 +499,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/BMI%20Queue%20Process" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- CARD 4: Meet Alfred -->
@@ -434,24 +509,24 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Meet Alfred: Invoice Processing (REFramework)</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">UiPath Document Understanding</span>
-                            <span class="tech-badge">REFramework</span>
-                            <span class="tech-badge">Python Streamlit CRM</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Document Understanding')">UiPath Document Understanding</span>
+                            <span class="tech-badge" onclick="filterByTag('REFramework')">REFramework</span>
+                            <span class="tech-badge" onclick="filterByTag('Python Streamlit CRM')">Python Streamlit CRM</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Engineered and implemented an intelligent invoice processing solution that automates the end-to-end invoice lifecycle. Combines Document Understanding, REFramework, and a custom Python CRM to improve operational visibility.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed manual invoice capture workflows and identified processing bottlenecks.</li>
                                     <li>Designed To-Be structure for document validation, extraction confidence, and exception pathways.</li>
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Document Understanding:</b> Employs OCR engines and taxonomy mappings to automatically classify documents and extract fields like tax IDs, line items, and grand totals.</li>
                                     <li><b>Robust Framework:</b> Harnesses the Robotiq Enterprise Framework (REFramework) to enforce standardized states (Init, Get Transaction, Process, End Process) for error handling.</li>
@@ -460,34 +535,31 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Meet%20Alfred" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
-                <!-- CARD 5: Loan Application Processing Automation -->
+                <!-- CARD 5: Loan Application Assessment -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
                     <div>
-                        <div class="video-wrapper mb-6 border border-zinc-800">
-                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png" alt="Loan Application Processing Diagram">
+                        <div class="video-wrapper mb-6 border border-zinc-800 cursor-pointer group" onclick="openImageModal('https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png', 'Loan Application Processing Architecture')">
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png" alt="Loan Application Processing Diagram" class="group-hover:scale-105 transition duration-300">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center text-xs font-semibold uppercase tracking-wider text-white">
+                                <i class="fas fa-expand-alt mr-2"></i> Click to Zoom Diagram
+                            </div>
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Automation Opportunities Assessment - Loan Application (PDD, SDD, BPMN)</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">UiPath Orchestrator</span>
-                            <span class="tech-badge">BPMN</span>
-                            <span class="tech-badge">PDD Document</span>
-                            <span class="tech-badge">SDD Document</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Orchestrator')">UiPath Orchestrator</span>
+                            <span class="tech-badge" onclick="filterByTag('BPMN')">BPMN</span>
+                            <span class="tech-badge" onclick="filterByTag('PDD Document')">PDD Document</span>
+                            <span class="tech-badge" onclick="filterByTag('SDD Document')">SDD Document</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Analysed a manual loan application process and designed an enterprise-grade automation architecture using UiPath. Built standardized process document structures (PDD & SDD) to outline business steps, exception workflows, technology targets, and system configuration rules.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Assessed current-state processes across systems (UiBank, Core Banking apps) to isolate high-frequency delay sources.</li>
                                     <li>Charted detailed flow diagrams detailing logical forks, credit rating checks, and compliance constraints.</li>
@@ -495,8 +567,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Technical Architecture:</b> Formulated a detailed SDD specifying environment configuration, credentials storage, asset configurations, and error pathways.</li>
                                     <li><b>Orchestration Setup:</b> Created unattended processing designs running through scheduled, parameter-driven triggers on UiPath Orchestrator queues.</li>
@@ -505,7 +577,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/Loan%20Application%20Processing%20from%20Process%20Discovery%20to%20Automation/readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
@@ -521,17 +592,17 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Medical Equipment Maintenance & Calibration</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Python (Streamlit)</span>
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">SQLite</span>
-                            <span class="tech-badge">Microsoft Outlook</span>
+                            <span class="tech-badge" onclick="filterByTag('Python (Streamlit)')">Python (Streamlit)</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('SQLite')">SQLite</span>
+                            <span class="tech-badge" onclick="filterByTag('Microsoft Outlook')">Microsoft Outlook</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Developed and implemented an automation solution to proactively monitor medical equipment maintenance and calibration schedules. The solution identifies upcoming and overdue service activities, generates exception notifications, and supports timely maintenance planning to improve compliance and reduce operational risk.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed the maintenance scheduling process to identify manual monitoring activities and opportunities for automation.</li>
                                     <li>Designed a standardised workflow to monitor maintenance and calibration schedules for regulated medical equipment.</li>
@@ -540,8 +611,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Equipment Monitoring:</b> Automated daily database sweeps scanning configurations for overdue statuses.</li>
                                     <li><b>Business Rule Evaluation:</b> Implemented validation logic to compare maintenance and calibration due dates against current system date to flag required service.</li>
@@ -550,12 +621,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Medical%20Equipment%20Maintenance" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- CARD 7: CSM IT Service Request -->
@@ -566,16 +631,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">CSM IT Service Request Automation</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Python (Streamlit)</span>
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">MS SQL Server</span>
+                            <span class="tech-badge" onclick="filterByTag('Python (Streamlit)')">Python (Streamlit)</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('MS SQL Server')">MS SQL Server</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Streamlined IT service ticket execution across legacy applications without API interfaces by pairing a Python front-end with an automated desktop RPA back-end.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Catalogued repetitive ticket types and created dynamic request rules.</li>
                                     <li>Identified legacy UI bottlenecks to reduce navigation-based processing delays.</li>
@@ -583,8 +648,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Frontend:</b> Built an easy interface to select predefined IT service requests and submit bulk IT operations.</li>
                                     <li><b>Integration:</b> Created secure SQL databases to queue actions for desktop execution.</li>
@@ -592,12 +657,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/CSM%20IT%20Service%20Request" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- CARD 8: Basic API Call -->
@@ -608,16 +667,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Basic API Call: Consuming REST API Data to Drive Web Form Automation</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">HTTP Request</span>
-                            <span class="tech-badge">RPA Challenge</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('HTTP Request')">HTTP Request</span>
+                            <span class="tech-badge" onclick="filterByTag('RPA Challenge')">RPA Challenge</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Built a lightweight RPA workflow that calls a public REST API, deserializes the JSON response, and uses the extracted fields to automatically populate a live web form. Demonstrating direct API-to-UI data integration without an intermediate storage step.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Identified a common integration need. Pulling structured data from an API and feeding it directly into downstream UI actions.</li>
                                     <li>Selected a single-call pattern (vs. looping) suited to one off form fill.</li>
@@ -626,8 +685,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>API Data Retrieval:</b> Made a single HTTP Request (GET) to the randomuser.me API, capturing the response as a JsonString and deserializing it into structured JSON objects.</li>
                                     <li><b>Automated Form Population:</b> Opened the target site using Navigate Browser and populated fields dynamically (First Name, Last Name, Email, Phone Number) via Type Into activities.</li>
@@ -635,12 +694,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                      <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Basic%20API%20Call" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
                 <!-- CARD 9: Basic API Integration -->
@@ -651,16 +704,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Basic API Integration: Extracting Data from a REST API into Excel</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">UiPath Studio</span>
-                            <span class="tech-badge">HTTP Request</span>
-                            <span class="tech-badge">Excel Activities</span>
+                            <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('HTTP Request')">HTTP Request</span>
+                            <span class="tech-badge" onclick="filterByTag('Excel Activities')">Excel Activities</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Built a lightweight RPA workflow that calls a public REST API a user specified number of times, extracts key fields from each JSON response, and consolidates the results into a formatted Excel spreadsheet.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Identified a repeatable need to pull structured data from an external API without manual copy-paste.</li>
                                     <li>Defined a simple input dialog box, so business users can control how many records to extract per run.</li>
@@ -669,8 +722,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>API Data Retrieval:</b> Prompted the user via an Input Dialog to set a Counter, executing a While loop with HTTP Requests to gather JSON user records.</li>
                                     <li><b>Data Transformation & Output:</b> Parsed JSON fields, constructed an in-memory Data Table, and appended records directly into an output Excel file (output.xlsx).</li>
@@ -678,12 +731,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Basic%20API%20Integration" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
             </div>
@@ -694,13 +741,19 @@
     <section id="power-platform" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
-                <h2 class="text-3xl font-bold text-white">Microsoft Power Platform & Analytics</h2>
-                <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">
+                            Microsoft Power Platform & Analytics
+                        </h2>
+                        <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                    </div>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
-                <!-- CARD 1: System Performance Monitoring -->
+                <!-- CARD 10: System Performance Monitoring -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi python">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -708,16 +761,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">System Performance Monitoring</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power BI</span>
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">MS SQL Server</span>
+                            <span class="tech-badge" onclick="filterByTag('Power BI')">Power BI</span>
+                            <span class="tech-badge" onclick="filterByTag('Python')">Python</span>
+                            <span class="tech-badge" onclick="filterByTag('MS SQL Server')">MS SQL Server</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Established and implemented a real-time system performance monitoring solution that captures, stores, and visualises infrastructure performance metrics. The solution provides operational visibility through interactive dashboards, enabling proactive monitoring, trend analysis, and performance optimisation.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed system monitoring requirements to identify key performance indicators (KPIs) for infrastructure health and operational performance.</li>
                                     <li>Designed a centralised monitoring workflow to collect, store, and analyse system performance data.</li>
@@ -726,8 +779,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Performance Data Collection:</b> Developed Python scripts to continuously collect system performance metrics, including CPU, memory, disk, and network utilisation.</li>
                                     <li><b>Data Management:</b> Integrated Microsoft SQL Server to store historical performance data for analysis, reporting, and trend monitoring.</li>
@@ -736,15 +789,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/PowerPlatform/System%20Performance%20Monitoring" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
-                <!-- CARD 2: Inventory Management System: Dataverse-Driven Stock Tracking with Automated Approval Workflow -->
+                <!-- CARD 11: Inventory Management System -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -752,19 +799,17 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Inventory Management System: Dataverse-Driven Stock Tracking with Automated Approval Workflow</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power Apps</span>
-                            <span class="tech-badge">Power Automate</span>
-                            <span class="tech-badge">Dataverse</span>
-                            <span class="tech-badge">Microsoft Teams</span>
+                            <span class="tech-badge" onclick="filterByTag('Power Apps')">Power Apps</span>
+                            <span class="tech-badge" onclick="filterByTag('Power Automate')">Power Automate</span>
+                            <span class="tech-badge" onclick="filterByTag('Dataverse')">Dataverse</span>
+                            <span class="tech-badge" onclick="filterByTag('Microsoft Teams')">Microsoft Teams</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> 
-                            Developed and implemented a digital inventory management solution built on Power Apps and Dataverse that centralizes toy-store stock data, visualizes stock health through live dashboards, and automates restock request approvals via Power Automate. Closing the loop from a low-stock alert to an approved, logged restock decision.    
-                            </p>
+                            <p><b>Overview:</b> Developed and implemented a digital inventory management solution built on Power Apps and Dataverse that centralizes toy-store stock data, visualizes stock health through live dashboards, and automates restock request approvals via Power Automate.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analyzed inventory tracking needs and identified stock status (In Stock / Low on Stock / Out of Stock) as the key operational signal for staff.</li>
                                     <li>Designed a Business Process Flow to standardize the restock request lifecycle: Request, Approval, Inventory Check & Stock Update, Request Closure.</li>
@@ -773,22 +818,15 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <b>Scenario 1 – Stock Monitoring</b><br>
-                                     <li>Built a model-driven Power Apps dashboard on Dataverse showing Active Inventories, Stock Status Overview, Top 5 Items with Highest Stock, and Inventory by Category.</li>
-                                    <li>Structured the Inventory table with fields for Current/Initial Quantity, Supplier, Category, Items Sold, and a computed Stock Status, surfacing at-risk items (e.g., a LEGO set down to 2 of 40 units).</li>
-                                         <br>
-                                    <b>Scenario 2 – Automated Restock Approval:</b><br>
-                                        <li>Created a guided Business Process Flow for submitting Inventory Requests, capturing quantity needed, reason, and approver.</li>
-                                        <li>Triggered a Power Automate flow using the Standard Approvals connector to route the request through Microsoft Teams and Outlook for manager sign-off.</li>
-                                        <li>Automatically updated the request's BPF stage and linked the approved outcome back to the originating inventory record, with dashboard reporting reflecting the new request in real time.</li>
-                                </ul>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
+                                <div class="space-y-2 text-white ba-si-text">
+                                    <p><b>Scenario 1 – Stock Monitoring:</b> Built a model-driven Power Apps dashboard on Dataverse showing Active Inventories, Stock Status Overview, Top 5 Items with Highest Stock, and Inventory by Category.</p>
+                                    <p><b>Scenario 2 – Automated Restock Approval:</b> Created a guided Business Process Flow for submitting Inventory Requests. Triggered Power Automate standard approvals to route requests via Teams and Outlook.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                         <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/PowerPlatform/Inventory%20Management" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
@@ -796,7 +834,7 @@
                     </div>
                 </div>
 
-                <!-- CARD 3: Toyshop KPI Dashboard: Interactive Sales Analytics with Power BI -->
+                <!-- CARD 12: Toyshop KPI Dashboard -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -804,41 +842,32 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Toyshop KPI Dashboard: Interactive Sales Analytics with Power BI</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power BI</span>
-                            <span class="tech-badge">Data Visualization</span>
-                            <span class="tech-badge">DAX</span>
+                            <span class="tech-badge" onclick="filterByTag('Power BI')">Power BI</span>
+                            <span class="tech-badge" onclick="filterByTag('Data Visualization')">Data Visualization</span>
+                            <span class="tech-badge" onclick="filterByTag('DAX')">DAX</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b>
-                            Created and delivered an interactive Power BI dashboard for a toy retailer that transforms sales data into actionable business insights, combining a portal-style landing page with a fully interactive KPI report. The solution enables stakeholders to monitor orders, revenue, and profit by store location and drill into trends at a granular level.
-                            </p>
+                            <p><b>Overview:</b> Created and delivered an interactive Power BI dashboard for a toy retailer that transforms sales data into actionable business insights, combining a portal-style landing page with a fully interactive KPI report.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analyzed multi-store sales data to identify the KPIs that matter most to stakeholders: total orders, revenue, and profit.</li>
-                                    <li>Designed a landing page experience that orients staff with company mission and quick links, rather than dropping users straight into raw charts.</li>
-                                    <li>Defined a store-location filtering model so performance can be compared consistently across Airport, Commercial, Downtown, and Residential locations.</li>
-                                    <li>Improved decision-making by enabling drill-down from monthly to daily revenue detail, rather than static monthly summaries.</li>
+                                    <li>Analyzed multi-store sales data to identify key metrics: total orders, revenue, and profit.</li>
+                                    <li>Designed a landing page portal experience to guide staff with mission context and quick links.</li>
+                                    <li>Defined a store-location filtering model to compare performant trends across Airport, Commercial, Downtown, and Residential stores.</li>
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <b>Scenario 1 – Portal-Style Intro Page</b><br>
-                                     <li>Built an "Intro" page styled as an internal company portal, featuring a welcome message, mission statement, and a Quick Access panel linking to Employee Handbook, Product SKUs, Week Reports, Store Directory, and profile management.</li>
-                                    <br>
-                                     <b>Scenario 2 – Interactive KPI Reporting</b><br>
-                                      <li>Developed a KPI Report page with headline cards for Total Orders, Revenue, and Profit by Month, alongside Total Orders by Product Category and a Revenue by Month trend chart.</li>
-                                      <li>Implemented a Store Location slicer that dynamically cross-filters all KPI cards and visuals (e.g., isolating Downtown's 2,907 orders and $49,024 revenue from the full 41,830 orders and $640,778 company-wide).</li>
-                                      <li>Enabled drill-down interactivity on the Revenue by Month chart, allowing users to move from monthly totals down to a specific day's revenue figure.</li>
-                                </ul>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
+                                <div class="space-y-2 text-white ba-si-text">
+                                    <p><b>Scenario 1 – Portal-Style Intro Page:</b> Built an internal company portal with quick links to Employee Handbook, SKUs, and Store Directory.</p>
+                                    <p><b>Scenario 2 – Interactive KPI Reporting:</b> Developed headline cards for Total Orders, Revenue, and Profit by Month alongside dynamic location slicers and monthly-to-daily drill-downs.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                         <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/PowerPlatform/Toyshop%20KPI%20Dashboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
@@ -846,7 +875,7 @@
                     </div>
                 </div>
 
-                <!-- CARD 4: My Budgee Expense Tracker -->
+                <!-- CARD 13: My Budgee Expense Tracker -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -854,42 +883,32 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">My Budgee Expense Tracker</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power Apps</span>
-                            <span class="tech-badge">Power Automate</span>
-                            <span class="tech-badge">Outlook</span>
+                            <span class="tech-badge" onclick="filterByTag('Power Apps')">Power Apps</span>
+                            <span class="tech-badge" onclick="filterByTag('Power Automate')">Power Automate</span>
+                            <span class="tech-badge" onclick="filterByTag('Outlook')">Outlook</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Developed a self-service expense management app on Power Apps that lets employees log and track expenses against a budget, with Power Automate driving an end-to-end approval workflow, including email notifications, manager review, and a resubmission path for rejected requests.</p>
+                            <p><b>Overview:</b> Developed a self-service expense management app on Power Apps that lets employees log and track expenses against a budget, with Power Automate driving an end-to-end approval workflow.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analyzed the expense submission process and identified the need for a guided, receipt backed request flow rather than ad hoc emails or spreadsheets.</li>
-                                    <li>Designed a role based experience separating the requestor view (Home, New Expense, Budget, Report) from the approver view (Main Screen, Reporting, Settings).</li>
-                                    <li>Defined a rejection-and-resubmission path so incomplete requests (e.g., missing receipts) can be corrected without restarting the process.</li>
-                                    <li>Improved accountability by requiring approver comments and a timestamped approval history on every decision.</li>
+                                    <li>Analyzed expense submission requirements and designed a receipt-backed request flow.</li>
+                                    <li>Designed role-based views separating requestor controls from manager approval screens.</li>
+                                    <li>Defined resubmission loops so rejected requests can be updated without restarting the cycle.</li>
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <b>Scenario 1 – Expense Submission & Budget Tracking</b><br>
-                                     <li>Built a Home dashboard showing Total Expense vs. Budget and Remaining Amount, with quick launch for logging and viewing expenses.</li>
-                                     <li>Developed a Log New Expense form capturing date, category, amount, description, requestor, assigned approver, and an optional receipt attachment.</li>
-                                     <li>Configured a Settings screen allowing the approver to set the overall Budgeted Amount.</li>
-                                     <br>
-                                     <b>Scenario 2 – Automated Approval Workflow</b><br>
-                                      <li>Triggered a Power Automate flow that emails the assigned approver whenever a new expense is submitted, linking back to the Power Apps portal.</li>
-                                      <li>Enabled the approver to review request details and attachments, then set a status (Approved/Rejected) with comments, automatically notifying the requestor of the outcome by email.</li>
-                                      <li>Supported a rejected request (e.g., missing receipt) can be edited and resubmitted by the requestor with the required attachment, then re-reviewed and approved, with every step logged in a time stamped Approval History.</li>
-                                </ul>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
+                                <div class="space-y-2 text-white ba-si-text">
+                                    <p><b>Scenario 1 – Expense Submission & Budgeting:</b> Built home views comparing Total Expense vs Budget with receipt uploads and category logging.</p>
+                                    <p><b>Scenario 2 – Automated Approval Workflow:</b> Triggered Power Automate emails allowing approvers to review attachments and approve/reject claims with mandatory comments.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                         <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/PowerPlatform/My%20Budgee" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
@@ -897,7 +916,7 @@
                     </div>
                 </div>
 
-                <!-- CARD 5: Sales Funnel Dashboard -->
+                <!-- CARD 14: Sales Funnel Dashboard -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -905,16 +924,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Sales Funnel Dashboard</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power BI</span>
-                            <span class="tech-badge">Data Visualization</span>
-                            <span class="tech-badge">DAX Analytics</span>
+                            <span class="tech-badge" onclick="filterByTag('Power BI')">Power BI</span>
+                            <span class="tech-badge" onclick="filterByTag('Data Visualization')">Data Visualization</span>
+                            <span class="tech-badge" onclick="filterByTag('DAX Analytics')">DAX Analytics</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Designed and deployed a comprehensive Sales Funnel Dashboard in Power BI to monitor conversion velocity, pipeline health, and representative performance across lead lifecycle stages.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Mapped lead conversion stages from lead acquisition to closed-won status.</li>
                                     <li>Identified stage drop-off bottlenecks to assist sales operations leadership.</li>
@@ -922,8 +941,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Pipeline Modeling:</b> Built custom DAX calculations to track dynamic conversion rates across funnel stages.</li>
                                     <li><b>Interactive Slicers:</b> Implemented time-period, sales team, and region filters for granular executive insights.</li>
@@ -931,12 +950,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/PowerPlatform/Sales%20Funnel%20Dashboard" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
             </div>
@@ -947,13 +960,19 @@
     <section id="copilot-studio" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
-                <h2 class="text-3xl font-bold text-white">Microsoft Copilot Studio</h2>
-                <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">
+                            Microsoft Copilot Studio
+                        </h2>
+                        <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                    </div>
+                </div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
-                <!-- CARD 1: IT Helpdesk Support Agent (ITSM) -->
+                <!-- CARD 15: IT Helpdesk Support Agent (ITSM) -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -961,15 +980,15 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">IT Helpdesk Support Agent (ITSM)</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">ServiceNow</span>
+                            <span class="tech-badge" onclick="filterByTag('Microsoft Copilot Studio')">Microsoft Copilot Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('ServiceNow')">ServiceNow</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Implemented and configured an intelligent IT Helpdesk Support Agent that streamlines IT service management by enabling users to track incidents, retrieve ticket information, and receive automated assistance through natural language conversations.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed IT service support processes to identify opportunities for improving ticket visibility and reducing manual enquiries.</li>
                                     <li>Designed conversational workflows that enable users to check ticket status, retrieve incident details, and access common IT support information.</li>
@@ -978,8 +997,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Conversational IT Support:</b> Developed a Microsoft Copilot Studio agent that provides self-service access to IT support through natural language conversations.</li>
                                     <li><b>Enterprise System Integration:</b> Integrated with ServiceNow to retrieve real-time incident information, including ticket status, category, department, and support details.</li>
@@ -987,15 +1006,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/CopilotStudio/IT%20Helpdesk%20Support" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
-                <!-- CARD 2: Expense Report Reviewer Agent -->
+                <!-- CARD 16: Expense Report Reviewer Agent -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -1003,16 +1016,16 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Expense Report Reviewer Agent</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">Multi-agent Orchestration</span>
-                            <span class="tech-badge">SharePoint</span>
+                            <span class="tech-badge" onclick="filterByTag('Microsoft Copilot Studio')">Microsoft Copilot Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('Multi-agent Orchestration')">Multi-agent Orchestration</span>
+                            <span class="tech-badge" onclick="filterByTag('SharePoint')">SharePoint</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Architected and implemented an agentic expense report review solution that automates expense report validation through intelligent review and multi-agent orchestration.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed the expense claim review process to identify manual validation activities and opportunities for AI-driven automation.</li>
                                     <li>Designed a conversational workflow to streamline expense submission, policy validation, and review processes.</li>
@@ -1021,8 +1034,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Conversational Submission & Review:</b> Developed a Microsoft Copilot Studio agent that guides users through expense report submission and validation using conversational interactions.</li>
                                     <li><b>Multi-Agent Validation:</b> Implemented multi-agent orchestration to perform specialised validation tasks, including duplicate claim detection, policy compliance checks, and structured review analysis against predefined business rules.</li>
@@ -1031,15 +1044,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/CopilotStudio/Expense%20Report%20Reviewer" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
 
-                <!-- CARD 3: PowerPoint Generator Agent -->
+                <!-- CARD 17: PowerPoint Generator Agent -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -1047,15 +1054,15 @@
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">PowerPoint Generator Agent</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">SharePoint</span>
+                            <span class="tech-badge" onclick="filterByTag('Microsoft Copilot Studio')">Microsoft Copilot Studio</span>
+                            <span class="tech-badge" onclick="filterByTag('SharePoint')">SharePoint</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> Implemented and configured an intelligent document generation agent that automates the creation of PowerPoint presentations using conversational prompts, structured templates, and SharePoint data.</p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
+                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Analysed document creation processes to identify repetitive manual tasks and opportunities for automation.</li>
                                     <li>Designed a standardised workflow for generating PowerPoint presentations based on business requirements, templates, and structured data.</li>
@@ -1064,8 +1071,8 @@
                                 </ul>
                             </div>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
+                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
+                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li><b>Conversational Document Generation:</b> Developed a Microsoft Copilot Studio agent that generates PowerPoint presentations through natural language prompts and guided workflows.</li>
                                     <li><b>Template & Data Integration:</b> Implemented SharePoint integration to retrieve structured business data and populate predefined presentation templates with dynamic content.</li>
@@ -1074,170 +1081,214 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/CopilotStudio/PowerPoint%20Generator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
                 </div>
-
-                <!-- CARD 4: PowerPoint Generator Agent -->
-<!--                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
-                    <div>
-                        <div class="video-wrapper mb-6">
-                            <iframe src="https://player.vimeo.com/video/1190715740?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">PowerPoint Generator Agent</h3>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Microsoft Copilot Studio</span>
-                            <span class="tech-badge">SharePoint</span>
-                        </div>
-                        
-                        <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Implemented and configured an intelligent document generation agent that automates the creation of PowerPoint presentations using conversational prompts, structured templates, and SharePoint data.</p>
-
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-chart-line mr-2"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed document creation processes to identify repetitive manual tasks and opportunities for automation.</li>
-                                    <li>Designed a standardised workflow for generating PowerPoint presentations based on business requirements, templates, and structured data.</li>
-                                    <li>Defined business rules for template selection, content generation, and document customisation to ensure consistency and accuracy.</li>
-                                    <li>Improved operational efficiency by reducing manual document preparation and supporting high-volume document generation.</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700">
-                                <h4 class="font-semibold text-white uppercase mb-2"><i class="fas fa-cogs mr-2"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Conversational Document Generation:</b> Developed a Microsoft Copilot Studio agent that generates PowerPoint presentations through natural language prompts and guided workflows.</li>
-                                    <li><b>Template & Data Integration:</b> Implemented SharePoint integration to retrieve structured business data and populate predefined presentation templates with dynamic content.</li>
-                                    <li><b>Content Automation:</b> Applied business rules to customise presentation content based on user requirements.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!-- Repository Link -->
-<!--                     <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
-                        <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/CopilotStudio/PowerPoint%20Generator" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a>
-                    </div> -->
-                <!-- </div> -->
-
-
-
 
             </div>
         </div>
     </section>
 
+    <!-- Lightbox Image Modal -->
+    <div id="image-modal" class="modal-overlay fixed inset-0 z-[100000] bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+        <div class="relative max-w-5xl w-full bg-zinc-950 border border-zinc-800 rounded-2xl overflow-hidden shadow-2xl flex flex-col max-h-[90vh]">
+            <div class="p-4 border-b border-zinc-800 flex justify-between items-center bg-zinc-900">
+                <h3 id="modal-caption" class="text-lg font-bold text-white">Image Preview</h3>
+                <button onclick="closeImageModal()" class="text-zinc-400 hover:text-white p-2 rounded-lg bg-zinc-800 focus:outline-none cursor-pointer">
+                    <i class="fas fa-times text-lg"></i>
+                </button>
+            </div>
+            <div class="p-2 overflow-auto flex-1 flex items-center justify-center bg-black">
+                <img id="modal-img" src="" alt="Enlarged Diagram" class="max-w-full max-h-[75vh] object-contain rounded-lg">
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-black border-t border-zinc-900 py-12 px-6 text-center text-white text-xs">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div>
-                <p>&copy; 2026 AUTOMATION PLAYGROUND. All rights reserved.</p>
+            <div class="flex items-center space-x-2">
+                <p>&copy; 2026 AUTOMATION PLAYGROUND. Enterprise Process Engineering & AI.</p>
             </div>
-            <div class="flex space-x-6 text-lg">
-                <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition text-white"><i class="fab fa-github"></i></a>
+            <div class="flex items-center space-x-6 text-lg">
+                <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition text-white" title="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <button onclick="scrollToTop()" class="hover:text-zinc-300 transition text-white focus:outline-none cursor-pointer" title="Scroll to top">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
             </div>
         </div>
     </footer>
 
+    <!-- Toast Notification Overlay -->
+    <div id="toast" class="fixed bottom-6 right-6 z-[100001] bg-zinc-900 border border-zinc-700 text-white px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+        <i id="toast-icon" class="fas fa-check-circle text-emerald-400 text-lg"></i>
+        <span id="toast-message" class="text-xs font-medium">Notification message</span>
+    </div>
+
     <script>
-        // Hamburger Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // Global State Variables
+        let currentCategory = 'all';
+        let currentSearchQuery = '';
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // Search & Input Handlers
+        function handleSearchInput(value) {
+            currentSearchQuery = value.toLowerCase().trim();
+            const clearBtn = document.getElementById('search-clear-btn');
+            if (clearBtn) {
+                if (currentSearchQuery !== '') {
+                    clearBtn.classList.remove('hidden');
+                } else {
+                    clearBtn.classList.add('hidden');
+                }
+            }
+            applyFilters();
+        }
 
-        // Smooth Section Scrolling
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
+        function clearSearch() {
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+            const clearBtn = document.getElementById('search-clear-btn');
+            if (clearBtn) clearBtn.classList.add('hidden');
+            currentSearchQuery = '';
+            applyFilters();
+        }
+
+        function filterByTag(tag) {
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = tag;
+            const clearBtn = document.getElementById('search-clear-btn');
+            if (clearBtn) clearBtn.classList.remove('hidden');
+            currentSearchQuery = tag.toLowerCase().trim();
+            applyFilters();
+            showToast(`Filtering by tag: "${tag}"`);
+        }
+
+        function filterAndScroll(tag, sectionId) {
+            filterByTag(tag);
+            scrollToSection(sectionId);
+        }
+
+        // Navigation & Scrolling Handlers
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' });
             }
         }
 
-        // Mobile Nav Item Selection & Close Menu
-        function handleMobileNav(sectionId) {
-            scrollToSection(sectionId);
-            mobileMenu.classList.add('hidden');
+        function handleMobileNav(id) {
+            scrollToSection(id);
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileMenu) {
+                mobileMenu.classList.add('hidden');
+            }
         }
 
-        // Combined filtering and section scrolling for the highlighted links
-        function filterAndScroll(category, sectionId) {
-            filterShowcase(category);
-            scrollToSection(sectionId);
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Calculate and update category item counters dynamically
+        // Lightbox Modal Handlers
+        function openImageModal(src, caption) {
+            const modal = document.getElementById('image-modal');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            if (modal && modalImg && modalCaption) {
+                modalImg.src = src;
+                modalCaption.textContent = caption || 'Image Preview';
+                modal.classList.add('active');
+            }
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('image-modal');
+            if (modal) {
+                modal.classList.remove('active');
+            }
+        }
+
+        // Notification Toast Helper
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-message');
+            if (toast && toastMsg) {
+                toastMsg.textContent = message;
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+        }
+
+        // Calculate & Update Live Counters
         function updateFilterCounters() {
             const cards = document.querySelectorAll('.showcase-card');
             const counts = {
-                'all': cards.length,
+                'all': 0,
                 'uipath': 0,
                 'power-platform': 0,
                 'copilot-studio': 0,
                 'python': 0,
                 'api': 0,
-                'power-bi': 0
+                'power-bi': 0,
+                'machine-learning': 0
+            };
+
+            const categoryLabels = {
+                'all': 'SHOW ALL',
+                'uipath': 'UiPath',
+                'power-platform': 'Power Platform',
+                'copilot-studio': 'Copilot Studio',
+                'python': 'Python',
+                'api': 'API',
+                'power-bi': 'Power BI',
+                'machine-learning': 'Machine Learning'
             };
 
             cards.forEach(card => {
+                const textContent = card.textContent.toLowerCase();
                 const categories = (card.getAttribute('data-category') || '').split(' ');
-                categories.forEach(cat => {
-                    if (counts.hasOwnProperty(cat)) {
-                        counts[cat]++;
-                    }
-                });
+                
+                // Matches current search query?
+                const matchesSearch = currentSearchQuery === '' || textContent.includes(currentSearchQuery);
+
+                if (matchesSearch) {
+                    counts['all']++;
+                    categories.forEach(cat => {
+                        if (counts.hasOwnProperty(cat)) {
+                            counts[cat]++;
+                        }
+                    });
+                }
             });
 
             Object.keys(counts).forEach(cat => {
-                const countEl = document.getElementById(`count-${cat}`);
-                if (countEl) {
-                    countEl.textContent = `(${counts[cat]})`;
+                const optEl = document.getElementById(`opt-${cat}`);
+                if (optEl) {
+                    optEl.textContent = `${categoryLabels[cat]} (${counts[cat]})`;
                 }
             });
         }
 
-        // Showcase Cards Category Filter Mechanism with Empty Section Collapsing
-        function filterShowcase(category) {
+        // Core Filter Application Logic
+        function applyFilters() {
             const cards = document.querySelectorAll('.showcase-card');
-            
-            // Set Active Filter Button Styles
-            const buttons = [
-                { id: 'btn-all', cat: 'all' },
-                { id: 'btn-uipath', cat: 'uipath' },
-                { id: 'btn-power-platform', cat: 'power-platform' },
-                { id: 'btn-copilot-studio', cat: 'copilot-studio' },
-                { id: 'btn-python', cat: 'python' },
-                { id: 'btn-api', cat: 'api' },
-                { id: 'btn-power-bi', cat: 'power-bi' }
-            ];
+            let visibleCount = 0;
 
-            buttons.forEach(btnObj => {
-                const btnEl = document.getElementById(btnObj.id);
-                if (btnEl) {
-                    if (btnObj.cat === category) {
-                        btnEl.className = "px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-active focus:outline-none cursor-pointer";
-                    } else {
-                        btnEl.className = "px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider transition-all btn-filter-inactive focus:outline-none cursor-pointer";
-                    }
-                }
-            });
-
-            // Toggle Card Visibility (with smooth CSS transforms)
             cards.forEach(card => {
-                const categories = card.getAttribute('data-category').split(' ');
-                if (category === 'all' || categories.includes(category)) {
+                const textContent = card.textContent.toLowerCase();
+                const categories = (card.getAttribute('data-category') || '').split(' ');
+                
+                const matchesCategory = (currentCategory === 'all' || categories.includes(currentCategory));
+                const matchesSearch = (currentSearchQuery === '' || textContent.includes(currentSearchQuery));
+
+                if (matchesCategory && matchesSearch) {
                     card.style.display = 'flex';
                     setTimeout(() => {
                         card.style.opacity = '1';
                         card.style.transform = 'scale(1)';
                     }, 50);
+                    visibleCount++;
                 } else {
                     card.style.opacity = '0';
                     card.style.transform = 'scale(0.95)';
@@ -1247,7 +1298,7 @@
                 }
             });
 
-            // Collapse empty sections dynamically when filtering
+            // Update section visibility
             setTimeout(() => {
                 const sections = ['uipath', 'power-platform', 'copilot-studio'];
                 sections.forEach(secId => {
@@ -1263,18 +1314,111 @@
                         }
                     });
                     
-                    if (hasVisibleCard) {
-                        secEl.style.display = 'block';
-                    } else {
-                        secEl.style.display = 'none';
-                    }
+                    secEl.style.display = hasVisibleCard ? 'block' : 'none';
                 });
+
+                // Toggle No Results View
+                const noResultsEl = document.getElementById('no-results');
+                if (noResultsEl) {
+                    noResultsEl.style.display = (visibleCount === 0) ? 'block' : 'none';
+                }
             }, 350);
+
+            // Update Status Bar text
+            const statusBar = document.getElementById('filter-status-bar');
+            const statusText = document.getElementById('filter-status-text');
+            
+            if (statusBar && statusText) {
+                if (currentCategory !== 'all' || currentSearchQuery !== '') {
+                    let textParts = [];
+                    if (currentCategory !== 'all') textParts.push(`Category: "${currentCategory.toUpperCase()}"`);
+                    if (currentSearchQuery !== '') textParts.push(`Search: "${currentSearchQuery}"`);
+                    
+                    statusText.textContent = `Active Filter -> ${textParts.join(' | ')} (${visibleCount} result${visibleCount === 1 ? '' : 's'})`;
+                    statusBar.classList.remove('hidden');
+                } else {
+                    statusBar.classList.add('hidden');
+                }
+            }
+
+            updateFilterCounters();
         }
 
-        // Initialize counters on window load
+        // Category Selection Trigger
+        function filterShowcase(category) {
+            currentCategory = category;
+
+            const categorySelect = document.getElementById('category-select');
+            if (categorySelect && categorySelect.value !== category) {
+                categorySelect.value = category;
+            }
+
+            applyFilters();
+        }
+
+        function resetAllFilters() {
+            currentCategory = 'all';
+            currentSearchQuery = '';
+            const searchInput = document.getElementById('search-input');
+            if (searchInput) searchInput.value = '';
+            
+            const clearBtn = document.getElementById('search-clear-btn');
+            if (clearBtn) clearBtn.classList.add('hidden');
+
+            const categorySelect = document.getElementById('category-select');
+            if (categorySelect) categorySelect.value = 'all';
+
+            filterShowcase('all');
+            showToast('All filters have been reset.');
+        }
+
+        // IntersectionObserver for Active Section Scroll Tracking
         window.addEventListener('DOMContentLoaded', () => {
             updateFilterCounters();
+
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            const sections = document.querySelectorAll('section, header');
+            const navLinks = {
+                'home': document.getElementById('nav-home'),
+                'uipath': document.getElementById('nav-uipath'),
+                'power-platform': document.getElementById('nav-power-platform'),
+                'copilot-studio': document.getElementById('nav-copilot-studio')
+            };
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -70% 0px',
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        Object.keys(navLinks).forEach(key => {
+                            if (navLinks[key]) {
+                                if (key === id) {
+                                    navLinks[key].classList.add('text-white', 'font-bold');
+                                    navLinks[key].classList.remove('text-zinc-400');
+                                } else {
+                                    navLinks[key].classList.remove('text-white', 'font-bold');
+                                    navLinks[key].classList.add('text-zinc-400');
+                                }
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(sec => observer.observe(sec));
         });
     </script>
 </body>
