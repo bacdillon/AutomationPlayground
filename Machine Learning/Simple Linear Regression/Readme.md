@@ -50,16 +50,16 @@ The objective is to predict Revenue from Temperature.
 •	Jupyter Notebook
 
 # Exploratory Data Analysis (EDA)
-The notebook explores the dataset using:
-•	head()             
+The notebook explores the dataset using:<br>
+•	head()
 •	tail()
-•	describe()         
+•	describe()
 •	info()
 
 Visualization techniques include:
-•	Scatter Plot       
+•	Scatter Plot
 •	Joint Plot
-•	Pair Plot          
+•	Pair Plot
 •	Linear Regression Plot
 
 These visualizations reveal a strong positive linear relationship between temperature and revenue.
