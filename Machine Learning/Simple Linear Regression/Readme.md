@@ -50,12 +50,17 @@ The objective is to predict Revenue from Temperature.
 
 # Exploratory Data Analysis (EDA)
 The notebook explores the dataset using:
-•	head()             •	tail()
-•	describe()         •	info()
+•	head()             
+•	tail()
+•	describe()         
+•	info()
 
 Visualization techniques include:
-•	Scatter Plot       •	Joint Plot
-•	Pair Plot          •	Linear Regression Plot
+•	Scatter Plot       
+•	Joint Plot
+•	Pair Plot          
+•	Linear Regression Plot
+
 These visualizations reveal a strong positive linear relationship between temperature and revenue.
 
 # Machine Learning Workflow
@@ -93,17 +98,6 @@ Example Output
 Predicted Revenue: $685.32
 (Actual value depends on the trained model.)
 
-# Project Structure
-Simple-Linear-Regression-IceCream/
-│
-├── IceCreamData.csv
-├── Simple Linear Regression - Ice Cream Revenue Prediction.ipynb
-├── README.md
-└── images/
-    ├── scatter_plot.png
-    ├── regression_plot.png
-    └── prediction_result.png
-
 # Key Concepts Covered
 •	Machine Learning
 •	Supervised Learning
@@ -118,7 +112,7 @@ Simple-Linear-Regression-IceCream/
 •	Regression Coefficients
 •	Business Forecasting
 
-🎓 Learning Outcomes
+# Learning Outcomes
 •	Load datasets with Pandas
 •	Perform exploratory data analysis
 •	Visualize relationships between variables
