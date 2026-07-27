@@ -3,14 +3,14 @@ A beginner-friendly Machine Learning project that demonstrates how Simple Linear
 
 # Project Overview
 This project builds a Simple Linear Regression model to predict the daily revenue of an ice cream stand using historical temperature data.
-The notebook demonstrates the complete machine learning workflow, including:
-•	Data loading
-•	Exploratory Data Analysis (EDA)
-•	Data visualization
-•	Data preprocessing
-•	Model training
-•	Model prediction
-•	Regression visualization
+The notebook demonstrates the complete machine learning workflow, including:<br>
+•	Data loading<br>
+•	Exploratory Data Analysis (EDA)<br>
+•	Data visualization<br>
+•	Data preprocessing<br>
+•	Model training<br>
+•	Model prediction<br>
+•	Regression visualization<br>
 •	Future revenue prediction
 <br><br>
 The project illustrates how machine learning can help businesses forecast sales and support data-driven decision making.
