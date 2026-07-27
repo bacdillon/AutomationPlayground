@@ -16,11 +16,11 @@ The project illustrates how machine learning can help businesses forecast sales 
 
 # Business Problem
 An ice cream shop owner wants to estimate daily revenue based on weather forecasts.
-Questions include:
-•	How much revenue can be expected when the temperature reaches 30°C?
-•	Does temperature significantly influence sales?
-•	Can future weather forecasts improve inventory planning?
-•	How should staffing levels be adjusted during hot weather?
+Questions include:<br>
+•	How much revenue can be expected when the temperature reaches 30°C?<br>
+•	Does temperature significantly influence sales?<br>
+•	Can future weather forecasts improve inventory planning?<br>
+•	How should staffing levels be adjusted during hot weather?<br>
 Instead of relying on intuition, historical sales data is used to build a predictive machine learning model.
 
 # Project Objectives
