@@ -1,6 +1,6 @@
 # Simple Linear Regression – Ice Cream Revenue Prediction
 A beginner-friendly Machine Learning project that demonstrates how Simple Linear Regression can be used to predict ice cream revenue based on temperature using Python and Scikit-learn.
-________________________________________
+
 # Project Overview
 This project builds a Simple Linear Regression model to predict the daily revenue of an ice cream stand using historical temperature data.
 The notebook demonstrates the complete machine learning workflow, including:
@@ -13,7 +13,7 @@ The notebook demonstrates the complete machine learning workflow, including:
 •	Regression visualization
 •	Future revenue prediction
 The project illustrates how machine learning can help businesses forecast sales and support data-driven decision making.
-________________________________________
+
 # Business Problem
 An ice cream shop owner wants to estimate daily revenue based on weather forecasts.
 Questions include:
@@ -22,7 +22,7 @@ Questions include:
 •	Can future weather forecasts improve inventory planning?
 •	How should staffing levels be adjusted during hot weather?
 Instead of relying on intuition, historical sales data is used to build a predictive machine learning model.
-________________________________________
+
 # Project Objectives
 •	Learn the fundamentals of Simple Linear Regression
 •	Explore the relationship between temperature and revenue
@@ -31,14 +31,14 @@ ________________________________________
 •	Interpret regression coefficients
 •	Predict future revenue
 •	Evaluate the regression model visually
-________________________________________
+
 # Dataset
 The dataset contains two variables.
 Variable	Description
 Temperature (°C)	Daily outdoor temperature
 Revenue ($)	Ice cream stand daily revenue
 The objective is to predict Revenue from Temperature.
-________________________________________
+
 # Technologies Used
 •	Python 3
 •	Pandas
@@ -47,7 +47,7 @@ ________________________________________
 •	Seaborn
 •	Scikit-learn
 •	Jupyter Notebook
-________________________________________
+
 # Exploratory Data Analysis (EDA)
 The notebook explores the dataset using:
 •	head()             •	tail()
@@ -57,7 +57,7 @@ Visualization techniques include:
 •	Scatter Plot       •	Joint Plot
 •	Pair Plot          •	Linear Regression Plot
 These visualizations reveal a strong positive linear relationship between temperature and revenue.
-________________________________________
+
 # Machine Learning Workflow
 The notebook follows the standard supervised learning workflow.
 1.	Import required libraries
@@ -70,14 +70,14 @@ The notebook follows the standard supervised learning workflow.
 8.	Predict revenue using the testing dataset
 9.	Visualize the regression line
 10.	Predict revenue for new temperature values
-________________________________________
+
 # Regression Model
 The Linear Regression model learns the equation:
 Revenue = (Slope × Temperature) + Intercept
 Where:
 •	Slope (m) represents the increase in revenue for every 1°C rise in temperature.
 •	Intercept (b) represents the estimated revenue when the temperature is 0°C.
-________________________________________
+
 # Model Prediction
 Example prediction for a new temperature:
 import pandas as pd
@@ -92,7 +92,7 @@ print(predicted_revenue)
 Example Output
 Predicted Revenue: $685.32
 (Actual value depends on the trained model.)
-________________________________________
+
 # Project Structure
 Simple-Linear-Regression-IceCream/
 │
@@ -103,7 +103,7 @@ Simple-Linear-Regression-IceCream/
     ├── scatter_plot.png
     ├── regression_plot.png
     └── prediction_result.png
-________________________________________
+
 # Key Concepts Covered
 •	Machine Learning
 •	Supervised Learning
@@ -117,9 +117,8 @@ ________________________________________
 •	Prediction
 •	Regression Coefficients
 •	Business Forecasting
-________________________________________
+
 🎓 Learning Outcomes
-After completing this project, you will be able to:
 •	Load datasets with Pandas
 •	Perform exploratory data analysis
 •	Visualize relationships between variables
@@ -129,7 +128,7 @@ After completing this project, you will be able to:
 •	Predict new values
 •	Visualize regression results
 •	Apply machine learning to solve business problems
-________________________________________
+
 # Business Value
 This project demonstrates how machine learning can support business decisions by:
 •	Forecasting daily sales
@@ -137,8 +136,8 @@ This project demonstrates how machine learning can support business decisions by
 •	Optimizing staffing levels
 •	Understanding customer purchasing behavior
 •	Supporting data-driven decision making
-________________________________________
-🔮 Future Enhancements
+
+# Future Enhancements
 Possible improvements include:
 •	Calculate MAE, MSE, RMSE, and R² Score
 •	Add model evaluation metrics
@@ -147,6 +146,6 @@ Possible improvements include:
 •	Extend to Multiple Linear Regression
 •	Build a Streamlit web application
 •	Deploy the model using Flask or FastAPI
-________________________________________
+
 # Acknowledgements
 This project was developed as part of learning Machine Learning with Python and Scikit-learn, demonstrating the end-to-end workflow of building a predictive regression model using business data.
