@@ -12,6 +12,7 @@ The notebook demonstrates the complete machine learning workflow, including:
 •	Model prediction
 •	Regression visualization
 •	Future revenue prediction
+<br>
 The project illustrates how machine learning can help businesses forecast sales and support data-driven decision making.
 
 # Business Problem
@@ -24,13 +25,13 @@ Questions include:<br>
 Instead of relying on intuition, historical sales data is used to build a predictive machine learning model.
 
 # Project Objectives
-•	Learn the fundamentals of Simple Linear Regression
-•	Explore the relationship between temperature and revenue
-•	Visualize the dataset using statistical plots
-•	Train a regression model using Scikit-learn
-•	Interpret regression coefficients
-•	Predict future revenue
-•	Evaluate the regression model visually
+•	Learn the fundamentals of Simple Linear Regression<br>
+•	Explore the relationship between temperature and revenue<br>
+•	Visualize the dataset using statistical plots<br>
+•	Train a regression model using Scikit-learn<br>
+•	Interpret regression coefficients<br>
+•	Predict future revenue<br>
+•	Evaluate the regression model visually<br>
 
 # Dataset
 The dataset contains two variables.
