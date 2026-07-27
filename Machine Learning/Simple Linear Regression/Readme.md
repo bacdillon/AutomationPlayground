@@ -12,7 +12,7 @@ The notebook demonstrates the complete machine learning workflow, including:
 •	Model prediction
 •	Regression visualization
 •	Future revenue prediction
-<br>
+<br><br>
 The project illustrates how machine learning can help businesses forecast sales and support data-driven decision making.
 
 # Business Problem
@@ -21,7 +21,7 @@ Questions include:<br>
 •	How much revenue can be expected when the temperature reaches 30°C?<br>
 •	Does temperature significantly influence sales?<br>
 •	Can future weather forecasts improve inventory planning?<br>
-•	How should staffing levels be adjusted during hot weather?<br>
+•	How should staffing levels be adjusted during hot weather?<br><br>
 Instead of relying on intuition, historical sales data is used to build a predictive machine learning model.
 
 # Project Objectives
