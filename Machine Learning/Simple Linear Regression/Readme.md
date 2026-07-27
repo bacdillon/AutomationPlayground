@@ -1,7 +1,7 @@
-🍦 Simple Linear Regression – Ice Cream Revenue Prediction
+# Simple Linear Regression – Ice Cream Revenue Prediction
 A beginner-friendly Machine Learning project that demonstrates how Simple Linear Regression can be used to predict ice cream revenue based on temperature using Python and Scikit-learn.
 ________________________________________
-📌 Project Overview
+# Project Overview
 This project builds a Simple Linear Regression model to predict the daily revenue of an ice cream stand using historical temperature data.
 The notebook demonstrates the complete machine learning workflow, including:
 •	Data loading
@@ -14,7 +14,7 @@ The notebook demonstrates the complete machine learning workflow, including:
 •	Future revenue prediction
 The project illustrates how machine learning can help businesses forecast sales and support data-driven decision making.
 ________________________________________
-🎯 Business Problem
+# Business Problem
 An ice cream shop owner wants to estimate daily revenue based on weather forecasts.
 Questions include:
 •	How much revenue can be expected when the temperature reaches 30°C?
@@ -23,7 +23,7 @@ Questions include:
 •	How should staffing levels be adjusted during hot weather?
 Instead of relying on intuition, historical sales data is used to build a predictive machine learning model.
 ________________________________________
-🎯 Project Objectives
+# Project Objectives
 •	Learn the fundamentals of Simple Linear Regression
 •	Explore the relationship between temperature and revenue
 •	Visualize the dataset using statistical plots
@@ -32,14 +32,14 @@ ________________________________________
 •	Predict future revenue
 •	Evaluate the regression model visually
 ________________________________________
-📂 Dataset
+# Dataset
 The dataset contains two variables.
 Variable	Description
 Temperature (°C)	Daily outdoor temperature
 Revenue ($)	Ice cream stand daily revenue
 The objective is to predict Revenue from Temperature.
 ________________________________________
-🛠 Technologies Used
+# Technologies Used
 •	Python 3
 •	Pandas
 •	NumPy
@@ -48,20 +48,17 @@ ________________________________________
 •	Scikit-learn
 •	Jupyter Notebook
 ________________________________________
-📊 Exploratory Data Analysis (EDA)
+# Exploratory Data Analysis (EDA)
 The notebook explores the dataset using:
-•	head()
-•	tail()
-•	describe()
-•	info()
+•	head()             •	tail()
+•	describe()         •	info()
+
 Visualization techniques include:
-•	Scatter Plot
-•	Joint Plot
-•	Pair Plot
-•	Linear Regression Plot
+•	Scatter Plot       •	Joint Plot
+•	Pair Plot          •	Linear Regression Plot
 These visualizations reveal a strong positive linear relationship between temperature and revenue.
 ________________________________________
-🤖 Machine Learning Workflow
+# Machine Learning Workflow
 The notebook follows the standard supervised learning workflow.
 1.	Import required libraries
 2.	Load the dataset
@@ -74,14 +71,14 @@ The notebook follows the standard supervised learning workflow.
 9.	Visualize the regression line
 10.	Predict revenue for new temperature values
 ________________________________________
-📈 Regression Model
+# Regression Model
 The Linear Regression model learns the equation:
 Revenue = (Slope × Temperature) + Intercept
 Where:
 •	Slope (m) represents the increase in revenue for every 1°C rise in temperature.
 •	Intercept (b) represents the estimated revenue when the temperature is 0°C.
 ________________________________________
-📉 Model Prediction
+# Model Prediction
 Example prediction for a new temperature:
 import pandas as pd
 
@@ -96,7 +93,7 @@ Example Output
 Predicted Revenue: $685.32
 (Actual value depends on the trained model.)
 ________________________________________
-📁 Project Structure
+# Project Structure
 Simple-Linear-Regression-IceCream/
 │
 ├── IceCreamData.csv
@@ -107,18 +104,7 @@ Simple-Linear-Regression-IceCream/
     ├── regression_plot.png
     └── prediction_result.png
 ________________________________________
-🚀 Installation
-Clone the repository:
-git clone https://github.com/yourusername/Simple-Linear-Regression-IceCream.git
-Navigate to the project folder:
-cd Simple-Linear-Regression-IceCream
-Install the required packages:
-pip install pandas numpy matplotlib seaborn scikit-learn
-Launch Jupyter Notebook:
-jupyter notebook
-Open the notebook and run each cell sequentially.
-________________________________________
-📚 Key Concepts Covered
+# Key Concepts Covered
 •	Machine Learning
 •	Supervised Learning
 •	Regression Analysis
@@ -144,7 +130,7 @@ After completing this project, you will be able to:
 •	Visualize regression results
 •	Apply machine learning to solve business problems
 ________________________________________
-💡 Business Value
+# Business Value
 This project demonstrates how machine learning can support business decisions by:
 •	Forecasting daily sales
 •	Planning inventory
@@ -162,13 +148,5 @@ Possible improvements include:
 •	Build a Streamlit web application
 •	Deploy the model using Flask or FastAPI
 ________________________________________
-👨‍💻 Author
-Dillon Bac
-IT Professional | Digital Business Analyst | Automation & AI Enthusiast
-Portfolio:
-https://bacdillon.github.io/AutomationPlayground/
-LinkedIn:
-https://www.linkedin.com/in/bacdillon/
-________________________________________
-⭐ Acknowledgements
-This project was developed as part of learning Machine Learning with Python and Scikit-learn, demonstrating the end-to-end workflow of building a predictive regression model using real-world business data.
+# Acknowledgements
+This project was developed as part of learning Machine Learning with Python and Scikit-learn, demonstrating the end-to-end workflow of building a predictive regression model using business data.
