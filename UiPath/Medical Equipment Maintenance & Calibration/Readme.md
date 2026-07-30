@@ -2,9 +2,7 @@
 
 **Automation Playground Portfolio Project**
 
-An automation that watches over a hospital's medical equipment inventory and proactively alerts the team whenever a piece of equipment is due — or overdue — for maintenance or calibration. Built around a CMMS-style (Computerized Maintenance Management System) equipment dashboard, it turns a spreadsheet of maintenance dates into automatic, actionable email alerts.
-
----
+An automation that watches over a hospital's medical equipment inventory and proactively alerts the team whenever a piece of equipment is due or overdue, for maintenance or calibration. Built around a CMMS-style (Computerized Maintenance Management System) equipment dashboard, it turns a spreadsheet of maintenance dates into automatic, actionable email alerts.
 
 ## 1. Project Overview
 
@@ -12,7 +10,7 @@ This project automates the monitoring of maintenance and calibration schedules f
 
 ## 2. Business Context
 
-Hospitals and clinics rely on a wide range of expensive, safety-critical equipment that must be regularly maintained and calibrated to stay safe and accurate. This isn't optional — missed maintenance on something like an X-ray machine or a CT scanner can mean regulatory issues, unreliable readings, or unsafe equipment. Facilities teams typically track this using a CMMS (Computerized Maintenance Management System) or a spreadsheet listing every asset, its last service date, and when it's next due.
+Hospitals and clinics rely on a wide range of expensive, safety-critical equipment that must be regularly maintained and calibrated to stay safe and accurate. This isn't optional to missed maintenance on something like an X-ray machine or a CT scanner can mean regulatory issues, unreliable readings, or unsafe equipment. Facilities teams typically track this using a CMMS (Computerized Maintenance Management System) or a spreadsheet listing every asset, its last service date, and when it's next due.
 
 ## 3. Business Problem
 
@@ -35,9 +33,9 @@ The business need was a way to continuously watch the equipment list and proacti
 
 ## 5. What the Video Demonstrates
 
-The video shows a **CMMS (Computerized Maintenance Management System) dashboard**, built as a web application, listing a hospital's radiology equipment — including a CT Scanner, MRI Machine, Digital X-Ray Machine, Portable X-Ray Unit, and Ultrasound Machine — with details like location, serial number, manufacturer, last maintenance date, next maintenance date, status, and calibration due date.
+The video shows a **CMMS (Computerized Maintenance Management System) dashboard**, built as a web application, listing a hospital's radiology equipment, including a CT Scanner, MRI Machine, Digital X-Ray Machine, Portable X-Ray Unit, and Ultrasound Machine with details like location, serial number, manufacturer, last maintenance date, next maintenance date, status, and calibration due date.
 
-It then shows the underlying **UiPath automation** running in Studio, which reads this same equipment data from a spreadsheet, checks each item's due dates, and automatically sends an email alert for every item that's due or overdue. The video's execution log shows the robot working through the equipment list, and the final part shows the resulting **inbox full of individual alert emails**, each one clearly named with the equipment ID and its due date (for example, "RAD-001-05/05/2025 00:00:00 Is expired"), along with the full notification content — a table of the equipment's details and a clear call to action.
+It then shows the underlying **UiPath automation** running in Studio, which reads this same equipment data from a spreadsheet, checks each item's due dates, and automatically sends an email alert for every item that's due or overdue. The video's execution log shows the robot working through the equipment list, and the final part shows the resulting **inbox full of individual alert emails**, each one clearly named with the equipment ID and its due date (for an example, "RAD-001-05/05/2025 00:00:00 Is expired"), along with the full notification content with a table of the equipment's details and a clear call to action.
 
 ## 6. End-to-End Workflow, Step by Step
 
@@ -64,17 +62,17 @@ It then shows the underlying **UiPath automation** running in Studio, which read
 
 ## 9. Automation Logic
 
-The core logic is straightforward but powerful: for every piece of equipment in the inventory, the automation converts its recorded maintenance and calibration dates into a proper date format, then compares them against today's date. If a date has been reached or already passed, that equipment is treated as needing attention, and a notification is generated and sent immediately — one email per equipment item, so each alert is specific and actionable rather than being buried in a long combined report. This item-by-item approach means the automation naturally scales to any size of equipment inventory without needing to be redesigned.
+The core logic is straightforward but powerful: for every piece of equipment in the inventory, the automation converts its recorded maintenance and calibration dates into a proper date format, then compares them against today's date. If a date has been reached or already passed, that equipment is treated as needing attention, and a notification is generated and sent immediately. One email per equipment item, so each alert is specific and actionable rather than being buried in a long combined report. This item-by-item approach means the automation naturally scales to any size of equipment inventory without needing to be redesigned.
 
 ## 10. AI Capabilities
 
-This project doesn't use AI — it's a rules-based monitoring automation, and that's exactly the right tool for the job here. The value comes from **consistency and reliability**: the same check, applied to every single item, every time the automation runs, with nothing depending on a person remembering to look. It's a good example of how not every valuable automation needs AI — sometimes dependable, rules-based logic applied consistently is the more appropriate (and more trustworthy) solution, especially in a safety-critical setting like healthcare equipment.
+This project doesn't use AI. It is a rules based monitoring automation, and that's exactly the right tool for the job here. The value comes from **consistency and reliability**: the same check, applied to every single item, every time the automation runs, with nothing depending on a person remembering to look. It's a good example of how not every valuable automation needs AI. Sometimes dependable, rules-based logic applied consistently is the more appropriate (and more trustworthy) solution, especially in a safety-critical setting like healthcare equipment.
 
 ## 11. User Interactions
 
 - The automation runs on its own — no one needs to trigger or watch it directly.
 - The main way a team member interacts with the outcome is through their **email inbox**, receiving a clear, individual alert for each piece of equipment that needs attention.
-- The CMMS dashboard remains available at any time for someone who wants to browse the full equipment list directly, but they don't need to check it proactively — the automation does that for them.
+- The CMMS dashboard remains available at any time for someone who wants to browse the full equipment list directly, but they don't need to check it proactively whereas the automation does that for them.
 
 ## 12. Inputs and Outputs
 
@@ -96,7 +94,7 @@ This project doesn't use AI — it's a rules-based monitoring automation, and th
 - Every piece of equipment must be checked against both its maintenance due date and its calibration due date.
 - If either date is due or has already passed, an alert must be generated for that equipment.
 - Each alert must include enough detail (location, serial number, manufacturer, and notes) for someone to act without needing to look anything up separately.
-- Equipment that isn't due doesn't generate an alert — keeping notifications relevant and avoiding alert fatigue.
+- Equipment that isn't due doesn't generate an alert and keeping notifications relevant and avoiding alert fatigue.
 
 ## 15. Key Features Demonstrated
 
@@ -122,7 +120,7 @@ This project doesn't use AI — it's a rules-based monitoring automation, and th
 
 ## 18. Time or Cost Savings (If Evident)
 
-The video shows the automation working through roughly ten pieces of equipment in a single run, generating an individual alert for each one that was due or overdue. It doesn't demonstrate large-scale figures like the total size of a real hospital's inventory or the cost of a missed maintenance event, so no specific dollar or hour savings number is claimed here. That said, in a healthcare setting, the cost of a single missed piece of equipment maintenance — in compliance risk or safety terms — can be significant, which is where this kind of proactive, no-effort monitoring delivers real value.
+The video shows the automation working through roughly ten pieces of equipment in a single run, generating an individual alert for each one that was due or overdue. It doesn't demonstrate large scale figures like the total size of a real hospital's inventory or the cost of a missed maintenance event, so no specific dollar or hour savings number is claimed here. In a healthcare setting, the cost of a single missed piece of equipment maintenance, in compliance risk or safety terms can be significant, which is where this kind of proactive, no-effort monitoring delivers real value.
 
 ## 19. Skills Demonstrated
 
@@ -146,11 +144,11 @@ This same pattern applies to any scenario involving scheduled, must-not-miss act
 
 ## 21. Lessons Learned
 
-- Turning a passive dashboard into active alerts is often more valuable than the dashboard itself — visibility only helps if someone actually looks.
+- Turning a passive dashboard into active alerts is often more valuable than the dashboard itself where visibility only helps if someone actually looks.
 - Sending individual, detailed alerts (rather than one long combined report) makes each notification easier to act on immediately.
-- Reliable date-handling logic is a small but critical detail in any automation involving due dates — getting the comparison right is what makes the whole system trustworthy.
-- Not every valuable automation needs AI — for safety-critical, rules-based checks like this one, consistent, predictable logic is exactly what's needed.
-- In regulated or safety-sensitive environments, automation isn't just about saving time — it's about reducing the risk of a costly or dangerous oversight.
+- Reliable date handling logic is a small but critical detail in any automation involving due dates, getting the comparison right is what makes the whole system trustworthy.
+- Not every valuable automation needs AI for safety-critical, rules-based checks like this one, consistent, predictable logic is exactly what's needed.
+- In regulated or safety-sensitive environments, automation isn't just about saving time,it's about reducing the risk of a costly or dangerous oversight.
 
 ## 22. Possible Future Enhancements
 
@@ -160,7 +158,3 @@ This same pattern applies to any scenario involving scheduled, must-not-miss act
 - Include **severity levels**, so significantly overdue equipment is flagged more urgently than something just becoming due.
 - Add **SMS or chat notifications** (in addition to email) for more urgent or safety-critical alerts.
 - Build in **historical tracking**, so the team can see maintenance compliance trends over time, not just point-in-time alerts.
-
----
-
-*This project is part of an Automation Playground portfolio, built to demonstrate how straightforward, rules-based automation can meaningfully reduce risk in a safety-critical, compliance-sensitive environment like healthcare equipment management.*

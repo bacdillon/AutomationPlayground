@@ -2,17 +2,15 @@
 
 **Automation Playground Portfolio Project**
 
-A demonstration of one of the most fundamental design patterns in RPA — splitting an automation into a **Dispatcher** (which loads the work) and a **Performer** (which does the work), connected through a managed queue in UiPath Orchestrator. The example use case is calculating Body Mass Index (BMI) for a list of people, but the pattern itself is the real point: it's the same structure used for high-volume, production-grade automations of almost any kind.
-
----
+A demonstration of one of the most fundamental design patterns in RPA. Splitting an automation into a **Dispatcher** (which loads the work) and a **Performer** (which does the work), connected through a managed queue in UiPath Orchestrator. The example use case is calculating Body Mass Index (BMI) for a list of people, but the pattern itself is the real point: it's the same structure used for high-volume, production-grade automations of almost any kind.
 
 ## 1. Project Overview
 
-This project automates the calculation of Body Mass Index (BMI) for a batch of people, using a two-part automation design: one component loads the data to be processed into a queue, and a separate component picks up each item from that queue, processes it, and reports the result. Behind a simple example (BMI calculation), this project is really a demonstration of a **scalable, production-ready automation architecture** — the same pattern used in real enterprise RPA solutions to process thousands of records reliably.
+This project automates the calculation of Body Mass Index (BMI) for a batch of people, using a two-part automation design: one component loads the data to be processed into a queue, and a separate component picks up each item from that queue, processes it, and reports the result. Behind a simple example (BMI calculation), this project is really a demonstration of a **scalable, production-ready automation architecture** the same pattern used in real enterprise RPA solutions to process thousands of records reliably.
 
 ## 2. Business Context
 
-Many business processes involve working through a list of records one at a time — invoices to check, applications to review, records to update, or in this case, people whose BMI needs to be calculated from height and weight data. When the volume is small, doing this by hand or with a simple script is fine. But as volume grows, or as the process needs to run reliably, be monitored, and recover from failures, a more structured approach is needed — one where the workload is clearly separated from the work itself.
+Many business processes involve working through a list of records one at a time for the invoices to check, applications to review, records to update, or in this case, people whose BMI needs to be calculated from height and weight data. When the volume is small, doing this by hand or with a simple script is fine. But as volume grows, or as the process needs to run reliably, be monitored, and recover from failures, a more structured approach is needed where the workload is clearly separated from the work itself.
 
 ## 3. Business Problem
 
@@ -23,14 +21,14 @@ Simple, single-file automations that both **load data** and **process it** in th
 - A single monolithic script is harder to scale — you can't easily split the work across more than one robot.
 - Mixing "get the data" logic with "do the work" logic makes the automation harder to maintain and reuse.
 
-The business need is a repeatable, trackable, and scalable way to process a list of items — with clear visibility into what's done, what's pending, and what failed.
+The business need is a repeatable, trackable, and scalable way to process a list of items with clear visibility into what is done, what is pending, and what failed.
 
 ## 4. Project Objectives
 
 - Separate the automation into two clear responsibilities: loading data (Dispatcher) and processing data (Performer).
 - Use a managed queue to track the status of every item, from start to finish.
 - Automatically calculate BMI for each person using their height and weight.
-- Give the business a clear, real-time view of processing status through Orchestrator.
+- Give the business a clear, real time view of processing status through Orchestrator.
 - Demonstrate a pattern that can scale from a handful of records to large volumes without redesigning the automation.
 
 ## 5. What the Video Demonstrates
@@ -40,7 +38,7 @@ The video walks through a UiPath project called **BMI_Automation**, which includ
 - **AddItemsToQueue** (the Dispatcher) — reads a list of people's height, weight, and status from an Excel file, and adds each row as an item to a queue in UiPath Orchestrator called **BMIQueue**.
 - **GetQueueItemAndProcess** (the Performer) — picks up an item from the queue, opens a web-based BMI calculator, enters the person's height and weight, retrieves the calculated BMI result, and completes the transaction.
 
-The video shows the queue in **UiPath Orchestrator** with four items loaded from the Excel source — two marked "Ready to process" and two marked "Not ready to process." As the Performer runs, it picks up and successfully completes the items marked "Ready to process," while the "Not ready to process" items are correctly left untouched. Each completed transaction is shown moving from "New" to **"Successful"** status in Orchestrator, along with its processing time and the underlying data (height, weight, status) attached to that transaction.
+The video shows the queue in **UiPath Orchestrator** with four items loaded from the Excel source, 2 marked "Ready to process" and 2 marked "Not ready to process." As the Performer runs, it picks up and successfully completes the items marked "Ready to process," while the "Not ready to process" items are correctly left untouched. Each completed transaction is shown moving from "New" to **"Successful"** status in Orchestrator, along with its processing time and the underlying data (height, weight, status) attached to that transaction.
 
 ## 6. End-to-End Workflow, Step by Step
 
@@ -50,7 +48,7 @@ The video shows the queue in **UiPath Orchestrator** with four items loaded from
 4. **The Performer picks up an item.** It retrieves the next item from the queue, along with the data attached to it.
 5. **The Performer calculates BMI.** It opens a BMI calculator web application, enters the person's height and weight, and retrieves the calculated BMI result.
 6. **The transaction is completed.** The Performer reports the outcome back to Orchestrator, and the item's status updates to "Successful."
-7. **Progress is visible throughout.** At any point, the current status of every item — pending, in progress, or completed — can be seen directly in Orchestrator.
+7. **Progress is visible throughout.** At any point, the current status of every item is pending, in progress, or completed, which can be seen directly in Orchestrator.
 
 ## 7. Systems and Applications Involved
 
@@ -68,11 +66,11 @@ The video shows the queue in **UiPath Orchestrator** with four items loaded from
 
 ## 9. Automation Logic
 
-The core idea is a clean split of responsibility. The **Dispatcher** only cares about getting data ready — it doesn't calculate anything itself. It reads each row from the source file and adds it to the queue as a self-contained work item, carrying all the data the Performer will need. The **Performer** only cares about doing the work — it doesn't know or care where the data originally came from; it simply asks the queue for the next item, processes it, and reports back whether it succeeded. This separation means either part can be changed, scaled, or reused independently — for example, running several Performers at once to work through the queue faster, without touching the Dispatcher at all.
+The core idea is a clean split of responsibility. The **Dispatcher** only cares about getting data ready — it doesn't calculate anything itself. It reads each row from the source file and adds it to the queue as a self-contained work item, carrying all the data the Performer will need. The **Performer** only cares about doing the work, it doesn't know or care where the data originally came from; it simply asks the queue for the next item, processes it, and reports back whether it succeeded. This separation means either part can be changed, scaled, or reused independently. For an example, running several Performers at once to work through the queue faster, without touching the Dispatcher at all.
 
 ## 10. AI Capabilities
 
-This project doesn't use AI decision-making — it's a classic, rules-based automation pattern. Its value doesn't come from intelligent judgment calls, but from **solid architecture**: reliable data handling, clear separation of concerns, and full trackability. It's a good demonstration that not every automation needs AI to be valuable — sometimes the right structural pattern is what makes an automation dependable at scale.
+This project doesn't use AI decision making. It is a classic, rules-based automation pattern. Its value doesn't come from intelligent judgment calls, but from **architecture itself**: reliable data handling, clear separation of concerns, and full trackability. It's a good demonstration that not every automation needs AI to be valuable. Sometimes the right structural pattern is what makes an automation dependable at scale.
 
 ## 11. User Interactions
 
@@ -129,7 +127,7 @@ This project doesn't use AI decision-making — it's a classic, rules-based auto
 
 ## 18. Time or Cost Savings (If Evident)
 
-The video shows individual transactions completing in around 20 to 25 seconds each, including opening the calculator, entering data, and retrieving the result. With only four sample records, the video doesn't demonstrate large-scale savings directly, so no specific cost or time figure is claimed here. That said, the queue-based pattern shown is specifically designed for scale — the same setup that processes 4 records in this demo is built to handle thousands without any change in design, which is where the real time and cost savings would come from in a production setting.
+The video shows individual transactions completing in around 20 to 25 seconds each, including opening the calculator, entering data, and retrieving the result. With only four sample records, the video doesn't demonstrate large scale savings directly, so no specific cost or time figure is claimed here. That said, the queue-based pattern shown is specifically designed for scale, the same setup that processes 4 records in this demo is built to handle thousands without any change in design, which is where the real time and cost savings would come from in a production setting.
 
 ## 19. Skills Demonstrated
 
@@ -156,7 +154,7 @@ This exact pattern is used across countless enterprise automation scenarios, inc
 - A managed queue turns a batch of work into something trackable and recoverable, instead of a black box that either finishes or doesn't.
 - Respecting the state of the data (like only processing "ready" records) is a simple but important business rule that prevents automations from doing the wrong thing at the wrong time.
 - Even a simple example, like calculating BMI, is a great way to demonstrate a pattern that scales to far more complex, high-volume enterprise processes.
-- Good automation architecture pays off long before an automation becomes complex — building it the right way from the start makes future growth much easier.
+- Good automation architecture pays off long before an automation becomes complex. Building it the right way from the start makes future growth much easier.
 
 ## 22. Possible Future Enhancements
 
@@ -167,6 +165,3 @@ This exact pattern is used across countless enterprise automation scenarios, inc
 - Add **email or dashboard reporting** summarizing batch results once all items are processed.
 - Extend the pattern to handle **other per-record business processes** beyond BMI calculation, reusing the same Dispatcher/Performer structure.
 
----
-
-*This project is part of an Automation Playground portfolio, built to demonstrate a foundational, production-grade RPA design pattern — one that scales from a handful of records to enterprise-level volumes without changing its core structure.*

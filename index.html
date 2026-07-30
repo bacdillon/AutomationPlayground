@@ -398,30 +398,18 @@
                         </div>
 
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Architected and orchestrated an intelligent invoice processing solution that combines BPMN-based workflow orchestration, AI-driven decision-making, and Human-in-the-Loop review. The solution streamlines invoice approvals while ensuring governance for exception scenarios through integration with Google Drive and UiPath Action Center.</p>
-                            
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed the invoice approval process and identified automation opportunities.</li>
-                                    <li>Designed the workflow using BPMN to standardise approval and exception handling.</li>
-                                    <li>Defined business rules for automated approvals and Human-in-the-Loop reviews.</li>
-                                    <li>Improved process efficiency while maintaining governance for high-value invoices.</li>
-                                </ul>
-                            </div>
+                            <p><b>Overview:</b> 
+                                This simple project shows how to automate invoice approval by combining RPA (robotic process automation), an AI agent that makes decisions, and a human reviewer who steps in only when needed. Simple invoices get approved automatically. Risky or unusual ones are sent to a person to check. Every invoice ends with a clear, tracked decision.
+                            </p>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Scenario 1 - Automated Approval:</b> Developed an automated workflow that retrieves invoices from Google Drive, validates extraction accuracy, and triggers a Decision Agent for high-confidence match rules.</li>
-                                    <li><b>Scenario 2 - Human-in-the-Loop:</b> Integrates Action Center to route complex exceptions, low-confidence extractions, and high-value approvals to manual reviewers, auto-resuming once approved.</li>
-                                </ul>
-                            </div>
+                       <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/UiPath/Agentic%20Orchestration%20Invoice%20Processing%20with%20Human-in-the-Loop/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- CARD 2: SAP CX Test Automation -->
+                <!-- CARD 2: Basic Test Automation: CRM Login Validation with SAP CX -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
                     <div>
                         <div class="space-y-4 mb-6">
@@ -432,7 +420,7 @@
                                 <iframe src="https://player.vimeo.com/video/1210406884?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Test Automation CX 2"></iframe>
                             </div> -->
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Common Basic Test Automation: CRM Login Validation with SAP CX</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Basic Test Automation: CRM Login Validation with SAP CX</h3>
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
                             <span class="tech-badge" onclick="filterByTag('Testing Activities')">Testing Activities</span>
@@ -442,36 +430,24 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Built and hardened an automated test suite validating SAP CX CRM login flows with combining reusable workflows, exception handling, and version-controlled UI element repositories for reliable, auditable regression testing.</p>
+                            <p><b>Overview:</b>
+                                An automated test suite, built on UiPath Test Suite, that validates the login experience of a SAP CX style CRM application. The project checks that the right users can log in, catches failures cleanly if something breaks, reports results automatically, and is tracked in source control and monitored through an enterprise orchestration platform.
+                            </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Defined test scenarios (valid/invalid login, logout) and success criteria based on logon status and role based routing.</li>
-                                    <li>Designed a Catch-block strategy to handle failures gracefully while preserving accurate pass/fail reporting.</li>
-                                    <li>Introduced an Object Repository to standardize and maintain UI selectors across tests.</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Workflow Design:</b> Automated login via a shared Loginsteps.xaml workflow, verifying identity and landing page. Results are pushed to Test Manager.</li>
-                                    <li><b>Defensive Coding:</b> Added dynamic error catching structures that gracefully capture network failures or simulated HTTP 404 errors, capturing screenshots and dispatching alerts to support teams.</li>
-                                    <li><b>CI/CD Integration:</b> Refactored variables to use global assets and standardized repositories directly synchronized to GitHub.</li>
-                                </ul>
-                            </div>
+                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/UiPath/Basic%20Test%20Automation%20CRM%20Login%20Validation%20with%20SAP%20CX/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
                         </div>
                     </div>
                 </div>
 
-                <!-- CARD 3: BMI Queue Process -->
+                <!-- CARD 3: BMI Queue Automation: Dispatcher & Performer-->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188275417?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="BMI Queue Process"></iframe>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">BMI Queue Process: Dispatcher & Performer</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">BMI Queue Automation: Dispatcher & Performer</h3>
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge" onclick="filterByTag('UiPath Orchestrator')">UiPath Orchestrator</span>
                             <span class="tech-badge" onclick="filterByTag('Dispatcher')">Dispatcher</span>
@@ -479,35 +455,30 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Built a queue-based automation solution using the Dispatcher-Performer architecture to process BMI calculations. The solution demonstrates transaction-based processing, workload distribution, and centralized queue management through UiPath Orchestrator.</p>
+                            <p><b>Overview:</b>
+                                A demonstration of one of the most fundamental design patterns in RPA. 
+                                Splitting an automation into a Dispatcher (which loads the work) and a 
+                                Performer (which does the work), connected through a managed queue in 
+                                UiPath Orchestrator. The example use case is calculating Body Mass Index 
+                                (BMI) for a list of people, but the pattern itself is the real point: 
+                                It is the same structure used for high-volume, production grade automations of almost any kind.
+                            </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed manual calculations and structured optimal workflows to reduce manual input mistakes.</li>
-                                    <li>Designed a scalable transaction framework using standard Dispatcher and Performer design patterns.</li>
-                                    <li>Established data validation checks for robust entry screening.</li>
-                                </ul>
-                            </div>
+                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/UiPath/BMI%20Queue%20Process%20Dispatcher%20&%20Performer/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Dispatcher Component:</b> Reads structured spreadsheets, screens records for incomplete criteria, transforms inputs into uniform formats, and enqueues individual items to Orchestrator.</li>
-                                    <li><b>Performer Component:</b> Pulls transactions asynchronously, inputs criteria into calculations apps, stores results, and reports logs directly back to centralized queues for monitoring.</li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- CARD 4: Meet Alfred -->
+                <!-- CARD 4: Meet Alfred: Intelligent Invoice Processing Automation (REFramework) -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188276801?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Meet Alfred"></iframe>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Meet Alfred: Invoice Processing (REFramework)</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Meet Alfred: Intelligent Invoice Processing Automation (REFramework)</h3>
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge" onclick="filterByTag('UiPath Document Understanding')">UiPath Document Understanding</span>
                             <span class="tech-badge" onclick="filterByTag('REFramework')">REFramework</span>
@@ -515,29 +486,25 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Engineered and implemented an intelligent invoice processing solution that automates the end-to-end invoice lifecycle. Combines Document Understanding, REFramework, and a custom Python CRM to improve operational visibility.</p>
+                            <p><b>Overview:</b> 
+                                  End-to-end invoice processing automation built on 
+                                  UiPath's REFramework. The industry standard template 
+                                  for robust, enterprise ready RPA. "Alfred" monitors an 
+                                  inbox for invoices, reads and understands them using 
+                                  AI feature document processing, enters valid information into a 
+                                  business system, flags invalid ones with a clear reason, 
+                                  and reports the results back to the team automatically.       
+                            </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed manual invoice capture workflows and identified processing bottlenecks.</li>
-                                    <li>Designed To-Be structure for document validation, extraction confidence, and exception pathways.</li>
-                                </ul>
-                            </div>
+                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/UiPath/Meet%20Alfred%20Invoice%20Processing%20(REFramework)/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Document Understanding:</b> Employs OCR engines and taxonomy mappings to automatically classify documents and extract fields like tax IDs, line items, and grand totals.</li>
-                                    <li><b>Robust Framework:</b> Harnesses the Robotiq Enterprise Framework (REFramework) to enforce standardized states (Init, Get Transaction, Process, End Process) for error handling.</li>
-                                    <li><b>Streamlit Analytics:</b> Feeds processed data into a custom-designed Python CRM dashboard for instant stakeholder audits.</li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- CARD 5: Loan Application Assessment -->
+                <!-- CARD 5: Loan Application Processing from Process Discovery to Automation -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
                     <div>
                         <div class="video-wrapper mb-6 border border-zinc-800 cursor-pointer group" onclick="openImageModal('https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png', 'Loan Application Processing Architecture')">
@@ -546,7 +513,9 @@
                                 <i class="fas fa-expand-alt mr-2"></i> Click to Zoom Diagram
                             </div>
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Automation Opportunities Assessment - Loan Application (PDD, SDD, BPMN)</h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Automation Opportunities Assessment</h3>
+
+                        <!-- <h3 class="text-2xl font-bold mb-3 text-white">Automation Opportunities Assessment - Loan Application (PDD, SDD, BPMN)</h3> -->
                         <div class="flex flex-wrap mb-4">
                             <span class="tech-badge" onclick="filterByTag('UiPath Studio')">UiPath Studio</span>
                             <span class="tech-badge" onclick="filterByTag('UiPath Orchestrator')">UiPath Orchestrator</span>
@@ -556,35 +525,21 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Analysed a manual loan application process and designed an enterprise-grade automation architecture using UiPath. Built standardized process document structures (PDD & SDD) to outline business steps, exception workflows, technology targets, and system configuration rules.</p>
+                            <p><b>Overview:</b> 
+                            Analysed a manual loan application process and designed an enterprise automation solution using UiPath. The project involved documenting the business process, identifying automation opportunities, defining business rules and exception scenarios, and producing both a Process Definition Document (PDD) and Solution Design Document (SDD) to support implementation.
+                            <br><br>
+                            The automation processes loan applications submitted through UiBank by validating business rules, generating Loan IDs for approved applications, and notifying business users through automated email responses. The solution is designed to run as an unattended process scheduled through UiPath Orchestrator.    
+                            </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Assessed current-state processes across systems (UiBank, Core Banking apps) to isolate high-frequency delay sources.</li>
-                                    <li>Charted detailed flow diagrams detailing logical forks, credit rating checks, and compliance constraints.</li>
-                                    <li>Estimated operational efficiency gains, proving a simulated reduction of end-to-end evaluation cycle times by up to 75%.</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Technical Architecture:</b> Formulated a detailed SDD specifying environment configuration, credentials storage, asset configurations, and error pathways.</li>
-                                    <li><b>Orchestration Setup:</b> Created unattended processing designs running through scheduled, parameter-driven triggers on UiPath Orchestrator queues.</li>
-                                    <li><b>Exception Standardisation:</b> Mapped distinct System Exceptions (system timeouts) from Business Exceptions (credit failure, invalid files) to prevent stuck operations.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-6 pt-4 border-t border-zinc-800 flex items-center justify-between">
                         <a href="https://github.com/bacdillon/AutomationPlayground/tree/main/UiPath/Loan%20Application%20Processing%20from%20Process%20Discovery%20to%20Automation" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
                         </a>
+
+                        </div>
                     </div>
                 </div>
 
-                <!-- CARD 6: Medical Equipment Tracker -->
+                <!-- CARD 6: Medical Equipment Maintenance & Calibration -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -599,32 +554,25 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Developed and implemented an automation solution to proactively monitor medical equipment maintenance and calibration schedules. The solution identifies upcoming and overdue service activities, generates exception notifications, and supports timely maintenance planning to improve compliance and reduce operational risk.</p>
+                            <p><b>Overview:</b> 
+                            An automation that watches over a hospital's medical equipment 
+                            inventory and proactively alerts the team whenever a piece of 
+                            equipment is due or overdue, for maintenance or calibration. 
+                            Built with as CMMS style (Computerized Maintenance Management 
+                            System) equipment dashboard, it turns a spreadsheet of 
+                            maintenance dates into automatic, actionable email alerts.
+                            </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed the maintenance scheduling process to identify manual monitoring activities and opportunities for automation.</li>
-                                    <li>Designed a standardised workflow to monitor maintenance and calibration schedules for regulated medical equipment.</li>
-                                    <li>Defined business rules to identify upcoming and overdue maintenance activities based on service due dates.</li>
-                                    <li>Improved operational visibility by automating exception detection and maintenance notifications.</li>
-                                </ul>
-                            </div>
-
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Equipment Monitoring:</b> Automated daily database sweeps scanning configurations for overdue statuses.</li>
-                                    <li><b>Business Rule Evaluation:</b> Implemented validation logic to compare maintenance and calibration due dates against current system date to flag required service.</li>
-                                    <li><b>Exception Management:</b> Configured automated email notifications to alert relevant stakeholders of upcoming and overdue maintenance activities, including detailed reports.</li>
-                                </ul>
-                            </div>
+                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/UiPath/Medical%20Equipment%20Maintenance%20%26%20Calibration/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
+      
                         </div>
                     </div>
                 </div>
 
                 <!-- CARD 7: CSM IT Service Request -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
+<!--                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188277973?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="CSM IT Service Request"></iframe>
@@ -657,9 +605,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- CARD 8: Basic API Call -->
+                <!-- CARD 7: Basic API Call: Consuming REST API Data to Drive Web Form Automation -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath api">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -673,9 +621,13 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Built a lightweight RPA workflow that calls a public REST API, deserializes the JSON response, and uses the extracted fields to automatically populate a live web form. Demonstrating direct API-to-UI data integration without an intermediate storage step.</p>
+                            <p><b>Overview:</b> 
+                            </p>
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
+                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/UiPath/Basic%20API%20Call%20Consuming%20REST%20API%20Data%20to%20Drive%20Web%20Form%20Automation/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
+<!--                             <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
                                 <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
                                 <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
                                     <li>Identified a common integration need. Pulling structured data from an API and feeding it directly into downstream UI actions.</li>
@@ -691,7 +643,7 @@
                                     <li><b>API Data Retrieval:</b> Made a single HTTP Request (GET) to the randomuser.me API, capturing the response as a JsonString and deserializing it into structured JSON objects.</li>
                                     <li><b>Automated Form Population:</b> Opened the target site using Navigate Browser and populated fields dynamically (First Name, Last Name, Email, Phone Number) via Type Into activities.</li>
                                 </ul>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>

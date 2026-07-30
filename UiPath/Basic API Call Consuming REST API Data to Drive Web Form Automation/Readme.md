@@ -17,7 +17,7 @@ Many real business processes involve pulling data from one system (often through
 This project is a **skills demonstration** built around a well known RPA training exercise ("RPA Challenge"), rather than a specific live business system, but it's built to mirror a real and common automation challenge:
 
 - **Manually re-entering data between systems is slow and error-prone.** Copying details from an API response or another data source into a web form by hand invites typos and inconsistencies.
-- **Web forms aren't always static.** Some interfaces are intentionally or unintentionally unpredictable — fields can move, reload, or change order, which breaks automations that rely on fixed, hardcoded positions.
+- **Web forms aren't always static.** Some interfaces are intentionally or unintentionally unpredictable where fields can move, reload, or change order, which breaks automations that rely on fixed, hardcoded positions.
 - **Automations need to be genuinely adaptive**, not just capable of clicking in the same spot every time.
 
 The RPA Challenge site used in this demo is specifically designed to test that last point: it shuffles the form's field layout after every submission, forcing the automation to correctly identify each field by what it *is*, not where it happens to sit on the screen.
@@ -46,7 +46,7 @@ The video shows a UiPath project called **"Basic API Call,"** which:
 3. **Open the target form.** The automation navigates to the web form that needs to be filled out.
 4. **Identify each field.** Rather than relying on fixed screen positions, the automation identifies each form field by what it represents (e.g., "this is the First Name field"), regardless of where it currently sits on the page.
 5. **Fill in the form.** Each piece of data from the API response is typed into its matching field.
-6. **Submit and repeat.** The form is submitted, and the process can repeat across multiple rounds — even as the form's layout changes each time.
+6. **Submit and repeat.** The form is submitted, and the process can repeat across multiple rounds, even as the form's layout changes each time.
 
 ## 7. Systems and Applications Involved
 
@@ -88,7 +88,7 @@ This project doesn't use AI. It is just a demonstration of core, deterministic R
 
 ## 14. Business Rules
 
-- Each piece of retrieved data must be entered into its correctly corresponding form field — first name to First Name, email to Email, and so on, regardless of the field's position on screen.
+- Each piece of retrieved data must be entered into its correctly corresponding form field where first name goes to First Name, email goes to Email, and so on, regardless of the field's position on screen.
 - The automation must correctly complete the form across multiple rounds, even as the layout changes each time.
 
 ## 15. Key Features Demonstrated
@@ -122,7 +122,7 @@ The video shows the automation completing a form submission using retrieved API 
 
 ## 20. Real-World Enterprise Use Cases
 
-This exact pattern to pull data from an API, then use it to complete a task in a separate interface — applies to many real scenarios, including:
+This exact pattern to pull data from an API, then use it to complete a task in a separate interface which can applies to many real scenarios, including:
 
 - **Populating a partner or vendor web portal** using data retrieved from an internal system's API
 - **Filling out compliance or registration forms** with data sourced from an internal database via API
