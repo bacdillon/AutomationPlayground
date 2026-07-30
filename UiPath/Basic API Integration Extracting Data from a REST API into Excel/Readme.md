@@ -2,9 +2,7 @@
 
 **Automation Playground Portfolio Project**
 
-A foundational RPA demonstration showing how to pull multiple records from a REST API, in bulk, and save them into a clean, structured Excel spreadsheet — with the number of records to retrieve configurable at run time. This project focuses on a core automation skill: turning repeated API calls into a usable, structured dataset.
-
----
+A foundational RPA demonstration showing how to pull multiple records from a REST API, in bulk, and save them into a clean, structured Excel spreadsheet with the number of records to retrieve configurable at run time. This project focuses on a core automation skill: turning repeated API calls into a usable, structured dataset.
 
 ## 1. Project Overview
 
@@ -12,14 +10,14 @@ This project automates the process of calling a REST API multiple times, collect
 
 ## 2. Business Context
 
-Many business and technical processes need data pulled from an external system that only offers an API — supplier catalogs, market data, contact directories, and public data sources are common examples. Once retrieved, that data is often needed in a familiar, easy-to-use format like Excel, so it can be reviewed, shared, filtered, or fed into another process. Being able to reliably call an API repeatedly and consolidate the results into a spreadsheet is a common, practical automation need.
+Many business and technical processes need data pulled from an external system that only offers an API for supplier catalogs, market data, contact directories, and public data sources are common examples. Once retrieved, that data is often needed in a familiar, easy-to-use format like Excel, so it can be reviewed, shared, filtered, or fed into another process. Being able to reliably call an API repeatedly and consolidate the results into a spreadsheet is a common, practical automation need.
 
 ## 3. Business Problem
 
-This project is a **skills demonstration** using a public test API (`randomuser.me`), rather than a specific live business system — but it mirrors a genuinely common automation challenge:
+This project is a **testing demonstration** using a public test API (`randomuser.me`), rather than a specific business system, but it mirrors a genuinely common automation challenge:
 
 - **Manually calling an API multiple times and copying the results is slow and tedious**, especially when many records are needed.
-- **Raw API responses (JSON) aren't business-friendly** — most business users want data in a spreadsheet, not a block of code-like text.
+- **Raw API responses (JSON) aren't business-friendly** most business users want data in a spreadsheet, not a block of code-like text.
 - **The number of records needed often varies** from one situation to the next, so a rigid, one-size script isn't as useful as one that can be told how much data to pull.
 
 ## 4. Project Objectives
@@ -36,7 +34,7 @@ The video shows a UiPath project called **"Basic API Extract data from API and s
 
 - Prompts the user with an **input dialog** asking, "How many data do you need to extract?" — allowing the number of records to be set at run time rather than being fixed in the automation.
 - Repeatedly calls the **`randomuser.me` REST API**, once for each record requested, retrieving a randomly generated user profile in JSON format each time.
-- **Deserializes** each JSON response and extracts the relevant fields — first name, last name, and email address.
+- **Deserializes** each JSON response and extracts the relevant fields with first name, last name, and email address.
 - Adds each extracted record as a new row to a data table, building up the full result set as the loop runs.
 - Writes the completed data table out to an **Excel file**, producing a clean spreadsheet with columns for First Name, Last Name, and Email, and one row per record retrieved (the video shows 15 such records successfully extracted and saved).
 
@@ -45,7 +43,7 @@ The video shows a UiPath project called **"Basic API Extract data from API and s
 1. **Ask how many records are needed.** The automation prompts the user to specify the number of records to extract.
 2. **Call the API.** For each record needed, the automation sends a request to the REST API and receives a response.
 3. **Read the response.** Each JSON response is deserialized so its data (name, email, and other details) can be used.
-4. **Extract the relevant fields.** The specific fields needed — first name, last name, email — are pulled out of each response.
+4. **Extract the relevant fields.** The specific fields needed are first name, last name, email — are pulled out of each response.
 5. **Add the record to the dataset.** Each extracted record is added as a new row to a running data table.
 6. **Repeat until complete.** Steps 2–5 repeat until the requested number of records has been collected.
 7. **Save to Excel.** Once all records are collected, the complete data table is written out to an Excel file.
@@ -70,13 +68,13 @@ The automation is built around a simple, reusable loop: ask how many records are
 
 ## 10. AI Capabilities
 
-This project doesn't use AI — it's a demonstration of core, deterministic RPA and data-handling skills: calling an API repeatedly, parsing structured responses, and compiling results into a usable format. It's a good example of how much practical value can come from solid, foundational automation engineering, without needing AI involved.
+This project doesn't use AI. It is just a demonstration of core, deterministic RPA and data-handling skills: calling an API repeatedly, parsing structured responses, and compiling results into a usable format. It's an example of how much practical value can come from foundational automation engineering, without needing AI involved.
 
 ## 11. User Interactions
 
 - The only interaction required is at the start: the user is asked how many records to extract, through a simple input prompt.
 - After that, the automation runs entirely unattended, looping through the API calls and building the spreadsheet without further input.
-- The end result — a ready-to-use Excel file — is what the user interacts with afterward.
+- The end result with a ready to use Excel file — is what the user interacts with afterward.
 
 ## 12. Inputs and Outputs
 
@@ -91,7 +89,7 @@ This project doesn't use AI — it's a demonstration of core, deterministic RPA 
 
 - Because each record is retrieved and processed in its own loop iteration, an issue with a single API call is contained to that iteration rather than affecting records already successfully retrieved.
 - Reading each response through proper JSON deserialization, rather than manually parsing raw text, reduces the risk of incorrectly reading or mismatching data fields.
-- Using a counter-driven loop tied directly to the user-specified record count ensures the automation retrieves exactly as many records as requested — no more, no less.
+- Using a counter-driven loop tied directly to the user-specified record count ensures the automation retrieves exactly as many records as requested.
 
 ## 14. Business Rules
 
@@ -111,7 +109,7 @@ This project doesn't use AI — it's a demonstration of core, deterministic RPA 
 
 - **Removes manual, repetitive API calls and data copying.**
 - **Produces business-friendly output** (Excel) from a technical data source (a JSON API), without requiring the end user to understand JSON at all.
-- **Scales to different needs** — the same automation can pull a handful of records or a much larger batch, just by changing the number entered at the start.
+- **Scales to different needs** the same automation can pull a handful of records or a much larger batch, just by changing the number entered at the start.
 - **Establishes a reusable pattern** for any scenario where bulk data needs to move from an API into a spreadsheet.
 
 ## 17. Productivity Improvements
@@ -122,7 +120,7 @@ This project doesn't use AI — it's a demonstration of core, deterministic RPA 
 
 ## 18. Time or Cost Savings (If Evident)
 
-The video shows 15 records being retrieved from the API and compiled into Excel in well under a minute of runtime. Because this is a training/demonstration exercise using a public test API rather than a live production data source, no real-world volume or cost savings figures apply here. That said, the underlying capability — turning repeated API calls into a clean spreadsheet automatically — is a common source of real time savings anywhere a business needs bulk data pulled from an API on a regular basis.
+The video shows 15 records being retrieved from the API and compiled into Excel in well under a minute of runtime. Because this is a training/demonstration exercise using a public test API rather than a live production data source, no real-world volume or cost savings figures apply here. The underlying capability is turning repeated API calls into a clean spreadsheet automatically, it is a common source of real time savings anywhere a business needs bulk data pulled from an API on a regular basis.
 
 ## 19. Skills Demonstrated
 
@@ -134,7 +132,7 @@ The video shows 15 records being retrieved from the API and compiled into Excel 
 
 ## 20. Real-World Enterprise Use Cases
 
-This pattern — loop through an API, extract fields, compile into a spreadsheet — applies to many real business scenarios, including:
+This cause the loop through an API, extract fields, compile into a spreadsheet that can applies to many real business scenarios, including:
 
 - **Pulling contact or customer lists** from a CRM or marketing platform's API into a report
 - **Extracting product or pricing data** from a supplier's API for internal review
@@ -156,7 +154,3 @@ This pattern — loop through an API, extract fields, compile into a spreadsheet
 - Add **duplicate checking**, in case the same record is retrieved more than once.
 - Allow the output format to be chosen at run time (Excel, CSV, or a database table).
 - Adapt the same pattern to a **real business API**, rather than a public test API, to demonstrate direct enterprise applicability.
-
----
-
-*This project is part of an Automation Playground portfolio, built to demonstrate a foundational RPA capability — turning repeated REST API calls into clean, structured, business-ready spreadsheet output.*
