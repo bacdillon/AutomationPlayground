@@ -632,7 +632,8 @@
                     </div>
                 </div>
 
-                <!-- CARD 9: Basic API Integration -->
+                <!-- CARD 8: Basic API Integration: Extracting Data from a REST API into Excel
+ -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath api">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -646,25 +647,16 @@
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Built a lightweight RPA workflow that calls a public REST API a user specified number of times, extracts key fields from each JSON response, and consolidates the results into a formatted Excel spreadsheet.</p>
+                            <p><b>Overview:</b> 
 
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Identified a repeatable need to pull structured data from an external API without manual copy-paste.</li>
-                                    <li>Defined a simple input dialog box, so business users can control how many records to extract per run.</li>
-                                    <li>Standardized the target output as First Name, Last Name, Email in Excel format.</li>
-                                    <li>Prioritized a minimal, easy-to-understand workflow suitable as a foundational API integration pattern.</li>
-                                </ul>
-                            </div>
+                         </p>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>API Data Retrieval:</b> Prompted the user via an Input Dialog to set a Counter, executing a While loop with HTTP Requests to gather JSON user records.</li>
-                                    <li><b>Data Transformation & Output:</b> Parsed JSON fields, constructed an in-memory Data Table, and appended records directly into an output Excel file (output.xlsx).</li>
-                                </ul>
-                            </div>
+                        <a href="" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
+
+
+
                         </div>
                     </div>
                 </div>
@@ -1044,34 +1036,32 @@
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="machine-learning">
                     <div>
                         <div class="video-wrapper mb-6">
-                            <iframe src="https://player.vimeo.com/video/1188318829?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Copilot Studio Customer Support"></iframe>
+                            <img src="https://raw.githubusercontent.com/bacdillon/Python/refs/heads/master/Machine%20Learning/Simple%20Linear%20Regression/images/Simple_Linear_Regression_Process.png" alt="Simple Linear Regression Process" class="w-full h-auto">
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">Simple Linear Regression – Ice Cream Revenue Prediction</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge" onclick="filterByTag('Microsoft Copilot Studio')">Microsoft Copilot Studio</span>
-                            <span class="tech-badge" onclick="filterByTag('ServiceNow')">ServiceNow</span>
+                            <span class="tech-badge" onclick="filterByTag('machine-learning')">Machine Learning</span>
+                            <span class="tech-badge" onclick="filterByTag('python')">Python</span>
                         </div>
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> Implemented and configured an intelligent IT Helpdesk Support Agent that streamlines IT service management by enabling users to track incidents, retrieve ticket information, and receive automated assistance through natural language conversations.</p>
-
-                            <div class="bg-zinc-900/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-chart-line mr-2 text-zinc-400"></i>Business Analysis Perspective</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li>Analysed IT service support processes to identify opportunities for improving ticket visibility and reducing manual enquiries.</li>
-                                    <li>Designed conversational workflows that enable users to check ticket status, retrieve incident details, and access common IT support information.</li>
-                                    <li>Defined business requirements and conversation flows for ticket lookup, incident categorisation, and multilingual support.</li>
-                                    <li>Improved IT service efficiency by enabling self-service support and reducing repetitive helpdesk interactions.</li>
+                            <p><b>Overview:</b> 
+                                This project builds a Simple Linear Regression model to predict the daily revenue of an ice cream stand using historical temperature data. The notebook demonstrates the complete machine learning workflow, including:
+                            </p>
+                        <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
+                            <li>Data loading</li>
+                            <li>Exploratory Data Analysis (EDA)</li>
+                            <li>Data visualization</li>
+                            <li>Data preprocessing</li>
+                            <li>Model training</li>
+                            <li>Model prediction</li>
+                            <li>Regression visualization</li>
+                            <li>Future revenue prediction</li>
                                 </ul>
-                            </div>
+                        <a href="https://github.com/bacdillon/Python/blob/master/Machine%20Learning/Simple%20Linear%20Regression/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
 
-                            <div class="bg-zinc-950/80 p-4 rounded-xl border border-zinc-700/70">
-                                <h4 class="font-semibold text-white uppercase mb-2 flex items-center"><i class="fas fa-cogs mr-2 text-zinc-400"></i>Solution Implementation</h4>
-                                <ul class="list-disc pl-5 space-y-2 text-white ba-si-text">
-                                    <li><b>Conversational IT Support:</b> Developed a Microsoft Copilot Studio agent that provides self-service access to IT support through natural language conversations.</li>
-                                    <li><b>Enterprise System Integration:</b> Integrated with ServiceNow to retrieve real-time incident information, including ticket status, category, department, and support details.</li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
