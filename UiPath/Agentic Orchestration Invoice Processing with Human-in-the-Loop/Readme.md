@@ -4,8 +4,6 @@
 
 This project shows how to automate invoice approval by combining RPA (robotic process automation), an AI agent that makes decisions, and a human reviewer who steps in only when needed. Simple invoices get approved automatically. Risky or unusual ones are sent to a person to check. Every invoice ends with a clear, tracked decision.
 
----
-
 ## 1. Project Overview
 
 This project automates the process of approving vendor invoices. Instead of a person checking every single invoice, the system does most of the work on its own. It reads each invoice, decides if it looks normal or risky, and either approves it right away or sends it to a person for a final decision. This way, routine invoices move fast, and only the ones that really need a human eye get one.
