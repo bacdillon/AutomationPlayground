@@ -1,4 +1,4 @@
-# Agentic RPA: Invoice Processing with Human-in-the-Loop
+# Agentic Orchestration: Invoice Processing with Human-in-the-Loop
 
 **Automation Playground Portfolio Project**
 
