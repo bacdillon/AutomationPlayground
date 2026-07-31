@@ -1,4 +1,4 @@
-# Common Basic Test Automation: CRM Login Validation with SAP CX
+# Basic Test Automation: CRM Login Validation with SAP CX
 
 **Automation Playground Portfolio Project**
 
