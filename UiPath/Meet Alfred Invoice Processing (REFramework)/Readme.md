@@ -1,4 +1,4 @@
-# Alfred: Intelligent Invoice Processing Automation (REFramework)
+# Meet Alfred: Intelligent Invoice Processing Automation (REFramework)
 
 **Automation Playground Portfolio Project**
 
