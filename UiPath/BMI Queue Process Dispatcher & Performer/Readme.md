@@ -1,7 +1,5 @@
 # BMI Queue Automation: Dispatcher & Performer Pattern
 
-**Automation Playground Portfolio Project**
-
 A demonstration of one of the most fundamental design patterns in RPA. Splitting an automation into a **Dispatcher** (which loads the work) and a **Performer** (which does the work), connected through a managed queue in UiPath Orchestrator. The example use case is calculating Body Mass Index (BMI) for a list of people, but the pattern itself is the real point: it's the same structure used for high-volume, production-grade automations of almost any kind.
 
 ## 1. Project Overview
@@ -64,21 +62,13 @@ The video shows the queue in **UiPath Orchestrator** with four items loaded from
 - **UiPath UI Automation Activities** — for entering data into the web-based BMI calculator and reading back the result
 - **Web browser automation (Chrome)** — used to interact with the BMI calculator application
 
-## 9. Automation Logic
-
-The core idea is a clean split of responsibility. The **Dispatcher** only cares about getting data ready — it doesn't calculate anything itself. It reads each row from the source file and adds it to the queue as a self-contained work item, carrying all the data the Performer will need. The **Performer** only cares about doing the work, it doesn't know or care where the data originally came from; it simply asks the queue for the next item, processes it, and reports back whether it succeeded. This separation means either part can be changed, scaled, or reused independently. For an example, running several Performers at once to work through the queue faster, without touching the Dispatcher at all.
-
-## 10. AI Capabilities
-
-This project doesn't use AI decision making. It is a classic, rules-based automation pattern. Its value doesn't come from intelligent judgment calls, but from **architecture itself**: reliable data handling, clear separation of concerns, and full trackability. It's a good demonstration that not every automation needs AI to be valuable. Sometimes the right structural pattern is what makes an automation dependable at scale.
-
-## 11. User Interactions
+## 9. User Interactions
 
 - This automation is designed to run **unattended** — no one needs to interact with it while it runs.
 - A business user's main interaction is with **UiPath Orchestrator**, where they can see the queue, check how many items are pending or completed, and review the data and outcome for any individual item.
 - If needed, a user can review each transaction's attached data (like height, weight, and status) directly from the transaction details in Orchestrator.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - An Excel file containing rows of people's data: height, weight, and a status flag
@@ -89,29 +79,20 @@ This project doesn't use AI decision making. It is a classic, rules-based automa
 - An updated transaction status in Orchestrator (e.g., "Successful") for every completed item
 - A clear, queryable record of which items were processed and which were not
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Because the work is managed through a **queue**, every item has a trackable status at all times — nothing is silently lost or skipped without a record of it.
 - The video shows the automation correctly distinguishing between items that are **"Ready to process"** and items that are **"Not ready to process"** — only the ready items are picked up and completed, showing that the automation respects the state of the data rather than blindly processing everything.
 - Because Dispatcher and Performer are separate, a failure in processing one item doesn't affect the loading of the rest of the batch, and doesn't require re-loading data that's already in the queue.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - Only records marked **"Ready to process"** should be picked up and completed by the Performer.
 - Records marked **"Not ready to process"** must remain untouched in the queue until they're ready.
 - Every record from the source file must be tracked as an individual queue item, with its own status, from the moment it's loaded.
 - A completed calculation must be recorded back against its original transaction, so results can always be traced to their source data.
 
-## 15. Key Features Demonstrated
-
-- The classic **Dispatcher/Performer** automation pattern
-- Queue-based work management using UiPath Orchestrator
-- Status-based processing logic (only handling "ready" records)
-- Automated web-based data entry and result retrieval
-- Real-time visibility into batch processing status
-- Clear separation between data loading and data processing logic
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Reliability at scale.** Work is tracked item by item, so nothing gets lost, even if something goes wrong mid-batch.
 - **Full visibility.** Anyone can check Orchestrator at any time to see exactly how a batch is progressing.
@@ -119,26 +100,13 @@ This project doesn't use AI decision making. It is a classic, rules-based automa
 - **Scalability.** Because the work sits in a queue, more than one robot could pick up items from the same queue to process a large batch faster.
 - **Respect for data state.** The automation only processes records that are actually ready, avoiding wasted effort or incorrect processing.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Removes the need for someone to manually calculate BMI (or process any similar per-record task) one at a time.
 - Makes it possible to track a batch's progress without asking anyone to check in manually — the status is always visible in Orchestrator.
 - Sets up a reusable foundation that can process much larger batches without any redesign.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows individual transactions completing in around 20 to 25 seconds each, including opening the calculator, entering data, and retrieving the result. With only four sample records, the video doesn't demonstrate large scale savings directly, so no specific cost or time figure is claimed here. That said, the queue-based pattern shown is specifically designed for scale, the same setup that processes 4 records in this demo is built to handle thousands without any change in design, which is where the real time and cost savings would come from in a production setting.
-
-## 19. Skills Demonstrated
-
-- Designing automations using the Dispatcher/Performer (producer/consumer) pattern
-- Working with UiPath Orchestrator queues, including adding, tracking, and monitoring items
-- Reading and processing structured data from Excel
-- Automating data entry and result extraction from a web application
-- Applying business rules to control which records get processed
-- Building automations with reusable, cleanly separated components
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This exact pattern is used across countless enterprise automation scenarios, including:
 
@@ -148,7 +116,7 @@ This exact pattern is used across countless enterprise automation scenarios, inc
 - **Bulk report generation** — generating a report or output for each item in a list, at scale
 - **Any high-volume, per-record task** — where reliability, visibility, and scalability matter more than the specific task itself
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Separating "getting the work" from "doing the work" makes automations far easier to scale, maintain, and troubleshoot.
 - A managed queue turns a batch of work into something trackable and recoverable, instead of a black box that either finishes or doesn't.
@@ -156,7 +124,7 @@ This exact pattern is used across countless enterprise automation scenarios, inc
 - Even a simple example, like calculating BMI, is a great way to demonstrate a pattern that scales to far more complex, high-volume enterprise processes.
 - Good automation architecture pays off long before an automation becomes complex. Building it the right way from the start makes future growth much easier.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Add **automatic retries** for any item that fails during processing, instead of requiring manual follow-up.
 - Introduce **multiple Performers** running at the same time, to process large batches faster.
