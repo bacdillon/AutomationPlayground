@@ -1,7 +1,5 @@
 # Basic API Call: Consuming REST API Data to Drive Web Form Automation
 
-**Automation Playground Portfolio Project**
-
 A foundational RPA demonstration showing how to pull data from a REST API and use it to automatically fill out a web form, including a form specifically designed to test whether an automation can keep up when field positions change unpredictably. This project focuses on two core automation skills: calling and reading an API, and handling a dynamic, unpredictable web interface.
 
 ## 1. Project Overview
@@ -60,20 +58,12 @@ The video shows a UiPath project called **"Basic API Call,"** which:
 - **JSON deserialization** — for reading the API's structured response
 - **UiPath UI Automation Activities** — for interacting with and typing into the web form
 
-## 9. Automation Logic
-
-The core logic follows a clean, two-part pattern: first, retrieve and understand the data (call the API, then deserialize its response into usable values); second, apply that data to the target interface (identify each form field correctly and type in the matching value). What makes this exercise meaningful is the second half, because the RPA Challenge form deliberately changes field positions after every submission, the automation can't rely on "click here, then click there" logic. It has to identify each field based on what it is, not where it happens to be, which is a far more robust and realistic approach to automating real-world interfaces that aren't always perfectly stable.
-
-## 10. AI Capabilities
-
-This project doesn't use AI. It is just a demonstration of core, deterministic RPA skills: API integration and adaptive UI automation. It's a good example of foundational automation engineering that doesn't need AI to solve a real, common challenge (handling a UI that doesn't stay still).
-
-## 11. User Interactions
+## 9. User Interactions
 
 - This automation runs unattended from start to finish. No user input is required once it's started.
 - Its "interaction" is entirely with two systems: the API (to retrieve data) and the web form (to enter it). A good example of a fully self-contained, end-to-end automated task.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - A response from the REST API, containing a randomly generated user's details (name, email, phone, address, and more)
@@ -81,46 +71,28 @@ This project doesn't use AI. It is just a demonstration of core, deterministic R
 **Outputs:**
 - A correctly completed and submitted web form, with each field filled using the matching data from the API response
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - By identifying form fields based on what they represent rather than their fixed screen position, the automation is inherently more resilient to layout changes, the exact scenario this exercise is built to test.
 - Reading the API response through proper JSON deserialization (rather than manually parsing text) reduces the risk of misreading or mismatching data fields.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - Each piece of retrieved data must be entered into its correctly corresponding form field where first name goes to First Name, email goes to Email, and so on, regardless of the field's position on screen.
 - The automation must correctly complete the form across multiple rounds, even as the layout changes each time.
 
-## 15. Key Features Demonstrated
-
-- Calling and consuming a REST API from within an RPA workflow
-- Parsing structured JSON data for use in automation logic
-- Dynamic, field-aware web form automation that doesn't depend on fixed screen positions
-- A clean, minimal "API in, UI out" automation pattern
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Removes manual data transfer** between an API-driven data source and a web-based system.
 - **Builds more resilient automations** — ones that keep working even when a target interface's layout isn't perfectly predictable.
 - **Establishes a reusable pattern** — this same API-to-form structure applies to many real business scenarios where data needs to move from a data source into a web application.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Eliminates manual copy and paste work between a data source and a web form.
 - Removes the fragility of automations that break the moment a form's layout changes even slightly.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows the automation completing a form submission using retrieved API data. This is just a demonstration exercise rather than a live production process, no real-world volume or cost savings figures apply here. That said, the underlying skill is reliably moving data from an API into a web interface and it is a building block that saves real time wherever a business needs data automatically carried from one system into another.
-
-## 19. Skills Demonstrated
-
-- Making and handling REST API calls within an RPA workflow
-- Deserializing and working with JSON data
-- Building resilient, field-aware web automation that doesn't depend on fixed positions
-- Designing a clean, minimal automation focused on a specific technical capability
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This exact pattern to pull data from an API, then use it to complete a task in a separate interface which can applies to many real scenarios, including:
 
@@ -130,14 +102,14 @@ This exact pattern to pull data from an API, then use it to complete a task in a
 - **Any process where two systems don't share a native integration**, but one exposes an API and the other only offers a web interface
 - **Automations that must remain functional despite UI changes**, a common real-world challenge with third-party or frequently updated web applications
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Reading data properly (through structured deserialization) rather than treating an API response as plain text makes downstream automation logic far more reliable.
 - Automations that identify UI elements by what they are, rather than where they sit, are significantly more robust and this robustness matters even in "simple" automations, not just complex ones.
 - A well-designed practice exercise (like the RPA Challenge site's shifting form) is a genuinely useful way to build and prove real automation skills, not just a novelty.
 - Even a small, focused project is a good way to demonstrate a specific, transferable technical capability clearly.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Extend the automation to handle **multiple API records in sequence**, rather than a single retrieved profile.
 - Add **error handling** for cases where the API call fails or returns unexpected data.
