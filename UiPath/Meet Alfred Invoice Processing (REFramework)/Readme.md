@@ -1,8 +1,6 @@
 # Meet Alfred: Intelligent Invoice Processing Automation (REFramework)
 
-**Automation Playground Portfolio Project**
-
-A production-grade, end-to-end invoice processing automation built on UiPath's REFramework, the industry standard template for robust, enterprise ready RPA. "Alfred" monitors an inbox for invoices, reads and understands them using AI-powered document processing, enters valid ones into a business system, flags invalid ones with a clear reason, and reports the results back to the team automatically.
+End-to-end invoice processing automation built on UiPath's REFramework, the industry standard template for robust, enterprise ready RPA. "Alfred" monitors an inbox for invoices, reads and understands them using AI-powered document processing, enters valid ones into a business system, flags invalid ones with a clear reason, and reports the results back to the team automatically.
 
 ## 1. Project Overview
 
@@ -75,27 +73,13 @@ The video walks through **"Alfred – Intelligent Invoice Processing Automation"
 - **UiPath UI Automation Activities** — for interacting with the web-based Order Entry Form
 - **UiPath PDF Activities** — for working with PDF invoice files
 
-## 9. Automation Logic
-
-The automation follows the REFramework's proven structure: it starts by initializing everything it needs (settings, connections, applications), then works through invoices one at a time as individual **transactions**, and finishes with a clean shutdown regardless of what happened along the way. 
-
-Each transaction has one of three possible outcomes: **Success** (the invoice was valid and entered correctly), **Business Exception** (the invoice itself has a data problem, like a missing invoice number but not a system failure), or **System Exception** (something went wrong with the automation itself, like an unexpected application error). 
-
-Separating these two exception types matters: a bad invoice and a broken robot are very different problems, and this framework treats them that way, a business exception gets flagged and reported, while a system exception can be retried automatically. Nothing is processed unless it passes validation, which keeps bad data out of the business system entirely.
-
-## 10. AI Capabilities
-
-- **Document understanding, not just OCR.** The automation doesn't just extract raw text — it classifies each document by type and pulls out specific, structured fields (customer name, invoice number, dates, line items, totals) regardless of the invoice's layout.
-- **Works across formats.** The same process handles both PDF invoices and image-based (JPG) invoices without separate logic for each.
-- **Feeds directly into decision logic.** The AI-extracted data is what the business rules validate against — so the quality of the AI extraction directly determines whether an invoice is processed correctly or correctly flagged as incomplete.
-
-## 11. User Interactions
+## 9. User Interactions
 
 - The process runs largely unattended, triggered by a new invoice email arriving.
 - A team member's main interaction is receiving **automatic email notifications** either an alert about a specific invoice that failed validation, a "no new invoices" notice, or the end of run summary report.
 - If a document couldn't be processed correctly, the notification includes exactly what's wrong, so a person can fix the source invoice and resubmit it, rather than having to investigate from scratch.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - An email with one or more invoice attachments (PDF or image)
@@ -107,7 +91,7 @@ Separating these two exception types matters: a bad invoice and a broken robot a
 - A consolidated Excel summary report of every invoice processed in the run, with status and details
 - A final summary email to the team
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Every invoice is validated against clear business rules **before** any data is entered into the business system — invalid data never gets processed as if it were valid.
 - Business rule failures (like a missing invoice number or missing customer address) are handled as **expected, reportable outcomes** — the robot doesn't crash, it clearly explains what's wrong and moves on to the next invoice.
@@ -115,24 +99,14 @@ Separating these two exception types matters: a bad invoice and a broken robot a
 - The video shows the automation correctly detecting when there's simply **no new work to do** and reporting that clearly, rather than erroring out or running unnecessarily.
 - Even when something unexpected does occur (the video shows one such case, where a file used for cleanup couldn't be found), the process logs the issue clearly and still shuts down in a controlled way.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - An invoice must have a valid, non-blank invoice number to be processed.
 - An invoice must have valid, non-blank customer billing details (name and address) to be processed.
 - Invoices that fail these checks must not be entered into the business system — they must be flagged and reported instead.
 - Every invoice processed in a run successful or not. It must appear in the final summary report with a clear status.
 
-## 15. Key Features Demonstrated
-
-- A complete, three-stage invoice processing pipeline (document understanding, data entry, consolidation/reporting)
-- AI-powered extraction of structured data from real-world invoice documents
-- Business-rule-based validation that separates good data from bad before it causes downstream problems
-- Automatic web-based data entry into a business application
-- Individualized email alerts explaining exactly why a specific invoice couldn't be processed
-- End-of-run consolidated reporting, delivered automatically
-- Graceful handling of both "nothing to do" and unexpected error scenarios
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Removes manual data entry** for the majority of invoices, freeing up staff time for higher-value work.
 - **Improves data quality** by catching incomplete invoices automatically, rather than letting bad data into the business system.
@@ -140,27 +114,13 @@ Separating these two exception types matters: a bad invoice and a broken robot a
 - **Gives the team full visibility** through automatic notifications and a consolidated report, without anyone needing to check in manually.
 - **Reduces risk** by ensuring the same validation rules are applied consistently to every invoice, every time.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Eliminates the need to manually open, read, and key in data from every incoming invoice.
 - Automatically separates invoices that are ready to process from those that need human attention — so staff only spend time on the exceptions, not the routine cases.
 - Removes the need for anyone to manually compile a summary of what was processed, it's generated and delivered automatically.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows a batch of eight invoices processed in a single run, with several completed successfully within seconds each and three correctly flagged as business exceptions. It doesn't show large-scale, ongoing volume figures, so no specific dollar or hour savings number is claimed here. That said, the pattern demonstrated invoices reading, validated, entered, and reported without manual handling. It is exactly the kind of repetitive, rules-based work where automation reliably saves significant staff time as volume scales up.
-
-## 19. Skills Demonstrated
-
-- Designing and building automations using the UiPath REFramework
-- Implementing AI-powered document understanding for real-world, unstructured documents
-- Designing business rule validation to separate good data from bad
-- Structuring proper exception handling (business exceptions vs. system exceptions)
-- Automating data entry into a web-based business application
-- Building automated email notifications and reporting
-- Designing an automation that behaves predictably and transparently, even when things go wrong
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This same pattern applies directly to many enterprise document driven processes, including:
 
@@ -171,7 +131,7 @@ This same pattern applies directly to many enterprise document driven processes,
 - **Customer onboarding document review** — checking submitted forms or IDs for completeness before processing
 - **Any inbox-triggered, document-heavy business process** — where documents need to be read, validated, and acted on consistently
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Separating **business exceptions** from **system exceptions** is one of the most valuable design decisions in a real production automation. It means bad data gets reported clearly, while genuine technical failures can be retried safely, without confusing the two.
 - Validating data **before** it's entered into a business system is far safer than trying to catch problems afterward.
@@ -179,7 +139,7 @@ This same pattern applies directly to many enterprise document driven processes,
 - An automation that clearly reports "there's nothing to do" is just as important as one that reports success or failure — silence is what erodes trust in automation.
 - Automatic, specific error messaging (naming exactly which invoice and which field is missing) turns an exception into something a person can act on immediately, instead of something they have to investigate.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Add **automatic retries** for genuine system exceptions before flagging them for human attention.
 - Expand validation rules to catch additional data issues, such as unusually high amounts or duplicate invoice numbers.
