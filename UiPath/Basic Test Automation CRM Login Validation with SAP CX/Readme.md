@@ -1,12 +1,10 @@
 # Basic Test Automation: CRM Login Validation with SAP CX
 
-**Automation Playground Portfolio Project**
-
 An automated test suite, built on UiPath Test Suite, that validates the login experience of a SAP CX–style CRM application. The project checks that the right users can log in, catches failures cleanly if something breaks, reports results automatically, and is tracked in source control and monitored through an enterprise orchestration platform.
 
 ## 1. Project Overview
 
-This project is a working example of **automated software testing**, applied to the login screen of a CRM application built in the style of SAP Customer Experience (SAP CX). Instead of a QA tester manually opening the app, typing credentials, and checking the result every time a change is made, this suite does it automatically logging in, verifying the outcome, and reporting back, every time it runs.
+This simple project is a working example of **automated software testing**, applied to the login screen of a CRM application built in the style of SAP Customer Experience (SAP CX). Instead of a QA tester manually opening the app, typing credentials, and checking the result every time a change is made, this suite does it automatically logging in, verifying the outcome, and reporting back, every time it runs.
 
 The suite is built using **UiPath Test Suite** (Studio, Test Manager, and Orchestrator), includes reusable test components, an object repository for UI elements, and automatic email reporting, and is version-controlled in GitHub.
 
@@ -78,21 +76,13 @@ The video walks through a real UiPath Studio project called **CRM**, built for t
 - **UiPath Orchestrator** — for centralized scheduling, execution, and monitoring
 - **Git / GitHub** — for version control of the automation project
 
-## 9. Automation Logic
-
-Each test case follows the same reliable pattern: perform the login action, check the actual result against the expected result, and clearly report success or failure — with no ambiguous outcomes. The login steps themselves live in one shared, reusable workflow rather than being copied into every test case, so a change to the login process only needs to be made in one place. The whole thing is wrapped in error handling: if anything unexpected happens, the workflow doesn't just stop, it records what went wrong, flags it clearly, and still sends a report, so nothing fails silently.
-
-## 10. AI Capabilities
-
-This project is a traditional (non-AI) test automation solution. It doesn't use AI decision-making. The intelligence here comes from good test design: reusable components, a proper object repository, and structured, data-driven test cases, rather than from an AI model. 
-
-## 11. User Interactions
+## 9. User Interactions
 
 - The automation itself runs unattended — no one needs to sit and watch it.
 - A team member's main interaction is reading the **automated email report** after each run, which tells them clearly whether the test passed or failed.
 - If deeper investigation is needed, the team can review the detailed run logs in **UiPath Studio** or **Orchestrator**, or check the version history in **GitHub**.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - Login credentials (including different sets of data when using the Excel data-variation test)
@@ -104,32 +94,21 @@ This project is a traditional (non-AI) test automation solution. It doesn't use 
 - An automatic email report summarizing the test run and whether an error occurred
 - Central execution history and monitoring data in Orchestrator
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Every login attempt is wrapped in a **Try/Catch** block, so unexpected issues (like a missing UI element or an unavailable application) are caught instead of crashing the test outright.
 - When an error is caught, the workflow **logs the specific error message**, sets a clear error flag, and shows a descriptive message explaining what might have gone wrong and how to fix it.
 - The test still completes and **reports its outcome by email**, even when something fails.
 - The video shows this in action: when the CRM application was temporarily unavailable, the test correctly detected the problem, reported `Error Occurred: True`, and gave a clear explanation rather than leaving the team guessing.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - A login attempt with valid, correct credentials must succeed and load the correct user's dashboard.
 - A login attempt with invalid credentials must be correctly rejected.
 - A completed session must be able to log out cleanly.
 - Every test run must produce a clear, reportable outcome as success, failure, or a clearly explained error.
 
-## 15. Key Features Demonstrated
-
-- A structured suite of test cases covering valid login, invalid login, and logout
-- A shared, reusable login workflow instead of duplicated logic
-- An object repository for maintainable UI element references
-- Data-driven testing using Excel input variations
-- Robust error handling with clear logging and messaging
-- Automatic email reporting after every run
-- Centralized execution and monitoring through UiPath Orchestrator
-- Full version control and change history through GitHub
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Confidence after every change.** Login can be re-verified automatically any time the application changes, instead of relying on someone remembering to check.
 - **Faster feedback.** Automated email reports mean the team knows the result of a test run within minutes, not whenever a person gets around to checking.
@@ -137,27 +116,13 @@ This project is a traditional (non-AI) test automation solution. It doesn't use 
 - **Clear accountability and history.** GitHub tracks every change to the test suite itself, and Orchestrator tracks every execution, so there's a full, auditable trail.
 - **Reusable foundation.** The object repository and shared login workflow make it easy to build more tests on top of this one without starting from scratch.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Removes the need for a person to manually repeat the same login checks after every application update.
 - Cuts the time between "a change was made" and "we know if login still works" from however long a manual tester takes down to minutes.
 - Makes it easy to test multiple scenarios (valid login, invalid login, different users) without needing a separate manual pass for each one.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows individual test runs completing in about 20 to 40 seconds, including login and verification. It doesn't show large-scale numbers, so no specific dollar or hour savings figure is claimed here. A login check that used to require a person, now running unattended in under a minute with automatic reporting, a reliable source of time savings anywhere it's applied regularly, especially in teams that release frequently.
-
-## 19. Skills Demonstrated
-
-- Designing and building automated UI test cases with UiPath Test Suite
-- Structuring reusable, maintainable automation using shared workflows and an object repository
-- Building data-driven tests using Excel input variation
-- Implementing proper error handling and logging in an automation solution
-- Setting up automated email reporting for test outcomes
-- Deploying and monitoring automated tests through UiPath Orchestrator
-- Managing an automation project with Git and GitHub, including commit history and branching
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This same approach applies well beyond CRM login testing, including:
 
@@ -168,7 +133,7 @@ This same approach applies well beyond CRM login testing, including:
 - **Data-driven quality assurance** — testing the same flow against many different user roles, accounts, or input combinations
 - **Continuous testing in CI/CD pipelines** — running these kinds of checks automatically as part of a software delivery pipeline
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Keeping shared logic (like the login steps) in one reusable workflow, instead of copying it into every test, makes the whole suite much easier to maintain.
 - An object repository is worth the setup time. It keeps UI element references organized and makes tests far less fragile when the application's interface changes.
@@ -176,7 +141,7 @@ This same approach applies well beyond CRM login testing, including:
 - Automatic reporting (like the email summaries shown here) closes the loop. Automation that runs but doesn't tell anyone the result doesn't actually save time.
 - Treating a test automation project like real software with source control, commit history, and a clear project structure, pays off as the suite grows.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Expand the suite to cover more CRM flows beyond login and logout, such as creating records, managing customer data, or working with sales pipelines.
 - Add **scheduled runs** in Orchestrator so the suite executes automatically on a regular basis, not just on demand.
