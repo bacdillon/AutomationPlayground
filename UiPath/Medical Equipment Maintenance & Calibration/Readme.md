@@ -1,7 +1,5 @@
 # Medical Equipment Maintenance & Calibration
 
-**Automation Playground Portfolio Project**
-
 An automation that watches over a hospital's medical equipment inventory and proactively alerts the team whenever a piece of equipment is due or overdue, for maintenance or calibration. Built around a CMMS-style (Computerized Maintenance Management System) equipment dashboard, it turns a spreadsheet of maintenance dates into automatic, actionable email alerts.
 
 ## 1. Project Overview
@@ -60,21 +58,13 @@ It then shows the underlying **UiPath automation** running in Studio, which read
 - **Date/time comparison logic** — to determine whether a maintenance or calibration date is due or overdue
 - **A Streamlit-based web dashboard** — providing a visual, browsable view of the same equipment data
 
-## 9. Automation Logic
-
-The core logic is straightforward but powerful: for every piece of equipment in the inventory, the automation converts its recorded maintenance and calibration dates into a proper date format, then compares them against today's date. If a date has been reached or already passed, that equipment is treated as needing attention, and a notification is generated and sent immediately. One email per equipment item, so each alert is specific and actionable rather than being buried in a long combined report. This item-by-item approach means the automation naturally scales to any size of equipment inventory without needing to be redesigned.
-
-## 10. AI Capabilities
-
-This project doesn't use AI. It is a rules based monitoring automation, and that's exactly the right tool for the job here. The value comes from **consistency and reliability**: the same check, applied to every single item, every time the automation runs, with nothing depending on a person remembering to look. It's a good example of how not every valuable automation needs AI. Sometimes dependable, rules-based logic applied consistently is the more appropriate (and more trustworthy) solution, especially in a safety-critical setting like healthcare equipment.
-
-## 11. User Interactions
+## 9. User Interactions
 
 - The automation runs on its own — no one needs to trigger or watch it directly.
 - The main way a team member interacts with the outcome is through their **email inbox**, receiving a clear, individual alert for each piece of equipment that needs attention.
 - The CMMS dashboard remains available at any time for someone who wants to browse the full equipment list directly, but they don't need to check it proactively whereas the automation does that for them.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - The equipment inventory data: equipment ID, name, location, serial number, manufacturer, last maintenance date, next maintenance date, status, and calibration due date
@@ -83,28 +73,20 @@ This project doesn't use AI. It is a rules based monitoring automation, and that
 - An individual email alert for every piece of equipment that is due or overdue for maintenance or calibration
 - Each alert includes the equipment's full details and a clear call to action
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Dates from the source data are explicitly parsed into a proper date format before comparison, reducing the risk of a formatting issue causing a missed or incorrect alert.
 - Because each equipment item is processed independently, one problematic record doesn't stop the rest of the inventory from being checked.
 - The automation works directly from the same data that populates the CMMS dashboard, so the alerts and the dashboard reflect a single, consistent source of truth.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - Every piece of equipment must be checked against both its maintenance due date and its calibration due date.
 - If either date is due or has already passed, an alert must be generated for that equipment.
 - Each alert must include enough detail (location, serial number, manufacturer, and notes) for someone to act without needing to look anything up separately.
 - Equipment that isn't due doesn't generate an alert and keeping notifications relevant and avoiding alert fatigue.
 
-## 15. Key Features Demonstrated
-
-- Automated, item-by-item review of a full equipment inventory
-- Rules-based due-date and overdue-date detection
-- Individualized, detailed email alerts rather than a single bulk report
-- Integration between a data source, a visual dashboard, and an automated notification system
-- A pattern suited to safety-critical, compliance-sensitive environments
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Reduces risk.** Equipment maintenance and calibration issues are caught automatically, instead of depending on someone remembering to check.
 - **Improves compliance posture.** Consistent, documented alerts make it easier to demonstrate that maintenance schedules are being actively monitored.
@@ -112,26 +94,13 @@ This project doesn't use AI. It is a rules based monitoring automation, and that
 - **Improves patient safety indirectly.** Well-maintained, properly calibrated equipment is safer and more reliable for patient care.
 - **Scales easily.** The same process works whether there are 5 pieces of equipment or 500.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Removes the need for manual, recurring reviews of the equipment maintenance spreadsheet or dashboard.
 - Converts a passive dashboard (something someone has to remember to check) into an active alerting system (something that reaches out on its own).
 - Frees up facilities and biomedical engineering staff to focus on responding to alerts rather than searching for them.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows the automation working through roughly ten pieces of equipment in a single run, generating an individual alert for each one that was due or overdue. It doesn't demonstrate large scale figures like the total size of a real hospital's inventory or the cost of a missed maintenance event, so no specific dollar or hour savings number is claimed here. In a healthcare setting, the cost of a single missed piece of equipment maintenance, in compliance risk or safety terms can be significant, which is where this kind of proactive, no-effort monitoring delivers real value.
-
-## 19. Skills Demonstrated
-
-- Designing a rules-based monitoring and alerting automation
-- Working with structured data from Excel as a source of truth
-- Implementing date/time comparison logic for due-date tracking
-- Automating detailed, individualized email notifications
-- Understanding compliance and safety considerations in a healthcare automation context
-- Connecting a data source, a dashboard, and an automated alerting layer into one coherent solution
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This same pattern applies to any scenario involving scheduled, must-not-miss actions across a list of assets or records, including:
 
@@ -142,7 +111,7 @@ This same pattern applies to any scenario involving scheduled, must-not-miss act
 - **Vehicle fleet maintenance** — tracking service and inspection due dates across a fleet
 - **Any scheduled, recurring compliance task** — where missing a date has real consequences
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Turning a passive dashboard into active alerts is often more valuable than the dashboard itself where visibility only helps if someone actually looks.
 - Sending individual, detailed alerts (rather than one long combined report) makes each notification easier to act on immediately.
@@ -150,7 +119,7 @@ This same pattern applies to any scenario involving scheduled, must-not-miss act
 - Not every valuable automation needs AI for safety-critical, rules-based checks like this one, consistent, predictable logic is exactly what's needed.
 - In regulated or safety-sensitive environments, automation isn't just about saving time,it's about reducing the risk of a costly or dangerous oversight.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Add **escalation logic** — if an alert isn't acknowledged within a set time, escalate it to a supervisor or send a follow-up reminder.
 - Integrate directly with the **CMMS system** to automatically update equipment status once maintenance is completed.
