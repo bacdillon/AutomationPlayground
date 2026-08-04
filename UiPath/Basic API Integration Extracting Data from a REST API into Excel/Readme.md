@@ -1,7 +1,5 @@
 # Basic API Integration: Extracting Data from a REST API into Excel
 
-**Automation Playground Portfolio Project**
-
 A foundational RPA demonstration showing how to pull multiple records from a REST API, in bulk, and save them into a clean, structured Excel spreadsheet with the number of records to retrieve configurable at run time. This project focuses on a core automation skill: turning repeated API calls into a usable, structured dataset.
 
 ## 1. Project Overview
@@ -62,21 +60,13 @@ The video shows a UiPath project called **"Basic API Extract data from API and s
 - **Input Dialog** — for capturing the desired number of records at run time
 - **A loop with a counter** — to control how many times the API is called
 
-## 9. Automation Logic
-
-The automation is built around a simple, reusable loop: ask how many records are needed, then repeat the "call API → read response → extract fields → add row" sequence exactly that many times, using a counter to track progress. Each pass through the loop is independent and self-contained, which makes the whole process easy to follow and easy to extend — for example, adding more fields to extract, or writing to a different output format, without changing the overall structure. Making the record count a run-time input, rather than a fixed number, means the same automation can be used for a quick 5-record test or a much larger batch without any changes to the workflow itself.
-
-## 10. AI Capabilities
-
-This project doesn't use AI. It is just a demonstration of core, deterministic RPA and data-handling skills: calling an API repeatedly, parsing structured responses, and compiling results into a usable format. It's an example of how much practical value can come from foundational automation engineering, without needing AI involved.
-
-## 11. User Interactions
+## 9. User Interactions
 
 - The only interaction required is at the start: the user is asked how many records to extract, through a simple input prompt.
 - After that, the automation runs entirely unattended, looping through the API calls and building the spreadsheet without further input.
 - The end result with a ready to use Excel file — is what the user interacts with afterward.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - The number of records to extract, provided by the user at the start of the run
@@ -85,52 +75,32 @@ This project doesn't use AI. It is just a demonstration of core, deterministic R
 **Outputs:**
 - A single Excel file containing one row per extracted record, with columns for First Name, Last Name, and Email
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Because each record is retrieved and processed in its own loop iteration, an issue with a single API call is contained to that iteration rather than affecting records already successfully retrieved.
 - Reading each response through proper JSON deserialization, rather than manually parsing raw text, reduces the risk of incorrectly reading or mismatching data fields.
 - Using a counter-driven loop tied directly to the user-specified record count ensures the automation retrieves exactly as many records as requested.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - The number of records extracted must match what the user specifies at the start of the run.
 - Each record retrieved from the API must be represented as its own row in the output spreadsheet.
 - Every record must include the same set of fields (First Name, Last Name, Email), keeping the output consistently structured.
 
-## 15. Key Features Demonstrated
-
-- Repeated, loop-driven REST API calls
-- Run-time configurable record count via a simple input prompt
-- Structured extraction of specific fields from JSON responses
-- Automatic construction of a data table from repeated API results
-- Clean, ready-to-use Excel output
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Removes manual, repetitive API calls and data copying.**
 - **Produces business-friendly output** (Excel) from a technical data source (a JSON API), without requiring the end user to understand JSON at all.
 - **Scales to different needs** the same automation can pull a handful of records or a much larger batch, just by changing the number entered at the start.
 - **Establishes a reusable pattern** for any scenario where bulk data needs to move from an API into a spreadsheet.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Eliminates the need to manually call an API multiple times and transcribe each result.
 - Removes the manual step of converting raw JSON data into a usable spreadsheet format.
 - Lets a user request exactly the amount of data they need, without any automation redevelopment.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows 15 records being retrieved from the API and compiled into Excel in well under a minute of runtime. Because this is a training/demonstration exercise using a public test API rather than a live production data source, no real-world volume or cost savings figures apply here. The underlying capability is turning repeated API calls into a clean spreadsheet automatically, it is a common source of real time savings anywhere a business needs bulk data pulled from an API on a regular basis.
-
-## 19. Skills Demonstrated
-
-- Making repeated REST API calls within a controlled loop
-- Deserializing and extracting specific fields from JSON responses
-- Building a data table incrementally from repeated automation steps
-- Capturing user input to control automation behavior at run time
-- Producing clean, structured Excel output from an external data source
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This cause the loop through an API, extract fields, compile into a spreadsheet that can applies to many real business scenarios, including:
 
@@ -140,14 +110,14 @@ This cause the loop through an API, extract fields, compile into a spreadsheet t
 - **Gathering survey or form response data** from a platform's API for reporting
 - **Any scenario where data lives behind an API** but needs to be reviewed, shared, or analyzed in a spreadsheet
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - A simple loop-and-counter structure is often all that's needed to turn a single API call into a robust, repeatable bulk-extraction process.
 - Letting the user specify how much data to pull (rather than hardcoding a fixed number) makes an automation far more flexible and reusable.
 - Converting technical API responses into a clean, familiar format like Excel is often what makes a technical capability actually usable by a business audience.
 - Even a small, focused project is a good way to demonstrate a specific, transferable data-handling capability clearly.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Add **error handling** for individual failed API calls, so one failure doesn't stop the rest of the batch.
 - Extract **additional fields** from each API response (such as phone number, address, or date of birth) for richer output.
