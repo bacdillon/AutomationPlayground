@@ -1,12 +1,10 @@
 # Agentic Orchestration: Invoice Processing with Human-in-the-Loop
 
-**Automation Playground Portfolio Project**
-
-This project shows how to automate invoice approval by combining RPA (robotic process automation), an AI agent that makes decisions, and a human reviewer who steps in only when needed. Simple invoices get approved automatically. Risky or unusual ones are sent to a person to check. Every invoice ends with a clear, tracked decision.
+This simple project shows how to automate invoice approval by combining RPA (robotic process automation), an AI agent that makes decisions, and a human reviewer who steps in only when needed. Simple invoices get approved automatically. Risky or unusual ones are sent to a person to check. Every invoice ends with a clear, tracked decision.
 
 ## 1. Project Overview
 
-This project automates the process of approving vendor invoices. Instead of a person checking every single invoice, the system does most of the work on its own. It reads each invoice, decides if it looks normal or risky, and either approves it right away or sends it to a person for a final decision. This way, routine invoices move fast, and only the ones that really need a human eye get one.
+This project automates the process of approving vendor invoices. Instead of a person checking every single invoice, the system does most of the work on its own. It reads each invoice, decides if it looks normal or risky, and either approves it right away or sends it to a person for a final decision. 
 
 ## 2. Business Context
 
@@ -64,25 +62,14 @@ The video also shows the behind-the-scenes view in UiPath Studio: the workflow d
 - **Data extraction** — turns the invoice file into usable, structured information
 - **Google Drive integration** — used both to receive invoices and to store the final results
 
-## 9. Automation Logic
-
-Every invoice can only end up in one of three outcomes: approved by the AI, approved by a human, or rejected. There's no in-between or unclear state. The AI agent's job is kept simple on purpose. It only decides whether to approve an invoice or send it to a person. It doesn't have the power to make a final call on a flagged invoice; that's always left to a human. Just as important, the AI always explains its decision (for example, "over limit"), so nothing it does. The reviewer can see exactly why an invoice was flagged.
-
-## 10. AI Capabilities
-
-- **Makes its own decisions:** The AI looks at the invoice details and decides what to do, without needing a person to write out every possible rule.
-- **Explains itself:** It doesn't just say "flagged", it says why (for example, "over limit"), so the human reviewer understands the situation right away.
-- **Has limited power, on purpose:** The AI can clear a normal invoice on its own, but it cannot approve a flagged one, that decision always goes to a person.
-- **Everything it does is visible:** Each step the AI takes (its reasoning, its decision) is recorded, so you can see exactly what happened and why.
-
-## 11. User Interactions
+## 9. User Interactions
 
 - When an invoice is flagged, a task shows up in the reviewer's **Action Center** inbox.
 - The reviewer assigns the task to themselves and opens a simple **Approve or Reject** form. It already shows the invoice details and the reason it was flagged.
 - The reviewer can type a comment before making their decision.
 - Aside from this one review step, the whole process runs on its own, no manual data entry or sorting needed.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - The invoice file itself
@@ -94,29 +81,21 @@ Every invoice can only end up in one of three outcomes: approved by the AI, appr
 - The invoice file moved into the right folder based on that decision
 - A full record of what happened, who or what made the decision, and why
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Every invoice has to pass through a decision step. There is no way for one to get stuck or skipped.
 - The AI makes its decision based on the data pulled from the invoice, which lowers the chance of a bad decision from missing or broken information.
 - UiPath Studio keeps a log of every step, including any errors, so issues can be found and fixed easily.
 - The human review step itself acts as a safety net, any invoice the AI isn't confident enough to approve automatically always gets a second, human check before it's finalized.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - Invoices that meet normal conditions (within the spending limit, from a known vendor, etc.) can be approved automatically.
 - Invoices that go over the set limit are always sent for human review. The AI is never allowed to auto approve those.
 - Every flagged invoice must come with a clear reason, so the reviewer always knows why they're looking at it.
 - Every invoice ends with one of two clear results, approved or rejected. There's no unclear or unfinished state.
 
-## 15. Key Features Demonstrated
-
-- A full workflow that blends RPA, AI decision-making, and human review into one process
-- AI decisions that come with clear reasons, not just a flag
-- Live monitoring of the workflow as it runs, step by step
-- Automatic filing of invoices based on their final outcome
-- A clean, purpose built form for human reviewers to use
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Less manual work** — people only get involved when an invoice actually needs their judgment.
 - **Stronger financial control** — risky invoices always get a human check, so nothing slips through.
@@ -124,27 +103,13 @@ Every invoice can only end up in one of three outcomes: approved by the AI, appr
 - **Better tracking** — every decision, whether made by AI or a person, is recorded with the reasoning behind it.
 - **Easy to adjust** — if business rules change, the AI's criteria can be updated without rebuilding the whole workflow.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Cuts out manual review for the majority of invoices, which are usually routine and low-risk.
 - Makes review faster for the invoices that do need attention, since the reviewer gets a ready-made summary instead of raw data.
 - Removes manual filing and tracking the system handles that automatically based on the outcome.
 
-## 18. Time or Cost Savings (If Evident)
-
-In the video, the human review step took less than a minute of actual work once the reviewer opened the task, and the routine invoice was approved instantly with no human time spent at all. The video doesn't show numbers for how many invoices a real company processes or what that would save in dollars, so no cost figure is claimed here. But the idea behind is to removing manual work from the majority of routine invoices, and only spending human time on the ones that truly need it. It is a way to save time and reduce cost in real invoice-processing teams.
-
-## 19. Skills Demonstrated
-
-- Designing and building automated workflows using BPMN
-- Setting up an AI agent to make business decisions
-- Building RPA automation for reading files and extracting data
-- Designing human-in-the-loop steps, including task routing and approval forms
-- Turning business rules into automated decision logic
-- Balancing automation, AI, and human oversight in one solution
-- Monitoring and troubleshooting automated processes
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 This same approach can be used for many other business processes, such as:
 
@@ -155,7 +120,7 @@ This same approach can be used for many other business processes, such as:
 - **Loan or credit applications** — combine automated scoring with a required human check on edge cases
 - **Compliance checks** — any process where most cases are simple, but some need a person to make the final call
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Giving an AI a narrow, well-defined job (like "approve or escalate") makes it much easier to trust than giving it broad decision-making power.
 - Explaining *why* the AI made a decision is just as important as the decision itself, it's what makes human review quick and trustworthy.
@@ -163,7 +128,7 @@ This same approach can be used for many other business processes, such as:
 - Designing a process so every case has to end in one of a few clear outcomes helps avoid confusing or "stuck" situations.
 - Being able to see exactly what happened at each step (not just the final result) builds trust in the automation — people need to understand *why*, not just *what*.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Add a **confidence score** to the AI's decision, so it's easier to tell a clear case from a borderline one.
 - Add a **second approval step** for very large invoices, so more than one person signs off.
