@@ -1,7 +1,5 @@
 # Automation Validation & Logging Framework
 
-**Automation Playground Portfolio Project**
-
 A demonstration of automation engineering practices in Microsoft Power Automate Desktop. Structured logging, per-record data validation, and error handling to built around a simple example task (adding pairs of numbers) so the underlying engineering pattern is easy to see clearly.
 
 ## 1. Project Overview
@@ -72,21 +70,13 @@ The video walks through a Power Automate Desktop flow called **"Calculations wit
 - **CSV file writing** — for structured, ongoing logging
 - **Database logging actions** — for recording workflow and per-record outcomes centrally
 
-## 9. Automation Logic
-
-The automation is deliberately broken into small, purpose-built subflows rather than one long sequence. A dedicated subflow for logging, one for getting timestamps, one for reading Excel data, one for the calculation itself, and one specifically for handling errors. Every row goes through the same defined path: validate, calculate if valid, or catch and record the specific issue if not and either way, the row's outcome is written down before moving to the next one. This structure means a single bad row never threatens the rest of the batch, and because every action is logged with a timestamp and a specific message, the complete history of a run can be reconstructed after the fact.
-
-## 10. AI Capabilities
-
-This project doesn't use AI. It is a demonstration of rules-based automation engineering. Its value is in the **quality of the engineering itself**: validation, structured logging, and graceful error handling, the same qualities that separate a fragile automation from a production ready one, regardless of whether AI is involved elsewhere in the process.
-
-## 11. User Interactions
+## 9. User Interactions
 
 - This automation runs unattended from start to finish. No user interaction is required once it begins.
 - After a run, a person can review the **results spreadsheet** to see the outcome of every record, or the **CSV log file** for a detailed, step-by-step account of what happened.
 - Windows notifications confirm when a run has finished and where the results file was saved.
 
-## 12. Inputs and Outputs
+## 10. Inputs and Outputs
 
 **Inputs:**
 - A spreadsheet containing pairs of numbers to be processed
@@ -97,30 +87,21 @@ This project doesn't use AI. It is a demonstration of rules-based automation eng
 - A detailed CSV log file recording every step of the automation's execution
 - Corresponding records logged to a database, tracking both the overall run and each individual row's outcome
 
-## 13. Error Handling and Validation
+## 11. Error Handling and Validation
 
 - Every input value is explicitly validated (converted to a proper number) before being used where invalid data is caught immediately rather than causing a miscalculation or a crash.
 - Errors are handled at the level of the individual row, bad record doesn't stop the rest of the batch from being processed.
 - A dedicated error handling, the subflow captures the specific error that occurred, rather than a generic failure message.
 - Every outcome success or failure, is explicitly recorded.
 
-## 14. Business Rules
+## 12. Business Rules
 
 - Every number used in a calculation must be successfully validated as numeric before processing continues.
 - A row with invalid data must be recorded with a specific, descriptive error rather than being skipped.
 - Every row must have a final outcome recorded. Valid or a specific reason for failure with no row left unaccounted for.
 - Every workflow run must produce a complete, timestamped log and a preserved results file.
 
-## 15. Key Features Demonstrated
-
-- Structured, subflow-based automation design
-- Per-record input validation
-- Graceful, row-level error handling that doesn't interrupt the overall batch
-- Detailed, timestamped logging to both a CSV file and a database
-- Timestamped output files, preserving a history of past runs
-- Integration between a spreadsheet, a UI-automated application, and a logging/database layer
-
-## 16. Business Value and Benefits
+## 13. Business Value and Benefits
 
 - **Higher reliability.** Bad data doesn't derail the whole process, it is being recorded, and the batch continues.
 - **Full traceability.** A detailed log means any run can be reviewed.
@@ -128,26 +109,13 @@ This project doesn't use AI. It is a demonstration of rules-based automation eng
 - **Confidence at scale.** The same validation and logging pattern that handles a handful of records works just as well for a much larger batch.
 - **Reusable engineering pattern.** The subflow structure (logging, error handling, timestamps) can be reused across many other automations.
 
-## 17. Productivity Improvements
+## 14. Productivity Improvements
 
 - Removes the need for someone to manually check a batch of calculations for errors, since invalid data is automatically caught and reported.
 - Reduces time spent troubleshooting automation issues, log in detailed, timestamped logs.
 - Eliminates lost work from a single bad record crashing an entire batch process.
 
-## 18. Time or Cost Savings (If Evident)
-
-The video shows a batch of ten rows processed in a single run, including several deliberately invalid entries, all handled without stopping the process. It doesn't demonstrate large-scale production volumes or a direct cost comparison, so no specific dollar or hour savings figure is claimed here. This is intention to catching bad data early, logging in detail, and continuing rather than crashing, is one of the most reliable ways to reduce downtime and troubleshooting time in any real automation running at volume.
-
-## 19. Skills Demonstrated
-
-- Designing structured, subflow-based automations in Power Automate Desktop
-- Implementing per-record data validation
-- Building graceful, non-disruptive error handling
-- Designing detailed, timestamped logging systems
-- Integrating spreadsheet automation, UI automation, and database logging in a single solution
-- Applying production engineering discipline to a simple example task
-
-## 20. Real-World Enterprise Use Cases
+## 15. Real-World Enterprise Use Cases
 
 The validation-and-logging pattern shown here applies to virtually any batch automation, including:
 
@@ -157,7 +125,7 @@ The validation-and-logging pattern shown here applies to virtually any batch aut
 - **Any scheduled batch job** — where reliability and after the fact traceability matter
 - **Automation frameworks and templates** — reusable logging and error handling patterns that other automations can be built on top of it
 
-## 21. Lessons Learned
+## 16. Lessons Learned
 
 - Validating data, rather than assuming it's correct, is one of the simplest and most effective ways to prevent an automation from doing the wrong thing.
 - Handling errors at the level of the individual record but not the whole batch. 1 bad entry doesn't cost the entire run.
@@ -165,7 +133,7 @@ The validation-and-logging pattern shown here applies to virtually any batch aut
 - Structuring an automation into small, purpose-built subflows (logging, timestamps, error handling) makes it easier to build, test, and reuse than one long, monolithic flow.
 - Even a simple example task can be a powerful way to demonstrate serious automation engineering discipline.
 
-## 22. Possible Future Enhancements
+## 17. Possible Future Enhancements
 
 - Extend the validation logic to catch additional types of bad data, such as out-of-range values.
 - Add **automatic retries** for transient errors, separate from genuine data validation failures.
