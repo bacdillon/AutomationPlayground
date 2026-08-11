@@ -1,4 +1,4 @@
-# Basic API Integration: Extracting Data from a REST API into Excel
+# API Integration: Extracting Data from a REST API into Excel
 
 A foundational RPA demonstration showing how to pull multiple records from a REST API, in bulk, and save them into a clean, structured Excel spreadsheet with the number of records to retrieve configurable at run time. This project focuses on a core automation skill: turning repeated API calls into a usable, structured dataset.
 

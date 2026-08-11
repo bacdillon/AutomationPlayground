@@ -1,7 +1,5 @@
 # Intelligent IT Helpdesk Support (AI Agent)
 
-**Automation Playground Portfolio Project**
-
 A conversational AI agent, built on Microsoft Copilot Studio, that lets employees check the status of their IT helpdesk tickets and get answers to IT and HR policy questions. Simply by chatting naturally, in their own language, with no forms, tickets numbers to hunt for, or portal navigation required.
 
 ## 1. Project Overview

@@ -1,4 +1,4 @@
-# Basic API Call: Consuming REST API Data to Drive Web Form Automation
+# API Call: Consuming REST API Data to Drive Web Form Automation
 
 A foundational RPA demonstration showing how to pull data from a REST API and use it to automatically fill out a web form, including a form specifically designed to test whether an automation can keep up when field positions change unpredictably. This project focuses on two core automation skills: calling and reading an API, and handling a dynamic, unpredictable web interface.
 

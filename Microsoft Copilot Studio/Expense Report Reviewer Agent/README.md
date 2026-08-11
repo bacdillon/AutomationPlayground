@@ -1,7 +1,5 @@
 # Expense Report Reviewer Agent
 
-**Automation Playground Portfolio Project**
-
 An AI agent, deployed directly inside Microsoft Teams, that reviews an uploaded expense report the way a careful finance reviewer, would checking for duplicate charges, verifying that each expense is coded to the right accounting category, and producing a clear summary of what needs to be fixed before the report goes to a manager for approval.
 
 ## 1. Project Overview

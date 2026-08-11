@@ -1,7 +1,5 @@
 # Sales Funnel Report: A Data Storytelling Approach
 
-**Automation Playground Portfolio Project**
-
 An interactive Power BI report that turns raw sales pipeline data into a clear, visual story. Showing how leads move through each stage of the sales process, where they drop off, and how each salesperson is performing. This project focuses on data storytelling: choosing the right visuals to make a sales funnel easy to understand at a glance.
 
 ## 1. Project Overview

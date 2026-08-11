@@ -1,7 +1,5 @@
 # KiddyLah! Toyshop KPI Dashboard
 
-**Automation Playground Portfolio Project**
-
 An interactive Power BI dashboard built for a toy retail chain ("Kiddy Lah!"), giving the business a clear, filterable view of sales performance orders, revenue, and profit across its store locations and product categories. This project is a business intelligence and reporting piece, complementing the "Kiddy Lah!" inventory management system elsewhere in this portfolio.
 
 ## 1. Project Overview

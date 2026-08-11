@@ -1,7 +1,5 @@
 # Inventory Management System — "Kiddy Lah!"
 
-**Automation Playground Portfolio Project**
-
 A low-code inventory management solution built on the Microsoft Power Platform for a toy store ("Kiddy Lah!"). It tracks stock levels across product categories, and includes a formal, approval driven workflow for requesting more inventory to be complete with manager approvals delivered by email and Microsoft Teams, and a full audit trail of every request.
 
 ## 1. Project Overview

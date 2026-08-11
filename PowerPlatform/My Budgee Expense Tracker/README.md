@@ -1,7 +1,5 @@
 # My Budgee Expense Tracker
 
-**Automation Playground Portfolio Project**
-
 A low-code expense management app built on Microsoft Power Apps and Power Automate. "My Budgee Expense Tracker" lets employees log expenses against a budget, routes each submission to a manager for approval automatically by email, and gives both employee and approver a full, transparent history of every request including the ability to fix and resubmit a rejected claim.
 
 ## 1. Project Overview

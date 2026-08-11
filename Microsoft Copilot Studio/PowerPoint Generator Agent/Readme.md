@@ -1,7 +1,5 @@
 # PowerPoint Generator Agent
 
-**Automation Playground Portfolio Project**
-
 An AI agent, built on Microsoft Copilot Studio, that generates PowerPoint documents such as certificates, reports, and proposals from a simple chat request. Ask it in plain language, or hand it a spreadsheet of names, and it produces a properly formatted PowerPoint file for each one, ready to download, with no manual copy and pasting into a template required.
 
 ## 1. Project Overview

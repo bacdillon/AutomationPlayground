@@ -1,7 +1,5 @@
 # Automation Reporting with SQL
 
-**Automation Playground Portfolio Project**
-
 An automation that reports on the health of other automations. It queries a SQL database where automated processes log their outcomes, calculates a success rate, and emails a performance summary. Turning raw process logs into a report, where a stakeholder can read with no manual required.
 
 ## 1. Project Overview

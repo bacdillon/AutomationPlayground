@@ -1,7 +1,5 @@
 # System Performance Monitoring with Python, SQL Server & Power BI
 
-**Automation Playground Portfolio Project**
-
 A real-time system monitoring solution that continuously collects a computer's performance data, stores it in a database, and visualizes it live on a Power BI dashboard. This project shows a small-scale data pipeline from data collection, through storage, to live reporting,built entirely from foundational tools.
 
 ## 1. Project Overview
