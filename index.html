@@ -269,13 +269,13 @@
 
         <!-- Mobile Drawer Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-zinc-950 border-b border-zinc-900 px-6 py-4 space-y-3">
-            <button onclick="handleMobileNav('home')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-home w-6 text-zinc-500"></i> Home</button>
-            <button onclick="handleMobileNav('uipath')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-robot w-6 text-zinc-500"></i> UiPath</button>
-            <button onclick="handleMobileNav('power-platform')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-chart-pie w-6 text-zinc-500"></i> Power Platform</button>
-            <button onclick="handleMobileNav('copilot-studio')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none"><i class="fas fa-brain w-6 text-zinc-500"></i> Copilot Studio</button>
+            <button onclick="handleMobileNav('home')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Home</button>
+            <button onclick="handleMobileNav('uipath')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">UiPath</button>
+            <button onclick="handleMobileNav('power-platform')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Power Platform</button>
+            <button onclick="handleMobileNav('copilot-studio')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Copilot Studio</button>
             <div class="pt-4 border-t border-zinc-900 flex items-center justify-between">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-sm text-zinc-300 hover:text-white flex items-center gap-2" title="GitHub">
-                    <i class="fab fa-github text-lg"></i> github.com/bacdillon
+                    github.com/bacdillon
                 </a>
             </div>
         </div>
@@ -288,14 +288,11 @@
                 Scaling Business <br><span class="gradient-text">Through Digital Solutions</span>
             </h1>
             <p class="text-base md:text-lg text-zinc-300 mb-8 max-w-3xl mx-auto leading-relaxed font-normal">
-                A portfolio of business-focused <span class="text-white font-semibold">digital solutions</span> 
+                <span class="text-white font-semibold">A portfolio of business-focused digital solutions
                 that bridge business needs and technology through business analysis, software development, process standardisation, intelligent automation, data analytics, and GenAI.
-                Built using 
-                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="scrollToSection('uipath')" class="focus:outline-none">UiPath</button></span>, 
-                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="scrollToSection('power-platform')" class="focus:outline-none">Microsoft Power Platform</button></span>, 
-                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="scrollToSection('copilot-studio')" class="focus:outline-none">Microsoft Copilot Studio</button></span>, 
-                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="filterAndScroll('power-bi', 'power-platform')" class="focus:outline-none">Power BI</button></span>, and 
-                <span class="text-white hover:underline font-semibold cursor-pointer"><button onclick="filterAndScroll('python', 'uipath')" class="focus:outline-none">Python</button></span> to improve operational efficiency, enable data-driven decision-making, and accelerate digital transformation.
+                Built using UiPath, Microsoft Power Platform, Agentic AI, 
+                Microsoft Copilot Studio, Power BI and Python to improve operational efficiency, enable data-driven decision-making, and accelerate digital transformation.
+                </span>
             </p>
         </div>
     </header>
@@ -340,6 +337,7 @@
                     <option value="python" id="opt-python" class="bg-zinc-900 text-white">Python (6)</option>
                     <option value="api" id="opt-api" class="bg-zinc-900 text-white">API (2)</option>
                     <option value="power-bi" id="opt-power-bi" class="bg-zinc-900 text-white">Power BI (5)</option>
+                    <option value="agentic-ai" id="opt-agentic-ai" class="bg-zinc-900 text-white">Agentic AI (5)</option>
                     <option value="machine-learning" id="opt-machine-learning" class="bg-zinc-900 text-white">Machine Learning (2)</option>
                 </select>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-zinc-400">
@@ -385,7 +383,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- CARD 1: Agentic Orchestration -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath agentic-ai">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188272312?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Agentic Orchestration Video"></iframe>
@@ -878,7 +876,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- CARD 16: Intelligent IT Helpdesk Support (AI Agent) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188318829?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Copilot Studio Customer Support"></iframe>
@@ -929,7 +927,7 @@
                 </div>
 
                 <!-- CARD 17: Expense Report Reviewer Agent -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188314930?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Expense Report Reviewer Agent"></iframe>
@@ -982,7 +980,7 @@
                 </div>
 
                 <!-- CARD 18: PowerPoint Generator Agent -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1190715740?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
@@ -1010,7 +1008,7 @@
 
 
                 <!-- CARD 19: Holland America Deck Plans (AI Agent) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188319840?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
