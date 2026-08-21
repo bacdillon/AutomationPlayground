@@ -65,7 +65,7 @@ The video shows the **"Flight Status Dashboard"** being built and used in **Powe
 
 ## 9. Automation Logic
 
-As with other Power BI reports, the "automation" here lies in how the underlying measures are defined: Total Flights, Delayed Flights, and Canceled Flights are each calculated once as reusable measures, and every visual on the page recalculates automatically based on whatever filter is currently applied. This is what allows a single click on an airline or a city to instantly update every chart and KPI card consistently, without needing to manually rebuild anything — the same underlying logic simply gets re-evaluated against a narrower slice of the data.
+As with other Power BI reports, the "automation" here lies in how the underlying measures are defined: Total Flights, Delayed Flights, and Canceled Flights are each calculated once as reusable measures, and every visual on the page recalculates automatically based on whatever filter is currently applied. This is what allows a single click on an airline or a city to instantly update every chart and KPI card consistently, without needing to manually rebuild anything, the same underlying logic simply gets re-evaluated against a narrower slice of the data.
 
 ## 10. AI Capabilities
 
@@ -100,20 +100,20 @@ This project doesn't use AI. It is a traditional, constructed Power BI report. I
 - KPI totals (Total Flights, Delayed Flights, Canceled Flights) must always reflect the currently applied filter selection.
 - All visuals on the report must update together and consistently whenever a filter (city or airline) is applied.
 
-## 16. Business Value and Benefits
+## 15. Business Value and Benefits
 
 - **Immediate visibility into airline performance**, without needing to manually process raw flight data.
 - **Easy identification of problem areas** whether a specific airline or a specific city is driving a disproportionate share of delays or cancellations.
 - **Self-service exploration**, letting stakeholders answer their own follow-up questions without requesting a custom report.
 - **Consistent, trustworthy reporting**, since every visual draws from the same underlying data and calculations.
 
-## 17. Productivity Improvements
+## 16. Productivity Improvements
 
 - Removes the need to manually aggregate and summarize a large flight dataset.
 - Lets anyone explore performance by airline or city without writing a query or building a spreadsheet pivot table.
 - Speeds up the process of identifying which airlines or locations need closer attention.
 
-## 20. Real-World Enterprise Use Cases
+## 17. Real-World Enterprise Use Cases
 
 This kind of performance dashboard applies broadly, including:
 
@@ -123,14 +123,14 @@ This kind of performance dashboard applies broadly, including:
 - **Any operational performance dashboard** where volume, status breakdown, and geographic or categorical comparison matter
 - **Regulatory or compliance reporting** where punctuality or service-level data must be tracked and reported consistently
 
-## 21. Lessons Learned
+## 18. Lessons Learned
 
 - A small set of well chosen KPIs (Total, Delayed, Canceled) can communicate the big picture faster than a detailed table ever could.
 - Geographic visualization adds an intuitive layer of understanding that a plain list of cities and numbers doesn't provide.
 - Interactive cross-filtering is what turns a static report into a genuine analysis tool — the ability to click into an airline or city is often more valuable than the initial summary view itself.
 - Deliberate visual formatting (color, spacing, borders, titles) isn't just cosmetic — it directly affects how easily a report communicates its message.
 
-## 22. Possible Future Enhancements
+## 19. Possible Future Enhancements
 
 - Add **time-based trend analysis**, showing how delay and cancellation rates change over months or seasons.
 - Include **root-cause categorization**, if data is available (e.g., weather, mechanical, carrier-related delays).
