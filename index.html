@@ -680,7 +680,7 @@ An automation playground of digital solutions bridging business needs and techno
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
                     <div>
                         <div class="video-wrapper mb-6">
-                            <iframe src="https://player.vimeo.com/video/1220585693?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Power Apps Showcase"></iframe>
+                            <iframe src="https://player.vimeo.com/video/1220696527?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Power Apps Showcase"></iframe>
                         </div>
                         <h3 class="text-2xl font-bold mb-3 text-white">A Reusable Configuration File</h3>
                         <div class="flex flex-wrap mb-4">
@@ -691,10 +691,15 @@ An automation playground of digital solutions bridging business needs and techno
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> 
-                            A Power Automate Desktop config file holds configuration data 
-                            used by a desktop flow. It allows to store settings separately 
-                            from the automation logic. Configuration data remains constant throughout all flow runs. If it becomes necessary to update the config file without changing the automation itself.
-                                
+This idea in practice, across two examples.<br>
+The first video builds the pattern: an external Excel file holds settings, the folder 
+paths and an email address and a shared, reusable subflow reads them at the start of 
+every run, rather than those values being typed directly into the automation's steps. 
+<br>
+The second video make use of reusable config file, that opens a banking website to
+calls that exact same configuration, loading subflow, this time reading a website URL 
+instead of folder paths. Two videos show both how to build a reusable configuration file 
+and how to actually reuse it across separate automation projects.                                
                             </p>
 
 <!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Automation%20Validation%20%26%20Logging%20Framework/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
