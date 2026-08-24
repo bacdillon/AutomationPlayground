@@ -1,0 +1,4 @@
+SunriseEmoji = CONCATENATE("☀️", FORMAT('current'[LocalSunrise], "hh:nn"))
+
+
+SunsetEmoji = CONCATENATE(" ", FORMAT([ConvertedSunset] + (MAX(MainQuery[timezone_offset]) / 60 / 60 / 24), "nn:ss"))
