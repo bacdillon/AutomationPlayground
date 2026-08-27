@@ -255,6 +255,7 @@
                 <button onclick="scrollToSection('power-platform')" id="nav-power-platform" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Power Platform</button>
                 <button onclick="scrollToSection('copilot-studio')" id="nav-copilot-studio" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Copilot Studio</button>
                 <button onclick="scrollToSection('python')" id="nav-python" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Python</button>
+                <button onclick="scrollToSection('bpm')" id="nav-bpm" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">BPM</button>
                 <div class="flex items-center space-x-4 border-l border-zinc-800 pl-8">
                     <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-lg text-white cursor-pointer" title="GitHub Profile">
                         <i class="fab fa-github"></i>
@@ -274,6 +275,8 @@
             <button onclick="handleMobileNav('uipath')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">UiPath</button>
             <button onclick="handleMobileNav('power-platform')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Power Platform</button>
             <button onclick="handleMobileNav('copilot-studio')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Copilot Studio</button>
+            <button onclick="handleMobileNav('python')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Python</button>
+            <button onclick="handleMobileNav('bpm')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">BPM</button>
             <div class="pt-4 border-t border-zinc-900 flex items-center justify-between">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-sm text-zinc-300 hover:text-white flex items-center gap-2" title="GitHub">
                     github.com/bacdillon
@@ -333,6 +336,7 @@ An automation playground of digital solutions bridging business needs and techno
                     <option value="power-platform" id="opt-power-platform" class="bg-zinc-900 text-white">Power Platform (5)</option>
                     <option value="copilot-studio" id="opt-copilot-studio" class="bg-zinc-900 text-white">Copilot Studio (3)</option>
                     <option value="python" id="opt-python" class="bg-zinc-900 text-white">Python (6)</option>
+                    <option value="bpm" id="opt-bpm" class="bg-zinc-900 text-white">BPM (4)</option>
 <!--                     <option value="api" id="opt-api" class="bg-zinc-900 text-white">API (2)</option>
                     <option value="power-bi" id="opt-power-bi" class="bg-zinc-900 text-white">Power BI (5)</option>
                     <option value="agentic-ai" id="opt-agentic-ai" class="bg-zinc-900 text-white">Agentic AI (5)</option>
@@ -501,7 +505,7 @@ An automation playground of digital solutions bridging business needs and techno
                 </div>
 
                 <!-- CARD 5: Loan Application Processing from Process Discovery to Automation -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath bpm">
                     <div>
                         <div class="video-wrapper mb-6 border border-zinc-800 cursor-pointer group" onclick="openImageModal('https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png', 'Loan Application Processing Architecture')">
                             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png" alt="Loan Application Processing Diagram" class="group-hover:scale-105 transition duration-300">
@@ -741,60 +745,7 @@ and how to actually reuse it across separate automation projects.
                     </div>
                 </div>
 
-                <!-- CARD 9: Automation Validation & Logging Framework -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
-                    <div>
-                        <div class="video-wrapper mb-6">
-                            <iframe src="https://player.vimeo.com/video/1188287543?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Power Apps Showcase"></iframe>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Automation Validation & Logging Framework</h3>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power Automate</span>
-                            <span class="tech-badge">Windows Calculator</span>
-                            <span class="tech-badge">MS SQL Server</span>
-                        </div>
-                        
-                        <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> 
-                        A demonstration of automation engineering practices in Microsoft Power Automate Desktop. 
-                        Structured logging, per-record data validation, and error handling to built around 
-                        a simple example task (adding pairs of numbers) so the underlying engineering 
-                        pattern is easy to see clearly.
-                            </p>
 
-<!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Automation%20Validation%20%26%20Logging%20Framework/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a> -->
-
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 10: Automation Reporting with SQL-->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
-                    <div>
-                        <div class="video-wrapper mb-6">
-                            <iframe src="https://player.vimeo.com/video/1188288914?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Inventory Management System"></iframe>
-                        </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">Automation Reporting with SQL</h3>
-                        <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">Power Automate</span>
-                            <span class="tech-badge">SQL Server Management Studio</span>
-                            <span class="tech-badge">Microsoft Outlook</span>
-                        </div>
-                        
-                        <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> 
-                            An automation that reports on the health of other automations. It queries a SQL database where automated processes log their outcomes, calculates a success rate, and emails a performance summary. Turning raw process logs into a report, where a stakeholder can read with no manual required.    
-                            </p>
-
-<!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Automation%20Reporting%20with%20SQL/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a> -->
-
-                        </div>
-                    </div>
-                  </div>
                 
                 <!-- CARD 11: System Performance Monitoring -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi python">
@@ -921,6 +872,91 @@ and how to actually reuse it across separate automation projects.
                         </div>
                     </div>
                 </div>
+
+                <!-- CARD 16: Automated Ticket Management System -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1188310566?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Automated Ticket Management System"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Automated Ticket Management System</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">An email trigger</span>
+                            <span class="tech-badge">Microsoft Planner</span>
+                            <span class="tech-badge">Microsoft Teams</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> 
+                                A Power Automate flow that watches an email inbox for incoming support and issue 
+                                reports, and automatically creates a tracked task in Microsoft Planner,
+                                with a summary posted straight to a Microsoft Teams channel, so nothing reported by 
+                                email gets missed or has to be manually re-typed into a task board.
+                            </p>
+
+<!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Sales%20Funnel%20Report%20A%20Data%20Storytelling%20Approach/README.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a> -->
+                        </div>
+                    </div>
+                </div>
+
+                
+                            <!-- CARD 9: Automation Validation & Logging Framework -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1188287543?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Power Apps Showcase"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Automation Validation & Logging Framework</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">Windows Calculator</span>
+                            <span class="tech-badge">MS SQL Server</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> 
+                        A demonstration of automation engineering practices in Microsoft Power Automate Desktop. 
+                        Structured logging, per-record data validation, and error handling to built around 
+                        a simple example task (adding pairs of numbers) so the underlying engineering 
+                        pattern is easy to see clearly.
+                            </p>
+
+<!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Automation%20Validation%20%26%20Logging%20Framework/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a> -->
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 10: Automation Reporting with SQL-->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1188288914?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Inventory Management System"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Automation Reporting with SQL</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">SQL Server Management Studio</span>
+                            <span class="tech-badge">Microsoft Outlook</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> 
+                            An automation that reports on the health of other automations. It queries a SQL database where automated processes log their outcomes, calculates a success rate, and emails a performance summary. Turning raw process logs into a report, where a stakeholder can read with no manual required.    
+                            </p>
+
+<!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Automation%20Reporting%20with%20SQL/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a> -->
+
+                        </div>
+                    </div>
+                  </div>
 
                 <!-- CARD 16: Sales Funnel Report: A Data Storytelling Approach -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi">
@@ -1277,6 +1313,97 @@ and how to actually reuse it across separate automation projects.
     </section>
 
 
+    <!-- Business Process Modelling Section -->
+    <section id="bpm" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header py-4 mb-8">
+                <div class="flex items-center justify-between">
+                    <div>
+                        <h2 class="text-3xl font-bold text-white">
+                           Business Process Modelling
+                        </h2>
+                        <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                
+                <!-- CARD 1 Purchase request process flow -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="bpm">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                        <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/BPMN2.png">
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">
+                           Purchase request process flow
+                        </h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">bizagi</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> 
+                            Purchase request process flow involving three roles: Requester, Boss (approver), and Purchase Department.
+                            <br><br>
+<b>Process Summary</b>
+<br>
+1. Start event triggers the process<br>
+2. Requester creates purchase request<br>
+3. Boss reviews and authorizes request<br>
+4. Decision gateway:<br>
+   &nbsp;&nbsp;- If changes required, notify to requester & ask for revise request<br>
+   &nbsp;&nbsp;- Requester revises request and resubmits for approval<br>
+   &nbsp;&nbsp;- If rejected, then send rejection notification and end the process<br>
+   &nbsp;&nbsp;- If approved, continue the process<br>
+5. Purchase department receives approval notification<br>
+6. Process quotations<br>
+7. Create purchase order<br>
+8. End event completes the workflow
+                        
+                        </p>
+<!--                         <a href="https://github.com/bacdillon/Python/tree/master" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a> -->
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CARD 2 Vacation Leave Request with Process Documentation -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="bpm">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Vaction%20Leave%20Request%20Documentation.png">
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">
+                         Vacation Leave Request with Process Documentation
+                        </h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">bizagi</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> 
+<br>
+The Vacation Leave Request process begins when an employee submits a request for vacation leave after verifying their available leave balance. Once the request is registered, it is forwarded to the employee’s immediate supervisor for review. The supervisor evaluates the request and decides whether to approve or reject it, or request modifications if necessary.
+<br><br>
+If the request is rejected, a rejection notification is sent to the employee and the process ends. If approved, the administrative department is notified, sends an approval confirmation, and updates the payroll system to reflect the approved leave. This ensures proper tracking, communication, and record-keeping of employee leave within the organization.                    
+<!--                         <a href="https://github.com/bacdillon/Python/blob/master/05_Streamlit/Bagger%20Digital%20Preservation/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a> -->
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+
 
     <!-- Machine Learning Section -->
     <section id="copilot-studio" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
@@ -1392,7 +1519,7 @@ and how to actually reuse it across separate automation projects.
     <footer class="bg-black border-t border-zinc-900 py-12 px-6 text-center text-white text-xs">
         <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div class="flex items-center space-x-2">
-                <p>&copy; 2026 AUTOMATION PLAYGROUND. Enterprise Process Engineering & AI.</p>
+                <p>&copy; 2026 AUTOMATION PLAYGROUND.</p>
             </div>
             <div class="flex items-center space-x-6 text-lg">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition text-white" title="GitHub">
@@ -1515,9 +1642,10 @@ and how to actually reuse it across separate automation projects.
                 'power-platform': 0,
                 'copilot-studio': 0,
                 'python': 0,
-                'api': 0,
-                'power-bi': 0,
-                'machine-learning': 0
+                'bpm': 0
+            //    'api': 0,
+            //    'power-bi': 0,
+            //    'machine-learning': 0,
             };
 
             const categoryLabels = {
@@ -1525,7 +1653,8 @@ and how to actually reuse it across separate automation projects.
                 'uipath': 'UiPath',
                 'power-platform': 'Power Platform',
                 'copilot-studio': 'Copilot Studio',
-                'python': 'Python'
+                'python': 'Python',
+                'bpm': 'BPM'
                 //'api': 'API',
                 //'power-bi': 'Power BI',
                 //'machine-learning': 'Machine Learning'
@@ -1676,7 +1805,9 @@ and how to actually reuse it across separate automation projects.
                 'home': document.getElementById('nav-home'),
                 'uipath': document.getElementById('nav-uipath'),
                 'power-platform': document.getElementById('nav-power-platform'),
-                'copilot-studio': document.getElementById('nav-copilot-studio')
+                'copilot-studio': document.getElementById('nav-copilot-studio'),
+                'python': document.getElementById('nav-python'),
+                'bpm': document.getElementById('nav-bpm')
             };
 
             const observerOptions = {
