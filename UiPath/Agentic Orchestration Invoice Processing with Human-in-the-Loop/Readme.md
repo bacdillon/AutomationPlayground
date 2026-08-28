@@ -14,8 +14,8 @@ Companies receive invoices from vendors all the time. Most of these invoices are
 
 Most companies handle invoice approval in one of two ways, and both have problems:
 
-- **Reviewing everything by hand** — every invoice needs a person to look at it, even the simple, low-risk ones. This wastes time and slows the whole process down.
-- **Approving everything automatically** — invoices get approved with no human check at all, which is risky. If a large or unusual invoice slips through, there's no one making sure it's correct.
+- **Reviewing everything by hand**. Every invoice needs a person to look at it, even the simple, low-risk ones. This wastes time and slows the whole process down.
+- **Approving everything automatically**. Invoices get approved with no human check at all, which is risky. If a large or unusual invoice slips through, there's no one making sure it's correct.
 
 Basic automation tools also struggle here, because they can only follow fixed rules. Teaching a bot every possible reason an invoice might be risky becomes complicated and hard to maintain. What's missing is a smart way to sort invoices — one that can make good judgment calls, but still lets a person step in for the cases that matter.
 

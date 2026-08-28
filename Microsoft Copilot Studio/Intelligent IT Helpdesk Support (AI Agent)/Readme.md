@@ -1,14 +1,14 @@
-# Intelligent IT Helpdesk Support (AI Agent)
+# Intelligent IT Helpdesk Support
 
 A conversational AI agent, built on Microsoft Copilot Studio, that lets employees check the status of their IT helpdesk tickets and get answers to IT and HR policy questions. Simply by chatting naturally, in their own language, with no forms, tickets numbers to hunt for, or portal navigation required.
 
 ## 1. Project Overview
 
-This project is a working AI-powered helpdesk assistant. Employees can ask it, in plain language, about the status of an IT support ticket, company IT or HR policies, or general IT issues — and it responds conversationally, pulling live ticket details from ServiceNow when needed. It automatically detects and responds in whatever language the user writes in, remembers context across a conversation (so a user doesn't have to repeat themselves), and is built with usage analytics baked in from day one.
+This project is a working AI-powered helpdesk assistant. Employees can ask it, in plain language, about the status of an IT support ticket, company IT or HR policies, or general IT issues and it responds conversationally, pulling live ticket details from ServiceNow when needed. It automatically detects and responds in whatever language the user writes in, remembers context across a conversation (so a user doesn't have to repeat themselves), and is built with usage analytics baked in from day one.
 
 ## 2. Business Context
 
-Every organization with an IT helpdesk deals with a steady stream of simple, repetitive questions: "What's the status of my ticket?", "What department am I in?", "What's our policy on X?" These questions don't need a human's judgment — they need fast access to information that already exists in systems like ServiceNow or a company knowledge base. Handling them through a live chat agent frees up IT staff for the issues that actually require a person, while giving employees a faster answer than waiting in a support queue.
+Every organization with an IT helpdesk deals with simple, repetitive questions: "What's the status of my ticket?", "What department am I in?", "What's our policy on X?" These questions don't need a human's judgment — they need fast access to information that already exists in systems like ServiceNow or a company knowledge base. Handling them through a live chat agent frees up IT staff for the issues that actually require a person, while giving employees a faster answer than waiting in a support queue.
 
 ## 3. Business Problem
 
