@@ -680,8 +680,38 @@ An automation playground of digital solutions bridging business needs and techno
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
+          <!-- CARD 9: Customer Message Triage (Local LLM) -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Automate Ollama Meta Llama 3.2 Prompt engineering">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1221989893?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Customer Message Triage (Local LLM)"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Customer Message Triage (Local LLM)</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Power Automate</span>
+                            <span class="tech-badge">Ollama (local LLM server)</span>
+                            <span class="tech-badge">Meta Llama 3.2</span>
+                            <span class="tech-badge">Prompt engineering</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b> 
+                                Customer Message Triage (Local LLM) is a low-code RPA automation built in Microsoft Power Automate Desktop that reads an incoming customer message and uses a locally hosted Large Language Model (LLM) to automatically classify and respond to it. 
+                                <br>
+                                In a single automated step, the flow determines the customer's sentiment, intent, urgency level, and generates a ready to use draft reply, without sending any customer data to an external cloud AI service.
 
-          <!-- CARD 9: Input Validation -->
+                                The flow calls a local LLM server (Ollama, model llama3.2:latest) running on http://localhost:11434, the entire happens on premises, making it ideal for organizations with strict data privacy or compliance requirements.
+                            </p>
+
+<!--                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Automation%20Validation%20%26%20Logging%20Framework/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a> -->
+
+                        </div>
+                    </div>
+                </div>      
+
+          <!-- CARD 10: Input Validation -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
                     <div>
                         <div class="video-wrapper mb-6">
@@ -1386,7 +1416,6 @@ and how to actually reuse it across separate automation projects.
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> 
-<br>
 The Vacation Leave Request process begins when an employee submits a request for vacation leave after verifying their available leave balance. Once the request is registered, it is forwarded to the employee’s immediate supervisor for review. The supervisor evaluates the request and decides whether to approve or reject it, or request modifications if necessary.
 <br><br>
 If the request is rejected, a rejection notification is sent to the employee and the process ends. If approved, the administrative department is notified, sends an approval confirmation, and updates the payroll system to reflect the approved leave. This ensures proper tracking, communication, and record-keeping of employee leave within the organization.                    
