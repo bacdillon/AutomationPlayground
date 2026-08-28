@@ -8,7 +8,7 @@ This project automates the process of approving vendor invoices. Instead of a pe
 
 ## 2. Business Context
 
-Companies receive invoices from vendors all the time. Most of these invoices are normal — same vendors, expected amounts, nothing unusual. But some invoices are different: maybe the amount is unusually high, or the vendor is new, or something doesn't match the company's rules. Businesses need a way to handle the normal invoices quickly, while still making sure a person reviews the ones that carry more risk.
+Companies receive invoices from vendors all the time. Most of these invoices are look the same vendors, expected amounts, nothing unusual. But some invoices are different: maybe the amount is unusually high, or the vendor is new, or something doesn't match the company's rules. Businesses need a way to handle the normal invoices quickly, while still making sure a person reviews the ones that carry more risk.
 
 ## 3. Business Problem
 
@@ -49,18 +49,18 @@ The video also shows the behind-the-scenes view in UiPath Studio: the workflow d
 
 ## 7. Systems and Applications Involved
 
-- **UiPath Studio** — where the workflow is built, run, and monitored
-- **UiPath Action Center** — where human reviewers see and complete their tasks
-- **UiPath Apps** — the approval form reviewers use to approve or reject an invoice
-- **Google Drive** — where invoices come in, and where approved/rejected files are stored
+- **UiPath Studio** where the workflow is built, run, and monitored
+- **UiPath Action Center** where human reviewers see and complete their tasks
+- **UiPath Apps** the approval form reviewers use to approve or reject an invoice
+- **Google Drive** where invoices come in, and where approved/rejected files are stored
 
 ## 8. Technologies Used
 
-- **UiPath Agentic Process (BPMN)** — the main workflow that ties everything together
-- **UiPath AI Agent** — the AI component that makes the approve-or-escalate decision
-- **UiPath RPA Workflow** — handles the mechanical steps, like downloading files and pulling out data
-- **Data extraction** — turns the invoice file into usable, structured information
-- **Google Drive integration** — used both to receive invoices and to store the final results
+- **UiPath Agentic Process (BPMN)** the main workflow that ties everything together
+- **UiPath AI Agent** the AI component that makes the approve-or-escalate decision
+- **UiPath RPA Workflow** handles the mechanical steps, like downloading files and pulling out data
+- **Data extraction** turns the invoice file into usable, structured information
+- **Google Drive integration** used both to receive invoices and to store the final results
 
 ## 9. User Interactions
 
@@ -97,11 +97,11 @@ The video also shows the behind-the-scenes view in UiPath Studio: the workflow d
 
 ## 13. Business Value and Benefits
 
-- **Less manual work** — people only get involved when an invoice actually needs their judgment.
-- **Stronger financial control** — risky invoices always get a human check, so nothing slips through.
-- **Faster handling of exceptions** — reviewers get a clear summary instead of having to dig through the invoice themselves.
-- **Better tracking** — every decision, whether made by AI or a person, is recorded with the reasoning behind it.
-- **Easy to adjust** — if business rules change, the AI's criteria can be updated without rebuilding the whole workflow.
+- **Less manual work** people only get involved when an invoice actually needs their judgment.
+- **Stronger financial control** risky invoices always get a human check, so nothing slips through.
+- **Faster handling of exceptions** reviewers get a clear summary instead of having to dig through the invoice themselves.
+- **Better tracking** every decision, whether made by AI or a person, is recorded with the reasoning behind it.
+- **Easy to adjust** if business rules change, the AI's criteria can be updated without rebuilding the whole workflow.
 
 ## 14. Productivity Improvements
 
@@ -113,20 +113,20 @@ The video also shows the behind-the-scenes view in UiPath Studio: the workflow d
 
 This same approach can be used for many other business processes, such as:
 
-- **Expense report approval** — approve small, normal claims automatically, and send unusual ones to a manager
-- **Purchase order approval** — route based on cost or vendor risk
-- **Contract review** — flag unusual contract terms for a lawyer to check
-- **Refunds and credits** — approve small amounts automatically, escalate larger ones
-- **Loan or credit applications** — combine automated scoring with a required human check on edge cases
-- **Compliance checks** — any process where most cases are simple, but some need a person to make the final call
+- **Expense report approval** approve small, normal claims automatically, and send unusual ones to a manager
+- **Purchase order approval** route based on cost or vendor risk
+- **Contract review** flag unusual contract terms for a lawyer to check
+- **Refunds and credits** approve small amounts automatically, escalate larger ones
+- **Loan or credit applications** combine automated scoring with a required human check on edge cases
+- **Compliance checks** any process where most cases are simple, but some need a person to make the final call
 
 ## 16. Lessons Learned
 
-- Giving an AI a narrow, well-defined job (like "approve or escalate") makes it much easier to trust than giving it broad decision-making power.
+- Giving an AI a narrow, well-defined job (like "approve or escalate") makes it much easier to trust than giving it broad decision making power.
 - Explaining *why* the AI made a decision is just as important as the decision itself, it's what makes human review quick and trustworthy.
 - Human review steps work best when they're built directly into the workflow (tracked and logged), not handled through side channels like email.
 - Designing a process so every case has to end in one of a few clear outcomes helps avoid confusing or "stuck" situations.
-- Being able to see exactly what happened at each step (not just the final result) builds trust in the automation — people need to understand *why*, not just *what*.
+- Being able to see exactly what happened at each step (not just the final result) builds trust in the automation, people need to understand *why*, not just *what*.
 
 ## 17. Possible Future Enhancements
 
