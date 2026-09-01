@@ -1,10 +1,10 @@
 # Medical Equipment Maintenance & Calibration
 
-An automation that watches over a hospital's medical equipment inventory and proactively alerts the team whenever a piece of equipment is due or overdue, for maintenance or calibration. Built around a CMMS-style (Computerized Maintenance Management System) equipment dashboard, it turns a spreadsheet of maintenance dates into automatic, actionable email alerts.
-
 ## 1. Project Overview
 
-This project automates the monitoring of maintenance and calibration schedules for medical equipment — the kind of critical hardware found in a hospital's radiology department, like CT scanners, MRI machines, X-ray units, and ultrasound machines. Instead of someone manually checking a spreadsheet or dashboard to see what's coming due, the automation checks every piece of equipment on its own and sends a clear, detailed email alert the moment something needs attention.
+This portfolio project simulates a healthcare equipment maintenance and calibration workflow for a hospital radiology department.
+
+The solution automates the monitoring of equipment maintenance and calibration schedules. Instead of relying on staff to manually review spreadsheets or dashboards, a UiPath robot checks equipment records against defined business rules and automatically sends notifications when maintenance or calibration is due or overdue.
 
 ## 2. Business Context
 
