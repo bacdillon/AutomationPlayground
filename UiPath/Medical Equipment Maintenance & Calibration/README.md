@@ -60,7 +60,7 @@ It then shows the underlying **UiPath automation** running in Studio, which read
 
 ## 9. User Interactions
 
-- The automation runs on its own — no one needs to trigger or watch it directly.
+- The automation runs on its own no one needs to trigger or watch it directly.
 - The main way a team member interacts with the outcome is through their **email inbox**, receiving a clear, individual alert for each piece of equipment that needs attention.
 - The CMMS dashboard remains available at any time for someone who wants to browse the full equipment list directly, but they don't need to check it proactively whereas the automation does that for them.
 
