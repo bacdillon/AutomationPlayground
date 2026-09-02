@@ -15,9 +15,9 @@ Hospitals and clinics rely on a wide range of expensive, safety-critical equipme
 Keeping track of maintenance schedules across many pieces of equipment is harder than it sounds:
 
 - **It's easy to miss a due date** buried in a long spreadsheet or dashboard, especially across multiple departments or rooms.
-- **Manual checking doesn't scale** — someone has to remember to look, and to look often enough to catch things before they become overdue.
-- **Overdue equipment is a real risk** — in a healthcare setting, equipment that's overdue for calibration or servicing can affect patient safety and compliance.
-- **There's no automatic accountability** — without a system flagging it, an overdue item can simply be missed until it causes a problem.
+- **Manual checking doesn't scale** someone has to remember to look, and to look often enough to catch things before they become overdue.
+- **Overdue equipment is a real risk** in a healthcare setting, equipment that's overdue for calibration or servicing can affect patient safety and compliance.
+- **There's no automatic accountability** without a system flagging it, an overdue item can simply be missed until it causes a problem.
 
 The business need was a way to continuously watch the equipment list and proactively flag anything due or overdue, without relying on someone remembering to check.
 
@@ -46,17 +46,17 @@ It then shows the underlying **UiPath automation** running in Studio, which read
 
 ## 7. Systems and Applications Involved
 
-- **A CMMS-style equipment dashboard** (web-based) — the visual system of record for the equipment inventory
-- **Microsoft Excel** — the underlying data source listing all equipment and their maintenance/calibration schedules
-- **Microsoft Outlook** — used to send the automated maintenance and calibration alerts
+- **A CMMS-style equipment dashboard** (web-based) the visual system of record for the equipment inventory
+- **Microsoft Excel** the underlying data source listing all equipment and their maintenance/calibration schedules
+- **Microsoft Outlook** used to send the automated maintenance and calibration alerts
 
 ## 8. Technologies Used
 
-- **UiPath Studio** — used to build the monitoring and alerting automation
-- **UiPath Excel Activities** — for reading the equipment data table
-- **UiPath Mail Activities** — for composing and sending automated Outlook email alerts
-- **Date/time comparison logic** — to determine whether a maintenance or calibration date is due or overdue
-- **A Streamlit-based web dashboard** — providing a visual, browsable view of the same equipment data
+- **UiPath Studio** used to build the monitoring and alerting automation
+- **UiPath Excel Activities** for reading the equipment data table
+- **UiPath Mail Activities** for composing and sending automated Outlook email alerts
+- **Date/time comparison logic** to determine whether a maintenance or calibration date is due or overdue
+- **A Streamlit-based web dashboard** providing a visual, browsable view of the same equipment data
 
 ## 9. User Interactions
 
@@ -104,12 +104,12 @@ It then shows the underlying **UiPath automation** running in Studio, which read
 
 This same pattern applies to any scenario involving scheduled, must-not-miss actions across a list of assets or records, including:
 
-- **Facilities and equipment maintenance** — in manufacturing, healthcare, or any asset-heavy industry
-- **Compliance and certification tracking** — flagging licenses, permits, or certifications nearing expiry
-- **Contract renewal monitoring** — alerting teams before vendor or customer contracts lapse
-- **Software license and subscription tracking** — flagging renewals or expirations before they cause disruption
-- **Vehicle fleet maintenance** — tracking service and inspection due dates across a fleet
-- **Any scheduled, recurring compliance task** — where missing a date has real consequences
+- **Facilities and equipment maintenance** in manufacturing, healthcare, or any asset-heavy industry
+- **Compliance and certification tracking** flagging licenses, permits, or certifications nearing expiry
+- **Contract renewal monitoring** alerting teams before vendor or customer contracts lapse
+- **Software license and subscription tracking** flagging renewals or expirations before they cause disruption
+- **Vehicle fleet maintenance** tracking service and inspection due dates across a fleet
+- **Any scheduled, recurring compliance task** where missing a date has real consequences
 
 ## 16. Lessons Learned
 
@@ -121,7 +121,7 @@ This same pattern applies to any scenario involving scheduled, must-not-miss act
 
 ## 17. Possible Future Enhancements
 
-- Add **escalation logic** — if an alert isn't acknowledged within a set time, escalate it to a supervisor or send a follow-up reminder.
+- Add **escalation logic** if an alert isn't acknowledged within a set time, escalate it to a supervisor or send a follow-up reminder.
 - Integrate directly with the **CMMS system** to automatically update equipment status once maintenance is completed.
 - Add a **summary digest** alongside individual alerts, giving managers a quick overview of everything currently due or overdue.
 - Include **severity levels**, so significantly overdue equipment is flagged more urgently than something just becoming due.
