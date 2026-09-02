@@ -1,14 +1,8 @@
 # Medical Equipment Maintenance & Calibration Tracking — RPA Automation
-
-<<<<<<< HEAD:UiPath/Medical Equipment Maintenance & Calibration/Readme.md
-> Automating medical equipment maintenance/calibration due-date monitoring and alerting for a hospital biomedical asset register, using UiPath.
-
 [![Status](https://img.shields.io/badge/status-pilot-yellow)]()
 [![Platform](https://img.shields.io/badge/platform-UiPath-orange)]()
 [![Docs](https://img.shields.io/badge/docs-complete-brightgreen)]()
 
----
-=======
 ## 1. Project Overview
 
 This portfolio project simulates a healthcare equipment maintenance and calibration workflow for a hospital radiology department.
