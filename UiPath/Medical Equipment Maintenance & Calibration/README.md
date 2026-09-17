@@ -2,9 +2,7 @@
 
 ## 1. Project Overview
 
-This portfolio project simulates a healthcare equipment maintenance and calibration workflow for a hospital radiology department.
-
-The solution automates the monitoring of equipment maintenance and calibration schedules. Instead of relying on staff to manually review spreadsheets or dashboards, a UiPath robot checks equipment records against defined business rules and automatically sends notifications when maintenance or calibration is due or overdue.
+TThe solution automates the monitoring of equipment maintenance and calibration schedules. Instead of relying on staff to manually review spreadsheets or dashboards, a UiPath robot checks equipment records against defined business rules and automatically sends notifications when maintenance or calibration is due or overdue.
 
 ## 2. Business Context
 
