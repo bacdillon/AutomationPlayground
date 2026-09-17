@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-TThe solution automates the monitoring of equipment maintenance and calibration schedules. Instead of relying on staff to manually review spreadsheets or dashboards, a UiPath robot checks equipment records against defined business rules and automatically sends notifications when maintenance or calibration is due or overdue.
+The solution automates the monitoring of equipment maintenance and calibration schedules. Instead of relying on staff to manually review spreadsheets or dashboards, a UiPath robot checks equipment records against defined business rules and automatically sends notifications when maintenance or calibration is due or overdue.
 
 ## 2. Business Context
 
