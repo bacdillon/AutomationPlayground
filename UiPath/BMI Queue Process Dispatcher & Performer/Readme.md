@@ -1,4 +1,4 @@
-# BMI Queue Automation: Dispatcher & Performer Pattern
+# Queue Automation: Dispatcher & Performer Pattern
 
 A demonstration of one of the most fundamental design patterns in RPA. Splitting an automation into a **Dispatcher** (which loads the work) and a **Performer** (which does the work), connected through a managed queue in UiPath Orchestrator. The example use case is calculating Body Mass Index (BMI) for a list of people, but the pattern itself is the real point: it's the same structure used for high-volume, production-grade automations of almost any kind.
 
