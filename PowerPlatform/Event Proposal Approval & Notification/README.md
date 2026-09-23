@@ -2,16 +2,11 @@
 
 ## Cross-Platform Event Approval and Notification Automation
 
-> **Portfolio project summary:** A Microsoft Power Platform workflow that routes a newly submitted event proposal for approval, captures the decision, and communicates the approved result to the relevant team channel.
-
-This description is based on the supplied automation demonstration video. It documents the behaviour visible in that recording and does not assume features that were not shown. [1]
+A Microsoft Power Platform workflow that routes a newly submitted event proposal for approval, captures the decision, and communicates the approved result to the relevant team channel and approval's Outlook email.
 
 ## 1. Project Overview
 
-**Event Proposal Approval & Notification
-** is a low-code business process automation solution for managing event proposals at the fictional organisation, Pedal Paradise. A user submits event information through a Microsoft SharePoint list. Microsoft Power Automate then creates an approval request, waits for the approver's decision, evaluates the result, and posts an approved-status notification in Microsoft Teams.
-
-The project demonstrates a practical approval pattern that combines a structured data source, a human decision point, automated notifications, and execution records. It is suitable for a GitHub portfolio because it shows both workflow configuration and the business process that the automation supports.
+**Event Proposal Approval & Notification** is a low-code business process automation solution for managing event proposals at the fictional organisation, Pedal Paradise. A user submits event information through a Microsoft SharePoint list. Microsoft Power Automate then creates an approval request, waits for the approver's decision, evaluates the result, and posts an approved-status notification in Microsoft Teams and an outlook email.
 
 ## 2. Business Context
 
@@ -76,7 +71,7 @@ It then shows the Power Automate flow configuration, the approval request in Out
 
 ## 9. Automation Logic
 
-The flow uses an event-driven design rather than a scheduled process. Its primary trigger is **When an item is created** for the SharePoint **Event Activities** list.
+The flow uses an event driven design rather than a scheduled process. Its primary trigger is **When an item is created** for the SharePoint **Event Activities** list.
 
 After the trigger, the workflow starts and waits for an approval. The approval request is configured for the first response and includes dynamic values such as the event/activity name, budget, event date, submitter, and a direct item link. A condition then compares the approval outcome with **Approve**. The approved test path posts messages to the selected Microsoft Teams channel, including the final approved status.
 
@@ -199,7 +194,3 @@ Finally, successful business automation needs observable execution. Reviewing ru
 - Create Power BI reporting for proposal volume, approval turnaround time, approval outcomes, and bottlenecks.
 - Apply environment variables, solution packaging, role-based access, and data-loss-prevention policies for enterprise deployment.
 - Add document management controls, including versioning and retention for proposals and supporting evidence.
-
-## References
-
-[1]: file:///home/ubuntu/upload/NewEventActivitiesFlow.mp4 "NewEventActivitiesFlow — supplied Automation Playground demonstration video"
