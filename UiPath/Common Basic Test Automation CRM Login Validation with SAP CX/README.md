@@ -1,4 +1,4 @@
-# Common Basic Test Automation: CRM Login Validation with SAP CX Style
+# Common Basic Test Automation: CRM Login Validation with SAP CX
 
 ## 1. Project Overview
 
