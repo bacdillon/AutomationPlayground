@@ -1,8 +1,8 @@
 # Agentic Orchestration: Invoice Processing with Human-in-the-Loop
 
-## 1. Project Overview
+## 1. Overview
 
-This project automates the intake and approval of vendor invoices using UiPath's Agentic Automation platform. It combines three distinct capabilities in one governed workflow: deterministic RPA for data extraction, an AI agent that decides whether to approve or escalate an invoice, and a human-in-the-loop checkpoint (delivered through UiPath Action Center) for any invoice the AI isn't confident enough to clear on its own. Every invoice, whether resolved automatically or by a person, ends in a single, auditable outcome. The orchestration layer, a BPMN-based Agentic Process, coordinates all three components as one coherent process instead of three disconnected tools.
+This automates the intake and approval of vendor invoices using UiPath's Agentic Automation platform. It combines three distinct capabilities in one governed workflow: deterministic RPA for data extraction, an AI agent that decides whether to approve or escalate an invoice, and a human-in-the-loop checkpoint (delivered through UiPath Action Center) for any invoice the AI isn't confident enough to clear on its own. Every invoice, whether resolved automatically or by a person, ends in a single, auditable outcome. The orchestration layer, a BPMN-based Agentic Process, coordinates all three components as one coherent process instead of three disconnected tools.
 
 ## 2. Business Problem & Objectives
 
