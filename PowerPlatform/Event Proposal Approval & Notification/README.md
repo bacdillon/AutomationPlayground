@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-This project automates how a community organization, "Pedal Paradise," a cycling club, reviews and approves proposals for new events and activities. A Power Automate flow, "New Event Activities Flow," triggers the moment someone submits a new event proposal to a SharePoint list, routes it to a designated approver through Microsoft Teams Approvals, and automatically posts a notification to a shared Teams channel once a decision is made. This closes the loop from submission to team-wide visibility without any manual chasing.
+This automates how a community organization, "Pedal Paradise," a cycling club, reviews and approves proposals for new events and activities. A Power Automate flow, "New Event Activities Flow," triggers the moment someone submits a new event proposal to a SharePoint list, routes it to a designated approver through Microsoft Teams Approvals, and automatically posts a notification to a shared Teams channel once a decision is made. This closes the loop from submission to team-wide visibility without any manual chasing.
 
 ## 2. Business Problem & Objectives
 
