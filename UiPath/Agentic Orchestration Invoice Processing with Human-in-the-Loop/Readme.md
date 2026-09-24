@@ -1,139 +1,108 @@
 # Agentic Orchestration: Invoice Processing with Human-in-the-Loop
 
-This simple project shows how to automate invoice approval by combining RPA (robotic process automation), an AI agent that makes decisions, and a human reviewer who steps in only when needed. Simple invoices get approved automatically. Risky or unusual ones are sent to a person to check. Every invoice ends with a clear, tracked decision.
-
 ## 1. Project Overview
 
-This project automates the process of approving vendor invoices. Instead of a person checking every single invoice, the system does most of the work on its own. It reads each invoice, decides if it looks normal or risky, and either approves it right away or sends it to a person for a final decision. 
+This project automates the intake and approval of vendor invoices using UiPath's Agentic Automation platform. It combines three distinct capabilities in one governed workflow: deterministic RPA for data extraction, an AI agent that decides whether to approve or escalate an invoice, and a human-in-the-loop checkpoint (delivered through UiPath Action Center) for any invoice the AI isn't confident enough to clear on its own. Every invoice, whether resolved automatically or by a person, ends in a single, auditable outcome. The orchestration layer, a BPMN-based Agentic Process, coordinates all three components as one coherent process instead of three disconnected tools.
 
-## 2. Business Context
+## 2. Business Problem & Objectives
 
-Companies receive invoices from vendors all the time. Most of these invoices are look the same vendors, expected amounts, nothing unusual. But some invoices are different: maybe the amount is unusually high, or the vendor is new, or something doesn't match the company's rules. Businesses need a way to handle the normal invoices quickly, while still making sure a person reviews the ones that carry more risk.
+**The problem:** Accounts payable teams process a constant stream of invoices. Most are routine and low-risk. A smaller subset is genuinely high-risk: unusual amounts, new vendors, or out-of-policy terms. Manually reviewing every invoice the same way wastes time on the easy cases, while fully automating approval removes the human accountability that finance controls require. Traditional rule-based RPA also struggles here, since encoding every possible reason an invoice should be escalated into if/else logic becomes brittle fast.
 
-## 3. Business Problem
+**The objectives:**
+- Automate the mechanical work of retrieving and extracting invoice data, without manual effort.
+- Let an AI agent make a single, bounded decision, approve or escalate, rather than the full approval call.
+- Guarantee a mandatory human checkpoint for anything the agent flags, with no way to bypass it.
+- Ensure every invoice reaches a clear, traceable outcome (auto-approved, human-approved, or rejected), with no ambiguous or dropped cases.
 
-Most companies handle invoice approval in one of two ways, and both have problems:
+## 3. Solution
 
-- **Reviewing everything by hand**. Every invoice needs a person to look at it, even the simple, low-risk ones. This wastes time and slows the whole process down.
-- **Approving everything automatically**. Invoices get approved with no human check at all, which is risky. If a large or unusual invoice slips through, there's no one making sure it's correct.
+An **Agentic Process** built in UiPath Studio, using BPMN-based orchestration, wires together three types of automation:
 
-Basic automation tools also struggle here, because they can only follow fixed rules. Teaching a bot every possible reason an invoice might be risky becomes complicated and hard to maintain. What's missing is a smart way to sort invoices — one that can make good judgment calls, but still lets a person step in for the cases that matter.
+- **Deterministic RPA**, which watches for new invoices and extracts their data.
+- **An AI Agent ("Invoice Decision Agent")**, which evaluates the extracted data and decides whether to auto-approve or escalate for human review, always with a stated reason.
+- **A human-in-the-loop task**, delivered through **UiPath Action Center**, which serves as the exception path. A reviewer sees the invoice details and the agent's stated reason, then clicks Approve or Reject.
 
-## 4. Project Objectives
+Every path resolves into one of three outcomes, each reflected both in the process's execution log and in the invoice's physical location. The file is automatically moved into an "Approved" or "Rejected" folder in Google Drive, so status is visible without opening the automation tool at all.
 
-- Automate the repetitive parts of invoice handling, like reading the file and pulling out the details.
-- Use an AI agent to decide whether an invoice can be approved right away or needs a human to look at it.
-- Make sure a person always reviews invoices that are flagged as risky. The AI never approves those on its own.
-- Make sure every invoice ends in a clear result: approved or rejected, with a record of what happened.
-- Show a real, practical way to combine automation, AI, and human oversight in one smooth process.
+### What the Video Demonstrates
 
-## 5. What the Video Demonstrates
+The video shows two scenarios executing inside the live Agentic Process:
 
-The video shows the workflow running live in UiPath Studio, and it walks through two situations:
+- A **routine invoice** that the Invoice Decision Agent evaluates and approves automatically. The file moves directly into the "Approved" Google Drive folder with no human involvement.
+- An **exception invoice**, a $10,825 invoice from "Cookie Supply Co.," that the agent flags for review with the stated reason **"Over limit."** The demo shows the task appearing, unassigned, in UiPath Action Center. A reviewer assigns it to themselves, opens the "Approve or Reject" form showing the extracted invoice fields alongside the agent's reason for escalation, and clicks Reject. The workflow then automatically completes the loop: the invoice moves into the "Rejected" Google Drive folder and the execution trail marks the instance complete.
 
-- A **normal invoice** that the AI agent checks and approves on its own, with no human involved.
-- A **flagged invoice** one for $10,825 that goes over the spending limit, which the AI sends to a human for review. The video shows a reviewer opening the task in UiPath Action Center, reading the invoice details and the reason it was flagged, and then rejecting it.
+Throughout, UiPath Studio's debug and execution view is visible, showing the BPMN diagram highlighting live in green as each step completes, alongside a step-by-step execution trail (agent run, LLM call, model run, agent output, gateway decision, user task) and a global variables panel.
 
-The video also shows the behind-the-scenes view in UiPath Studio: the workflow diagram lighting up step by step as it runs, a log of each action (like the AI's decision and how long the human review took), and the invoice file being moved into an "Approved" or "Rejected" folder depending on the outcome.
+### End-to-End Workflow, Step by Step
 
-## 6. End-to-End Workflow, Step by Step
+1. **New Invoice Uploaded.** The process starts when a new invoice file lands in the monitored Google Drive folder.
+2. **Download and Extract Invoice Details.** An RPA activity retrieves the file and extracts its structured data: vendor, invoice number, date, and total amount.
+3. **Invoice Decision Agent.** The AI agent evaluates the extracted data against business criteria, such as spending thresholds, and outputs a decision, either Approve or Route to Review, along with a stated reason.
+4. **Gateway: "Approve or Review."** The process branches based on the agent's decision.
+5. **Auto-Approve path.** If cleared, the process sends an approval notification and moves the invoice into the "Approved" folder, with no human involvement.
+6. **Review path.** If flagged, a task is created in UiPath Action Center containing the invoice details and the agent's reason for escalation.
+7. **Human decision.** A reviewer opens the task, reads the summary and flag reason, optionally adds a comment, and clicks Approve or Reject.
+8. **Second gateway: outcome routing.** The human's decision routes the process to the "Approve" endpoint (if approved on review) or the "Rejected" endpoint.
+9. **Resolution.** The invoice file is moved into the corresponding Google Drive folder, and the process instance closes with a full execution log.
 
-1. **A new invoice comes in.** This starts the process.
-2. **The system reads the invoice.** It pulls out key details like the vendor name, invoice number, date, and total amount.
-3. **The AI agent checks it.** It looks at the details and decides: approve it, or send it for human review and it gives a reason for its decision.
-4. **The process splits based on that decision.**
-5. **If approved:** the invoice is marked approved and filed automatically. No person needs to do anything.
-6. **If flagged:** a task is created for a human reviewer, showing the invoice details and why the AI flagged it.
-7. **A person reviews it.** They read the summary, can add a comment, and choose to approve or reject it.
-8. **The result is recorded.** Whether the AI or the human made the call, the invoice is filed as approved or rejected, and everything that happened is logged.
+## 4. Solution Architecture & Technologies
 
-## 7. Systems and Applications Involved
+- **UiPath Studio**, for Agentic Process (BPMN) design, orchestration, and live execution monitoring.
+- **UiPath AI Agent**, the LLM-backed decisioning node embedded directly in the process ("Invoice Decision Agent").
+- **UiPath RPA Workflow (XAML)**, powering the "Download and Extract Invoice Details" activity that retrieves and parses invoice data.
+- **UiPath Action Center**, the human task inbox and approval interface used for escalated invoices.
+- **UiPath Apps**, providing a purpose-built "Approve or Reject" form for reviewers.
+- **Google Drive**, the storage system that both triggers the process when a new invoice is detected and receives the final outcome in the Approved/Rejected folders.
 
-- **UiPath Studio** where the workflow is built, run, and monitored
-- **UiPath Action Center** where human reviewers see and complete their tasks
-- **UiPath Apps** the approval form reviewers use to approve or reject an invoice
-- **Google Drive** where invoices come in, and where approved/rejected files are stored
+The BPMN diagram itself encodes the architecture as a strict state machine: New Invoice Uploaded flows to Download and Extract Invoice Details, then to the Invoice Decision Agent, then to a gateway ("Approve or Review"). From there the path leads either to Approve, or to Review as a human task, then through a second gateway to Approved or Rejected. Every path converges on exactly one of two terminal states. This orchestration layer, not any single tool, is what makes the RPA, AI, and human review function as one governed process instead of three separate, disconnected systems.
 
-## 8. Technologies Used
+## 5. Controls & Validation
 
-- **UiPath Agentic Process (BPMN)** the main workflow that ties everything together
-- **UiPath AI Agent** the AI component that makes the approve-or-escalate decision
-- **UiPath RPA Workflow** handles the mechanical steps, like downloading files and pulling out data
-- **Data extraction** turns the invoice file into usable, structured information
-- **Google Drive integration** used both to receive invoices and to store the final results
+- **Bounded AI authority.** The agent can only choose between two outcomes, approve or escalate, never the final call on a flagged invoice. That decision always stays with a person.
+- **Mandatory human review for flagged cases.** The gateway logic makes it structurally impossible for a flagged invoice to skip the Action Center review step.
+- **Explainable escalation.** The agent's output includes a stated reason (for example, "Over limit") that's carried forward and shown directly to the human reviewer. The escalation is never a black-box flag.
+- **Full runtime observability.** UiPath Studio's live execution trail shows every step of a run, including agent invocation, LLM call, model output, gateway decision, and the human task's duration, giving a transparent audit trail of exactly what happened and why, for both automated and human-made decisions.
+- **State consistency.** Every invoice ends in exactly one of three terminal states, with its Google Drive location always matching its logged status, avoiding orphaned or ambiguous cases.
 
-## 9. User Interactions
+## 6. Business Value
 
-- When an invoice is flagged, a task shows up in the reviewer's **Action Center** inbox.
-- The reviewer assigns the task to themselves and opens a simple **Approve or Reject** form. It already shows the invoice details and the reason it was flagged.
-- The reviewer can type a comment before making their decision.
-- Aside from this one review step, the whole process runs on its own, no manual data entry or sorting needed.
+- **Reduces manual triage load.** Routine, low-risk invoices require zero human involvement.
+- **Preserves financial control.** High-value or anomalous invoices are reliably routed to a person, closing the compliance gap that pure automation would leave open.
+- **Improves auditability.** Every decision, automated or human, is logged with a timestamp, a reason, and a final disposition.
+- **Shortens cycle time on exceptions.** Reviewers get a pre-summarized approval form instead of digging through the original invoice themselves.
+- **Scales without re-engineering.** Because judgment lives in an AI agent rather than a hardcoded rules engine, evolving criteria, such as adjusting spending thresholds, doesn't require rebuilding the workflow.
 
-## 10. Inputs and Outputs
+## 7. Skills Demonstrated
 
-**Inputs:**
-- The invoice file itself
-- The business rules the AI uses to judge invoices (like a spending limit)
-- Any comments the reviewer adds during their review
+- Designing agentic processes that combine RPA, AI decisioning, and human oversight in one governed BPMN workflow.
+- Configuring an AI agent with bounded, explainable decision authority.
+- Building human-in-the-loop approval tasks with UiPath Action Center and UiPath Apps.
+- Structuring a process as an explicit state machine to prevent silent failures or ambiguous outcomes.
+- Using UiPath Studio's execution trail for runtime debugging and audit-level observability.
 
-**Outputs:**
-- A final decision for the invoice: approved or rejected
-- The invoice file moved into the right folder based on that decision
-- A full record of what happened, who or what made the decision, and why
+## 8. Enterprise Use Cases
 
-## 11. Error Handling and Validation
+This pattern generalizes well beyond invoice approval:
 
-- Every invoice has to pass through a decision step. There is no way for one to get stuck or skipped.
-- The AI makes its decision based on the data pulled from the invoice, which lowers the chance of a bad decision from missing or broken information.
-- UiPath Studio keeps a log of every step, including any errors, so issues can be found and fixed easily.
-- The human review step itself acts as a safety net, any invoice the AI isn't confident enough to approve automatically always gets a second, human check before it's finalized.
+- **Expense report review.** Auto-approve routine claims, escalate outliers.
+- **Purchase order approvals.** Route based on value or vendor risk.
+- **Contract clause review.** Flag non-standard terms for legal review.
+- **Customer refund or credit approvals.** Auto-clear small amounts, escalate large ones.
+- **Loan or credit application triage.** Combine automated scoring with mandatory human sign-off on edge cases.
+- **Compliance exception handling.** Any process where most cases are routine but a minority require accountable human judgment.
 
-## 12. Business Rules
+## 9. Lessons Learned & Future Enhancements
 
-- Invoices that meet normal conditions (within the spending limit, from a known vendor, etc.) can be approved automatically.
-- Invoices that go over the set limit are always sent for human review. The AI is never allowed to auto approve those.
-- Every flagged invoice must come with a clear reason, so the reviewer always knows why they're looking at it.
-- Every invoice ends with one of two clear results, approved or rejected. There's no unclear or unfinished state.
+**Lessons learned:**
+- Scoping an AI agent's authority narrowly, to a single, bounded decision, makes agentic automation far easier to trust and govern than giving it broad discretion.
+- Explainability isn't optional. Surfacing the agent's reasoning is what makes human review efficient and defensible.
+- Human-in-the-loop steps should be modeled as first-class workflow nodes that are tracked, timed, and logged, not informal side channels like email.
+- Structuring a process as an explicit state machine, with a fixed set of terminal outcomes, is a simple but effective way to prevent silent failures in automation.
+- Naming the project around its orchestration layer, rather than the RPA component alone, more accurately reflects what makes the solution valuable: coordinating RPA, AI, and human review as one governed process, not any single piece in isolation.
 
-## 13. Business Value and Benefits
-
-- **Less manual work** people only get involved when an invoice actually needs their judgment.
-- **Stronger financial control** risky invoices always get a human check, so nothing slips through.
-- **Faster handling of exceptions** reviewers get a clear summary instead of having to dig through the invoice themselves.
-- **Better tracking** every decision, whether made by AI or a person, is recorded with the reasoning behind it.
-- **Easy to adjust** if business rules change, the AI's criteria can be updated without rebuilding the whole workflow.
-
-## 14. Productivity Improvements
-
-- Cuts out manual review for the majority of invoices, which are usually routine and low-risk.
-- Makes review faster for the invoices that do need attention, since the reviewer gets a ready-made summary instead of raw data.
-- Removes manual filing and tracking the system handles that automatically based on the outcome.
-
-## 15. Real-World Enterprise Use Cases
-
-This same approach can be used for many other business processes, such as:
-
-- **Expense report approval** approve small, normal claims automatically, and send unusual ones to a manager
-- **Purchase order approval** route based on cost or vendor risk
-- **Contract review** flag unusual contract terms for a lawyer to check
-- **Refunds and credits** approve small amounts automatically, escalate larger ones
-- **Loan or credit applications** combine automated scoring with a required human check on edge cases
-- **Compliance checks** any process where most cases are simple, but some need a person to make the final call
-
-## 16. Lessons Learned
-
-- Giving an AI a narrow, well-defined job (like "approve or escalate") makes it much easier to trust than giving it broad decision making power.
-- Explaining *why* the AI made a decision is just as important as the decision itself, it's what makes human review quick and trustworthy.
-- Human review steps work best when they're built directly into the workflow (tracked and logged), not handled through side channels like email.
-- Designing a process so every case has to end in one of a few clear outcomes helps avoid confusing or "stuck" situations.
-- Being able to see exactly what happened at each step (not just the final result) builds trust in the automation, people need to understand *why*, not just *what*.
-
-## 17. Possible Future Enhancements
-
-- Add a **confidence score** to the AI's decision, so it's easier to tell a clear case from a borderline one.
-- Add a **second approval step** for very large invoices, so more than one person signs off.
-- Give the AI more context, like a vendor's **history**, to make smarter decisions beyond just checking the amount.
-- Add **notifications** (like Slack, Teams, or email) so reviewers don't have to keep checking their inbox manually.
-- Build a **dashboard** that tracks how often the AI's decisions match what a human would decide, to help fine-tune it over time.
-- Let human decisions **feed back into** the AI's rules, so it keeps improving as it sees more real cases.
-
+**Future enhancements:**
+- Add confidence scoring to the agent's output, so borderline cases can be weighted differently from clear-cut ones.
+- Introduce multi-tier approval for very high-value invoices.
+- Enrich agent context with vendor risk history to sharpen escalation criteria beyond amount thresholds.
+- Add Slack, Teams, or email notifications alongside the Action Center task.
+- Build an analytics dashboard tracking agent decisions versus human overrides over time.
