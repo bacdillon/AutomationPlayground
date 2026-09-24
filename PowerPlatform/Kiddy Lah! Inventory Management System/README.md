@@ -1,95 +1,104 @@
-# KiddyLah! Toyshop KPI Dashboard
+# Inventory Management System: Kiddy Lah!
 
-An interactive Power BI dashboard built for a toy retail chain, "Kiddy Lah!," giving the business a clear, filterable view of sales performance, including orders, revenue, and profit, across its store locations and product categories. This project is a business intelligence and reporting piece, complementing the "Kiddy Lah!" inventory management system elsewhere in this portfolio.
+A complete, low-code inventory management solution built on the Microsoft Power Platform for a toy store, "Kiddy Lah!" It tracks stock levels across product categories, and includes a formal, approval-driven workflow for requesting more inventory, complete with manager approvals delivered by email and Microsoft Teams, and a full audit trail of every request.
 
 ## 1. Project Overview
 
-This project is a multi-page Power BI report that turns raw sales data from a toy retail chain into a clear, interactive picture of business performance. It includes a branded introduction page, and a core KPI dashboard showing total orders, revenue, and profit, broken down by store location, product category, and month, with full drill-down and filtering built in.
+This project is a working inventory management system for a toy retailer, built using Microsoft Dataverse, Power Apps, and Power Automate. It tracks every item in stock, including quantity, category, supplier, price, and stock status, and gives the business live dashboards to monitor inventory health at a glance. Beyond tracking, it includes a structured process for requesting additional stock: a request is submitted, automatically routed to a manager for approval by email or Teams, and the outcome is recorded and linked back to the original inventory item, creating a complete, traceable history.
 
 ## 2. Business Problem & Objectives
 
-**The problem:** A retail chain operating multiple store locations, in this case Airport, Commercial, and Downtown stores, needs a clear, consolidated view of how each location and product category is performing. Without a shared dashboard, this kind of insight typically requires someone to manually pull and combine sales data, which is slow and makes it hard to spot trends or compare locations quickly. Sales data often lives in different places, making it hard to get a single, trustworthy view of overall performance. Building a performance summary by hand takes time and needs to be repeated every reporting period. Without an interactive tool, comparing store performance or seeing which product category drives the most orders requires manual data slicing, and gradual shifts, such as a slow month or a growing category, can go unnoticed without an easy way to look at performance over time.
+**The problem:** A retailer selling physical products, in this case toys across categories like LEGO playsets, soft toys, learning toys, and racing toys, needs constant visibility into what's in stock, what's running low, and what needs to be reordered. Restocking decisions typically require a manager's sign-off, since they involve spending money and committing to supplier orders. Without a structured system, this process tends to happen informally, through conversations, spreadsheets, or emails, with no consistent record of who requested what, when, or why. Stock levels are hard to monitor at a glance without a live, visual view of what's low, out, or well-stocked. Restock requests lack structure, and informal requests are easy to lose track of and don't leave a clear record. Approvals get delayed or lost when they depend on someone remembering to follow up, rather than being actively routed to the right person. There's also no traceability connecting a restock request back to the specific inventory item, its outcome, and when it was approved.
 
 **The objectives:**
-- Consolidate sales data into a single, reliable reporting source.
-- Present key performance indicators, orders, revenue, and profit, clearly and at a glance.
-- Allow filtering by store location to compare performance across sites.
-- Show trends over time, with the ability to drill into specific months.
-- Break down performance by product category to highlight what's driving sales.
-- Present the report in a clean, branded, easy-to-navigate format.
+- Maintain an accurate, centralized record of all inventory items and their stock levels.
+- Provide live dashboards summarizing stock health across categories.
+- Allow staff to formally request additional inventory when stock runs low.
+- Route every request to a manager for approval automatically, without manual follow-up.
+- Deliver approval requests through familiar channels, email and Microsoft Teams, so managers can respond quickly.
+- Maintain a complete, traceable history of every request and its outcome.
 
 ## 3. Solution
 
-A Power BI report titled "KiddyLah Toyshop KPI Report" gives the business a self-service view of sales performance. A branded Intro page for "Kiddy Lah! Toy Shop," styled like an internal company hub, includes an About Us and Mission section along with quick-access links to team information, the handbook, time-off requests, the store directory, and weekly reports. The core KPI Report page presents headline KPI cards for Total Orders, Revenue, and Profit, a Store Location filter, a Total Orders by Product Category chart, and a Revenue by Month trend chart with interactive drill-down.
+A Power Apps model-driven application, "Inventory Management System App," gives staff and managers a central place to track inventory and manage restock requests. An Inventory Dashboard provides live visuals of stock health, and a detailed Inventories list shows every product, including item name, price, current and initial quantity, description, supplier, category, items sold, and stock status. When stock runs low, staff create a new Inventory Request, guided by a Business Process Flow with four clear stages: Request, Approval, Inventory Check and Stock Update, and Request Closure. Triggering the approval process launches a Power Automate flow using the Approvals connector, which routes the decision to the relevant manager through both Microsoft Teams and Outlook.
 
 ### What the Video Demonstrates
 
-The Store Location filter, covering Airport, Commercial, and Downtown, instantly updates all figures on the page when a location is selected. The headline KPI cards update dynamically based on the selected filter, for example showing company-wide totals of roughly 29,933 orders, $455,690 in revenue, and $123,495 in profit, versus location-specific figures when a single store is selected. The Total Orders by Product Category chart shows which categories are driving order volume, and the Revenue by Month trend chart supports interactive drill-down, where hovering or clicking a point reveals the exact revenue for that specific date, including a detailed daily figure within a given month.
+The video walks through the full lifecycle of a restock request for a LEGO set running low on stock. The manager receives the approval request both as a Microsoft Teams notification and an Outlook email, and approves it with a comment directly from either channel. The flow automatically updates the underlying Dataverse record once approved, setting the approval date and marking the request status as Approved. An Inventory Request Dashboard summarizes request activity, including status breakdown and request reasons such as "Bundle promotion," and the completed request appears in the inventory item's own record, linked as part of its history. The Power Automate run history is also shown, displaying past flow executions with their outcomes and durations, confirming the process runs reliably over time.
 
 ### End-to-End Workflow, Step by Step
 
-1. **Open the report.** The user lands on a branded introduction page for the Kiddy Lah! Toy Shop.
-2. **Navigate to the KPI dashboard.** The user moves to the main KPI Report page.
-3. **Review headline metrics.** Total Orders, Revenue, and Profit are immediately visible as summary cards.
-4. **Filter by store location.** Selecting a specific location, Airport, Commercial, or Downtown, updates every visual on the page to reflect that location's performance.
-5. **Explore by category.** The Total Orders by Product Category chart shows which categories are contributing most to order volume.
-6. **Explore trends over time.** The Revenue by Month chart shows the overall trend, and can be drilled into for a closer look at performance on a specific date.
+1. **Monitor stock via the dashboard.** Staff review the Inventory Dashboard to see current stock levels and identify items running low.
+2. **Submit a restock request.** A new Inventory Request is created for the relevant item, specifying the quantity needed and the reason for the request.
+3. **Enter the approval stage.** The Business Process Flow automatically advances the request to the Approval stage.
+4. **Trigger the approval flow.** Running the linked Power Automate flow sends an approval request to the designated approver.
+5. **Manager reviews and responds.** The approver receives the request by email and Teams, and approves or rejects it with an optional comment.
+6. **The system updates automatically.** Once a decision is made, the flow updates the request record with the approval date and final status.
+7. **Move to inventory check and closure.** The process flow advances to confirm the inventory update and close out the request.
+8. **The full history is preserved.** The completed request remains linked to its original inventory item, viewable directly from that item's record.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Power BI Desktop**, used to build and present the report.
-- An underlying **sales dataset** covering orders, revenue, profit, store locations, and product categories.
-- **Power BI measures and calculations**, for computing Total Orders, Revenue, and Profit dynamically based on filter selections.
-- **Interactive filtering and cross-highlighting**, so selecting a store location updates every visual on the page.
-- **Drill-down enabled time-series charts**, allowing users to move from a monthly view down to a specific date.
+- **Microsoft Dataverse**, the underlying data platform storing inventory and request records.
+- **Power Apps (model-driven app)**, the main application interface for staff and managers.
+- **Power Automate**, the workflow engine running the approval process.
+- **Microsoft Approvals**, the connector handling approval requests and responses.
+- **Microsoft Outlook**, delivering approval requests and responses by email.
+- **Microsoft Teams**, delivering approval requests and responses via chat.
+- **Business Process Flows**, for guiding users through a defined, staged process.
+- **Native Dataverse charting**, for the dashboard visuals covering stock levels, request status, and category breakdowns.
 
-While this project isn't a process automation in the RPA sense, it relies on automated calculation logic built into the Power BI data model. KPIs like Total Orders, Revenue, and Profit are defined once as measures and automatically recalculate based on whatever filters are applied, with no manual recalculation needed when switching between store locations or drilling into a specific month. This is what makes the dashboard genuinely interactive rather than a static report, since the same underlying logic serves every possible view of the data.
+The heart of the system is the Business Process Flow, which enforces a consistent structure on every restock request. It must move through Request, Approval, Inventory Check and Stock Update, and Request Closure, in that order, with no way to skip the approval step. When a request reaches the approval stage, a Power Automate flow is triggered that hands off the decision to a human approver through the Approvals connector, waiting for their response before continuing. Once approved, the flow writes the outcome directly back into Dataverse, updating the same record the request started from, so the entire lifecycle of a request, from submission to decision, lives in one place rather than being scattered across emails or chat threads.
 
 ## 5. Controls & Validation
 
-- Because KPIs are calculated through defined measures rather than hardcoded values, the figures shown remain consistent and accurate regardless of which filters are applied.
-- Centralizing the data in a single report reduces the risk of inconsistent figures that can arise when different people manually calculate the same metrics separately.
-- KPI figures must always reflect the currently selected store location filter, and all visuals must update together and consistently when a filter is applied, so no visual ever shows data inconsistent with the current selection.
-- Drill-down on the Revenue by Month chart must reveal accurate, date-specific figures consistent with the higher-level monthly totals.
+- The Business Process Flow structurally prevents a request from skipping the approval stage. Every request must be reviewed before it can proceed.
+- Required fields, such as quantity needed and approver, must be completed before a request can move forward, reducing the chance of incomplete requests.
+- The Power Automate run history shows both successful and failed flow runs, giving visibility into any issues with the approval process itself, separate from the business data.
+- Because approval decisions are captured directly through the Approvals connector, there is no ambiguity about who approved a request or when.
+- Every restock request must go through a manager approval before being considered complete, and every request must remain linked to its originating inventory item, preserving a full history per product.
 
 ## 6. Business Value
 
-- **Faster, clearer decision-making**, since performance data is available at a glance rather than requiring manual compilation.
-- **Easy comparison across locations**, helping identify which stores are over-performing or under-performing.
-- **Category-level insight**, showing which product lines are driving sales.
-- **Trend visibility**, making it easier to spot patterns in revenue over time rather than only seeing a single snapshot.
-- **A single source of truth**, reducing the risk of conflicting figures from separately maintained spreadsheets.
+- **Clear visibility into stock health**, reducing the risk of running out of popular items or overstocking slow movers.
+- **Faster approvals**, since managers can respond from their inbox or Teams without needing to log into a separate system.
+- **Consistent process governance.** Every restock request follows the same structured path, with no steps skipped.
+- **Full traceability**, with every request's history preserved and linked to the relevant inventory item.
+- **Reduced administrative overhead**, since the system handles routing, tracking, and record-keeping automatically.
 
 ## 7. Skills Demonstrated
 
-- Designing a multi-page Power BI report, including a branded landing page.
-- Building KPI measures and calculations for core business metrics.
-- Implementing interactive filtering across multiple visuals.
-- Designing drill-down-enabled time-series visualizations.
-- Structuring a report for clear, self-service business use.
+- Designing a Dataverse data model for inventory and request tracking.
+- Building a model-driven Power App with dashboards and structured forms.
+- Implementing a Business Process Flow to enforce a consistent, staged process.
+- Building a Power Automate flow using the Approvals connector.
+- Integrating approval workflows with Outlook and Microsoft Teams.
+- Designing a solution with full auditability and traceability built in.
+- Applying low-code and no-code tools to solve a real operational business process.
 
 ## 8. Enterprise Use Cases
 
-This kind of KPI dashboard applies to a wide range of business reporting needs, including:
+This pattern, track inventory, request more, route for approval, record the outcome, applies broadly, including:
 
-- **Multi-location retail performance tracking**, comparing sales across stores or regions.
-- **Sales and revenue reporting**, giving leadership a live view of business performance.
-- **Product or category performance analysis**, identifying top and underperforming product lines.
-- **Executive dashboards**, consolidating key metrics into a single, shareable view.
-- **Operational reporting hubs**, combining reporting with easy access to related resources, as shown in the Intro page's quick-access links.
+- **Retail and warehouse inventory management**, tracking stock and managing restocking across product lines.
+- **Procurement and purchase request approvals**, routing spending requests to the right approver automatically.
+- **IT asset requests**, requesting and approving new equipment or software licenses.
+- **Facilities and supply requests**, managing and approving requests for office or operational supplies.
+- **Any process requiring a formal approval step**, where a decision needs to be made by a specific person, tracked, and recorded.
 
 ## 9. Lessons Learned & Future Enhancements
 
 **Lessons learned:**
-- Defining KPIs as reusable measures, rather than static numbers, is what makes a dashboard genuinely interactive and trustworthy across every filter combination.
-- A well-designed landing page can make a BI report feel like a proper internal tool rather than just a chart, improving adoption.
-- Giving users the ability to filter and drill down themselves reduces the burden on whoever would otherwise be asked to produce ad hoc breakdowns.
-- Combining headline KPIs with both categorical and time-based breakdowns gives a more complete picture than any single view could on its own.
+- A Business Process Flow is a simple but effective way to enforce process discipline. It makes skipping a required step structurally difficult, not just discouraged.
+- Delivering approvals through channels people already use, such as email and Teams, dramatically reduces friction compared to requiring a login to a separate system.
+- Keeping a request's full history linked to its originating record, rather than in a separate log, makes historical review much more intuitive.
+- Low-code platforms like Power Apps and Power Automate can deliver genuinely robust, auditable business processes without custom development.
+- Visual dashboards, even simple ones, make a real difference in how quickly people can spot problems, such as low stock, compared to scanning a raw data list.
 
 **Future enhancements:**
-- Add year-over-year comparison views to show growth or decline more clearly.
-- Introduce product-level drill-down, not just category-level, for more granular insight.
-- Add target versus actual tracking, showing performance against sales goals.
-- Build automated alerts for significant changes in revenue or profit trends.
-- Integrate the dashboard directly with the inventory management system, connecting sales performance to stock levels for a fuller operational picture.
-- Add mobile-optimized views for store managers checking performance on the go.
+- Automatically update stock quantities once a restock request is fulfilled, closing the loop from approval to physical inventory.
+- Add low-stock triggers, automatically generating a draft restock request when an item crosses a defined threshold.
+- Introduce multi-level approvals for larger or higher-cost restock requests.
+- Add supplier integration, allowing approved requests to generate a purchase order automatically.
+- Build historical trend reporting, tracking how often specific items are requested and how quickly they are approved.
+- Extend the Teams integration with adaptive cards for a richer in-chat approval experience.
