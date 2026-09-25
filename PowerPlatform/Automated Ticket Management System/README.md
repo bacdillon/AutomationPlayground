@@ -1,97 +1,107 @@
-# Automated Ticket Management System
+# Automation Validation & Logging Framework
 
-A Power Automate flow that watches an email inbox for incoming support and issue reports, and automatically turns every one into a tracked task in Microsoft Planner, with a summary posted straight to a Microsoft Teams channel, so nothing reported by email gets missed or has to be manually re-typed into a task board.
+A demonstration of professional-grade automation engineering practices in Microsoft Power Automate Desktop: structured logging, per-record data validation, and robust error handling, built around a simple example task (adding pairs of numbers) so the underlying engineering pattern is easy to see clearly.
 
 ## 1. Project Overview
 
-This project automates the first step of handling a support ticket: turning an incoming email report into a properly tracked task that a team can act on. A Power Automate flow, "MS Power Platform Ticket Issues Flow," monitors an Outlook inbox for issue emails, things like a broken approval workflow, a dashboard that won't load, or an app throwing an error, and for every one that arrives, it automatically creates a corresponding task in Microsoft Planner and posts a clear summary to a Teams chat, so the right people see it immediately.
+This project automates a simple task, reading pairs of numbers from a spreadsheet, adding them together, and recording the result, but the real focus is on how it's built. The automation validates every input before using it, handles bad data gracefully instead of crashing, keeps a detailed, timestamped log of everything it does, and records the outcome of every single record it processes. The simple "add two numbers" task is really a stand-in for any repetitive business calculation or data-processing step. What this project demonstrates is the engineering discipline needed to make that kind of automation trustworthy at scale.
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Support and IT teams often receive issue reports by email, a manager noticing a missing notification, an employee unable to submit a form, a dashboard failing to load. For these reports to actually get fixed, someone typically has to read the email, understand the issue, and manually create a task somewhere the team tracks work, like Microsoft Planner. This hand-off step is small but essential, and it's exactly the kind of repetitive administrative work that's easy to delay, forget, or do inconsistently. Emails can sit unread or unactioned, especially during busy periods, delaying the start of any real fix. Manually creating a task for every email is repetitive and takes time away from actually solving the reported issue. Details can be lost or altered when someone retypes an issue description into a task management tool instead of using the original wording, and team visibility depends on someone remembering to tell others a new issue has come in, rather than it being automatically surfaced.
+**The problem:** Any automation that processes a batch of records, invoices, orders, calculations, transactions, will eventually run into bad data: a missing value, a typo, a number entered as text. How an automation handles that moment determines whether it's genuinely production-ready or just a fragile script that works until it doesn't. Businesses relying on automation need confidence that problems will be caught, logged clearly, and reported, not silently ignored or allowed to crash the entire batch. Bad input data can crash an entire batch rather than being handled gracefully as an isolated issue. Without detailed logs, it's hard to know what actually happened during a run, especially after the fact, when something needs to be investigated. A single failure can go unnoticed if there's no clear, per-record record of success or failure, and troubleshooting becomes guesswork without a timestamped trail showing exactly what the automation did, step by step.
 
 **The objectives:**
-- Automatically detect new issue-report emails as they arrive.
-- Create a corresponding task in Microsoft Planner for every reported issue, without manual data entry.
-- Preserve the original issue details (title, description, sender, priority) accurately in the created task.
-- Notify the team immediately through a channel they already monitor, Microsoft Teams.
-- Remove the manual hand-off step between "an issue was reported" and "the team is tracking it."
+- Process a batch of records reliably, one at a time, without letting one bad record stop the whole batch.
+- Validate every piece of input data before using it in a calculation.
+- Handle invalid data gracefully, recording a clear reason rather than failing silently.
+- Maintain a detailed, timestamped log of every action the automation takes.
+- Record the outcome of every individual record, not just the batch as a whole.
+- Demonstrate a reusable pattern for validation and logging that can be applied to any similar automation.
 
 ## 3. Solution
 
-The "MS Power Platform Ticket Issues Flow" in Power Automate connects Outlook, Planner, and Teams into one automated hand-off. The flow's details page shows it is active and automated, and confirms it had run multiple times over the past week. When a new issue-report email arrives in the Outlook inbox, the flow reads the relevant information, the issue title, description, sender, and priority, creates a corresponding task in Microsoft Planner, and posts a summary to a Teams chat so the team sees it immediately.
+A Power Automate Desktop flow called "Calculations with Logging" reads a list of number pairs from an Excel file through a Main flow, then processes each row in turn. Every row goes through input validation, where each number is explicitly converted to a numeric type before use, so a stray text value or a blank cell is caught immediately rather than silently miscalculated. The actual calculation is performed using a real, external application, the Windows Calculator, automated to click the correct number and operator buttons and read back the result, showing UI automation working in concert with the data validation logic.
 
 ### What the Video Demonstrates
 
-Power Automate's built-in savings tracking estimates that, assuming 10 minutes saved per successful run, the flow had already saved 1 hour across 6 runs in the past week. The Outlook inbox shows a series of real issue-report emails arriving from different senders, including reports titled "Procurement Approval Email Missing," "Sales Dashboard Not Loading," "Leave Approval Workflow Not Triggered" (twice), "Unable to Submit Expense Claim in Expense App," and "Expense App Submission Error." Opening one such email, "Procurement Approval Email Missing," shows a support request from a manager, explaining that their procurement approval process isn't sending notification emails, and asking for the automation flow to be checked. Immediately after, a Microsoft Teams "Workflows" chat message appears, confirming: "A new task has been created in Microsoft Planner," followed by the full ticket details, Issue Title, Issue Description, Sender, and Priority (marked "high" in this case), along with a prompt to review and take action.
+Error handling is built around each calculation: if a row's data is invalid, the flow catches the issue, records a specific status message, for example "The number B has an invalid value," and moves on to the next row without stopping the batch. The final result is written back into the source spreadsheet, with a Result and Status column for every row, clearly showing which rows calculated successfully ("Valid") and which didn't, with a clear reason. A detailed, timestamped CSV log file records every step the automation took, workflow start, subflow start and end, each row being processed, and every validation error encountered, along with references to the same information being recorded in a database. The completed results file is saved with a timestamped filename, so multiple runs can be kept and compared without overwriting previous results.
 
 ### End-to-End Workflow, Step by Step
 
-1. **Monitor the inbox.** The flow watches the Outlook inbox for new incoming emails.
-2. **Detect a new issue report.** When a new email arrives, the flow identifies it as a ticket to be processed.
-3. **Extract the details.** The flow reads the relevant information from the email, the issue title, description, sender, and priority.
-4. **Create a Planner task.** A new task is automatically created in Microsoft Planner, carrying over the extracted details.
-5. **Notify the team.** A summary message is posted to a Microsoft Teams chat, presenting the same ticket details clearly and prompting the team to review and act.
-6. **Repeat for every new email.** This process runs automatically each time a new issue-report email arrives, with no manual triggering required.
+1. **Start the workflow and begin logging.** The flow records that it has started, along with a timestamp.
+2. **Read the input data.** A list of number pairs is loaded from an Excel file.
+3. **Process each row in turn.** For every row, the flow logs that it's processing that specific row.
+4. **Validate the data.** Each number is converted to a proper numeric value; anything that fails this conversion is caught immediately.
+5. **Perform the calculation.** For valid rows, the two numbers are added together using the Windows Calculator, automated through the UI.
+6. **Handle any errors.** If a row's data was invalid, the flow records exactly what went wrong instead of stopping the process.
+7. **Record the outcome.** Each row's result and status (Valid or a specific error reason) is written back to the spreadsheet.
+8. **Log the outcome centrally.** The row's outcome is also recorded to a database, alongside the ongoing CSV log file.
+9. **Repeat until complete.** The process continues through every row in the input file.
+10. **Save the final results.** The completed spreadsheet is saved with a timestamped filename once all rows are processed.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Outlook**, the inbox where issue-report emails are received.
-- **Microsoft Planner**, where each reported issue becomes a trackable task.
-- **Microsoft Teams**, where the team is notified of each new ticket.
-- **Microsoft Power Automate**, the platform running the automated flow connecting all three.
-- **An email trigger**, for detecting new incoming issue-report emails.
-- **Planner "Create a task" action**, for automatically generating a tracked task from the email's details.
-- **Microsoft Teams "Post message" action**, for notifying the team with a structured ticket summary.
+- **Microsoft Excel**, both the source of input data and the destination for results.
+- **Windows Calculator**, automated as the tool that actually performs each calculation.
+- **A database**, used to log workflow executions and individual record outcomes.
+- **A CSV log file**, recording a detailed, timestamped trail of every automation action.
+- **Power Automate Desktop**, for building the automation.
+- **Power Automate Desktop subflows**, used to structure the automation into clear, reusable components (Main, Log_WriteTo, Get_Time, Read_Excel, Launch Calculator and Logon, Calculator_Add, ErrorHandling).
+- **UI automation activities**, for interacting with the Windows Calculator application.
+- **Excel automation activities**, for reading input data and writing results.
+- **Error handling blocks** ("On block error"), for catching and responding to issues without stopping the whole process.
 
-The flow follows a simple but effective "listen and relay" pattern. It waits for a new email to arrive, pulls out the specific pieces of information needed, title, description, sender, priority, and pushes that same information into two different places a team already works from, a task board and a chat tool. Because the flow triggers directly off new emails rather than running on a schedule, there's no delay between an issue being reported and it becoming a visible, trackable task. The whole hand-off happens automatically and immediately. This project doesn't use AI. It's a straightforward, trigger-based automation, and its value comes from removing a manual, repetitive hand-off step entirely, ensuring every reported issue reliably becomes a tracked task without depending on someone remembering to create one.
+The automation is deliberately broken into small, purpose-built subflows rather than one long sequence: a dedicated subflow for logging, one for getting timestamps, one for reading Excel data, one for the calculation itself, and one specifically for handling errors. Every row goes through the same defined path: validate, calculate if valid, or catch and record the specific issue if not, and either way, the row's outcome is written down before moving to the next one. This structure means a single bad row never threatens the rest of the batch, and because every action is logged with a timestamp and a specific message, the complete history of a run can be reconstructed after the fact, not just guessed at. This project doesn't use AI. It's a demonstration of disciplined, rules-based automation engineering, and its value is in the quality of the engineering itself: validation, structured logging, and graceful error handling, the same qualities that separate a fragile automation from a genuinely production-ready one.
 
 ## 5. Controls & Validation
 
-- Because the flow is triggered directly by incoming emails, no ticket can be missed simply because no one checked the inbox in time.
-- Carrying the original email's details directly into the Planner task avoids the risk of details being altered, lost, or mistyped during a manual hand-off.
-- The flow's run history in Power Automate provides a clear, reviewable record of every ticket processed, supporting easy verification that the automation is working as intended.
-- Every incoming issue-report email must result in a corresponding task being created in Planner, and a team notification must be posted for every new ticket, so visibility isn't dependent on someone checking Planner directly.
+- Every input value is explicitly validated, converted to a proper number, before being used. Invalid data is caught immediately rather than causing a miscalculation or a crash.
+- Errors are handled at the level of the individual row, so one bad record doesn't stop the rest of the batch from being processed.
+- A dedicated error-handling subflow captures the specific error that occurred, rather than a generic failure message.
+- Every outcome, success or failure, is explicitly recorded, so there's no ambiguity about what happened to any given row.
+- Every number used in a calculation must be successfully validated as numeric before processing continues, and every row must have a final outcome recorded, with no row left unaccounted for.
 
 ## 6. Business Value
 
-- **Nothing gets missed.** Every issue-report email automatically becomes a tracked task, regardless of how busy the inbox is.
-- **Faster response times.** The team is notified immediately, rather than whenever someone happens to check email.
-- **Consistent, accurate task creation.** Every ticket is created the same way, with the same level of detail, every time.
-- **Improved team visibility.** A shared Teams notification means the whole team sees new issues, not just whoever opened the email.
-- **Reduced administrative burden.** No one needs to spend time manually converting emails into tasks.
+- **Higher reliability.** Bad data doesn't derail the whole process. It's caught, recorded, and the batch continues.
+- **Full traceability.** A detailed log means any run can be reviewed and understood after the fact, not just trusted blindly.
+- **Faster troubleshooting.** Specific, descriptive error messages make it immediately clear what went wrong and where.
+- **Confidence at scale.** The same validation and logging pattern that handles a handful of records works just as well for a much larger batch.
+- **Reusable engineering pattern.** The subflow structure, logging, error handling, timestamps, can be reused across many other automations, not just this one.
 
 ## 7. Skills Demonstrated
 
-- Building trigger-based (event-driven) automations in Power Automate.
-- Integrating multiple Microsoft 365 tools (Outlook, Planner, Teams) into a single connected workflow.
-- Extracting and mapping data from an email into a structured task.
-- Designing automated notifications that give a team everything they need in one message.
-- Reviewing and interpreting Power Automate's run history and built-in savings tracking.
+- Designing structured, subflow-based automations in Power Automate Desktop.
+- Implementing per-record data validation.
+- Building graceful, non-disruptive error handling.
+- Designing detailed, timestamped logging systems.
+- Integrating spreadsheet automation, UI automation, and database logging in a single solution.
+- Applying production-grade engineering discipline to a simple example task.
 
 ## 8. Enterprise Use Cases
 
-This "email in, task and notification out" pattern applies to a wide range of support and operational scenarios, including:
+The validation-and-logging pattern shown here applies to virtually any batch automation, including:
 
-- **IT and business systems support**, as demonstrated here.
-- **Customer service ticket intake**, converting customer emails into tracked support tickets.
-- **Facilities or maintenance requests**, turning reported issues into actionable tasks.
-- **HR case management**, automatically logging employee-submitted concerns or requests.
-- **Any process where issues or requests arrive by email** but need to be tracked and actioned through a dedicated task management system.
+- **Financial calculations and reconciliations**, where bad input data must be caught, not silently miscalculated.
+- **Order or invoice processing**, validating each record before it's acted on.
+- **Data migration projects**, logging exactly what succeeded, what failed, and why, row by row.
+- **Any scheduled batch job**, where reliability and after-the-fact traceability matter.
+- **Automation frameworks and templates**, reusable logging and error-handling patterns that other automations can be built on top of.
 
 ## 9. Lessons Learned & Future Enhancements
 
 **Lessons learned:**
-- Triggering directly off incoming emails, rather than checking on a schedule, ensures no delay between a report coming in and it becoming visible work.
-- Pushing the same information into both a task board and a chat notification covers two different ways people actually keep track of work. Some check task lists, others check chat.
-- Preserving original details, rather than requiring manual retyping, keeps the resulting task accurate and trustworthy.
-- Power Automate's built-in savings estimates are a convenient way to demonstrate an automation's ongoing value without needing to build separate tracking for it.
-- Even a simple, three-step automation, detect, create task, notify, can meaningfully improve how reliably a team responds to reported issues.
+- Validating data before using it, rather than assuming it's correct, is one of the simplest and most effective ways to prevent an automation from silently doing the wrong thing.
+- Handling errors at the level of the individual record, not the whole batch, means one bad entry doesn't cost the entire run.
+- Detailed, timestamped logging turns "something went wrong" into "here's exactly what went wrong, when, and why," which makes troubleshooting dramatically faster.
+- Structuring an automation into small, purpose-built subflows, logging, timestamps, error handling, makes it easier to build, test, and reuse than one long, monolithic flow.
+- Even a simple example task can be a powerful way to demonstrate serious automation engineering discipline.
 
 **Future enhancements:**
-- Add automatic categorization or priority detection, analyzing the email's content to set the task's priority rather than relying on it being stated explicitly.
-- Route tickets to different team members or Planner buckets based on the type of issue reported.
-- Add acknowledgment emails, automatically replying to the sender to confirm their issue has been logged.
-- Track resolution time, measuring how long it takes from ticket creation to task completion in Planner.
-- Add escalation logic, flagging tickets that remain unresolved after a certain period.
-- Expand the trigger source beyond email, allowing tickets to also be raised through a form or chat command.
+- Extend the validation logic to catch additional types of bad data, such as out-of-range values.
+- Add automatic retries for transient errors, separate from genuine data validation failures.
+- Build a summary dashboard showing success and failure rates across multiple runs over time.
+- Add alerting, notifying a team automatically if a run's failure rate crosses a certain threshold.
+- Replace the Windows Calculator step with a direct calculation, and compare performance and reliability against the UI-automated approach.
+- Package the logging and error-handling subflows as a reusable template for other automation to adopt directly.
+
