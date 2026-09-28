@@ -2,7 +2,7 @@
 
 ## 1. Project Overview
 
-This automates how a community organization, "Pedal Paradise," a cycling club, reviews and approves proposals for new events and activities. A Power Automate flow, "New Event Activities Flow," triggers the moment someone submits a new event proposal to a SharePoint list, routes it to a designated approver through Microsoft Teams Approvals, and automatically posts a notification to a shared Teams channel once a decision is made. This closes the loop from submission to team-wide visibility without any manual chasing.
+This project automates how a community organization, "Pedal Paradise," a cycling club, reviews and approves proposals for new events and activities. A Power Automate flow, "New Event Activities Flow," triggers the moment someone submits a new event proposal to a SharePoint list, routes it to a designated approver through Microsoft Teams Approvals, and automatically posts a notification to a shared Teams channel once a decision is made. This closes the loop from submission to team-wide visibility without any manual chasing.
 
 ## 2. Business Problem & Objectives
 
@@ -49,52 +49,3 @@ The video shows the flow's design in Power Automate alongside a live demonstrati
 
 The proposal itself, submitted as an attached document such as a PDF safety inspection guide, travels with the SharePoint list item, so the approver has full supporting context available directly from the approval request.
 
-## 5. Controls & Validation
-
-- **Every new proposal is automatically captured.** Because the flow triggers directly off SharePoint's "item created" event, no proposal can be submitted without also kicking off the approval process.
-- **A single, named approver is explicitly assigned** on every request, so there is no ambiguity about who is responsible for the decision.
-- **The approval outcome is a structured, binary decision** (Approve or Reject), not a free-text reply, which is what allows the flow to branch reliably afterward.
-- **Every proposal's status is tracked centrally** in the SharePoint list itself, with values observed including Approved, Rejected, and Pending, giving a single source of truth rather than relying on scattered emails or chat messages.
-- **The final outcome is broadcast automatically**, removing any dependency on the approver remembering to tell anyone else.
-
-## 6. Business Value
-
-- **Removes manual chasing.** No one has to email a proposal, wait, and then separately notify the team. The whole cycle is automatic.
-- **Faster decisions.** Because the approval request lands directly in the approver's Teams client, a tool they are already using, there is no delay waiting for someone to check a separate system or inbox.
-- **Full visibility for the whole team.** Everyone sees the outcome of a proposal through the shared Teams channel, not just the submitter and approver.
-- **A reliable, centralized record.** The SharePoint list always reflects the current, accurate status of every proposal.
-
-## 7. Skills Demonstrated
-
-- Building event-driven, trigger-based automation in Power Automate.
-- Integrating SharePoint lists as both a data source and a system of record.
-- Configuring Microsoft Teams Approvals for structured, trackable decision-making.
-- Using conditional logic to branch a flow based on an approval outcome.
-- Automating team-wide notifications through Teams channel messaging.
-- Designing a complete submit, approve, and notify pattern that removes manual follow-up at every step.
-
-## 8. Enterprise Use Cases
-
-This submit, approve, and notify pattern applies broadly across many organizations:
-
-- **Event and activity proposal approval**, as demonstrated here.
-- **Purchase or expense request approvals**, routed to a budget owner.
-- **Content or marketing material sign-off**, before publication.
-- **Vendor or supplier onboarding approval.**
-- **Policy or document review workflows**, where a change needs sign-off before taking effect.
-- **Any process where a submission needs a decision, and that decision needs to be visible to a wider team.**
-
-## 9. Lessons Learned & Future Enhancements
-
-**Lessons learned:**
-- Routing approvals through a tool people already check daily, such as Teams, removes a major source of delay compared to email-based approval chains.
-- Keeping the proposal's supporting document attached directly to the list item means the approver never has to go hunting for context elsewhere.
-- Automatically notifying a shared channel, rather than just the submitter, makes outcomes visible to the whole team, not just the two people directly involved.
-- Centralizing status in the SharePoint list itself avoids the common problem of an approval decision living only in an email thread that others cannot see.
-
-**Future enhancements:**
-- Add a reminder or escalation step if an approval request goes unanswered after a set period.
-- Route different types of proposals, for example by budget size, to different approvers automatically.
-- Add a rejection reason field that is surfaced clearly to the submitter, not just logged as a comment.
-- Extend notifications to email, for team members who may not be active in the Teams channel.
-- Build a simple dashboard summarizing proposal volume, approval rates, and average decision time over time.
