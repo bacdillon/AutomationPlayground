@@ -1,8 +1,8 @@
 # Agentic Orchestration: Invoice Processing with Human-in-the-Loop
 
-## 1. Overview
+## 1. Project Overview
 
-This automates the intake and approval of vendor invoices using UiPath's Agentic Automation platform. It combines three distinct capabilities in one governed workflow: deterministic RPA for data extraction, an AI agent that decides whether to approve or escalate an invoice, and a human-in-the-loop checkpoint (delivered through UiPath Action Center) for any invoice the AI isn't confident enough to clear on its own. Every invoice, whether resolved automatically or by a person, ends in a single, auditable outcome. The orchestration layer, a BPMN-based Agentic Process, coordinates all three components as one coherent process instead of three disconnected tools.
+This project automates the intake and approval of vendor invoices using UiPath's Agentic Automation platform. It combines three distinct capabilities in one governed workflow: deterministic RPA for data extraction, an AI agent that decides whether to approve or escalate an invoice, and a human-in-the-loop checkpoint (delivered through UiPath Action Center) for any invoice the AI isn't confident enough to clear on its own. Every invoice, whether resolved automatically or by a person, ends in a single, auditable outcome. The orchestration layer, a BPMN-based Agentic Process, coordinates all three components as one coherent process instead of three disconnected tools.
 
 ## 2. Business Problem & Objectives
 
@@ -55,54 +55,3 @@ Throughout, UiPath Studio's debug and execution view is visible, showing the BPM
 - **Google Drive**, the storage system that both triggers the process when a new invoice is detected and receives the final outcome in the Approved/Rejected folders.
 
 The BPMN diagram itself encodes the architecture as a strict state machine: New Invoice Uploaded flows to Download and Extract Invoice Details, then to the Invoice Decision Agent, then to a gateway ("Approve or Review"). From there the path leads either to Approve, or to Review as a human task, then through a second gateway to Approved or Rejected. Every path converges on exactly one of two terminal states. This orchestration layer, not any single tool, is what makes the RPA, AI, and human review function as one governed process instead of three separate, disconnected systems.
-
-## 5. Controls & Validation
-
-- **Bounded AI authority.** The agent can only choose between two outcomes, approve or escalate, never the final call on a flagged invoice. That decision always stays with a person.
-- **Mandatory human review for flagged cases.** The gateway logic makes it structurally impossible for a flagged invoice to skip the Action Center review step.
-- **Explainable escalation.** The agent's output includes a stated reason (for example, "Over limit") that's carried forward and shown directly to the human reviewer. The escalation is never a black-box flag.
-- **Full runtime observability.** UiPath Studio's live execution trail shows every step of a run, including agent invocation, LLM call, model output, gateway decision, and the human task's duration, giving a transparent audit trail of exactly what happened and why, for both automated and human-made decisions.
-- **State consistency.** Every invoice ends in exactly one of three terminal states, with its Google Drive location always matching its logged status, avoiding orphaned or ambiguous cases.
-
-## 6. Business Value
-
-- **Reduces manual triage load.** Routine, low-risk invoices require zero human involvement.
-- **Preserves financial control.** High-value or anomalous invoices are reliably routed to a person, closing the compliance gap that pure automation would leave open.
-- **Improves auditability.** Every decision, automated or human, is logged with a timestamp, a reason, and a final disposition.
-- **Shortens cycle time on exceptions.** Reviewers get a pre-summarized approval form instead of digging through the original invoice themselves.
-- **Scales without re-engineering.** Because judgment lives in an AI agent rather than a hardcoded rules engine, evolving criteria, such as adjusting spending thresholds, doesn't require rebuilding the workflow.
-
-## 7. Skills Demonstrated
-
-- Designing agentic processes that combine RPA, AI decisioning, and human oversight in one governed BPMN workflow.
-- Configuring an AI agent with bounded, explainable decision authority.
-- Building human-in-the-loop approval tasks with UiPath Action Center and UiPath Apps.
-- Structuring a process as an explicit state machine to prevent silent failures or ambiguous outcomes.
-- Using UiPath Studio's execution trail for runtime debugging and audit-level observability.
-
-## 8. Enterprise Use Cases
-
-This pattern generalizes well beyond invoice approval:
-
-- **Expense report review.** Auto-approve routine claims, escalate outliers.
-- **Purchase order approvals.** Route based on value or vendor risk.
-- **Contract clause review.** Flag non-standard terms for legal review.
-- **Customer refund or credit approvals.** Auto-clear small amounts, escalate large ones.
-- **Loan or credit application triage.** Combine automated scoring with mandatory human sign-off on edge cases.
-- **Compliance exception handling.** Any process where most cases are routine but a minority require accountable human judgment.
-
-## 9. Lessons Learned & Future Enhancements
-
-**Lessons learned:**
-- Scoping an AI agent's authority narrowly, to a single, bounded decision, makes agentic automation far easier to trust and govern than giving it broad discretion.
-- Explainability isn't optional. Surfacing the agent's reasoning is what makes human review efficient and defensible.
-- Human-in-the-loop steps should be modeled as first-class workflow nodes that are tracked, timed, and logged, not informal side channels like email.
-- Structuring a process as an explicit state machine, with a fixed set of terminal outcomes, is a simple but effective way to prevent silent failures in automation.
-- Naming the project around its orchestration layer, rather than the RPA component alone, more accurately reflects what makes the solution valuable: coordinating RPA, AI, and human review as one governed process, not any single piece in isolation.
-
-**Future enhancements:**
-- Add confidence scoring to the agent's output, so borderline cases can be weighted differently from clear-cut ones.
-- Introduce multi-tier approval for very high-value invoices.
-- Enrich agent context with vendor risk history to sharpen escalation criteria beyond amount thresholds.
-- Add Slack, Teams, or email notifications alongside the Action Center task.
-- Build an analytics dashboard tracking agent decisions versus human overrides over time.
