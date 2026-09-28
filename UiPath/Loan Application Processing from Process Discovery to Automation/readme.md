@@ -1,78 +1,65 @@
-<h1><b>Automation Opportunities Assessment</b></h1><br>
-<b>Loan Application Processing from Process Discovery to Automation(PDD, SDD, BPMN)</b>
-<br><br>
-<b>Overview</b>
+# UiBank Loan Application Processing
 
-Analysed a manual loan application process and designed an enterprise automation solution using UiPath. The project involved documenting the business process, identifying automation opportunities, defining business rules and exception scenarios, and producing both a Process Definition Document (PDD) and Solution Design Document (SDD) to support implementation.
+## 1. Project Overview
 
-The automation processes loan applications submitted through UiBank by validating business rules, generating Loan IDs for approved applications, and notifying business users through automated email responses. The solution is designed to run as an unattended process scheduled through UiPath Orchestrator.
+This project automates the process of submitting multiple loan applications to a bank's online application portal. Instead of manually typing each applicant's details into the web form one at a time, the automation reads a list of applicants and their loan details from an Excel spreadsheet, submits each one through the bank's actual web form, captures the outcome, approved or rejected, along with the resulting loan ID and interest rate, and writes that result straight back into the same spreadsheet.
 
-<b>Business Analysis Perspective</b>
-Reviewed the existing manual loan application workflow and assessed its suitability for automation.
-Conducted process analysis to identify repetitive, rule-based activities suitable for RPA.
-Documented the end-to-end business process using a Process Definition Document (PDD).
-Defined process scope, business rules, applications used, input/output requirements, and exception scenarios.
-Designed the future-state automated workflow and identified business exceptions requiring manual intervention.
-Collaborated with business stakeholders to define automation objectives and expected business outcomes.
+## 2. Business Problem & Objectives
 
-<b>Process Definition Document (PDD)</b>
+Banks and lenders process loan applications that typically start as structured data, an applicant's requested amount, term, income, and age. Getting that data from a source system (like a spreadsheet, a CRM, or an intake form) into the bank's actual application system, and then capturing the outcome, is a repetitive but essential step in loan processing. Any delay or manual error at this stage slows down the applicant's experience and adds unnecessary operational overhead.
 
-Developed a comprehensive PDD covering:
+**The problem:** Manually submitting a batch of loan applications creates familiar friction:
 
-1. Business process overview
-2. Process scope and objectives
-3. Applications involved
-4. As-Is process flow
-5. Automation opportunities
-6. In-scope and out-of-scope activities
-7. Business rules
-8. Business exception scenarios
-9. Error handling requirements
-10. Reporting and monitoring requirements
-11. Supporting process documentation
+- **Manual data entry is slow and repetitive**, especially when the same set of fields needs to be filled in for every applicant.
+- **Mistakes are easy to make** when re-typing amounts, terms, income figures, or ages by hand.
+- **Capturing each application's outcome afterward**: the resulting loan ID, approval status, and rate, requires someone to go back and record it, which is easy to delay or forget.
+- **Processing doesn't scale**: handling ten applications by hand takes noticeably longer than one, with proportionally more room for error.
 
-The PDD specifies business validation rules such as acceptable loan terms, applicant age requirements, loan amount limits, and handling of missing emails, missing attachments, or invalid input files. It also defines reporting requirements for process logs, transaction logs, and error monitoring.
+**The objectives:**
 
-<b>Solution Design Document (SDD)</b>
+- Automatically submit a batch of loan applications, sourced from a spreadsheet, into the bank's web-based application form.
+- Correctly map each applicant's data to the right field on the form for every submission.
+- Capture the outcome of each application, approval status, loan ID, and interest rate, directly from the system's response.
+- Write those results back into the source spreadsheet, creating a single, complete record of what was submitted and what happened.
+- Process the entire batch without manual intervention between applications.
 
-Produced a Solution Design Document (SDD) describing the technical implementation of the automation.
+## 3. Solution
 
-The document includes:
+### What the Video Demonstrates
 
-1. Automation architecture
-2. Runtime configuration
-3. UiPath project structure
-4. Production environment
-5. Orchestrator configuration
-6. Scheduling strategy
-7. Asset configuration
-8. Logging and reporting
-9. Deployment prerequisites
-10. Future enhancements
-11. Technical glossary
+The video shows a **Power Automate Desktop** flow, **"Robot 2 - Loan Application,"** processing a batch of loan applicants:
 
-The solution was designed as an Unattended Robot deployed through UiPath Orchestrator, using configuration files and Orchestrator Assets to support secure execution and centralized scheduling.
+- The flow opens a web browser and navigates to the bank's loan application page, then opens an Excel file containing a list of applicants and their loan details (requester email, loan amount, loan term, yearly income, and age).
+- For **each applicant in the spreadsheet**, the flow automatically fills in the web form, email, loan amount, loan term, income, and age, and submits the application.
+- After each submission, the system returns a result: either an **approval**, showing a generated loan ID and an interest rate (APR), or a **rejection**, shown as "Not Approved."
+- The flow captures this result and **writes it back into the Excel spreadsheet**, recording the loan status and loan ID against the correct applicant's row.
+- The process repeats automatically for every applicant in the list, the video shows six different applicants processed in sequence, with four approved (at varying interest rates) and two rejected.
+- Once the full batch is processed, the flow **saves and closes the Excel file** and closes the browser, leaving behind a spreadsheet that shows the original applicant data alongside the outcome of each submission.
 
-<b>Business Rules</b>
+### End-to-End Workflow, Step by Step
 
-Examples of business rules documented include:
+1. **Set up the target and starting point.** The flow defines the bank's application URL and sets a starting row counter for the spreadsheet.
+2. **Open the required applications.** A web browser is launched to the loan application page, and the source Excel file is opened.
+3. **Read the applicant data.** All rows of applicant information are read from the spreadsheet into memory.
+4. **Loop through each applicant.** For every row of data:
+   - The applicant's email, loan amount, loan term, income, and age are entered into the corresponding fields on the web form.
+   - The application is submitted.
+   - The result, approval status, loan ID, and interest rate, is read from the confirmation page.
+   - That result is written back into the spreadsheet, in the row matching that applicant.
+   - The form is reset for the next application.
+5. **Repeat until the batch is complete.** This continues automatically for every applicant in the list.
+6. **Finalize and clean up.** Once all applicants have been processed, the spreadsheet is saved and closed, and the browser session ends.
 
-- [x] Loan Term must be 1, 3, 5, or 10 years.
-- [x] Applicant age must meet the minimum eligibility requirement.
-- [x] Requested loan amount must satisfy the bank's lending policy.
-- [x] Loan application must contain complete and valid input data.
+## 4. Solution Architecture & Technologies
 
-Business exception scenarios and expected robot actions were defined for missing emails, missing attachments, empty CSV files, and invalid business inputs.
+- **UiBank**, the web-based loan application portal being automated
+- **Microsoft Excel**, the source of applicant data and the destination for recorded results
+- **A web browser (Firefox)**, used to interact with the loan application form
+- **Power Automate Desktop**, for building and running the automation
+- **Excel automation activities**, for reading applicant data and writing results back
+- **Web/browser automation activities**, for filling in and submitting the loan application form
+- **Loop (For Each) logic**, for processing every applicant in the spreadsheet automatically
+- **Variables and flow control**, for tracking the current row and managing the process end-to-end
 
-<b>Solution Architecture</b>
+The flow is built around a simple, repeatable loop: for every row of applicant data, fill in the form, submit it, read the result, and record it, then move to the next row. A row counter keeps track of exactly where in the spreadsheet each result should be written, so outcomes are always recorded against the correct applicant. The automation itself doesn't decide who gets approved, that decision is made by the bank's own application system based on the submitted details (for example, in the demonstrated run, applicants requesting a loan amount disproportionate to their stated income were rejected). The automation's role is to reliably submit the data and faithfully capture whatever the system decides.
 
-Unattended UiPath Robot
-UiPath Orchestrator scheduling
-Configuration through Assets
-Windows Virtual Machine deployment
-Automated email processing
-Loan ID generation
-Centralized logging
-Operational reporting
-
-The SDD also defines runtime details, deployment prerequisites, reporting through Orchestrator logs, and scheduling via Orchestrator.
