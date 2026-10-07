@@ -121,6 +121,6 @@ The following are **potential future enhancements**, not existing functionality:
 
 ---
 
-## Portfolio Summary
+## Summary
 
 My Budgee Expense Tracker is a mobile-style Power Apps app that brings expense claims, approvals and budget tracking together. Requesters log expenses with receipts and track their status, while an approver reviews each claim, records a decision with comments and sets the budget. Email notifications flag new submissions and status changes, and charts show spending by category and month. The app replaces informal claims with a clear, traceable process.
