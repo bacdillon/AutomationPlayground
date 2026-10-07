@@ -92,6 +92,6 @@ The following are **potential future enhancements**, not existing functionality:
 
 ---
 
-## Portfolio Summary
+## Summary
 
 An interactive Power BI KPI report for Kiddy Lah! Toy Shop that brings sales performance into one view. KPI cards show total orders, revenue and profit, while charts break down orders by product category and track revenue month by month. A store location slicer updates every visual at once, making it easy to compare Airport, Commercial, Downtown and Residential stores. The report gives managers fast, consistent visibility of sales results.
