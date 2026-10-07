@@ -1,46 +1,109 @@
-# Your Guide to Microsoft Copilot (AI Agent)
-
-A conversational AI agent, deployed inside Microsoft Teams, that teaches employees how to use Microsoft Copilot itself. Rather than performing a business task directly, this agent answers questions about Copilot's concepts, features, troubleshooting, and best practices, grounding every answer in real, citable Microsoft documentation.
+# Your Guide to MS Copilot (AI Agent)
 
 ## 1. Project Overview
 
-This project is a working internal enablement assistant for Microsoft Copilot adoption. Employees can ask it natural-language questions across five categories, task-based questions, concept and definition questions, troubleshooting questions, build and develop guidance, and best practices and recommendations, and get clear, structured, well-sourced answers. Rather than guessing or searching scattered documentation, a user gets an accurate, cited explanation directly inside the same Teams chat they already work in.
+Your Guide to MS Copilot is an AI agent in Microsoft Teams that helps employees learn how to use Microsoft Copilot. Users ask questions in plain language, such as how to automate email replies or what grounding means, and the agent replies with a structured answer, step-by-step guidance and links to the official Microsoft documentation it used.
+
+* **Use case:** Self-service learning and support for Microsoft Copilot users
+* **Intended audience:** Employees adopting Microsoft 365 Copilot and Copilot agents, and the IT or digital adoption teams who support them
+* **Main technologies:** An AI agent used through Microsoft Teams chat, with a "Work IQ Teams MCP" connection and answers grounded in Microsoft documentation
 
 ## 2. Business Problem & Objectives
 
-**The problem:** As organizations roll out Microsoft Copilot, employees often don't know what it can actually do, how core concepts like "grounding" work, why it sometimes fails to respond correctly, or how to build their own Copilot Studio agents. Documentation exists, but it's scattered across multiple Microsoft support and product pages, and most employees won't go digging through it on their own. Without a simple way to get these answers, adoption stalls. People either avoid using Copilot's more advanced features, or they use it incorrectly and get frustrated when it doesn't behave as expected. IT and support teams also end up fielding the same basic "how do I..." and "why isn't this working" questions repeatedly, which is a poor use of specialized staff time.
+### Problem
 
-**The objectives:**
-- Let employees ask natural-language questions about Copilot and get accurate answers on demand.
-- Cover the full range of adoption needs: task automation, concepts, troubleshooting, building agents, and best practices.
-- Ground every answer in real, official Microsoft documentation, with citations.
-- Handle tool and connector integrations, such as Teams-based data access, with proper user consent.
-- Reduce the burden on IT and support teams for routine Copilot questions.
+As organizations roll out Microsoft Copilot, employees have many questions: what an agent is, how to build one, why Copilot is not responding correctly, or how to write better prompts. Answering these one by one takes time from IT and adoption teams, and searching the documentation alone can be slow and confusing for new users.
+
+### Objectives
+
+* Give employees one place to ask Copilot questions, inside Teams
+* Guide users toward the kinds of questions the agent can answer
+* Provide clear, step-by-step answers in a consistent format
+* Point users to the official Microsoft documentation for each answer
+* Reduce routine Copilot support requests
 
 ## 3. Solution
 
-"Your Guide to MS Copilot," deployed as a Teams chat agent, greets the user by name and offers five categories of help: task-based questions, concept and definition questions, troubleshooting questions, build and develop guidance, and best practices and recommendations. When a question requires accessing external data or tools, such as Teams-based information, the agent explicitly requests the user's consent to connect before proceeding, rather than accessing anything silently.
+The agent greets the user by name and explains what it can help with, for example "What is an agent?", "How do I make an agent?" or "How do agents work?". A card of suggested question types helps users get started:
 
-### What the Video Demonstrates
+* Task-based questions
+* Concept and definition questions
+* Troubleshooting questions
+* Build and develop guidance
+* Best practices and recommendations
 
-Asked "how do I automate email replies using Copilot?", the agent first requests permission to connect through a "Work IQ Teams MCP" integration, explaining what the connection can do before proceeding. Once connected, it returns a clear, numbered guide to using Finance agents in Outlook to draft and send email replies, ending with direct links to the official Microsoft documentation it drew from. Asked "what is grounding in Copilot?", the agent explains that grounding is the process of connecting a prompt to organizational data through Microsoft Graph, so responses reflect a user's actual emails, chats, and documents, and lists how grounding works, its benefits, and a citation to Microsoft's own explanation of how Copilot works. Asked "why is Copilot not responding correctly?", it returns a structured troubleshooting guide covering six categories of failure, capacity configuration issues, identity and permissions problems, agent or skill errors, service outages or high load, trigger configuration, and general troubleshooting, each with specific, named error codes and a recommended resolution, citing Microsoft's official error message documentation. Asked how to create a topic in Copilot Studio, it returns a numbered build guide covering opening Copilot Studio, designing the conversation on the visual authoring canvas, adding actions like Power Automate flows, testing the topic in the built-in test chat, and publishing it, with a link to Copilot Studio's documentation. Finally, on best practices, it explains how to write effective prompts: referencing specific data sources, using positive rather than negative instructions (with an example), iterating and refining a prompt across follow-up turns, addressing Copilot directly using "You," and following a structured Goal and Context prompt format.
+### End-to-End Workflow
 
-### End-to-End Workflow, Step by Step
-
-1. **Start the conversation.** The agent greets the user by name and presents the categories of help available.
-2. **Ask a question.** The user types a natural-language question, task-based, conceptual, troubleshooting, build-related, or about best practices.
-3. **Request access if needed.** If answering requires an external data source or tool, the agent explains what it needs and asks the user to connect before proceeding.
-4. **Retrieve and reason.** The agent formulates a clear, structured answer appropriate to the question type, a step-by-step guide, a conceptual explanation, or a troubleshooting checklist.
-5. **Cite the source.** The agent includes a reference to the specific official Microsoft documentation the answer is based on.
-6. **Offer to continue.** The agent invites a follow-up question or offers to go deeper on a specific point.
+1. **Start a chat:** The user opens the agent in Teams and sees the welcome message and suggested question types.
+2. **Ask a question:** The user types a question, for example "How do I automate email replies using Copilot?"
+3. **Grant access:** On first use, the agent shows a "Connect to continue" card asking permission to use the **Work IQ Teams MCP** connection with the user's credentials. The user selects Allow.
+4. **Get a structured answer:** The agent replies with a summary, numbered steps and a reference section linking to Microsoft documentation, such as "Reply to emails by using Finance agents in Microsoft 365 Outlook (preview)".
+5. **Continue the conversation:** The demo covers further questions across each category:
+   * **Concept:** "What is grounding in Copilot?" (with how it works and its benefits)
+   * **Troubleshooting:** "Why is Copilot not responding correctly?" (common error types and how to resolve them)
+   * **Build guidance:** "How do I create a topic in Copilot Studio?" (seven steps, from opening Copilot Studio to publishing)
+   * **Best practices:** "What are the best practices for writing Copilot prompts?" (with an example prompt structure of goal, context, expectations and source)
+6. **Close politely:** Short replies such as "nice" or "great, thanks" get a brief "You're welcome."
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Teams**, the chat interface where employees interact with the agent.
-- **Microsoft Copilot Studio**, the platform used to build the agent's conversation flow and topics.
-- **A Model Context Protocol (MCP) connector ("Work IQ Teams MCP")**, used to access Teams-based data with explicit user consent.
-- **Knowledge grounding tied to official Microsoft documentation**, ensuring answers are sourced rather than generated from general assumptions.
-- **A large language model**, powering the agent's natural-language understanding and structured response generation.
-- **Topic-based conversation design**, organizing the agent's capabilities into defined categories (task-based, conceptual, troubleshooting, build guidance, best practices).
+| Component | Role |
+|---|---|
+| **AI agent** ("Your Guide to MS Copilot") | Understands the question and writes a structured, referenced answer |
+| **Microsoft Teams** | The chat interface, including the welcome card, suggested questions and consent prompt |
+| **Work IQ Teams MCP** | A connection the agent uses with the user's credentials, approved through a consent card (shown as preview) |
+| **Microsoft documentation** | The source of the answers, cited as reference links (for example Microsoft Learn and Copilot Studio documentation) |
 
-The agent is organized around distinct response types matched to distinct question types, rather than one generic answer style. A task-based question returns an actionable, numbered set of steps. A conceptual question returns an explanation with a "how it works" breakdown and stated benefits. A troubleshooting question returns a categorized list of likely causes, each with a specific resolution. Every response type shares one consistent trait, a citation back to real Microsoft documentation, so the agent's answers can be independently verified rather than taken purely on faith. When a question requires reaching into a connected data source, the agent surfaces the consent step explicitly rather than connecting silently, treating tool access as something the user actively approves.
+```mermaid
+flowchart LR
+    A[User asks a question<br/>in Teams] --> B[Your Guide to<br/>MS Copilot agent]
+    B -->|first use| C[Consent card<br/>Work IQ Teams MCP]
+    B --> D[Microsoft documentation]
+    D --> B
+    B --> E[Summary + steps<br/>+ reference links]
+```
+
+The platform used to build the agent and its configured knowledge sources are not shown in the demonstration.
+
+## 5. Controls & Validation
+
+* **User consent:** Before using the Work IQ Teams MCP connection, the agent asks the user to Allow or Cancel, and explains that connecting with their credentials may carry privacy and security risks
+* **Cited sources:** Each answer includes reference links to official Microsoft documentation, so users can check the information
+* **AI-generated labeling:** Responses are marked "AI generated" in Teams
+* **Consistent answer format:** Answers follow the same structure (summary, steps or explanation, reference and a follow-up offer)
+* **Guided scope:** The welcome card steers users toward the question types the agent is designed to answer
+* **Feedback:** Each response has thumbs up and thumbs down buttons for user feedback
+
+## 6. Business Value
+
+* **Faster adoption:** Employees get answers about Copilot when they need them, in the tool they already use
+* **Less support load:** Routine "how do I" and "what is" questions are handled by the agent
+* **Trustworthy answers:** Reference links let users confirm answers against Microsoft's documentation
+* **Consistency:** Every user receives the same quality and format of guidance
+* **Better user experience:** Suggested question types and clear, step-by-step answers make it easy for new users to start
+
+## 7. Skills Demonstrated
+
+* Digital adoption and change support analysis
+* AI agent design for knowledge and support scenarios
+* Conversation design, including welcome messages and suggested prompts
+* Grounding answers in official documentation with citations
+* Configuring a connection with user consent (Work IQ Teams MCP)
+* Publishing and testing an agent in Microsoft Teams
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Check source relevance:** Some answers about Microsoft 365 Copilot cite Microsoft Security Copilot pages (the troubleshooting error list and a prompting guide using Microsoft Defender XDR examples). Limiting knowledge sources to Microsoft 365 Copilot content would keep answers on topic.
+* **Explain the connection:** Tell users why the Work IQ Teams MCP connection is needed, especially when answers come from public documentation
+* **Clean up the greeting:** Fix "Hello Dillon Bac. . I'm here..." and the trailing "OR" before the suggested questions
+* **Organization-specific content:** Add internal guidance, such as approved agents, licensing and support contacts
+* **Hand-off to support:** Offer to raise a ticket or contact the IT team when the agent cannot resolve a problem
+* **Usage insights:** Track common questions and feedback to improve training materials
+
+---
+
+## Final Summary
+
+Your Guide to MS Copilot is an AI agent in Microsoft Teams that helps employees learn and use Microsoft Copilot. Users ask how-to, concept, troubleshooting, build and best-practice questions in plain language, and the agent returns structured, step-by-step answers with links to official Microsoft documentation. Suggested question types and a consent-based connection make it approachable and transparent, speeding up Copilot adoption and reducing routine support requests.
