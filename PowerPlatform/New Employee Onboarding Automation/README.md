@@ -106,6 +106,6 @@ The following are **potential future enhancements**, not existing functionality:
 
 ---
 
-## Portfolio Summary
+## Summary
 
 An automated onboarding workflow that turns a Microsoft Forms submission into a tracked SharePoint record and an approval request. Power Automate routes each new hire to an approver in Teams and Outlook. On approval, it creates an employee folder, sends a welcome email and checks equipment needs. On rejection, it updates the record and sends a notice. The solution gives HR a consistent, traceable starting point for every new hire.
