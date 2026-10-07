@@ -110,6 +110,6 @@ The following are **potential future enhancements**, not existing functionality:
 
 ---
 
-## Portfolio Summary
+## Summary
 
 An inventory management system for Kiddy Lah! Toy Shop, built as a Power Apps model-driven app on Microsoft Dataverse. Dashboards highlight stock levels and low-stock items, while a business process flow guides staff through raising, approving and closing inventory requests. A Power Automate approval flow sends each request to a manager in Teams or Outlook and records the outcome. The result is clear stock visibility and a consistent, traceable request process.
