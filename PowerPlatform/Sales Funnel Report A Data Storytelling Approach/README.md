@@ -1,47 +1,104 @@
 # Sales Funnel Report: A Data Storytelling Approach
 
-An interactive Power BI report that turns raw sales pipeline data into a clear, visual story, showing how leads move through each stage of the sales process, where they drop off, and how each salesperson is performing. This project focuses on data storytelling: choosing the right visuals to make a sales funnel genuinely easy to understand at a glance.
-
 ## 1. Project Overview
 
-This project is a Power BI report built around a sales team's pipeline: leads, presentations, offers, and contracts. Rather than presenting raw numbers in a table, the report tells the story of the sales process visually, showing how many opportunities enter at the top of the funnel, how many make it through each stage, and where the biggest drop-offs happen. It's fully interactive, letting anyone explore performance by salesperson or by time period without needing to ask for a custom report.
+This project is an interactive sales funnel report that follows prospects from the company list through to signed contracts. It shows how many prospects reach each stage, how conversion changes over time, and how each salesperson contributes to closed deals. A month filter and clickable charts let users focus on a period or a person and see the whole story update.
+
+* **Use case:** Tracking sales pipeline performance from prospecting to contract
+* **Intended audience:** Sales managers and sales teams reviewing pipeline health and individual performance
+* **Main technologies:** Microsoft Power BI (report canvas with funnel, column and area charts, a month slicer, and configured visual interactions)
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Sales teams live and die by their pipeline. Understanding how many leads are being generated, how many convert to presentations, how many of those become offers, and how many offers close as contracts is fundamental to running a sales organization. It shows not just how much revenue is coming, but where the process itself is losing opportunities. Sales leaders need this picture regularly, and ideally without waiting on a manually built report each time. Raw numbers don't tell a story, since a spreadsheet of lead counts doesn't make it obvious where the pipeline is leaking. Comparing salespeople is tedious without a report built specifically to make that comparison easy, trends over time are easy to miss when data is only ever looked at as a single snapshot, and manually rebuilding this view for every sales meeting or review is a repeated, avoidable effort.
+### Problem
 
-**The objectives:**
-- Visualize the sales pipeline as a clear funnel, from lead to contract.
-- Make it easy to see where prospects are dropping out of the pipeline.
-- Allow performance comparison across individual salespeople.
-- Show trends in pipeline activity over time, not just a single snapshot.
-- Make the whole report interactive and self-service, so anyone can explore the data themselves.
+Sales managers need to know where prospects drop out of the pipeline and who is converting them into contracts. When pipeline data sits in lists or spreadsheets, it is hard to see conversion rates between stages, weekly trends or differences between salespeople without building new analysis each time.
+
+### Objectives
+
+* Show the full sales funnel and the conversion rate at each stage
+* Show weekly trends for leads, presentations, offers and contracts
+* Compare contracts closed by each salesperson
+* Let users filter by month and drill into one salesperson's pipeline
+* Tell a clear story, from overall results down to individual performance
 
 ## 3. Solution
 
-A Power BI report titled "Sales Funnel Report" presents a Sales Funnel visual displaying the four key pipeline stages, Lead, Presentation, Offer, Contract, with both the count and percentage of opportunities remaining at each stage. A "Contract by Salesperson" bar chart compares how many contracts each salesperson has closed, and weekly trend charts for Leads, Presentations, Offers, and Contracts span a multi-month period, showing how pipeline activity changes week to week.
+The report is a single page built around five stages of the sales process:
 
-### What the Video Demonstrates
+* **Sales funnel:** Company list, Lead, Presentation, Offer and Contract, with counts and the percentage of the starting list at each stage. For example, across January to March, 134 companies lead to 20 contracts (15%).
+* **Contract by Salesperson:** A column chart of contracts per salesperson (Peter 6, Alex 5, Mary 5 and Viktor 4 for the full period)
+* **Weekly trend charts:** Separate area charts for Leads, Presentations, Offers and Contracts, by week from mid-January to late March
+* **Month slicer:** Buttons for January, February and March
 
-Clicking on an individual salesperson's bar instantly updates the funnel and trend charts to show that person's specific pipeline performance, rather than the whole team's, for salespeople including Peter, Alex, Mary, and Viktor. A period selector lets the viewer move between different timeframes, for example between February and March. A "Company list" element within the funnel visual allows a viewer to see or drill into the specific companies sitting at each stage of the pipeline, and the funnel shows percentages starting at 100% of leads and narrowing down to a smaller percentage of contracts, making drop-off immediately visible.
+### End-to-End Workflow
 
-### End-to-End Workflow, Step by Step
-
-1. **View the overall funnel.** The report opens showing the full sales funnel, from Lead through to Contract, for the whole team.
-2. **Identify drop-off points.** The percentages at each stage make it immediately clear where the biggest losses in the pipeline occur.
-3. **Compare salespeople.** The Contract by Salesperson chart shows who is closing the most deals.
-4. **Filter to an individual.** Clicking on a specific salesperson updates the entire report to reflect just their pipeline.
-5. **Explore trends over time.** The weekly charts show whether activity at each stage is growing, shrinking, or holding steady.
-6. **Adjust the time period.** The period selector lets the viewer move between different months to compare performance over time.
-7. **Drill into specifics.** The company list lets a viewer see exactly which companies are sitting at a given pipeline stage.
+1. **See the overall story:** With all three months selected, the user sees the complete funnel, total contracts per salesperson and weekly activity for each stage.
+2. **Filter by period:** Selecting January and February only updates the funnel (103 companies, 5 contracts, 5%), the salesperson chart and the trend lines. Contracts only begin to appear in the second half of February.
+3. **Drill into a salesperson:** Clicking a salesperson filters the funnel and the trend charts to that person's pipeline. For example, Mary over the full period has a company list of 40, 14 leads, 10 presentations, 8 offers and 5 contracts.
+4. **Compare people:** Switching between salespeople shows how each one's pipeline differs. For January and February, Alex has 26 companies, 16 leads, 12 presentations and 5 offers, while Viktor has 24 companies, 8 leads, 4 presentations and 3 offers.
+5. **Hover for detail:** Tooltips give exact values, such as "Salesperson: Viktor, Sum of Contract: 1".
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Power BI Desktop**, used to build and present the report.
-- An underlying **sales pipeline dataset**, covering leads, presentations, offers, contracts, salespeople, and dates.
-- **Funnel chart visualization**, for representing the multi-stage sales pipeline.
-- **Interactive cross-filtering**, so selecting a salesperson updates every visual on the report.
-- **Time-series (trend) charts**, for showing pipeline activity by week.
-- **Drill-through and detail navigation**, for viewing the specific companies behind the summary numbers.
+| Component | Role |
+|---|---|
+| **Microsoft Power BI** | Report authoring and the interactive report page |
+| **Funnel chart** | Shows the count and conversion percentage at each sales stage |
+| **Column chart** | Compares contracts by salesperson and acts as a filter for the rest of the page |
+| **Area charts** | Show weekly trends for leads, presentations, offers and contracts |
+| **Month slicer** | Filters the report by January, February or March |
+| **Edit interactions** | Configured so the slicer and the salesperson chart control how the other visuals filter |
 
-While this isn't a process automation project, it relies on the same underlying principle that makes good BI reports work: metrics are calculated once, as reusable measures, and automatically recalculate based on whatever filters are applied. Selecting a salesperson doesn't require rebuilding the report. The funnel, the trend charts, and the percentages all update together, instantly, because they're all built from the same underlying logic. This is what turns a static picture of the sales pipeline into something genuinely explorable.
+```mermaid
+flowchart LR
+    A[Month slicer] --> D[Sales funnel]
+    A --> E[Weekly trend charts]
+    A --> B[Contract by<br/>Salesperson]
+    B -->|click a salesperson| D
+    B -->|click a salesperson| E
+```
+
+The original data source is not shown in the demonstration.
+
+## 5. Controls & Validation
+
+This is a reporting solution, so it does not include data entry, approvals or exception handling. The controls that are demonstrated are:
+
+* **Configured visual interactions:** Visual interactions are set up deliberately (shown in edit interactions mode), so the slicer and salesperson chart filter the funnel and trend charts as intended
+* **Consistent stage definitions:** Each funnel stage is shown as a count and as a percentage of the starting company list, so conversion is measured the same way for every filter
+* **Synchronized views:** The funnel, salesperson chart and trend lines always reflect the same month and salesperson selection
+
+## 6. Business Value
+
+* **Pipeline visibility:** Managers can see at a glance where prospects drop out between stages
+* **Performance insight:** Contracts and conversion by salesperson highlight strong performers and where coaching may help
+* **Trend awareness:** Weekly charts show when activity rises or falls at each stage
+* **Faster analysis:** Filtering by month or salesperson takes one click, with no new reports
+* **Clear storytelling:** The layout moves from the overall funnel to individual results, which makes the report easy to present
+
+## 7. Skills Demonstrated
+
+* Sales process analysis and funnel stage definition
+* Power BI report design with a data storytelling layout
+* Funnel, column and area chart design
+* Slicers and cross-filtering for drill-down analysis
+* Configuring visual interactions (edit interactions)
+* Conversion rate reporting
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Fix the label:** Correct the "Presetation" stage label to "Presentation"
+* **Stage-to-stage conversion:** Show conversion from each stage to the next, not only as a share of the company list
+* **Targets:** Add contract targets per salesperson and per month, and show performance against them
+* **Deal value:** Add revenue or deal size so the funnel shows value as well as counts
+* **Time in stage:** Show how long prospects stay at each stage to spot bottlenecks
+* **Publishing:** Publish to the Power BI Service with scheduled refresh for the sales team
+
+---
+
+## Final Summary
+
+The Sales Funnel Report uses Power BI and a data storytelling layout to show how prospects move from the company list to signed contracts. A funnel chart shows counts and conversion at each stage, weekly area charts track leads, presentations, offers and contracts, and a column chart compares contracts by salesperson. A month slicer and clickable charts let managers drill into any period or person to see where deals are won or lost.
