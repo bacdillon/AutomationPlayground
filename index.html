@@ -932,15 +932,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b> 
-This idea in practice, across two examples.<br>
-The first video builds an Excel file holds the settings, the folder 
-paths and an email address and a shared, reusable subflow reads them at the start of 
-every run, rather than those values being typed directly into the automation's steps. 
-<br>
-The second video make use of reusable config file, that opens a banking website to
-calls the configuration, loading subflow, this time reading a website URL 
-instead of folder paths. Two videos show both how to build a reusable configuration file 
-and how to actually reuse it across separate automation projects.                                
+                            This project shows how to keep an automation's settings outside the automation itself. Folder paths and the notification email address are stored in an Excel configuration file, with separate settings for each environment, and loaded into the flow at runtime. To show the pattern in use, the flow sorts a folder of mixed files into Documents, Text and Pictures folders by file type, then emails a confirmation once the clean-up is done.                         
                             </p>
 
                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/A%20Reusable%20Configuration%20File/README.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
