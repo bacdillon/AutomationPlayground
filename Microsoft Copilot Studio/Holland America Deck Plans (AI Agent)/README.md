@@ -1,43 +1,104 @@
-# Holland America Deck Plans (AI Agent)
-
-A conversational AI agent, built on Microsoft Copilot Studio, that answers detailed questions about Holland America cruise ship layouts, where things are, how to get between them, and whether a specific cabin meets a guest's needs, all grounded in the cruise line's actual deck plan documentation.
+# Holland America Deck Plans Agent
 
 ## 1. Project Overview
 
-This project is a working AI assistant for cruise ship navigation and cabin selection. Rather than guests scrolling through static deck plan PDFs or maps, they can simply ask the agent a question, "Which deck is the casino on?", "How do I get from there to the sport court?", "Is cabin VC6154 wheelchair accessible?", and get a clear, accurate answer sourced directly from the ship's official deck plan documentation.
+The Holland America Deck Plans Agent is a conversational AI agent that answers questions about the layout of Holland America Line cruise ships. Guests can ask where a venue is, how to get from one place to another on board, or whether a specific stateroom meets their needs, and the agent replies with clear answers based on deck plan sources, with references.
+
+* **Use case:** Answering ship layout, venue location and stateroom questions for cruise guests
+* **Intended audience:** Cruise guests planning or taking a trip, and the travel advisors or guest services staff who help them
+* **Main technologies:** Microsoft Copilot Studio (agent "Holland America Deck Plans") with GPT-4.1 as the agent's model, grounded in deck plan knowledge sources
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Cruise ships are large, complex vessels with dozens of decks, hundreds of cabins, and a wide range of dining, entertainment, and recreation venues. Guests booking a cruise, or already onboard, often need quick answers about where things are, how to get between them, or whether a specific cabin suits their needs, location preference, accessibility, proximity to elevators, and so on. Traditionally, this means digging through a static deck plan PDF or asking staff directly. Static plans require manual interpretation, since a guest has to visually scan a deck-by-deck diagram to find a specific venue or work out how two locations relate to each other. Cabin-specific questions are hard to self-serve, since knowing whether a specific cabin number is accessible, quiet, or well-located isn't obvious from a deck map alone. Wayfinding between venues isn't provided at all. A deck plan shows what's where, but not how to actually walk from one place to another. Staff time is also spent on repetitive, answerable questions that a well-informed assistant could handle directly.
+### Problem
 
-**The objectives:**
-- Let guests ask natural-language questions about ship layouts and get accurate, specific answers.
-- Ground every answer in the cruise line's actual deck plan documentation, not general assumptions.
-- Provide practical wayfinding guidance between venues, not just static location facts.
-- Support specific cabin-level questions, including accessibility.
-- Help guests choose the right stateroom based on their personal preferences.
+Deck plans contain a lot of detail. Finding the right deck for a venue, working out a route between two places, or checking whether a cabin is accessible usually means reading through large diagrams and cabin legends. Guests often end up asking guest services or travel advisors the same questions again and again.
+
+### Objectives
+
+* Answer ship layout questions in plain language
+* Give step-by-step directions between places on board
+* Help guests check stateroom details, such as cabin category and accessibility
+* Base answers on official deck plan sources and show references
+* Keep the agent focused on deck plan and stateroom topics
 
 ## 3. Solution
 
-The "Holland America Deck Plans" agent, built in Microsoft Copilot Studio, is described in its own configuration as a tool to help guests choose ideal staterooms, locate key amenities, and navigate the ship easily. The agent is configured to answer questions about deck layouts, explain cabin types (Oceanview, Verandah, Suites), guide stateroom selection based on preferences, detail public spaces by deck, differentiate between ship classes, and offer cabin-selection and motion-sensitivity tips, grounded in official Holland America documentation for the ship Rotterdam.
+The agent's instructions define its scope:
 
-### What the Video Demonstrates
+* Answer questions about deck layouts on Holland America ships
+* Explain cabin types and their locations (for example Oceanview, Verandah and Suites)
+* Guide users to choose ideal staterooms based on preferences (quiet, mid-ship, near elevators)
+* Provide details about public spaces such as pools, restaurants, theaters and lounges by deck
+* Differentiate between ship classes (for example Pinnacle and Signature Class)
+* Offer general tips on cabin selection and motion sensitivity
 
-A direct location question, "Which deck is the casino on the Rotterdam?", is answered with the specific deck, along with other venues sharing that deck. A multi-step navigation request, "How do I get to the sport court from there?", has the agent work out the route between two different decks and provide clear, step-by-step directions, including practical tips about elevators and stairwells. A "nearest venue" query, "What is the closest bar to the sea view pool?", is answered with the specific bar, its deck, and a short description. A specific cabin accessibility check, "Is room VC6154 a handicap accessible room?", has the agent correctly identify the cabin type and deck, confirm it is not listed as an accessible stateroom according to the official deck plan legend, and offer to provide a list of cabins that are. Each answer is clearly grounded in named source references, specific deck plan documents, which are cited alongside the response.
+### End-to-End Workflow
 
-### End-to-End Workflow, Step by Step
+1. **Ask about a venue:** The user asks, "Which deck is the casino on the Rotterdam?" The agent answers that the casino is on the Promenade Deck (Deck 3), describes what it offers, lists other public spaces on that deck, and cites a Rotterdam deck 3 plan.
+2. **Ask for directions:** The user follows up with "How do I get to the sport court from there?" The agent uses the earlier context and gives step-by-step directions from the casino on Deck 3 to the Sport Court on the Sun Deck (Deck 12), with tips on using the elevators and stairwells.
+3. **Ask about nearby amenities:** The user asks for the closest bar to the Sea View Pool, and the agent responds with an answer titled "Closest Bar to the Sea View Pool on Rotterdam".
+4. **Check a stateroom:** The user asks, "Is room VC6154 a handicap accessible room?" The agent explains that VC6154 is a Category VC Verandah Stateroom on the Mozart Deck and is not an accessible room, notes that accessible staterooms are listed separately in the deck plan legend, and offers to list accessible cabins instead. This answer cites two references.
 
-1. **Ask a question.** The guest asks about a venue, deck, cabin, or how to get somewhere on the ship.
-2. **Retrieve the relevant information.** The agent searches its grounded knowledge sources, the ship's official deck plan documentation, for the relevant details.
-3. **Reason through the answer.** For simple lookups, the agent returns the specific fact directly. For more complex requests, like directions between two venues, it works out the relevant decks and route.
-4. **Respond clearly.** The agent presents the answer in plain language, citing the specific source documents it drew from.
-5. **Offer relevant next steps.** The agent proactively offers to help further, for example suggesting a list of accessible cabins after confirming one specific cabin isn't accessible.
+Each answer is marked "Based on official sources" and shows the references it used.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Copilot Studio**, the platform used to build and run the AI agent.
-- **Holland America's official deck plan documentation**, the grounded knowledge source the agent draws its answers from.
-- **A large language model (GPT-4.1)**, powering the agent's understanding and reasoning.
-- **Knowledge grounding and retrieval**, connecting the agent to specific, official deck plan source documents, with citations returned alongside answers.
+| Component | Role |
+|---|---|
+| **Microsoft Copilot Studio** | Platform used to build and test the agent, including its description, instructions and knowledge |
+| **GPT-4.1** | The agent's model for understanding questions and generating responses |
+| **Knowledge sources** | Deck plan and cabin pages for the ship (for example "Rotterdam Deck Plans" and "Rotterdam Cabin VC6154"), used to ground answers and shown as references |
+| **Agent instructions** | Define the topics the agent covers and how it should help guests |
 
-The agent's core logic is retrieval-grounded reasoning: rather than generating answers from general knowledge, it searches its connected deck plan documentation for the relevant facts, then reasons over them to answer the actual question asked. This distinction matters for the multi-step navigation question, where the agent doesn't just report where two venues are located. It works out a sensible route between them, via elevators or stairwells, and explains it step by step. Similarly, for the cabin accessibility question, it doesn't just describe the cabin. It specifically checks whether that cabin number appears in the deck plan's accessible-cabin listing before answering. Its AI capabilities include grounded knowledge retrieval, with every factual answer sourced from actual documentation and citations returned for verification, multi-step reasoning for navigation, synthesizing a practical route between two locations across different decks, precise specific lookups down to an individual cabin number, and proactive follow-up suggestions after answering a specific question.
+```mermaid
+flowchart LR
+    A[Guest question] --> B[Copilot Studio agent<br/>GPT-4.1]
+    B --> C[Deck plan and cabin<br/>knowledge sources]
+    C --> B
+    B --> D[Answer with deck, directions<br/>or cabin details + references]
+```
+
+The exact knowledge source configuration (the Knowledge tab) is not opened in the demonstration.
+
+## 5. Controls & Validation
+
+* **Grounded answers:** Responses are marked "Based on official sources" and include numbered references to the deck plan pages used
+* **Defined scope:** The instructions limit the agent to deck layouts, cabins, public spaces, ship classes and cabin selection tips
+* **Context awareness:** Follow-up questions such as "from there" are answered using the earlier conversation
+* **Clear, cautious answers:** For the accessibility question, the agent explains how accessible rooms are identified in the deck plan legend and offers alternatives
+* **Testing:** The agent is tested in Copilot Studio's "Test your agent" pane, with thumbs up and thumbs down feedback on each response
+
+## 6. Business Value
+
+* **Faster answers for guests:** Layout and cabin questions are answered in seconds, at any time
+* **Less load on staff:** Routine "where is" and "which deck" questions no longer need a person
+* **Better planning:** Guests can check stateroom details, such as accessibility, before booking
+* **Trustworthy information:** References let users check each answer against the source
+* **Better onboard experience:** Step-by-step directions make a large ship easier to navigate
+
+## 7. Skills Demonstrated
+
+* Customer service and guest experience analysis
+* AI agent design in Microsoft Copilot Studio
+* Writing agent instructions to define scope and behavior
+* Grounding an agent in knowledge sources with citations
+* Multi-turn conversation design that keeps context
+* Testing an agent with realistic guest questions
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **More ships:** Add deck plans for other ships in the fleet, and let users choose the ship at the start of the chat
+* **Accessible cabin list:** Return a list of accessible staterooms by category and deck when asked
+* **Visual deck maps:** Show the relevant part of the deck plan image alongside the answer
+* **Preference-based recommendations:** Ask about budget, location and motion sensitivity, then suggest suitable staterooms
+* **Publish to a channel:** Deploy the agent to a website or Teams so guests or advisors can use it outside the test pane
+* **Clarify affiliation:** As a portfolio project using a real cruise line's name and logo, add a note that it is a personal demonstration and not an official Holland America Line service
+
+---
+
+## Final Summary
+
+The Holland America Deck Plans Agent is a Copilot Studio AI agent, powered by GPT-4.1, that helps cruise guests understand ship layouts. It answers questions such as which deck a venue is on, how to get between two places on board, and whether a stateroom is accessible, with every answer grounded in deck plan sources and shown with references. The agent gives guests fast, reliable answers and reduces routine questions for staff.
