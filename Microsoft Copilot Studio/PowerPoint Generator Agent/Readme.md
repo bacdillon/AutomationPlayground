@@ -1,47 +1,114 @@
 # PowerPoint Generator Agent
 
-An AI agent, built on Microsoft Copilot Studio, that generates PowerPoint documents, certificates, reports, and proposals, from a simple chat request. Ask it in plain language, or hand it a spreadsheet of names, and it produces a properly formatted PowerPoint file for each one, ready to download, with no manual copy-pasting into a template required.
-
 ## 1. Project Overview
 
-This project is a working AI agent that turns a natural-language request into a finished PowerPoint document. In the demonstration, it's used to generate certificates of completion. The user simply describes who the certificate is for, and the agent fills in a template, saves the finished file, and hands back a download link. It also handles bulk generation: given a spreadsheet listing multiple people, it produces an individual, correctly personalized PowerPoint file for every row, automatically.
+The PowerPoint Generator Agent is a conversational AI agent that creates certificates of completion as PowerPoint files. A user describes what they need in plain language, or uploads a list of students in Excel, and the agent fills in a certificate template for each person, saves the file to SharePoint and returns a download link in the chat.
+
+* **Use case:** Generating personalized certificates of completion for course participants
+* **Intended audience:** Training coordinators, academies and HR or learning teams who issue certificates
+* **Main technologies:** Microsoft Copilot Studio (agent "PowerPoint Generator Agent"), Claude Sonnet 4.6 as the agent's model, an agent flow ("Generate New Certificate"), a PowerPoint template and SharePoint
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Many businesses regularly need to produce personalized documents from a template, training certificates, client proposals, status reports, where the layout stays the same but the details change each time, a name, a course, a date, a set of figures. Doing this by hand means opening a template, manually typing in the right details, saving it under the right name, and repeating that for every person or every report. It's simple work, but it adds up quickly when there are many to produce. Repetitive manual editing, copying a template and retyping the same few fields over and over, is one recurring friction. So is the risk of small mistakes, since a misspelled name or wrong course title is an easy slip when doing this manually at volume. There's no simple way to batch-produce documents either. Generating one certificate is easy enough by hand; generating fifty at once, correctly and consistently, is not. Document generation is also disconnected from where the request originates, since someone has to translate "please create a certificate for these five people" into actual file-by-file work themselves.
+### Problem
 
-**The objectives:**
-- Let a user request a finished PowerPoint document simply by describing what they need in plain language.
-- Automatically fill a PowerPoint template with the correct, specific details for each request.
-- Save the finished file to a shared, accessible location and return a usable link.
-- Support bulk generation from a spreadsheet, producing one correctly personalized file per row.
-- Remove manual document editing from a repetitive, template-based task entirely.
+Preparing certificates by hand means opening a template, typing each student's name, the course, the instructor and the date, then saving and sharing each file. For a full class this is slow and repetitive, and it is easy to make typing mistakes or miss someone.
+
+### Objectives
+
+* Create certificates from a simple chat request
+* Produce a whole class's certificates from one uploaded list
+* Use a consistent, branded template for every certificate
+* Store the files in SharePoint and give the user a link to each one
+* Remove manual editing of PowerPoint files
 
 ## 3. Solution
 
-The "PowerPoint Generator Agent," built in Microsoft Copilot Studio, is described as an automated document generation Copilot agent that creates PowerPoint presentations such as certificates, reports, and proposals, using templates and structured data. Its core capability is a single, reusable tool, "Generate New Certificate," that takes three pieces of information, student name, course name, instructor name, and produces one finished PowerPoint file.
+The agent's description sets out the approach: it uses an agent flow to get the PowerPoint template, feeds the inputs into a prompt action, saves the output file to SharePoint and returns the file path to the chat. Its instructions tell it to run the **Generate New Certificate** tool when a certificate of completion is requested.
 
-### What the Video Demonstrates
+The tool takes three inputs (Course Name, Instructor Name and Student Name) and returns the file's full SharePoint path.
 
-For single document generation, the user types a natural-language request, "Create a new certificate for Nellie Nam's successful completion of AB-730 Microsoft 365 for Business Users instructed by Dr. Julien Bashir." The agent runs its "Generate New Certificate" tool, correctly extracting the student name, course name, and instructor name from the sentence, generates the certificate, and replies with a summary and a working download link. The resulting PowerPoint file is opened directly to confirm the certificate was generated correctly, with the right name merged into the template. For bulk document generation, the user asks the agent to "create a new certificate for the students" and uploads a spreadsheet, "Students.xlsx," listing multiple students for the same course and instructor. The agent reads the spreadsheet and automatically runs the certificate-generation tool once for each student listed, the video shows it processing Ethan Tan, Chloe Lim, Daniel Wong, Sophia Lee, and Ryan Koh, producing a separate, correctly personalized PowerPoint certificate for every person, each one verified afterward by opening the generated file.
+### End-to-End Workflow
 
-### End-to-End Workflow, Step by Step
+**Single certificate**
 
-1. **Make a request.** The user describes what document they need in plain language, or uploads a spreadsheet listing multiple people who need the same type of document.
-2. **The agent interprets the request.** It identifies the relevant details, such as student name, course, and instructor, either from the sentence itself or from each row of an uploaded spreadsheet.
-3. **The document is generated.** For each request, or each row in a bulk scenario, the agent runs a dedicated generation tool that merges the specific details into a PowerPoint template.
-4. **The file is saved.** The completed PowerPoint file is saved to a shared location (SharePoint), rather than staying local to the conversation.
-5. **A link is returned.** The agent responds with a summary of what was generated and a direct download link for each file.
-6. **The user retrieves the result.** The finished PowerPoint document can be downloaded and opened immediately, fully personalized and ready to use.
+1. **Request:** The user asks in plain language, for example "Create a new certificate for Nellie Nam's successful completion of AB-730 Microsoft 365 for Business Users instructed by Dr. Julien Bashir."
+2. **Extract the details:** The agent picks out the student, course and instructor from the message and passes them to the flow.
+3. **Generate:** The flow fills in the template and saves the PowerPoint file to SharePoint. It completed in about 4 seconds in the demo.
+4. **Return the link:** The agent confirms the details and gives a "Download Certificate" link.
+5. **Result:** The downloaded file is a "Copilot Academy Certificate of Completion" showing the student's name, the course, the instructor and the completion date.
+
+**Batch of certificates**
+
+1. **Upload a list:** The user asks the agent to "Create a new certificate for the students" and attaches **Students.xlsx**.
+2. **Run for each student:** The agent reads the list and runs the flow once per student (5 runs in the demo, for Ethan Tan, Chloe Lim, Daniel Wong, Sophia Lee and Ryan Koh).
+3. **Summarize:** The agent returns a table with each student's name, course, instructor and a download link to their certificate.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Copilot Studio**, the platform used to build and run the AI agent.
-- **Microsoft PowerPoint**, the format of the generated documents, and used to verify the output.
-- **SharePoint and OneDrive**, where generated files are saved and made available for download.
-- **Microsoft Excel**, the format used for bulk input, a spreadsheet listing multiple people or requests.
-- **Claude Sonnet**, the large language model powering the agent's understanding of natural-language requests and its responses.
-- **An agent flow (Power Automate)**, the underlying automation that retrieves the PowerPoint template, merges in the provided data via a prompt action, saves the result to SharePoint, and returns the file path.
-- **Structured data extraction**, pulling specific fields (name, course, instructor) out of both natural-language sentences and spreadsheet rows.
+| Component | Role |
+|---|---|
+| **Microsoft Copilot Studio** | Platform used to build, test and publish the agent, including its description, instructions and tools |
+| **Claude Sonnet 4.6** | The agent's model for understanding requests, extracting details and writing responses |
+| **Agent flow** ("Generate New Certificate") | Takes the course, instructor and student names, creates the certificate and returns its file path |
+| **PowerPoint template** | The certificate design (Copilot Academy branding, with placeholders for name, course, instructor and date) |
+| **SharePoint** | Stores the generated certificate files and provides the download links |
+| **Excel** (`Students.xlsx`) | Optional input listing the students for batch generation |
 
-For a single request, the agent extracts the three required details directly from the user's sentence and calls the generation tool once. For a bulk request, the agent instead reads an uploaded spreadsheet and calls the exact same tool once per row, reusing the same template-filling logic without needing any different setup. This means the underlying generation logic doesn't need to know or care whether it's handling one request or fifty. That distinction is handled entirely by how the agent chooses to call the tool. Its AI capabilities include natural language understanding, correctly extracting specific structured fields from a single, ordinary sentence, document understanding for bulk input, correctly identifying each spreadsheet row as a separate request, tool orchestration, knowing when and how to invoke its document-generation tool, and clear, grounded responses that restate the specific details used and provide a direct, working link to the actual generated file.
+```mermaid
+flowchart LR
+    A[Chat request<br/>or Students.xlsx] --> B[Copilot Studio agent<br/>Claude Sonnet 4.6]
+    B -->|course, instructor, student| C[Generate New Certificate<br/>agent flow]
+    C --> D[PowerPoint template<br/>filled in]
+    D --> E[Saved to SharePoint]
+    E -->|file path| B
+    B --> F[Download link<br/>in the chat]
+```
+
+The internal steps of the agent flow are not opened in the demonstration. The template, prompt action and save-to-SharePoint steps are described in the agent's description.
+
+## 5. Controls & Validation
+
+* **Defined tool use:** The agent's instructions say exactly when to run the certificate tool, so requests are handled consistently
+* **Structured inputs:** The flow takes three named text inputs, so every certificate uses the same fields
+* **Confirmation of details:** The agent repeats the student, course and instructor in its reply, so the user can check them before sharing the file
+* **Consistent template:** Every certificate is generated from the same PowerPoint design
+* **Traceable output:** Each run returns a SharePoint file path, and the test pane shows every flow run with its inputs, outputs, status and duration
+* **Testing before release:** The agent is tested in Copilot Studio's "Test your agent" pane, and the page shows a publish date of 9 May 2026
+
+## 6. Business Value
+
+* **Less manual work:** Certificates are created without opening or editing PowerPoint
+* **Faster batch processing:** A whole class's certificates come from one uploaded list
+* **Consistency:** Every certificate follows the same branded layout
+* **Fewer errors:** Names and course details come straight from the request or the list, not retyped
+* **Easy access:** Files are stored centrally in SharePoint, with direct download links
+
+## 7. Skills Demonstrated
+
+* Process analysis for document generation in training and learning teams
+* AI agent design in Microsoft Copilot Studio
+* Writing agent descriptions and instructions that control tool use
+* Building an agent flow with typed inputs and outputs
+* Document generation from a PowerPoint template
+* SharePoint integration for file storage and sharing
+* Batch processing from an uploaded Excel file
+* Testing agent and flow behavior with run details
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Fix the tool name:** The flow is named "Generate New Cetificate", which should be corrected to "Certificate"
+* **Custom completion date:** Add the date as an input instead of always using the run date
+* **PDF output:** Save a PDF copy so certificates cannot be edited after they are issued
+* **Email delivery:** Send each certificate directly to the student
+* **Input checks:** Confirm missing or unclear details (for example, a missing instructor name) before generating
+* **Wider table layout:** The batch summary table wraps text into narrow columns in the chat, so a simpler list or adaptive card would be easier to read
+* **More templates:** Support other documents, such as reports or proposals, which the agent's description already mentions
+
+---
+
+## Final Summary
+
+The PowerPoint Generator Agent is a Copilot Studio AI agent, powered by Claude Sonnet 4.6, that turns a chat request into finished certificates of completion. An agent flow fills a branded PowerPoint template with the student, course and instructor details, saves the file to SharePoint and returns a download link. Users can create one certificate from a sentence, or a whole class from an Excel list, with no manual PowerPoint editing.
