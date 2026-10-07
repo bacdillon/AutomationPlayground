@@ -1,51 +1,104 @@
-# Event Proposal Approval and Notification
+# Event Proposal Approval & Notification
 
 ## 1. Project Overview
 
-This project automates how a community organization, "Pedal Paradise," a cycling club, reviews and approves proposals for new events and activities. A Power Automate flow, "New Event Activities Flow," triggers the moment someone submits a new event proposal to a SharePoint list, routes it to a designated approver through Microsoft Teams Approvals, and automatically posts a notification to a shared Teams channel once a decision is made. This closes the loop from submission to team-wide visibility without any manual chasing.
+This project automates the review of event and activity proposals for **Pedal Paradise**, a cycling business with its own SharePoint team site. Staff submit a proposal as an item in a SharePoint list. This starts an approval workflow that sends the request to an approver in Microsoft Teams and Outlook, records the decision against the proposal, and posts a notification to a Teams channel.
+
+* **Use case:** Approving proposed events and activities such as workshops, group rides, safety days and cycling challenges
+* **Intended audience:** Staff who plan events, and the manager or coordinator who approves them
+* **Main technologies:** Microsoft SharePoint Online, Power Automate (cloud flow with Approvals), Microsoft Teams and Outlook
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Organizing events and activities usually involves someone submitting a proposal, with a date, venue, budget, and supporting details, that then needs a manager or committee member's sign-off before it can proceed. Handled manually, this means emailing a proposal document, waiting for a reply, and separately telling the rest of the team once a decision is made. Each of these steps is a place where things get delayed, lost, or simply forgotten.
+### Problem
 
-**The objectives:**
-- Automatically start an approval request the moment a new event proposal is submitted.
-- Route the request to the right approver through a tool they already use daily, Microsoft Teams.
-- Capture a clear, structured decision (Approve or Reject) along with any approver comments.
-- Automatically notify the wider team once a final decision has been made, without requiring the approver or submitter to do it manually.
-- Keep a single, authoritative record of every proposal's status in one place.
+Event proposals involve budget, venue, participant numbers and sometimes external speakers, so they need a decision before going ahead. Without a defined process, proposals tend to be sent by email or chat, decisions are hard to trace, and the team may not know which events have been approved.
+
+### Objectives
+
+* Capture every proposal in one structured register with consistent fields
+* Send each new proposal to an approver automatically
+* Let the approver decide quickly from Teams or email, with the full details in front of them
+* Record the approval status against each proposal
+* Keep the team informed through a shared Teams channel
 
 ## 3. Solution
 
-A Power Automate flow triggers on a SharePoint list called "Event Activities." Every new item, an event proposal with its date, venue, budget, and a supporting document, automatically starts a Microsoft Teams Approval request, sent directly to a named approver. The approver reviews the proposal, including opening the attached supporting document such as a safety inspection guide, and responds Approve or Reject from within Teams. Based on the outcome, the flow updates the SharePoint list item's status and posts a notification message to a shared Teams channel, so the whole team sees the outcome without needing to check the list themselves.
+The **Event Activities** list on the Pedal Paradise SharePoint site works as the proposal register. It holds event name, event date, venue, participants, external speaker, budget, proposal reference, submitter, approval status and approver comments, and supporting documents can be attached. A Power Automate flow watches the list and handles the approval from start to finish.
 
-### What the Video Demonstrates
+### End-to-End Workflow
 
-The video shows the flow's design in Power Automate alongside a live demonstration:
-
-- The flow's structure: a trigger on "When an item is created" in the "Event Activities" SharePoint list, followed by "Start and wait for an approval" (Approve or Reject, first to respond), configured with the event's key details (event or activity name, budget, event date, submitted by, and a link back to the SharePoint item) shown to the approver.
-- A live walkthrough of submitting a new proposal, "Bike Safety Inspection Day," scheduled for 14 November 2026 at the "Pedal Paradise Workshop," with 60 participants and a $1,000.00 budget, including searching for and selecting the submitter from the organization directory, and attaching a supporting PDF document, a detailed cycling safety inspection guide, shown being reviewed directly in Adobe Acrobat.
-- The existing "Event Activities" list, showing several prior proposals already carrying a status of Approved, Rejected, or Pending, confirming this flow has been used repeatedly, not just for this one demo.
-- The flow being tested and run, followed by the approval request landing in Microsoft Teams' Approvals inbox, alongside a history of prior approval requests, including ones for a different but related process, customer approvals, showing the same pattern reused elsewhere.
-- A final notification posted to a shared Teams channel: "A new proposal has submitted for approval: Pedal Paradise Appreciation Ride," followed by "Final status: Approved," confirming the end-to-end notification step working as designed.
-
-### End-to-End Workflow, Step by Step
-
-1. **A new proposal is submitted.** Someone adds a new item to the "Event Activities" SharePoint list, filling in the event name, date, venue, participant count, budget, and attaching a supporting proposal document.
-2. **The flow triggers automatically.** Power Automate detects the new item and starts the approval process without any manual step.
-3. **An approval request is sent.** The designated approver receives a structured request in Microsoft Teams, showing the event's key details and a link back to the full item.
-4. **The approver reviews and decides.** They can open the attached proposal document for full context, then respond Approve or Reject, optionally adding a comment.
-5. **The flow checks the outcome.** A condition checks whether the response was "Approve."
-6. **The SharePoint list is updated.** The item's Approval Status field is updated to reflect the decision.
-7. **The team is notified.** A message is posted automatically to a shared Teams channel, announcing the proposal and its final status, so the whole team stays informed without needing to check the list directly.
+1. **Submit:** A staff member creates a new item in the Event Activities list, fills in the event details and attaches the proposal document (for example, a Cycling Safety Inspection Day guide in PDF). The approval status starts as *Pending*.
+2. **Trigger:** The flow starts automatically when the item is created.
+3. **Request approval:** The flow sends an Approve/Reject request titled "Do you want to approve this proposal?". The request includes the event name, budget, event date, submitter and a link back to the SharePoint item.
+4. **Review:** The approver sees the request in the Teams Approvals app and in Outlook. They can open the item, add comments and approve or reject.
+5. **Evaluate outcome:** A condition step checks whether the outcome equals *Approve* and follows the matching branch.
+6. **Record decision:** The proposal's Approval Status in SharePoint changes from *Pending* to *Approved* (or *Rejected*), so the register always shows the current state.
+7. **Notify:** The flow posts a message with the proposal details (event, date, venue, participants, proposal document and budget) to the team's Teams channel. The requester also receives a final status notification by email and in Teams.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft SharePoint**, hosting the "Event Activities" list, the system of record for every proposal and its current status.
-- **Microsoft Power Automate (cloud flow)**, orchestrating the entire process, triggered by the SharePoint "When an item is created" event.
-- **Microsoft Teams Approvals**, using the "Start and wait for an approval" action (Approve or Reject, first to respond), delivering the request directly into the approver's Teams client.
-- **Microsoft Teams channel messaging**, using the "Post message in a chat or channel" action to broadcast the final outcome to a shared channel ("Alfred Bot Channel").
-- **A condition checking whether Outcome equals Approve**, which branches the flow's downstream behaviour based on the approver's decision.
+| Component | Role |
+|---|---|
+| **SharePoint Online (Event Activities list)** | Proposal register and data store. Typed columns cover number, currency, yes/no, person and choice fields, plus attachments for proposal documents. |
+| **SharePoint site page** | Pedal Paradise team site with news, event listings and a route map, giving context for the events being proposed |
+| **Power Automate cloud flow** | "New Event Activities Flow": the trigger, approval, condition and notification logic |
+| **Power Automate Approvals** | Sends the Approve/Reject request, waits for a response and returns the outcome, approver, timestamps and comments |
+| **Microsoft Teams** | Approvals app for reviewing and responding, and a team channel for workflow notifications |
+| **Outlook** | Approval request and final status emails |
 
-The proposal itself, submitted as an attached document such as a PDF safety inspection guide, travels with the SharePoint list item, so the approver has full supporting context available directly from the approval request.
+```mermaid
+flowchart LR
+    A[Staff submits proposal<br/>SharePoint list item] --> B[Power Automate<br/>When an item is created]
+    B --> C[Start and wait<br/>for an approval]
+    C --> D{Outcome =<br/>Approve?}
+    D -- Yes --> E[Status: Approved]
+    D -- No --> F[Status: Rejected]
+    E --> G[Post message to<br/>Teams channel]
+    F --> G
+    C -. request .-> H[Approver in<br/>Teams / Outlook]
+```
 
+## 5. Controls & Validation
+
+* **Structured data entry:** The list uses typed fields (number for participants, currency for budget, yes/no for external speaker, person picker for submitter), so proposals come in a consistent format
+* **Default status:** New proposals start as *Pending*, so nothing counts as approved until a decision is made
+* **Approval logic:** An Approve/Reject approval (first to respond) is required before the proposal status changes
+* **Business rule on outcome:** A condition checks the approval outcome and routes the flow to the approved or rejected path
+* **Human-in-the-loop:** A named approver reviews each proposal with its details and a link to the source item, and can add comments
+* **Audit trail:** Approval history in Teams shows each request with its status and date. Flow run history records the approver, response, request and response timestamps, and outcome for every run.
+* **Status visibility:** The list shows Approved, Rejected and Pending status labels, so the register shows the outcome of every proposal
+
+## 6. Business Value
+
+* **Less manual work:** Approval requests and notifications go out automatically when a proposal is submitted
+* **Faster decisions:** Approvers can respond straight from Teams or email, without searching for the proposal
+* **Better visibility:** Every proposal and its status sits in one list, and the team channel gets updates on submissions
+* **Consistency:** Every proposal collects the same information and goes through the same approval steps
+* **Accountability:** Decisions are tied to a named approver with timestamps and can be traced back later
+
+## 7. Skills Demonstrated
+
+* Business process analysis and workflow design for approvals
+* SharePoint list design with appropriate column types and a status lifecycle
+* Power Automate cloud flow development (SharePoint trigger, Approvals, conditions, Teams actions)
+* Using dynamic content to build approval requests and notifications from list data
+* Microsoft 365 integration across SharePoint, Teams and Outlook
+* Testing and validating flows using run history and approval outputs
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Budget-based routing:** Send higher-budget proposals or those with external speakers to an additional approver
+* **Richer notifications:** Include the decision and approver comments in the Teams message, and clean up the wording (for example, "has submitted" in place of "has subitted")
+* **Write back comments:** Save the approver's comments to the Approver Comments column automatically
+* **Validation rules:** Make key fields such as event date, venue and budget required, and block event dates in the past
+* **Duplicate check:** Warn when a proposal with the same event name and date already exists
+* **Reporting:** Add a view or dashboard showing proposals by status, month and total approved budget
+
+---
+
+## Portfolio Summary
+
+An automated approval workflow for event proposals at Pedal Paradise, a cycling business. Staff submit proposals with budget, venue, participants and supporting documents to a SharePoint list. A Power Automate flow sends each proposal to an approver in Teams and Outlook, evaluates the decision, updates the proposal status and posts a notification to the team channel. The solution replaces informal requests with a consistent, traceable approval process.
