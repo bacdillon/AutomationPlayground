@@ -731,9 +731,14 @@ This project automates the review of event and activity proposals for Pedal Para
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b>
-A Power Automate flow, "Create Onboarding Record," that turns a Microsoft Forms submission into an approval-driven onboarding process for a new hire. It records the hire in SharePoint, asks a manager to approve through Microsoft Teams, and then completes an approval path or a rejection path automatically.                                <br>
+This project automates the first stage of onboarding a new hire. Details about the new employee are captured through an online form. An onboarding record is created automatically in SharePoint, and the request goes to an approver. Depending on the decision, the workflow either starts onboarding tasks and welcomes the employee, or marks the request as rejected and sends a rejection notice.
+<ul>
+<li>Use case: Capturing and approving new employee onboarding requests</li>
+<li>Intended audience: HR teams, hiring managers and onboarding coordinators</li>
+<li>Main technologies: Microsoft Forms, Power Automate (cloud flow with Approvals), SharePoint Online, Microsoft Teams and Outlook</li>
+</ul>               
 
-                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/New%20Employee%20Onboarding%20Automation/README.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/New%20Employee%20Onboarding%20Automation/README.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
                         </a>
 
