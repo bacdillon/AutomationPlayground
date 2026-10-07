@@ -1,47 +1,100 @@
 # Automated Ticket Management System
 
-A Power Automate flow that watches an email inbox for incoming support and issue reports, and automatically turns every one into a tracked task in Microsoft Planner, with a summary posted straight to a Microsoft Teams channel, so nothing reported by email gets missed or has to be manually re-typed into a task board.
-
 ## 1. Project Overview
 
-This project automates the first step of handling a support ticket: turning an incoming email report into a properly tracked task that a team can act on. A Power Automate flow, "MS Power Platform Ticket Issues Flow," monitors an Outlook inbox for issue emails, things like a broken approval workflow, a dashboard that won't load, or an app throwing an error, and for every one that arrives, it automatically creates a corresponding task in Microsoft Planner and posts a clear summary to a Teams chat, so the right people see it immediately.
+This project turns support emails into tracked tickets automatically. When a user emails the support mailbox about a problem, an automated flow creates a task in Microsoft Planner and posts the ticket details to Microsoft Teams, so the support team can see and act on every issue without logging it by hand.
+
+* **Use case:** Logging and notifying support tickets for issues with business automations and apps (for example, approval workflows not triggering or an expense app failing to submit)
+* **Intended audience:** An internal support or automation team that handles issue reports from business users
+* **Main technologies:** Power Automate (automated cloud flow "MS Power Platform Ticket Issues Flow"), Office 365 Outlook, Microsoft Planner and Microsoft Teams
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Support and IT teams often receive issue reports by email, a manager noticing a missing notification, an employee unable to submit a form, a dashboard failing to load. For these reports to actually get fixed, someone typically has to read the email, understand the issue, and manually create a task somewhere the team tracks work, like Microsoft Planner. This hand-off step is small but essential, and it's exactly the kind of repetitive administrative work that's easy to delay, forget, or do inconsistently. Emails can sit unread or unactioned, especially during busy periods, delaying the start of any real fix. Manually creating a task for every email is repetitive and takes time away from actually solving the reported issue. Details can be lost or altered when someone retypes an issue description into a task management tool instead of using the original wording, and team visibility depends on someone remembering to tell others a new issue has come in, rather than it being automatically surfaced.
+### Problem
 
-**The objectives:**
-- Automatically detect new issue-report emails as they arrive.
-- Create a corresponding task in Microsoft Planner for every reported issue, without manual data entry.
-- Preserve the original issue details (title, description, sender, priority) accurately in the created task.
-- Notify the team immediately through a channel they already monitor, Microsoft Teams.
-- Remove the manual hand-off step between "an issue was reported" and "the team is tracking it."
+Users report problems by email, for example "Procurement Approval Email Missing", "Sales Dashboard Not Loading" or "Leave Approval Workflow Not Triggered". If these emails sit in an inbox, someone has to read each one, log it somewhere, and tell the team. Issues can be missed, and there is no shared view of what is open.
+
+### Current Process
+
+Issue reports arrive as individual emails in the support inbox, each with a subject line describing the problem and a short explanation in the body.
+
+### Objectives
+
+* Capture every support email as a ticket automatically
+* Keep all tickets on one shared board
+* Notify the support team in Teams as soon as a ticket is created
+* Carry the key details (issue title, description, sender and priority) into the ticket and the notification
 
 ## 3. Solution
 
-The "MS Power Platform Ticket Issues Flow" in Power Automate connects Outlook, Planner, and Teams into one automated hand-off. The flow's details page shows it is active and automated, and confirms it had run multiple times over the past week. When a new issue-report email arrives in the Outlook inbox, the flow reads the relevant information, the issue title, description, sender, and priority, creates a corresponding task in Microsoft Planner, and posts a summary to a Teams chat so the team sees it immediately.
+An automated Power Automate flow monitors incoming support emails. For each new issue email, it creates a task on the **MS Power Platform Ticket Issues** plan in Planner and posts a "Ticket Details" message in Teams.
 
-### What the Video Demonstrates
+### End-to-End Workflow
 
-Power Automate's built-in savings tracking estimates that, assuming 10 minutes saved per successful run, the flow had already saved 1 hour across 6 runs in the past week. The Outlook inbox shows a series of real issue-report emails arriving from different senders, including reports titled "Procurement Approval Email Missing," "Sales Dashboard Not Loading," "Leave Approval Workflow Not Triggered" (twice), "Unable to Submit Expense Claim in Expense App," and "Expense App Submission Error." Opening one such email, "Procurement Approval Email Missing," shows a support request from a manager, explaining that their procurement approval process isn't sending notification emails, and asking for the automation flow to be checked. Immediately after, a Microsoft Teams "Workflows" chat message appears, confirming: "A new task has been created in Microsoft Planner," followed by the full ticket details, Issue Title, Issue Description, Sender, and Priority (marked "high" in this case), along with a prompt to review and take action.
-
-### End-to-End Workflow, Step by Step
-
-1. **Monitor the inbox.** The flow watches the Outlook inbox for new incoming emails.
-2. **Detect a new issue report.** When a new email arrives, the flow identifies it as a ticket to be processed.
-3. **Extract the details.** The flow reads the relevant information from the email, the issue title, description, sender, and priority.
-4. **Create a Planner task.** A new task is automatically created in Microsoft Planner, carrying over the extracted details.
-5. **Notify the team.** A summary message is posted to a Microsoft Teams chat, presenting the same ticket details clearly and prompting the team to review and act.
-6. **Repeat for every new email.** This process runs automatically each time a new issue-report email arrives, with no manual triggering required.
+1. **User reports an issue:** A business user emails support with the problem in the subject line, for example "Procurement Approval Email Missing", and a description in the body.
+2. **Flow is triggered:** The automated flow picks up the new email in Office 365 Outlook.
+3. **Ticket is created:** The flow creates a Planner task in the **MS Power Platform Tickets** bucket. The email subject becomes the task title and the email body goes into the task notes. The new task starts as *Not started* and is tagged with a label.
+4. **Team is notified:** The flow posts a message in Teams through the Workflows app: "A new task has been created in Microsoft Planner", followed by the ticket details (issue title, issue description, sender and priority) and a request to review and take action.
+5. **Team acts on the ticket:** The support team picks up the task on the Planner board, where it can be assigned, prioritized and tracked to completion.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Outlook**, the inbox where issue-report emails are received.
-- **Microsoft Planner**, where each reported issue becomes a trackable task.
-- **Microsoft Teams**, where the team is notified of each new ticket.
-- **Microsoft Power Automate**, the platform running the automated flow connecting all three.
-- **An email trigger**, for detecting new incoming issue-report emails.
-- **Planner "Create a task" action**, for automatically generating a tracked task from the email's details.
-- **Microsoft Teams "Post message" action**, for notifying the team with a structured ticket summary.
+| Component | Role |
+|---|---|
+| **Office 365 Outlook** | Support mailbox where issue reports arrive, and the trigger source for the flow |
+| **Power Automate automated cloud flow** | "MS Power Platform Ticket Issues Flow": reads each new email and creates the ticket and notification |
+| **Microsoft Planner** | "MS Power Platform Ticket Issues" plan: the ticket board, with each issue as a task |
+| **Microsoft Teams (Workflows)** | Posts the ticket details message to the support team |
 
-The flow follows a simple but effective "listen and relay" pattern. It waits for a new email to arrive, pulls out the specific pieces of information needed, title, description, sender, priority, and pushes that same information into two different places a team already works from, a task board and a chat tool. Because the flow triggers directly off new emails rather than running on a schedule, there's no delay between an issue being reported and it becoming a visible, trackable task. The whole hand-off happens automatically and immediately.
+```mermaid
+flowchart LR
+    A[User emails support<br/>Outlook] --> B[Power Automate<br/>automated flow]
+    B --> C[Create Planner task<br/>title + notes + label]
+    B --> D[Post Teams message<br/>Ticket Details]
+    C --> E[Support team<br/>works the ticket]
+    D --> E
+```
+
+## 5. Controls & Validation
+
+This is an intake and notification automation. Approval logic, input validation and exception handling are not shown in the demonstration. The controls that are demonstrated are:
+
+* **Consistent ticket creation:** Every issue email becomes a Planner task in the same plan and bucket, with the same structure
+* **Priority capture:** The email's importance appears as the priority in the Teams message (for example, "Priority: high")
+* **Traceability:** The sender's email address is included in the ticket details, so the team knows who reported the issue
+* **Run monitoring:** The flow's run history shows each run and its result (for example, Succeeded or Test succeeded)
+* **Human-in-the-loop:** The support team reviews each ticket in Planner and decides on the next action
+
+## 6. Business Value
+
+* **Less manual work:** Tickets are logged automatically, with no copying of emails into a tracker
+* **Faster response:** The support team is told about new issues in Teams as they arrive
+* **Better visibility:** All issues sit on one Planner board, where they can be assigned and tracked
+* **Consistency:** Every ticket has the same format, with title, description, sender and priority
+* **Fewer missed issues:** Each email creates a ticket, so reports are less likely to be overlooked in the inbox
+
+## 7. Skills Demonstrated
+
+* IT support process analysis and ticket intake design
+* Power Automate automated cloud flow development
+* Integration across Office 365 Outlook, Microsoft Planner and Microsoft Teams
+* Mapping email data (subject, body, sender, importance) into tasks and messages
+* Writing clear, structured notification messages
+* Testing and monitoring flows with run history
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Clean email content:** Strip the Outlook security banner ("You don't often get email from...", "Caution: This is an Internet email...") and keep the full description, which is currently cut short in the ticket
+* **Align priority:** Set the Planner task priority from the email's importance (a high-importance email currently creates a Medium-priority task)
+* **Auto-assignment:** Assign tickets to a team member based on keywords or the affected system
+* **Acknowledge the requester:** Send an automatic reply with a ticket reference to the person who reported the issue
+* **Duplicate detection:** Flag repeated reports of the same issue (for example, two "Leave Approval Workflow Not Triggered" emails)
+* **Reporting:** Add a dashboard of open, in-progress and completed tickets by category
+
+---
+
+## Final Summary
+
+An automated ticket management solution that turns support emails into tracked tickets. A Power Automate flow monitors the support mailbox, creates a Planner task for each new issue, and posts the ticket details (title, description, sender and priority) to Microsoft Teams. The support team gets instant notification and a single board to assign and track issues, which means less manual logging and fewer missed requests.
