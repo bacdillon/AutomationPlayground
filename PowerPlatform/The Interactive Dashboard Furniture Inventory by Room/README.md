@@ -1,44 +1,100 @@
 # Interactive Dashboard: Furniture Inventory by Room
 
-A Power BI dashboard that tracks furniture inventory across the rooms of a home, using a floor plan style visual that lets a viewer select a specific room and instantly see exactly what furniture is in it.
-
 ## 1. Project Overview
 
-This project is a Power BI report titled "Interactive Dashboard Furniture Inventory by Room." It presents a floor plan style layout, labeled "Interactive Areas," with each room marked out and its dimensions shown. Alongside it, a "No of furniture" summary card and a "Furniture, Sum of Quantity, Room" table give a detailed breakdown of what furniture exists in each space. The video shows the report being actively built in Power BI Desktop, with the room based filtering and calculations visible as they are put together.
+This project is an interactive Power BI dashboard that shows a home's furniture inventory on top of its floor plan. Each room on the plan is a clickable, color-coded area linked to the inventory data, so users can see what is in a room by selecting it on the map instead of searching through a list.
+
+* **Use case:** Room-by-room inventory tracking for a residential property
+* **Intended audience:** Homeowners, property or facilities staff, movers, or anyone who needs a quick spatial view of household items
+* **Main technologies:** Microsoft Power BI Desktop, with a custom image-map visual that turns floor plan regions into interactive data points
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Keeping track of furniture and fittings across multiple rooms in a home or property is easy to lose track of over time. A flat spreadsheet list of furniture items does not show at a glance which room something belongs to, or make it easy to compare how furnished one room is against another. Without a visual, spatial way to view this data, reviewing or auditing furniture inventory means scrolling through rows rather than seeing the layout of the home itself.
+### Problem
 
-**The objectives:**
-- Represent a home's layout visually, by room, rather than as a flat list.
-- Let a viewer select a specific room and see exactly which furniture items are in it.
-- Summarize total furniture count, both overall and per room.
-- Build the report using Power BI's data modeling and visual design tools.
+Inventory lists are usually kept as flat tables. A table can show that there are six chairs in the dining room, but it does not show where things are or make it easy to compare rooms at a glance. Finding everything in a single room means scanning or filtering rows by hand.
+
+### Objectives
+
+* Present the furniture inventory in a visual, location-based format
+* Let users explore inventory by room with a single click
+* Keep a detailed item list and an overall total visible next to the map
+* Make the data easy to read for non-technical users
 
 ## 3. Solution
 
-The dashboard is built around three connected elements: an "Interactive Areas" visual showing the home's floor plan with each room's boundary and dimensions marked, a "No of furniture" card giving a running total, and a "Furniture, Sum of Quantity, Room" table listing each furniture item, its quantity, and the room it belongs to. Selecting a room in the floor plan filters the table and the total to reflect just that room's contents.
+The dashboard has two linked visuals on one report page:
 
-### What the Video Demonstrates
+* **Interactive Areas:** A floor plan image where each room (Eat-in Kitchen, Formal Living, Formal Dining, Family, Entrance, 1/2 Bath, Laundry/Storage, Pantry) is a mapped, color-coded region bound to the `Room` field
+* **No of furniture:** A table listing each furniture type, its quantity and its room, sorted by quantity, with a grand total of 38 items
 
-The report's full, unfiltered furniture list is shown first, including items such as Cabinet (Family), Light (Entrance), Plants (Bath), and multiple Rug and Table entries spread across Dining, Entrance, Kitchen, and Living rooms. The floor plan shows labeled rooms, including Family, Entrance, Bath, Dining, Kitchen, Living, and a half bath, each with its dimensions displayed (for example, "6'7 x 6'80"). Selecting the Kitchen area on the floor plan filters the table to show only that room's furniture: Rug (1), Table (1), Plants (2), and Chair (4), with a total of 8 items. The video shows this "Interactive Areas" visual being actively built and refined in Power BI Desktop, with the report's ribbon, formatting tools, and visual configuration panes visible throughout, indicating this is a development and build walkthrough rather than a finished, published end-user view.
+### End-to-End Workflow
 
-### End-to-End Workflow, Step by Step
-
-1. **Review the full furniture list.** The underlying table shows every furniture item, its quantity, and its assigned room.
-2. **View the floor plan.** The "Interactive Areas" visual displays the home's layout, with each room labeled and dimensioned.
-3. **Select a room.** Clicking or selecting a room on the floor plan filters the connected visuals to that room only.
-4. **Review the filtered result.** The "Furniture, Sum of Quantity, Room" table and the "No of furniture" card update to show only the selected room's items and its total.
-5. **Repeat for other rooms.** The same selection and filtering behavior applies across the home's different rooms.
+1. **Load the data:** Inventory data (furniture type, quantity and room) sits in the Power BI data model.
+2. **Map the rooms:** Each area on the floor plan image is linked to a room value, so it represents that room's data.
+3. **Hover for a summary:** Hovering over a room shows a tooltip with the room name and its total item count (for example, Kitchen: 8).
+4. **Select a room:** Clicking a room filters the table to that room's items and subtotal. The Kitchen, for example, shows a rug, a table, plants and chairs, 8 items in total.
+5. **Select an item:** Selecting a row in the table highlights the matching room on the floor plan, for example the TV Stand highlights the Family room.
+6. **Reset:** Clearing the selection returns the dashboard to the full inventory view.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Power BI Desktop**, used to build and configure the report.
-- **A furniture inventory dataset**, covering furniture type, quantity, and assigned room. The specific data source was not shown in the video.
-- **An "Interactive Areas" visual**, displaying the home's floor plan with labeled, dimensioned rooms, used as a spatial filter for the rest of the report.
-- **A summary card visual**, showing the total furniture count.
-- **A table visual**, listing furniture items by type, quantity, and room.
-- **Interactive filtering**, connecting the floor plan selection to the table and summary card so they update together.
+| Component | Role |
+|---|---|
+| **Power BI Desktop** | Report authoring, data model and the interactive report page |
+| **Custom image-map visual** | Displays the floor plan and binds each room shape to inventory data. Its on-canvas toolbar (Change, Gallery and zoom controls) is consistent with the Synoptic Panel custom visual. |
+| **Table visual** | Shows furniture, quantity and room, with a total row |
+| **Cross-filtering** | Links the map and the table, so a selection in either one filters or highlights the other |
+| **Tooltips** | Show the room name and summed quantity on hover |
 
-The floor plan based filtering is what distinguishes this report from a standard table or chart based dashboard. Rather than filtering through a dropdown or slicer, the viewer interacts directly with the spatial layout of the home itself, selecting a room on the plan to see what it contains. The underlying furniture data and room assignments feed both the full list and the per-room breakdown, so the same dataset powers both the overall summary and the room specific views.
+```mermaid
+flowchart LR
+    A[Inventory data<br/>Furniture, Quantity, Room] --> B[Power BI data model]
+    B --> C[Floor plan map<br/>rooms as regions]
+    B --> D[Furniture table<br/>items, quantity, total]
+    C <-->|cross-filtering by Room| D
+```
+
+The original data source is not shown in the demonstration.
+
+## 5. Controls & Validation
+
+This is a reporting and visualization project, so it does not include data entry, approvals or exception handling. The controls that are demonstrated are:
+
+* **Consistent aggregation:** Quantities are summed per room and per item, and the total updates to match the current selection (38 overall, 8 for the Kitchen)
+* **Two-way filtering:** The map and the table stay in sync, so the room view and the item list always match
+* **Visual state cues:** Unselected rooms are dimmed and the selected room is highlighted, so the active filter is always clear
+
+## 6. Business Value
+
+* **Better visibility:** Inventory is shown in its physical context, not just as rows in a table
+* **Faster lookup:** One click shows everything in a room, with no manual filtering
+* **Better user experience:** The floor plan is intuitive for users who are not familiar with reports or spreadsheets
+* **Easier comparison:** Color-coded rooms and tooltips make it simple to compare how furniture is spread across the home
+* **Reusable pattern:** The same approach can apply to other location-based data, such as office desks, warehouse zones or equipment by room
+
+## 7. Skills Demonstrated
+
+* Data visualization and dashboard design in Power BI
+* Configuring and using a custom Power BI visual
+* Mapping image regions to data fields for location-based reporting
+* Setting up cross-filtering and interactions between visuals
+* Aggregation and summary reporting (sum of quantity, totals)
+* Translating a practical inventory need into a clear, user-friendly report
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Data quality checks:** Fix inconsistent values (the "Stoarge" entry should read "Storage") and align room names in the data with the floor plan labels (for example "Kitchen" and "Eat-in Kitchen")
+* **Pantry coverage:** Link the Pantry area, which shows no data in the demo, to inventory records
+* **Richer attributes:** Add item value, condition, purchase date or photos to support insurance, moving or replacement planning
+* **Live data source:** Connect to a maintained source such as SharePoint, Excel Online or a database, with scheduled refresh
+* **Additional views:** Add a chart of items by room or category, and a slicer for furniture type
+* **Publishing:** Publish to the Power BI Service for sharing on web and mobile
+
+---
+
+## Final Summary
+
+An interactive Power BI dashboard that maps a home's furniture inventory onto its floor plan. Each room is a clickable, color-coded region linked to an item table, so selecting a room filters the list and selecting an item highlights its room. Tooltips show item counts per room, and a total summarizes the full inventory of 38 items. The project demonstrates custom visual configuration, cross-filtering and location-based data storytelling.
