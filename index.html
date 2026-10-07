@@ -698,9 +698,11 @@ The solution automates the monitoring of equipment maintenance and calibration s
                         
                         <div class="text-white text-base leading-relaxed space-y-4">
                             <p><b>Overview:</b>
-                                This project automates how a community organization, 
-                                "Pedal Paradise," a cycling club, reviews and approves proposals for new events and activities. A Power Automate flow, "New Event Activities Flow," triggers the moment someone submits a new event proposal to a SharePoint list, routes it to a designated approver through Microsoft Teams Approvals, and automatically posts a notification to a shared Teams channel once a decision is made. This closes the loop from submission to team-wide visibility without any manual chasing.
-                                <br>
+This project automates the review of event and activity proposals for Pedal Paradise, a cycling business with its own SharePoint team site. Staff submit a proposal as an item in a SharePoint list. This starts an approval workflow that sends the request to an approver in Microsoft Teams and Outlook, records the decision against the proposal, and posts a notification to a Teams channel.
+
+Use case: Approving proposed events and activities such as workshops, group rides, safety days and cycling challenges
+Intended audience: Staff who plan events, and the manager or coordinator who approves them
+Main technologies: Microsoft SharePoint Online, Power Automate (cloud flow with Approvals), Microsoft Teams and Outlook                                <br>
 
                         <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Event%20Proposal%20Approval%20%26%20Notification/README.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
                             <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
