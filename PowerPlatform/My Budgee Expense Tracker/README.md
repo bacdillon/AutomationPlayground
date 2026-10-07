@@ -1,51 +1,126 @@
-# My Budgee: Expense Tracker & Approval App
-
-A complete, low-code expense management app built on Microsoft Power Apps and Power Automate. "My Budgee" lets employees log expenses against a budget, routes each submission to a manager for approval automatically by email, and gives both employee and approver a full, transparent history of every request, including the ability to fix and resubmit a rejected claim.
+# My Budgee Expense Tracker
 
 ## 1. Project Overview
 
-This project is a working expense tracking and approval application, built for everyday business use. Employees log expenses, with amount, category, description, and a receipt attachment, against a running budget. Each submission automatically notifies the assigned approver by email, who can review and approve or reject it, with a comment, directly through the app. The employee is then notified of the outcome, and if a claim is rejected, they can see exactly why and correct it. Every step of this process, from submission to final decision, is tracked and visible.
+My Budgee Expense Tracker is a mobile-style app for submitting, approving and tracking expenses against a budget. Requesters log expenses with receipts, an approver reviews and approves or rejects them, and both sides see how spending compares to the set budget. Email notifications keep each person informed when an expense needs review or its status changes.
+
+* **Use case:** Expense submission, approval and budget tracking
+* **Intended audience:** Staff who submit expenses (requesters) and the person who approves them and sets the budget (approver)
+* **Main technologies:** Power Apps (canvas app with a phone layout), with automated email notifications sent through the Power Apps and Power Automate notification service
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Almost every organization needs a way for employees to submit expenses, such as travel, meals, accommodation, and other work-related costs, and get them approved by a manager before reimbursement. This is a small but constant administrative process, and how well it's handled affects both employee experience and financial control. Done informally, through paper forms, email chains, or spreadsheets, it's slow and easy to lose track of. Submissions get lost or delayed, approvers aren't notified promptly so requests sit untouched, and rejected claims often lack clear feedback, leaving an employee unsure why a claim was turned down or what to fix. Employees may also have no real-time sense of how much of their budget they've already used, and there's typically no single, traceable history of a request's journey from submission to decision.
+### Problem
 
-**The objectives:**
-- Let employees easily log expenses with full details and supporting attachments.
-- Show employees a live view of their budget: how much has been spent and how much remains.
-- Automatically notify the correct approver whenever a new expense is submitted.
-- Let approvers review, approve, or reject requests with comments, directly and quickly.
-- Automatically notify employees of the outcome of their request.
-- Allow employees to see rejection reasons clearly and correct and resubmit a claim.
-- Maintain a full, visible history of every request's status and actions.
+When expenses are claimed by email or on paper, it is hard to know what has been spent, what is still waiting for approval, and how much budget is left. Approvers have to chase missing receipts, requesters do not know where their claim stands, and nobody has a running view of spending by category or month.
+
+### Objectives
+
+* Give requesters a simple way to log expenses and attach receipts
+* Route each expense to an approver and record the decision with comments
+* Notify the right person when an expense is submitted or its status changes
+* Show total spending against the budget, with the remaining amount
+* Let the approver set and update the budget
+* Provide simple reports of spending by category and by month
 
 ## 3. Solution
 
-A Power Apps application, "My Budgee Expense Tracker," gives employees a Home screen showing their current budget status alongside a quick-access expense logging form. On the Log New Expense screen, a user enters the date, category, amount, and description, sees the approver automatically assigned, and can attach a supporting file before submitting. Submission triggers an automatic "Expense Approval Needed" email to the designated approver, who reviews the full request on the Approval Expense Reporting Details screen and sets a decision, Approved or Rejected, along with a comment. An automatic "Status for Expense Request" email is then sent back to the original requester, closing the loop.
+The app opens on a home screen with three entry points: **Submit Expense**, **Track My Expense** and **Approval**. Each role sees its own screens and navigation.
 
-### What the Video Demonstrates
+**Requester screens**
 
-The Home screen shows the current budget status, for example "$533.00 of $2,000.00" spent, with the remaining balance clearly shown. After a "Submitted Successfully" confirmation, the approver's Approval Expense Reporting screen lists all requests awaiting their decision, filterable and sortable by status and date, with a visible history log of each request's actions. On the employee side, the View Past Expenses screen shows their own submissions with clear status badges: Pending, Approved, Rejected. For a rejected claim, an Edit Submitted Expense screen shows the approver's comment and history, and allows the employee to attach the missing information, such as a receipt, and resubmit.
+* **Log New Expense:** Date, category, amount, description and file upload. The requester's name and the assigned approver fill in automatically.
+* **View Past Expenses:** A list of submitted expenses with status filters (Pending, Approved, Rejected), sorting by date, a running total and a record count. Each item can be edited or deleted.
+* **Edit Submitted Expense:** Update an expense and add attachments, for example a receipt the approver asked for.
+* **My Budget Tracking:** A pie chart of spending by category and a bar chart of total spend by month.
 
-### End-to-End Workflow, Step by Step
+**Approver screens**
 
-1. **Check the budget.** The employee views their current budget status on the home screen before logging a new expense.
-2. **Log a new expense.** The employee fills in the date, category, amount, and description, and attaches a supporting file if needed.
-3. **Submit the request.** On submission, the app confirms success and records the expense with a "Pending" status.
-4. **Notify the approver.** An automated email is sent to the assigned approver, alerting them that a new request needs review.
-5. **Approver reviews the request.** The approver opens the request, reviews the details and attachment, and decides to approve or reject it, adding a comment if needed.
-6. **Notify the employee.** An automated email is sent back to the employee, letting them know their request's status has been updated.
-7. **Employee reviews the outcome.** The employee checks their past expenses list to see the final status and any comments.
-8. **Correct and resubmit if needed.** If a claim was rejected, the employee can open it, review the reason, attach any missing information, and resubmit.
+* **Approval Expense Reporting:** A list of expenses with the same filters and sorting.
+* **Approval Details:** Requester information, attachments, a status choice (Pending, Approved, Rejected), comments and an approval history log.
+* **Settings Management:** Set the budget amount.
+
+Every screen shows a **Total Expense** banner with the amount spent, the budget and the remaining amount.
+
+### End-to-End Workflow
+
+1. **Submit:** The requester logs an expense (for example, a $210 team dinner) and submits it. The expense is saved with a *Pending* status.
+2. **Notify the approver:** The approver receives an "Expense Approval Needed" email with the requester's name, asking them to review it in the app.
+3. **Review:** The approver opens the expense, checks the details and attachments, sets the status and adds a comment. In the demo, the first decision is *Rejected* with the comment "Receipt needed".
+4. **Notify the requester:** The requester receives a "Status for Expense Request" email saying the status has been updated.
+5. **Resubmit:** The requester filters for rejected expenses, opens the item, attaches the receipt and updates it.
+6. **Re-review:** The approver reviews the updated expense and changes the status to *Approved* with the comment "All good. Approved!". The requester is notified again.
+7. **Track spending:** Both roles can see approved expenses, totals against the budget, and charts by category and month.
+8. **Manage the budget:** The approver updates the budget (for example, from $2,000 to $1,500). The new amount shows straight away on the requester's screens.
 
 ## 4. Solution Architecture & Technologies
 
-- **Microsoft Power Apps**, the application employees and approvers use to log, review, and manage expenses.
-- **Microsoft Power Automate**, the workflow engine sending automated email notifications.
-- **Microsoft Outlook**, the channel through which approval and status notifications are delivered.
-- **Power Apps (canvas app)**, for building the expense submission, approval, and reporting screens.
-- **Power Automate (cloud flows)**, for triggering email notifications on submission and on status change.
-- **A structured data source** behind the app, storing expense records, statuses, comments, and history.
-- **File attachment handling**, for supporting receipts and other documentation.
+| Component | Role |
+|---|---|
+| **Power Apps canvas app** | Mobile-style interface with separate requester and approver screens, forms, galleries, filters and navigation |
+| **Expense records** | Store each expense with date, category, amount, description, requester, approver, status, comments, attachments and approval history |
+| **Budget setting** | Stores the budget amount used to calculate the remaining amount |
+| **Email notifications** | "Expense Approval Needed" to the approver and "Status for Expense Request" to the requester, sent from the Power Apps and Power Automate notification service |
+| **Charts** | Spending by category (pie) and total spend by month (bar) |
 
-The app is built around a clear status lifecycle: every expense starts as Pending, and can only move to Approved or Rejected through an explicit decision by the assigned approver, so there's no way for a request to be silently ignored or left in limbo. Two automated notifications anchor the process: one the moment a request is submitted, alerting the approver, and one the moment a decision is made, alerting the employee, meaning neither party ever has to manually check for updates. The app also keeps the full history of a request's status changes and comments attached to that same record, so context is never lost, even if a claim needs to be corrected and resubmitted.
+The underlying data source is not shown in the demonstration.
+
+```mermaid
+flowchart LR
+    A[Requester<br/>logs expense] --> B[Status: Pending]
+    B --> C[Email: Expense<br/>Approval Needed]
+    C --> D[Approver reviews<br/>sets status + comment]
+    D --> E[Email: Status for<br/>Expense Request]
+    E --> F{Rejected?}
+    F -- Yes --> G[Requester edits<br/>adds receipt]
+    G --> D
+    F -- No --> H[Approved<br/>counts toward budget]
+```
+
+## 5. Controls & Validation
+
+* **Required fields:** Category and amount are required. The Submit button stays disabled and shows "Category is required" and "Amount is required" until both are filled in.
+* **Pre-filled identity:** The requester's name and the assigned approver are filled in automatically, so they are not typed by hand.
+* **Approval workflow:** Every expense starts as *Pending* and needs an approver decision (Approved or Rejected).
+* **Human-in-the-loop with feedback:** Approvers add comments to explain decisions, such as asking for a missing receipt.
+* **Audit trail:** Each expense keeps a timestamped approval history (for example, "Approval assigned to Jack Black, Requested By BAC SAY RON").
+* **Delete confirmation:** Deleting an expense asks for confirmation and warns that the action cannot be undone.
+* **Role-based screens:** Requesters and approvers see different screens and navigation, and only the approver screens include status updates and budget settings.
+* **User feedback:** Confirmation messages such as "Submitted Successfully" and "Budget saved successfully!" show that an action has completed.
+
+## 6. Business Value
+
+* **Less manual follow-up:** Email notifications tell approvers and requesters when action is needed
+* **Faster resolution:** Rejected expenses come back with a clear reason and can be fixed and resubmitted in the app
+* **Better visibility:** Totals, remaining budget and charts show spending at a glance
+* **Budget control:** The approver can adjust the budget, and everyone sees the effect straight away
+* **Accountability:** Status, comments and approval history are recorded against every expense
+* **Better user experience:** A simple, mobile-friendly layout makes logging expenses quick
+
+## 7. Skills Demonstrated
+
+* Business process analysis for expense claims and approvals
+* Power Apps canvas app design with a mobile layout and role-based navigation
+* Form design with validation, attachments and pre-filled user details
+* Gallery design with filtering, sorting, totals, edit and delete actions
+* Approval status logic with comments and an approval history log
+* Automated email notifications for approval and status updates
+* Budget calculations and simple data visualization (pie and bar charts)
+* Testing end-to-end scenarios, including a reject and resubmit cycle
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Richer notifications:** Include the expense amount, category, decision and comments in the email, with a direct link to the record
+* **Budget alerts:** Warn requesters and the approver when spending gets close to or exceeds the budget
+* **Receipt rules:** Require a receipt for expenses above a set amount before they can be submitted
+* **Multi-level approval:** Route higher-value expenses to a second approver
+* **Restrict editing:** Lock approved expenses so they cannot be changed or deleted without approval
+* **Export:** Allow monthly expense reports to be exported for finance
+
+---
+
+## Portfolio Summary
+
+My Budgee Expense Tracker is a mobile-style Power Apps app that brings expense claims, approvals and budget tracking together. Requesters log expenses with receipts and track their status, while an approver reviews each claim, records a decision with comments and sets the budget. Email notifications flag new submissions and status changes, and charts show spending by category and month. The app replaces informal claims with a clear, traceable process.
