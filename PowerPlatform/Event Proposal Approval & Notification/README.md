@@ -99,6 +99,6 @@ The following are **potential future enhancements**, not existing functionality:
 
 ---
 
-## Portfolio Summary
+## Summary
 
 An automated approval workflow for event proposals at Pedal Paradise, a cycling business. Staff submit proposals with budget, venue, participants and supporting documents to a SharePoint list. A Power Automate flow sends each proposal to an approver in Teams and Outlook, evaluates the decision, updates the proposal status and posts a notification to the team channel. The solution replaces informal requests with a consistent, traceable approval process.
