@@ -1,46 +1,95 @@
 # ServiceNow REST API Integration: Automated Attachment Upload
 
-**Automation Playground Portfolio Project**
-
-A Power Automate Desktop flow that uploads a file as an attachment to a ServiceNow incident record by calling ServiceNow's Attachment REST API directly, without opening the ServiceNow user interface to do it.
-
 ## 1. Project Overview
 
-This project automates the attachment of a file to a ServiceNow incident (INC0008111) using ServiceNow's Attachment API. The video first shows the API being tested manually through ServiceNow's built in REST API Explorer, confirming the correct endpoint, parameters, and headers needed to upload a file. It then shows a Power Automate Desktop flow, named "ServiceNow Upload Attachment," that calls the same endpoint programmatically through an Invoke Web Service action, uploading a local file and receiving a successful response from ServiceNow in return.
+This project uploads a file as an attachment to a ServiceNow incident record automatically, by calling ServiceNow's Attachment REST API instead of using the ServiceNow user interface. The API is first tested manually in ServiceNow's REST API Explorer, then the same call is automated in a Power Automate Desktop flow named "ServiceNow Upload Attachment".
+
+* **Use case:** Attaching supporting files, such as logs, test reports or documentation, to ServiceNow incidents without manual uploads
+* **Intended audience:** IT service management and automation teams who work with ServiceNow records
+* **Main technologies:** ServiceNow Attachment API (`/api/now/attachment/file`), ServiceNow REST API Explorer, and Microsoft Power Automate Desktop (Invoke Web Service action)
 
 ## 2. Business Problem & Objectives
 
-**The problem:** Attaching supporting files to a ServiceNow record, such as a log file, a test report, or supporting documentation, is normally a manual task: someone opens the record, finds the attachment option, browses for the file, and uploads it. When this needs to happen repeatedly, for example whenever a related process generates a new log or output file, manual attachment does not scale and is easy to forget or delay.
+### Problem
 
-**The objectives:**
-- Confirm ServiceNow's Attachment API accepts an uploaded file against a specific table and record, using the correct parameters and authentication.
-- Build an automated flow that uploads a file to a ServiceNow incident without any manual interaction with the ServiceNow interface.
-- Verify that an automated upload produces the same result, a visible attachment on the incident record, as a manual one.
+Attaching a file to a ServiceNow record is normally a manual task: someone opens the record, finds the attachment option, browses for the file and uploads it. When this has to happen repeatedly, for example whenever another process produces a new log or output file, manual attachment does not scale and is easy to forget or delay.
+
+### Current Process
+
+A user opens the incident in ServiceNow and adds the file through the record's attachment option by hand.
+
+### Objectives
+
+* Confirm that the Attachment API accepts a file upload against a specific table and record, with the correct parameters and authentication
+* Build a flow that uploads a file to an incident with no manual interaction with the ServiceNow interface
+* Verify that an automated upload produces the same result on the record as a manual one
 
 ## 3. Solution
 
-The solution uses ServiceNow's REST Attachment API (`/api/now/attachment/file`) as the integration point. A POST request to this endpoint, with the target table name, the record's `sys_id`, and the desired file name passed as query parameters, uploads a file and attaches it to that record. The API call requires a `multipart/form-data` content type and an authenticated user token.
+The integration uses a POST request to ServiceNow's Attachment API (`/api/now/attachment/file`). The target table, the record's `sys_id` and the file name are passed as query parameters, and the request uses a `multipart/form-data` content type with an authenticated user token.
 
-### What the Video Demonstrates
+### End-to-End Workflow
 
-The video opens in ServiceNow's REST API Explorer, showing the Attachment API's documentation and its "Upload an attachment from a binary request" operation. The request is configured with `table_name=incident`, `table_sys_id=a83820b58f723300e7e16c7827bdeed2`, and a `file_name` value, then a file is attached to the request body and sent. The response returns a 201 Created status with the uploaded file's metadata in the body. The incident record (INC0008111) is then opened directly to confirm the attachment appears under its "Manage Attachments" list, along with a timestamped activity log entry showing the upload.
-
-The video then switches to Power Automate Desktop, where a flow called "ServiceNow Upload Attachment" is shown open in the editor. This flow uses an "Invoke Web Service" action configured with the same endpoint URL, the same `table_name` and `table_sys_id` parameters, a POST method, and the attachment upload option enabled with a local file (`ServiceNow Upload Test Log.txt`) selected as the attachment. The flow is run, and the action's output shows a `StatusCode` of 201, along with the raw web service response. The incident record is then refreshed in the browser, showing the new attachment ("ServiceNow Upload Test Log.txt," 644 bytes) now listed alongside the earlier manual uploads, with a matching activity log entry timestamped at the moment the flow ran.
-
-### End-to-End Workflow, Step by Step
-
-1. **Confirm the API manually.** The Attachment API's upload operation is tested in ServiceNow's REST API Explorer, setting the target table, record ID, and file name, then sending a file in the request.
-2. **Verify the manual result.** The incident record is opened to confirm the test attachment appears in its attachment list and activity log.
-3. **Configure the automated flow.** In Power Automate Desktop, an Invoke Web Service action is set up with the same endpoint, parameters, and POST method, with file upload enabled and a local file selected as the attachment.
-4. **Run the flow.** The flow executes the web service call and returns a status code and response body confirming the outcome.
-5. **Verify the automated result.** The incident record is refreshed to confirm the flow's uploaded file now appears in the attachment list, with its own timestamped activity log entry, matching the behavior of the manual test.
+1. **Test the API manually:** In the REST API Explorer, the "Upload an attachment from a binary request" operation is configured with `table_name=incident`, the incident's `table_sys_id` and a `file_name`, and a file is sent in the request body. ServiceNow returns **201 Created** with the uploaded file's metadata.
+2. **Check the manual result:** Incident INC0008111 is opened to confirm the file appears under "Manage Attachments" with a timestamped activity log entry.
+3. **Configure the flow:** In Power Automate Desktop, an Invoke Web Service action is set up with the same endpoint, parameters and POST method, with file upload enabled and a local file (`ServiceNow Upload Test Log.txt`) selected as the attachment.
+4. **Run the flow:** The action returns a `StatusCode` of 201 and the raw web service response.
+5. **Check the automated result:** The incident is refreshed and shows the new attachment ("ServiceNow Upload Test Log.txt", 644 bytes) next to the earlier manual uploads, with a matching activity log entry at the time the flow ran.
 
 ## 4. Solution Architecture & Technologies
 
-- **ServiceNow REST API Explorer**, used to inspect and manually test the Attachment API before automating it.
-- **ServiceNow Attachment API** (`/api/now/attachment/file`), the integration point that accepts a file upload against a specified table and record.
-- **ServiceNow Incident module**, the target record (INC0008111) that the attachment is uploaded to and verified against.
-- **Microsoft Power Automate Desktop**, used to build and run the automated upload flow.
-- **Invoke Web Service action**, configured with the endpoint URL, query parameters, POST method, multipart file upload, and an authenticated user token, used to call the API without a browser.
+| Component | Role |
+|---|---|
+| **ServiceNow REST API Explorer** | Used to inspect and manually test the Attachment API before automating it |
+| **ServiceNow Attachment API** (`/api/now/attachment/file`) | The integration point that accepts a file upload for a given table and record |
+| **ServiceNow Incident record** (INC0008111) | The target record where the attachment is uploaded and verified |
+| **Microsoft Power Automate Desktop** | Builds and runs the "ServiceNow Upload Attachment" flow |
+| **Invoke Web Service action** | Calls the API with the endpoint, query parameters, POST method, multipart file upload and user token, without a browser |
 
-Testing the API manually first, before automating it, is what makes this a reliable integration rather than a guess at how the endpoint behaves. The manual pass in the REST API Explorer confirms the exact parameters, headers, and response shape needed, and that same configuration is then carried directly into the Invoke Web Service action. Verifying the result in the incident record after each run, manual and automated, confirms the integration actually produces the expected outcome in ServiceNow rather than just a successful looking API response.
+```mermaid
+flowchart LR
+    A[REST API Explorer<br/>manual test] -->|confirms endpoint,<br/>parameters, headers| B[Power Automate Desktop<br/>Invoke Web Service]
+    C[Local file<br/>ServiceNow Upload Test Log.txt] --> B
+    B -->|POST multipart/form-data| D[ServiceNow<br/>Attachment API]
+    D -->|201 Created| B
+    D --> E[Incident INC0008111<br/>attachment + activity log]
+```
+
+## 5. Controls & Validation
+
+* **Test before automating:** The API call is proven manually in the REST API Explorer first, so the flow reuses a known-good endpoint, parameter set and header configuration
+* **Explicit record targeting:** The table name and the record's `sys_id` are passed as parameters, so the file is attached to one specific incident
+* **Authenticated requests:** The call uses an authenticated user token
+* **Response check:** Success is confirmed by the 201 status code returned to the flow
+* **Outcome verification:** After each run, manual and automated, the incident record is checked for the attachment and its activity log entry, not just for a successful API response
+
+## 6. Business Value
+
+* **Less manual work:** Files are attached without opening ServiceNow or uploading by hand
+* **Reliability:** Testing the API first and checking the record afterwards gives confidence the integration works as intended
+* **Consistency:** Every automated upload follows the same endpoint, parameters and format
+* **Traceability:** Each upload appears in the incident's attachment list and activity log
+* **Reusable pattern:** The same approach can attach generated files to ServiceNow records as part of larger automations
+
+## 7. Skills Demonstrated
+
+* ServiceNow REST API testing with the REST API Explorer
+* REST API integration (POST requests, query parameters, multipart file upload, authentication)
+* Desktop automation with Power Automate Desktop
+* Configuring the Invoke Web Service action
+* Reading HTTP status codes and API responses
+* End-to-end verification of an integration in the target system
+
+## 8. Future Enhancements
+
+The following are **potential future enhancements**, not existing functionality:
+
+* **Dynamic inputs:** Take the incident number, file path and file name as inputs instead of fixed values, and look up the `sys_id` from the incident number
+* **Error handling:** Check for status codes other than 201 and log or alert on failures
+* **Secure credentials:** Store the authentication token in a secure credential store rather than in the flow
+* **Batch uploads:** Attach every file in a folder, or files produced by another process, in one run
+* **Trigger from other flows:** Call this flow at the end of other automations so their output files are attached automatically
+
+## Summary
+
+This project integrates Power Automate Desktop with ServiceNow's Attachment REST API to upload files to incident records automatically. The API is first tested in ServiceNow's REST API Explorer, then the same call is automated with an Invoke Web Service action that returns a 201 Created response. The attachment and its activity log entry are verified on the incident, replacing manual uploads with a consistent, traceable and reusable integration.
