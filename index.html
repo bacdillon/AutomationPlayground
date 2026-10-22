@@ -354,9 +354,10 @@ analysis, process design, intelligent automation, data analytics, and GenAI     
                     onchange="filterShowcase(this.value)"
                     class="w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700 rounded-xl text-xs font-semibold tracking-wider text-white uppercase focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition appearance-none cursor-pointer pr-10 shadow-lg">
                     <option value="all" id="opt-all" class="bg-zinc-900 text-white">SHOW ALL (17)</option>
+                    <option value="api" id="opt-api" class="bg-zinc-900 text-white">API ()</option>
+                    <option value="copilot-studio" id="opt-copilot-studio" class="bg-zinc-900 text-white">Copilot Studio (3)</option>
                     <option value="uipath" id="opt-uipath" class="bg-zinc-900 text-white">UiPath (9)</option>
                     <option value="power-platform" id="opt-power-platform" class="bg-zinc-900 text-white">Power Platform (5)</option>
-                    <option value="copilot-studio" id="opt-copilot-studio" class="bg-zinc-900 text-white">Copilot Studio (3)</option>
                     <option value="python" id="opt-python" class="bg-zinc-900 text-white">Python (6)</option>
                     <!-- <option value="bpm" id="opt-bpm" class="bg-zinc-900 text-white">BPM (4)</option> -->
 <!--                     <option value="api" id="opt-api" class="bg-zinc-900 text-white">API (2)</option>
@@ -702,6 +703,37 @@ The solution automates the monitoring of equipment maintenance and calibration s
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+
+        <!-- CARD 9: Pedal Paradise Task Intake -->
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Apps SharePoint">
+                    <div>
+                        <div class="video-wrapper mb-6">
+                            <iframe src="https://player.vimeo.com/video/1238317118?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Pedal Paradise Task Intake (Vibe coding a Power Apps canvas app without a Premium licence)"></iframe>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Pedal Paradise Task Intake (Vibe coding a Power Apps canvas app without a Premium licence)</h3>
+                        <div class="flex flex-wrap mb-4">
+                            <span class="tech-badge">Power Apps canvas app</span>
+                            <span class="tech-badge">SharePoint Online</span>
+                            <span class="tech-badge">Power Apps YAML</span>
+                            <span class="tech-badge">Claude</span>
+                            <span class="tech-badge">Visual Studio Code</span>
+                        </div>
+                        
+                        <div class="text-white text-base leading-relaxed space-y-4">
+                            <p><b>Overview:</b>
+                                Pedal Paradise Task Intake is a Power Apps canvas app that helps a cycling business find tasks worth streamlining. Staff describe a task, its weekly hours, whether it is repetitive and, if it follows clear steps, the process itself. Submissions are saved to a SharePoint list and shown on a records screen with total weekly hours. 
+                                <br>
+                                Vibe coded from YAML generated with Claude, and built on SharePoint, it runs without a Power Apps Premium licence.
+                        <a href="https://github.com/bacdillon/AutomationPlayground/blob/main/PowerPlatform/Event%20Proposal%20Approval%20%26%20Notification/README.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
+                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
+                        </a>
+
+                        </div>
+                    </div>
+                </div>      
+
+
 
           <!-- CARD 9: Event Proposal Approval & Notification -->
                 <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Automate SharePoint Online Microsoft Approvals Outlook Teams">
@@ -1188,7 +1220,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- CARD 16: Intelligent IT Helpdesk Support (AI Agent) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio api agentic-ai">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188318829?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Copilot Studio Customer Support"></iframe>
@@ -1848,6 +1880,7 @@ If the request is rejected, a rejection notification is sent to the employee and
             const cards = document.querySelectorAll('.showcase-card');
             const counts = {
                 'all': 0,
+                'api': 0,
                 'uipath': 0,
                 'power-platform': 0,
                 'copilot-studio': 0,
@@ -1860,6 +1893,7 @@ If the request is rejected, a rejection notification is sent to the employee and
 
             const categoryLabels = {
                 'all': 'SHOW ALL',
+                'api': 'API',
                 'uipath': 'UiPath',
                 'power-platform': 'Power Platform',
                 'copilot-studio': 'Copilot Studio',

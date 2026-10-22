@@ -1,0 +1,280 @@
+Screens:
+    IntakeScreen:
+        Properties:
+            Fill: =RGBA(243, 245, 249, 1)
+            OnVisible: =Set(varSaving, false)
+        Children:
+            # Scrollable page wrapper that centers the card
+            - conPage:
+                Control: GroupContainer
+                Variant: AutoLayout
+                Properties:
+                    X: =0
+                    Y: =0
+                    Width: =Parent.Width
+                    Height: =Parent.Height
+                    LayoutDirection: =LayoutDirection.Vertical
+                    LayoutAlignItems: =LayoutAlignItems.Center
+                    LayoutOverflowY: =LayoutOverflow.Scroll
+                    PaddingTop: =76
+                    PaddingBottom: =40
+                    PaddingLeft: =16
+                    PaddingRight: =16
+                    DropShadow: =DropShadow.None
+                    Fill: =RGBA(0, 0, 0, 0)
+                Children:
+                    # White card holding the form
+                    - conCard:
+                        Control: GroupContainer
+                        Variant: ManualLayout
+                        Properties:
+                            Width: =Min(760, Parent.Width - 32)
+                            Height: =btnSubmit.Y + btnSubmit.Height + 36
+                            FillPortions: =0
+                            AlignInContainer: =AlignInContainer.Center
+                            Fill: =RGBA(255, 255, 255, 1)
+                            BorderColor: =RGBA(225, 229, 236, 1)
+                            BorderThickness: =1
+                            RadiusTopLeft: =16
+                            RadiusTopRight: =16
+                            RadiusBottomLeft: =16
+                            RadiusBottomRight: =16
+                            DropShadow: =DropShadow.Semilight
+                        Children:
+                            # ---------- Header ----------
+                            - rectAccent:
+                                Control: Rectangle
+                                Properties:
+                                    X: =36
+                                    Y: =36
+                                    Width: =56
+                                    Height: =6
+                                    Fill: =RGBA(30, 30, 30, 1)
+                            - lblTitle:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =56
+                                    Width: =Parent.Width - 72
+                                    Height: =44
+                                    Text: ="Pedal Paradise · Customer Intake"
+                                    Size: =28
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                            - lblSubtitle:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =104
+                                    Width: =Parent.Width - 72
+                                    Height: =44
+                                    Text: ="Tell us about a task that slows the team down so we can look at streamlining it. Fields marked * are required."
+                                    Size: =14
+                                    Wrap: =true
+                            - rectDivider:
+                                Control: Rectangle
+                                Properties:
+                                    X: =36
+                                    Y: =164
+                                    Width: =Parent.Width - 72
+                                    Height: =1
+                                    Fill: =RGBA(225, 229, 236, 1)
+
+                            # ---------- 1. Description ----------
+                            - lblDescription:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =192
+                                    Width: =Parent.Width - 72
+                                    Height: =26
+                                    Text: ="1. Description of task *"
+                                    Size: =15
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                            - txtDescription:
+                                Control: TextInput
+                                Properties:
+                                    X: =36
+                                    Y: =224
+                                    Width: =Parent.Width - 72
+                                    Height: =110
+                                    Mode: ='TextInputCanvas.Mode'.Multiline
+                                    Placeholder: ="Describe the task in a few sentences..."
+                                    AccessibleLabel: ="Description of task"
+
+                            # ---------- 2. Weekly hours ----------
+                            - lblWeeklyHours:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =358
+                                    Width: =Parent.Width - 72
+                                    Height: =26
+                                    Text: ="2. Hours spent on this task each week *"
+                                    Size: =15
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                            - numWeeklyHours:
+                                Control: NumberInput
+                                Properties:
+                                    X: =36
+                                    Y: =390
+                                    Width: =Min(240, Parent.Width - 72)
+                                    Height: =40
+                                    Min: =0
+                                    AccessibleLabel: ="Number of hours per week"
+
+                            # ---------- 3. Repetitive ----------
+                            - lblRepetitive:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =454
+                                    Width: =Parent.Width - 72
+                                    Height: =26
+                                    Text: ="3. Is it repetitive? *"
+                                    Size: =15
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                            - drpRepetitive:
+                                Control: DropDown
+                                Properties:
+                                    X: =36
+                                    Y: =486
+                                    Width: =Min(320, Parent.Width - 72)
+                                    Height: =40
+                                    Items: =Choices('Customer Intake List'.Repetitive)
+                                    AccessibleLabel: ="Is it repetitive"
+
+                            # ---------- 4. Logical process (checkbox) ----------
+                            - lblLogical:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =550
+                                    Width: =Parent.Width - 72
+                                    Height: =26
+                                    Text: ="4. Does the process follow a logical process?"
+                                    Size: =15
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                            - chkLogical:
+                                Control: Checkbox
+                                Properties:
+                                    X: =36
+                                    Y: =580
+                                    Width: =Parent.Width - 72
+                                    Height: =36
+                                    Label: ="Yes, it follows clear, consistent steps"
+                                    Checked: =false
+
+                            # ---------- 5. Process description (shown only when checked) ----------
+                            - lblProcessDesc:
+                                Control: Text
+                                Properties:
+                                    X: =36
+                                    Y: =636
+                                    Width: =Parent.Width - 72
+                                    Height: =26
+                                    Visible: =chkLogical.Checked
+                                    Text: ="5. Describe the repetitive process *"
+                                    Size: =15
+                                    Weight: ='TextCanvas.Weight'.Semibold
+                            - txtProcessDesc:
+                                Control: TextInput
+                                Properties:
+                                    X: =36
+                                    Y: =668
+                                    Width: =Parent.Width - 72
+                                    Height: =110
+                                    Visible: =chkLogical.Checked
+                                    Mode: ='TextInputCanvas.Mode'.Multiline
+                                    Placeholder: ="Walk us through the steps, inputs and outputs..."
+                                    AccessibleLabel: ="Description of repetitive process"
+
+                            # ---------- Footer / actions ----------
+                            - rectFooterDivider:
+                                Control: Rectangle
+                                Properties:
+                                    X: =36
+                                    Y: =If(chkLogical.Checked, 806, 644)
+                                    Width: =Parent.Width - 72
+                                    Height: =1
+                                    Fill: =RGBA(225, 229, 236, 1)
+                            - btnClear:
+                                Control: Button
+                                Properties:
+                                    X: =Parent.Width - 36 - 160 - 12 - 120
+                                    Y: =rectFooterDivider.Y + 24
+                                    Width: =120
+                                    Height: =40
+                                    Text: ="Clear"
+                                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                                    DisplayMode: =If(varSaving, DisplayMode.Disabled, DisplayMode.Edit)
+                                    OnSelect: |-
+                                        =Reset(txtDescription);
+                                        Reset(numWeeklyHours);
+                                        Reset(drpRepetitive);
+                                        Reset(chkLogical);
+                                        Reset(txtProcessDesc)
+                            - btnSubmit:
+                                Control: Button
+                                Properties:
+                                    X: =Parent.Width - 36 - 160
+                                    Y: =rectFooterDivider.Y + 24
+                                    Width: =160
+                                    Height: =40
+                                    Text: =If(varSaving, "Submitting...", "Submit")
+                                    Icon: ="Send"
+                                    Appearance: ='ButtonCanvas.Appearance'.Primary
+                                    DisplayMode: =If(varSaving, DisplayMode.Disabled, DisplayMode.Edit)
+                                    OnSelect: |-
+                                        =If(
+                                            IsBlank(Trim(txtDescription.Value)) ||
+                                            IsBlank(numWeeklyHours.Value) ||
+                                            IsBlank(drpRepetitive.Selected) ||
+                                            (chkLogical.Checked && IsBlank(Trim(txtProcessDesc.Value))),
+                                            Notify("Please complete all required fields.", NotificationType.Error),
+
+                                            Set(varSaving, true);
+                                            IfError(
+                                                Patch(
+                                                    'Customer Intake List',
+                                                    Defaults('Customer Intake List'),
+                                                    {
+                                                        Description: txtDescription.Value,
+                                                        WeeklyHours: numWeeklyHours.Value,
+                                                        Repetitive: drpRepetitive.Selected,
+                                                        LogicalProcess: chkLogical.Checked,
+                                                        RepetitiveProcessDescription: If(chkLogical.Checked, txtProcessDesc.Value, Blank())
+                                                    }
+                                                );
+                                                Notify("Thanks! Your intake has been submitted.", NotificationType.Success);
+                                                Reset(txtDescription);
+                                                Reset(numWeeklyHours);
+                                                Reset(drpRepetitive);
+                                                Reset(chkLogical);
+                                                Reset(txtProcessDesc),
+                                                Notify("Something went wrong: " & FirstError.Message, NotificationType.Error)
+                                            );
+                                            Set(varSaving, false)
+                                        )
+
+            # ---------- Tab bar (in front of the page) ----------
+            - btnTabNewIntake:
+                Control: Button
+                Properties:
+                    X: =(Parent.Width - Min(760, Parent.Width - 32)) / 2
+                    Y: =20
+                    Width: =150
+                    Height: =38
+                    Text: ="New intake"
+                    Icon: ="Add"
+                    Appearance: ='ButtonCanvas.Appearance'.Primary
+            - btnTabViewRecords:
+                Control: Button
+                Properties:
+                    X: =btnTabNewIntake.X + btnTabNewIntake.Width + 8
+                    Y: =btnTabNewIntake.Y
+                    Width: =150
+                    Height: =38
+                    Text: ="View records"
+                    Icon: ="List"
+                    Appearance: ='ButtonCanvas.Appearance'.Secondary
+                    OnSelect: =Navigate(RecordsScreen, ScreenTransition.None)
