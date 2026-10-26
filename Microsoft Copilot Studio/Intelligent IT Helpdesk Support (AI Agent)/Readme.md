@@ -76,6 +76,7 @@ The specific tools, connectors and knowledge sources configured in the agent are
 
 * IT service management process analysis (incident status and self-service)
 * AI agent design in Microsoft Copilot Studio
+* ServiceNow REST API integration
 * Writing agent descriptions and instructions to define scope and behavior
 * Integrating an AI agent with ServiceNow incident and user data
 * Multilingual conversational design with automatic language detection
