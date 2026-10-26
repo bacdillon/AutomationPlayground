@@ -7,7 +7,7 @@ Intelligent IT Helpdesk Support is a conversational AI agent that helps employee
 
 * **Use case:** Self-service IT ticket status lookup and helpdesk support
 * **Intended audience:** Employees who raise IT incidents, and IT service desk teams who want to reduce routine status queries
-* **Main technologies:** Microsoft Copilot Studio (agent "Intelligent IT Helpdesk Support"), GPT-4.1 as the agent's model, and ServiceNow as the source of incident and user data
+* **Main technologies:** Microsoft Copilot Studio, REST API integration, GPT-4.1 as the agent's model, conversational AI, profile queries and multilingual responses.
 
 ## 2. Business Problem & Objectives
 
