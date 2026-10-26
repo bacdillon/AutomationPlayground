@@ -1,4 +1,5 @@
 # Intelligent IT Helpdesk Support (AI Agent)
+A conversational AI agent built with Microsoft Copilot Studio and integrated with ServiceNow to help employees retrieve IT incident details and user profile information through natural-language conversations.
 
 ## 1. Project Overview
 
