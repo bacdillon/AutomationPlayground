@@ -43,6 +43,7 @@ The agent is built and tested in Copilot Studio. Its description sets its scope:
 | **Microsoft Copilot Studio** | Platform used to build, test and publish the agent, including its description, instructions, knowledge, tools and topics |
 | **GPT-4.1** | The agent's model for reasoning and generating responses (selected as the default model) |
 | **ServiceNow** | Source of incident records (status, priority, dates, description, category) and user profile data such as department |
+| ***REST API integration*** | Enables retrieval of relevant ServiceNow data |
 | **Language detection** | Lets the agent detect the user's language and respond in it |
 
 ```mermaid
