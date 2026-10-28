@@ -1,4 +1,5 @@
 # Intelligent IT Helpdesk Support (AI Agent)
+A conversational AI agent built with Microsoft Copilot Studio and integrated with ServiceNow to help employees retrieve IT incident details and user profile information through natural-language conversations.
 
 ## 1. Project Overview
 
@@ -6,7 +7,7 @@ Intelligent IT Helpdesk Support is a conversational AI agent that helps employee
 
 * **Use case:** Self-service IT ticket status lookup and helpdesk support
 * **Intended audience:** Employees who raise IT incidents, and IT service desk teams who want to reduce routine status queries
-* **Main technologies:** Microsoft Copilot Studio (agent "Intelligent IT Helpdesk Support"), GPT-4.1 as the agent's model, and ServiceNow as the source of incident and user data
+* **Main technologies:** Microsoft Copilot Studio, REST API integration, GPT-4.1 as the agent's model, conversational AI, profile queries and multilingual responses.
 
 ## 2. Business Problem & Objectives
 
@@ -42,6 +43,7 @@ The agent is built and tested in Copilot Studio. Its description sets its scope:
 | **Microsoft Copilot Studio** | Platform used to build, test and publish the agent, including its description, instructions, knowledge, tools and topics |
 | **GPT-4.1** | The agent's model for reasoning and generating responses (selected as the default model) |
 | **ServiceNow** | Source of incident records (status, priority, dates, description, category) and user profile data such as department |
+| **REST API integration** | Enables retrieval of relevant ServiceNow data |
 | **Language detection** | Lets the agent detect the user's language and respond in it |
 
 ```mermaid
@@ -74,6 +76,7 @@ The specific tools, connectors and knowledge sources configured in the agent are
 
 * IT service management process analysis (incident status and self-service)
 * AI agent design in Microsoft Copilot Studio
+* ServiceNow REST API integration
 * Writing agent descriptions and instructions to define scope and behavior
 * Integrating an AI agent with ServiceNow incident and user data
 * Multilingual conversational design with automatic language detection
@@ -92,8 +95,6 @@ The following are **potential future enhancements**, not existing functionality:
 * **Consistent language from the start:** The first reply to the German message came back in English before the agent switched, so the language could be detected from the first message
 * **Track usage:** Use the built-in analytics (conversation sessions, engagement, satisfaction) once the agent is live
 
----
-
-## Final Summary
+## Summary
 
 Intelligent IT Helpdesk Support is a Copilot Studio AI agent, powered by GPT-4.1, that lets employees check their IT tickets through a simple conversation. After identifying the user by their ServiceNow email address, it retrieves incident status, priority, dates, description and category, and answers profile questions such as the user's department. It detects the user's language automatically, reducing routine service desk queries and giving users fast answers they can understand.
