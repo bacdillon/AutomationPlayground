@@ -252,6 +252,15 @@ ul li::before {
             opacity: 1;
         }
 
+        /* Insights: charts and table */
+        .ins-row { cursor: pointer; display: grid; grid-template-columns: 7.5rem 1fr 2rem; align-items: center; gap: 0.75rem; }
+        .ins-track { height: 1rem; background: #18181b; border-radius: 6px; overflow: hidden; }
+        .ins-row:hover .ins-bar { background: #ffffff; }
+        .ins-row:hover .ins-label { color: #ffffff; }
+        .ins-bar { background: #a1a1aa; height: 100%; border-radius: 6px; width: 0; transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s; }
+        .ins-table tbody tr { cursor: pointer; transition: background 0.2s; }
+        .ins-table tbody tr:hover { background: rgba(255, 255, 255, 0.05); }
+
         /* Active Nav Link Marker */
         .nav-link.active-link {
             color: #ffffff;
@@ -277,6 +286,7 @@ ul li::before {
                 <button onclick="scrollToSection('copilot-studio')" id="nav-copilot-studio" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Copilot Studio</button>
                 <button onclick="scrollToSection('python')" id="nav-python" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Python</button>
                 <!-- <button onclick="scrollToSection('bpm')" id="nav-bpm" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">BPM</button> -->
+                <button onclick="scrollToSection('insights')" id="nav-insights" class="nav-link text-zinc-400 hover:text-white transition py-1 focus:outline-none">Insights</button>
                 <div class="flex items-center space-x-4 border-l border-zinc-800 pl-8">
                     <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-lg text-white cursor-pointer" title="GitHub Profile">
                         <i class="fab fa-github"></i>
@@ -298,6 +308,7 @@ ul li::before {
             <button onclick="handleMobileNav('copilot-studio')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Copilot Studio</button>
             <button onclick="handleMobileNav('python')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Python</button>
             <!-- <button onclick="handleMobileNav('bpm')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">BPM</button> -->
+            <button onclick="handleMobileNav('insights')" class="block w-full text-left text-zinc-200 hover:text-white transition py-2 font-medium focus:outline-none">Insights</button>
             <div class="pt-4 border-t border-zinc-900 flex items-center justify-between">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="social-link text-sm text-zinc-300 hover:text-white flex items-center gap-2" title="GitHub">
                     github.com/bacdillon
@@ -353,17 +364,21 @@ analysis, process design, intelligent automation, data analytics, and GenAI     
                     id="category-select" 
                     onchange="filterShowcase(this.value)"
                     class="w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700 rounded-xl text-xs font-semibold tracking-wider text-white uppercase focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition appearance-none cursor-pointer pr-10 shadow-lg">
-                    <option value="all" id="opt-all" class="bg-zinc-900 text-white">SHOW ALL (17)</option>
-                    <option value="api" id="opt-api" class="bg-zinc-900 text-white">API ()</option>
-                    <option value="copilot-studio" id="opt-copilot-studio" class="bg-zinc-900 text-white">Copilot Studio (3)</option>
-                    <option value="uipath" id="opt-uipath" class="bg-zinc-900 text-white">UiPath (9)</option>
-                    <option value="power-platform" id="opt-power-platform" class="bg-zinc-900 text-white">Power Platform (5)</option>
-                    <option value="python" id="opt-python" class="bg-zinc-900 text-white">Python (6)</option>
-                    <!-- <option value="bpm" id="opt-bpm" class="bg-zinc-900 text-white">BPM (4)</option> -->
-<!--                     <option value="api" id="opt-api" class="bg-zinc-900 text-white">API (2)</option>
-                    <option value="power-bi" id="opt-power-bi" class="bg-zinc-900 text-white">Power BI (5)</option>
-                    <option value="agentic-ai" id="opt-agentic-ai" class="bg-zinc-900 text-white">Agentic AI (5)</option>
- -->                    <!-- <option value="machine-learning" id="opt-machine-learning" class="bg-zinc-900 text-white">Machine Learning (2)</option> -->
+                    <option value="all" id="opt-all" class="bg-zinc-900 text-white">SHOW ALL</option>
+                    <option value="api" id="opt-api" class="bg-zinc-900 text-white">API</option>
+                    <!-- <option value="bpm" id="opt-bpm" class="bg-zinc-900 text-white">BPM</option> -->
+                    <option value="claude" id="opt-claude" class="bg-zinc-900 text-white">Claude</option>
+                    <option value="copilot" id="opt-copilot" class="bg-zinc-900 text-white">Copilot Studio</option>
+                    <option value="dataverse" id="opt-dataverse" class="bg-zinc-900 text-white">Dataverse</option>
+                    <option value="microsoft-365" id="opt-microsoft-365" class="bg-zinc-900 text-white">Microsoft 365</option>
+                    <option value="ollama" id="opt-ollama" class="bg-zinc-900 text-white">Ollama</option>
+                    <option value="power-apps" id="opt-power-apps" class="bg-zinc-900 text-white">Power Apps</option>
+                    <option value="power-automate" id="opt-power-automate" class="bg-zinc-900 text-white">Power Automate</option>
+                    <option value="power-bi" id="opt-power-bi" class="bg-zinc-900 text-white">Power BI</option>
+                    <option value="power-platform" id="opt-power-platform" class="bg-zinc-900 text-white">Power Platform</option>
+                    <option value="python" id="opt-python" class="bg-zinc-900 text-white">Python</option>
+                    <option value="sharepoint" id="opt-sharepoint" class="bg-zinc-900 text-white">SharePoint</option>
+                    <option value="uipath" id="opt-uipath" class="bg-zinc-900 text-white">UiPath</option>
                 </select>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-3.5 pointer-events-none text-zinc-400">
                     <i class="fas fa-chevron-down text-xs"></i>
@@ -467,7 +482,7 @@ The application under test is a locally hosted web app, served through Internet 
                 </div>
 
                 <!-- CARD 3: Queue Automation: Dispatcher & Performer-->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188275417?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="BMI Queue Process"></iframe>
@@ -501,7 +516,7 @@ The application under test is a locally hosted web app, served through Internet 
                 </div>
 
                 <!-- CARD 4: Meet Alfred: Intelligent Invoice Processing Automation (REFramework) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath excel outlook python">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath excel outlook python microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188276801?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Meet Alfred"></iframe>
@@ -530,7 +545,7 @@ A production-grade, end-to-end invoice processing automation built on UiPath's R
                 </div>
 
                 <!-- CARD 5: Loan Application Processing from Process Discovery to Automation -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath bpm">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath">
                     <div>
                         <div class="video-wrapper mb-6 border border-zinc-800 cursor-pointer group" onclick="openImageModal('https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png', 'Loan Application Processing Architecture')">
                             <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Loan%20Application%20Processing%20From%20Process%20Analysis%20to%20Automation.png" alt="Loan Application Processing Diagram" class="group-hover:scale-105 transition duration-300">
@@ -565,7 +580,7 @@ A production-grade, end-to-end invoice processing automation built on UiPath's R
                 </div>
 
                 <!-- CARD 6: Medical Equipment Maintenance & Calibration -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="uipath python microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188278336?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" title="Medical Equipment Tracking"></iframe>
@@ -706,7 +721,7 @@ The solution automates the monitoring of equipment maintenance and calibration s
 
 
         <!-- CARD 9: Pedal Paradise Task Intake -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Apps SharePoint">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform sharepoint power-apps claude">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1238317118?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Pedal Paradise Task Intake (Vibe coding a Power Apps canvas app without a Premium licence)"></iframe>
@@ -737,7 +752,7 @@ The solution automates the monitoring of equipment maintenance and calibration s
 
 
           <!-- CARD 9: Event Proposal Approval & Notification -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Automate SharePoint Online Microsoft Approvals Outlook Teams">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform sharepoint power-automate microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1229069353?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Event Proposal Approval & Notification"></iframe>
@@ -763,7 +778,7 @@ This project automates the review of event and activity proposals for Pedal Para
 
 
                           <!-- CARD 9: New Employee Onboarding Automation -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Automate SharePoint Outlook Teams">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform sharepoint power-automate microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1230876222?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="New Employee Onboarding Automation"></iframe>
@@ -791,7 +806,7 @@ This project automates the first stage of onboarding a new hire. Details about t
 
 
                 <!-- CARD 12: Kiddy Lah! Inventory Management System -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform dataverse power-automate power-apps microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188308163?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Inventory Management System"></iframe>
@@ -844,7 +859,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>
 
                 <!-- CARD 14: My Budgee Expense Tracker -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-automate power-apps microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188312760?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Expense Tracker"></iframe>
@@ -868,7 +883,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
 
 
                           <!-- CARD 15: ServiceNow REST API Integration: Automated Attachment Upload -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform servicenow api">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform servicenow api power-automate">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1236072937?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="ServiceNow REST API Integration: Automated Attachment Upload"></iframe>
@@ -893,7 +908,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>
 
                 <!-- CARD 16: Automated Ticket Management System -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Planner Power Automate Teams">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-automate microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188310566?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Automated Ticket Management System"></iframe>
@@ -920,7 +935,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>
 
           <!-- CARD 10: Customer Message Triage (Local LLM) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform Power Automate Desktop Ollama Meta Llama 3.2 Structured prompting">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform prompting power-automate ollama">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1221989893?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Customer Message Triage (Local LLM)"></iframe>
@@ -949,7 +964,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>      
 
           <!-- CARD 10: Input Validation (RPA Data Entry) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-automate microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1221119302?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Power Apps Showcase"></iframe>
@@ -975,7 +990,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>      
 
                 <!-- CARD 9: A Reusable Configuration File -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform ">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-automate microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1220696527?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Power Apps Showcase"></iframe>
@@ -1030,7 +1045,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>
 
                 <!-- CARD 15: Airline Flight Delays Dashboard-->
-                    <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi python">
+                    <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="power-platform power-bi">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188310138?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Sales Funnel Dashboard"></iframe>
@@ -1221,7 +1236,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- CARD 16: Intelligent IT Helpdesk Support (AI Agent) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio api agentic-ai">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio api agentic-ai copilot">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188318829?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Copilot Studio Customer Support"></iframe>
@@ -1270,7 +1285,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>
 
                 <!-- CARD 17: Expense Report Reviewer Agent -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai copilot microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188314930?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Expense Report Reviewer Agent"></iframe>
@@ -1318,7 +1333,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
                 </div>
 
                 <!-- CARD 18: PowerPoint Generator Agent -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai copilot claude power-automate sharepoint microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1190715740?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
@@ -1350,7 +1365,7 @@ This project is an inventory management application for Kiddy Lah! Toy Shop. It 
 
 
                <!-- CARD 19: Hair for Hope: Virtual Assistant -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai copilot">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188319620?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="Hair for Hope Virtual Assistant"></iframe>
@@ -1377,7 +1392,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 </div>
                 
                 <!-- CARD 20: Your Guide to Microsoft Copilot -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio GPT-4.1">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio copilot microsoft-365">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188317135?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
@@ -1406,7 +1421,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 </div>
 
                 <!-- CARD 19: Holland America Deck Plans (AI Agent) -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="copilot-studio agentic-ai copilot">
                     <div>
                         <div class="video-wrapper mb-6">
                             <iframe src="https://player.vimeo.com/video/1188319840?title=0&amp;byline=0&amp;portrait=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" allow="autoplay; fullscreen" title="PowerPoint Generator Agent"></iframe>
@@ -1550,7 +1565,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 </div>
 
                 <!-- CARD 4: Grocery List Categorizer-->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="python">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="python ollama">
                     <div>
                         <div class="video-wrapper mb-6">
                           <img src="https://raw.githubusercontent.com/bacdillon/Python/refs/heads/master/06_AI_and_LLMs/02_Ollama/Grocery%20List%20Categorizer/Grocery%20List%20Categorizer.png" alt="Grocery List Categorizer" class="w-full h-auto">
@@ -1585,7 +1600,8 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
 
 
     <!-- Business Process Modelling Section -->
-    <!-- <section id="bpm" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
+    <!-- BPM section disabled
+    <section id="bpm" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
                 <div class="flex items-center justify-between">
@@ -1597,55 +1613,36 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                     </div>
                 </div>
             </div>
-
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8"> -->
-                
-                <!-- CARD 1 Purchase request process flow -->
-
-<!--                         <a href="https://github.com/bacdillon/Python/tree/master" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a> -->
-
-                        <!-- </div>
-                    </div>
-                </div> -->
-
-
-                <!-- CARD 2 Vacation Leave Request with Process Documentation -->
-                <!-- <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="bpm">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                 CARD 1 Vacation Leave Request with Process Documentation 
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="bpm">
                     <div>
                         <div class="video-wrapper mb-6">
-                                <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Vaction%20Leave%20Request%20Documentation.png">
+                            <img src="https://raw.githubusercontent.com/bacdillon/AutomationPlayground/refs/heads/main/img/Vaction%20Leave%20Request%20Documentation.png" alt="Vacation Leave Request process model">
                         </div>
-                        <h3 class="text-2xl font-bold mb-3 text-white">
-                         Vacation Leave Request with Process Documentation
-                        </h3>
+                        <h3 class="text-2xl font-bold mb-3 text-white">Vacation Leave Request with Process Documentation</h3>
                         <div class="flex flex-wrap mb-4">
-                            <span class="tech-badge">bizagi</span>
+                            <span class="tech-badge">Bizagi</span>
+                            <span class="tech-badge">BPMN</span>
                         </div>
-                        
                         <div class="text-white text-base leading-relaxed space-y-4">
-                            <p><b>Overview:</b> 
-The Vacation Leave Request process begins when an employee submits a request for vacation leave after verifying their available leave balance. Once the request is registered, it is forwarded to the employee’s immediate supervisor for review. The supervisor evaluates the request and decides whether to approve or reject it, or request modifications if necessary.
-<br><br>
-If the request is rejected, a rejection notification is sent to the employee and the process ends. If approved, the administrative department is notified, sends an approval confirmation, and updates the payroll system to reflect the approved leave. This ensures proper tracking, communication, and record-keeping of employee leave within the organization.                     -->
-<!--                         <a href="https://github.com/bacdillon/Python/blob/master/05_Streamlit/Bagger%20Digital%20Preservation/Readme.md" target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 bg-zinc-900 hover:bg-zinc-800 text-white text-xs font-semibold rounded-lg border border-zinc-700 transition-all no-shadow-btn">
-                            <i class="fab fa-github mr-2 text-sm"></i> View Source & Documentation <i class="fas fa-external-link-alt ml-2 text-[10px] text-zinc-400"></i>
-                        </a> -->
-
+                            <p><b>Overview:</b>
+                                The Vacation Leave Request process begins when an employee submits a request for vacation leave after verifying their available leave balance. Once the request is registered, it is forwarded to the employee's immediate supervisor for review. The supervisor evaluates the request and decides whether to approve or reject it, or request modifications if necessary.
+                                <br><br>
+                                If the request is rejected, a rejection notification is sent to the employee and the process ends. If approved, the administrative department is notified, sends an approval confirmation, and updates the payroll system to reflect the approved leave. This ensures proper tracking, communication, and record-keeping of employee leave within the organization.
+                            </p>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
+    -->
 
 
 
     <!-- Machine Learning Section -->
-    <section id="copilot-studio" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
+    <section id="machine-learning" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
         <div class="max-w-6xl mx-auto">
             <div class="section-header py-4 mb-8">
                 <div class="flex items-center justify-between">
@@ -1661,7 +1658,7 @@ If the request is rejected, a rejection notification is sent to the employee and
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 
                 <!-- CARD 1 Simple Linear Regression – Ice Cream Revenue Prediction -->
-                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="machine-learning">
+                <div class="showcase-card glass-card rounded-2xl p-6 flex flex-col justify-between" data-category="machine-learning python">
                     <div>
                         <div class="video-wrapper mb-6">
                             <img src="https://raw.githubusercontent.com/bacdillon/Python/refs/heads/master/04_Machine_Learning/Simple%20Linear%20Regression/images/Simple_Linear_Regression_Process.png" alt="Simple Linear Regression Process" class="w-full h-auto">
@@ -1697,6 +1694,49 @@ If the request is rejected, a rejection notification is sent to the employee and
 
 
 
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Insights Section: projects per technology -->
+    <section id="insights" class="scroll-mt-24 py-12 px-6 bg-black border-t border-zinc-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="section-header py-4 mb-8">
+                <div>
+                    <h2 class="text-3xl font-bold text-white">Insights</h2>
+                    <div class="w-20 h-1 bg-white rounded mt-2"></div>
+                    <p class="text-zinc-400 text-sm mt-4">Projects per technology and per portfolio section. Counts update automatically from the project cards. Select a bar or a row to filter the showcase.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-1">Projects by technology</h3>
+                    <p id="ins-total" class="text-xs text-zinc-500 mb-5"></p>
+                    <div id="ins-tech-chart" class="space-y-2.5"></div>
+                </div>
+                <div class="glass-card rounded-2xl p-6">
+                    <h3 class="text-lg font-bold text-white mb-1">Projects by portfolio section</h3>
+                    <p class="text-xs text-zinc-500 mb-5">Each project counted once</p>
+                    <div id="ins-section-chart" class="space-y-2.5"></div>
+                </div>
+            </div>
+
+            <div class="glass-card rounded-2xl p-6 overflow-x-auto">
+                <h3 class="text-lg font-bold text-white mb-4">Technology summary</h3>
+                <table class="ins-table w-full text-sm text-left">
+                    <thead>
+                        <tr class="text-zinc-400 text-xs uppercase tracking-wider border-b border-zinc-800">
+                            <th class="py-3 pr-4 font-semibold">Technology</th>
+                            <th class="py-3 pr-4 font-semibold text-right">Projects</th>
+                            <th class="py-3 pr-4 font-semibold text-right">Share</th>
+                            <th class="py-3 font-semibold">Projects</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ins-table-body" class="text-zinc-200"></tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -1785,6 +1825,93 @@ If the request is rejected, a rejection notification is sent to the employee and
         }
 
         // Navigation & Scrolling Handlers
+
+        // Insights: build charts and table from the project cards
+        const insightTechs = [
+            ['microsoft-365', 'Microsoft 365'], ['power-automate', 'Power Automate'], ['python', 'Python'],
+            ['copilot', 'Copilot Studio'], ['uipath', 'UiPath'], ['power-bi', 'Power BI'], ['sharepoint', 'SharePoint'],
+            ['power-apps', 'Power Apps'], ['api', 'API'], ['claude', 'Claude'], ['ollama', 'Ollama'], ['dataverse', 'Dataverse']
+        ];
+        const insightSections = [
+            ['uipath', 'UiPath'], ['power-platform', 'Power Platform'], ['copilot-studio', 'Copilot Studio'],
+            ['python', 'Python'], ['machine-learning', 'Machine Learning']
+        ];
+
+        function insightRow(label, count, max, onClick) {
+            const row = document.createElement('div');
+            row.className = 'ins-row grid items-center gap-3';
+            row.title = onClick ? 'Show ' + label + ' projects' : '';
+            row.innerHTML = '<span class="ins-label text-xs text-zinc-300 truncate"></span>' +
+                '<div class="ins-track"><div class="ins-bar"></div></div>' +
+                '<span class="text-xs font-semibold text-white text-right"></span>';
+            row.children[0].textContent = label;
+            row.children[2].textContent = count;
+            const bar = row.querySelector('.ins-bar');
+            requestAnimationFrame(() => { bar.style.width = (max ? (count / max) * 100 : 0) + '%'; });
+            if (onClick) row.addEventListener('click', onClick);
+            else row.style.cursor = 'default';
+            return row;
+        }
+
+        function showTechnology(tech) {
+            filterShowcase(tech);
+            scrollToSection('category-select');
+        }
+
+        function buildInsights() {
+            const cards = Array.from(document.querySelectorAll('.showcase-card'));
+            const tagsOf = card => (card.getAttribute('data-category') || '').split(' ').filter(Boolean);
+            const titleOf = card => (card.querySelector('h3')?.textContent.trim()) ||
+                (card.querySelector('iframe')?.getAttribute('title')) || 'Untitled project';
+
+            const techData = insightTechs
+                .map(([key, label]) => ({ key, label, projects: cards.filter(c => tagsOf(c).includes(key)) }))
+                .filter(t => t.projects.length > 0)
+                .sort((a, b) => b.projects.length - a.projects.length);
+            const techMax = Math.max(...techData.map(t => t.projects.length), 0);
+
+            const techChart = document.getElementById('ins-tech-chart');
+            const sectionChart = document.getElementById('ins-section-chart');
+            const tableBody = document.getElementById('ins-table-body');
+            if (!techChart || !sectionChart || !tableBody) return;
+
+            document.getElementById('ins-total').textContent =
+                cards.length + ' projects in total. A project can use several technologies.';
+
+            techChart.innerHTML = '';
+            techData.forEach(t => techChart.appendChild(
+                insightRow(t.label, t.projects.length, techMax, () => showTechnology(t.key))));
+
+            const sectionData = insightSections.map(([id, label]) => {
+                const sec = document.getElementById(id);
+                return { id, label, count: sec ? sec.querySelectorAll('.showcase-card').length : 0 };
+            }).filter(s => s.count > 0);
+            const sectionMax = Math.max(...sectionData.map(s => s.count), 0);
+            sectionChart.innerHTML = '';
+            sectionData.forEach(s => sectionChart.appendChild(
+                insightRow(s.label, s.count, sectionMax, () => scrollToSection(s.id))));
+
+            tableBody.innerHTML = '';
+            techData.forEach(t => {
+                const tr = document.createElement('tr');
+                tr.className = 'border-b border-zinc-900 align-top';
+                tr.title = 'Show ' + t.label + ' projects';
+                const share = cards.length ? Math.round((t.projects.length / cards.length) * 100) : 0;
+                tr.innerHTML = '<td class="py-3 pr-4 font-semibold text-white whitespace-nowrap"></td>' +
+                    '<td class="py-3 pr-4 text-right"></td>' +
+                    '<td class="py-3 pr-4 text-right text-zinc-400"></td>' +
+                    '<td class="py-3 text-xs text-zinc-400 leading-relaxed"></td>';
+                tr.children[0].textContent = t.label;
+                tr.children[1].textContent = t.projects.length;
+                tr.children[2].textContent = share + '%';
+                tr.children[3].textContent = t.projects.map(titleOf).join(' · ');
+                tr.addEventListener('click', () => showTechnology(t.key));
+                tableBody.appendChild(tr);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', buildInsights);
+
         function scrollToSection(id) {
             const el = document.getElementById(id);
             if (el) {
@@ -1842,27 +1969,35 @@ If the request is rejected, a rejection notification is sent to the employee and
             const counts = {
                 'all': 0,
                 'api': 0,
-                'uipath': 0,
+                'claude': 0,
+                'copilot': 0,
+                'dataverse': 0,
+                'microsoft-365': 0,
+                'ollama': 0,
+                'power-apps': 0,
+                'power-automate': 0,
+                'power-bi': 0,
                 'power-platform': 0,
-                'copilot-studio': 0,
                 'python': 0,
-                'bpm': 0
-            //    'api': 0,
-            //    'power-bi': 0,
-            //    'machine-learning': 0,
+                'sharepoint': 0,
+                'uipath': 0
             };
 
             const categoryLabels = {
                 'all': 'SHOW ALL',
                 'api': 'API',
-                'uipath': 'UiPath',
+                'claude': 'Claude',
+                'copilot': 'Copilot Studio',
+                'dataverse': 'Dataverse',
+                'microsoft-365': 'Microsoft 365',
+                'ollama': 'Ollama',
+                'power-apps': 'Power Apps',
+                'power-automate': 'Power Automate',
+                'power-bi': 'Power BI',
                 'power-platform': 'Power Platform',
-                'copilot-studio': 'Copilot Studio',
                 'python': 'Python',
-                'bpm': 'BPM'
-                //'api': 'API',
-                //'power-bi': 'Power BI',
-                //'machine-learning': 'Machine Learning'
+                'sharepoint': 'SharePoint',
+                'uipath': 'UiPath'
             };
 
             cards.forEach(card => {
@@ -2012,6 +2147,7 @@ If the request is rejected, a rejection notification is sent to the employee and
                 'power-platform': document.getElementById('nav-power-platform'),
                 'copilot-studio': document.getElementById('nav-copilot-studio'),
                 'python': document.getElementById('nav-python'),
+                'insights': document.getElementById('nav-insights'),
                 'bpm': document.getElementById('nav-bpm')
             };
 
