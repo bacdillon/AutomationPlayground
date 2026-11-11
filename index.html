@@ -2328,7 +2328,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             return { send };
         })();
 
-        // ===== Visitor analytics (GoatCounter: https://alfredbot.goatcounter.com) =====
+        // ===== Visitor analytics helpers =====
         function slugify(text) {
             return (text || 'untitled').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
         }
@@ -2341,13 +2341,6 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 : path === 'insights/unlocked' ? 'insights_unlock'
                 : path === 'insights/failed-login' ? 'insights_failed_login' : null;
             if (customEvent) Tracker.send(customEvent, title);
-
-            // GoatCounter
-            try {
-                if (window.goatcounter && typeof window.goatcounter.count === 'function') {
-                    window.goatcounter.count({ path: path, title: title, event: true });
-                }
-            } catch (e) { /* analytics must never break the page */ }
         }
 
         // ===== Card layout + carousel (built from the existing card markup) =====
@@ -2846,7 +2839,5 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             sections.forEach(sec => observer.observe(sec));
         });
     </script>
-    <!-- GoatCounter analytics: page views + events (dashboard: https://alfredbot.goatcounter.com) -->
-    <script data-goatcounter="https://alfredbot.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
