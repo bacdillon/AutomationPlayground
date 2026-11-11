@@ -1993,6 +1993,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             <div class="flex items-center space-x-2">
                 <p>&copy; 2026 AUTOMATION PLAYGROUND.</p>
             </div>
+            <p class="text-zinc-500 max-w-md md:text-left">This site records anonymous visit statistics, including IP address and approximate location, to understand which projects are viewed.</p>
             <div class="flex items-center space-x-6 text-lg">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition text-white" title="GitHub">
                     <i class="fab fa-github"></i>
@@ -2198,11 +2199,150 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             });
         });
 
+        // ===== Custom visitor tracking → Google Sheet (see Code.gs) =====
+        // Paste your Apps Script web app URL (ends in /exec) between the quotes. Empty = off.
+        const CUSTOM_TRACKING_URL = '';
+
+        const Tracker = (() => {
+            const OPT_OUT_KEY = 'trackingOptOut';
+            const store = (area, key, value) => {
+                try {
+                    if (value === undefined) return window[area].getItem(key);
+                    window[area].setItem(key, value);
+                } catch (e) { return null; }
+            };
+            const newId = () => (window.crypto && crypto.randomUUID)
+                ? crypto.randomUUID()
+                : Date.now().toString(36) + Math.random().toString(36).slice(2);
+
+            // Visit yoursite.com#toggle-tracking once per browser to stop/restart logging your own visits.
+            if (location.hash === '#toggle-tracking') {
+                const off = store('localStorage', OPT_OUT_KEY) === '1';
+                store('localStorage', OPT_OUT_KEY, off ? '0' : '1');
+                alert(off ? 'Tracking is ON again for this browser.' : 'Your visits from this browser will no longer be tracked.');
+                history.replaceState(null, '', location.pathname + location.search);
+            }
+            const optedOut = () => store('localStorage', OPT_OUT_KEY) === '1';
+
+            let visitorId = store('localStorage', 'trackVisitorId');
+            if (!visitorId) { visitorId = newId(); store('localStorage', 'trackVisitorId', visitorId); }
+            let sessionId = store('sessionStorage', 'trackSessionId');
+            if (!sessionId) { sessionId = newId(); store('sessionStorage', 'trackSessionId', sessionId); }
+
+            function deviceInfo() {
+                const ua = navigator.userAgent;
+                const browser = /Edg\//.test(ua) ? 'Edge' : /OPR\/|Opera/.test(ua) ? 'Opera'
+                    : /SamsungBrowser/.test(ua) ? 'Samsung Internet' : /Firefox\//.test(ua) ? 'Firefox'
+                    : /Chrome\//.test(ua) ? 'Chrome' : /Safari\//.test(ua) ? 'Safari' : 'Other';
+                const os = /Windows/.test(ua) ? 'Windows' : /Android/.test(ua) ? 'Android'
+                    : /iPhone|iPad|iPod/.test(ua) ? 'iOS' : /Mac OS X/.test(ua) ? 'macOS'
+                    : /Linux/.test(ua) ? 'Linux' : 'Other';
+                const device = /iPad|Tablet/.test(ua) ? 'Tablet' : /Mobi|Android|iPhone/.test(ua) ? 'Mobile' : 'Desktop';
+                return { browser, os, device };
+            }
+
+            // IP + location lookup (once per session). Ad blockers may block it; rows are still saved without it.
+            let geoCache = null;
+            try { geoCache = JSON.parse(store('sessionStorage', 'trackGeo') || 'null'); } catch (e) {}
+            let geoPromise = null;
+            async function fetchJson(url) {
+                const ctrl = new AbortController();
+                const t = setTimeout(() => ctrl.abort(), 3500);
+                try {
+                    const r = await fetch(url, { signal: ctrl.signal });
+                    return r.ok ? await r.json() : null;
+                } finally { clearTimeout(t); }
+            }
+            function getGeo() {
+                if (geoCache) return Promise.resolve(geoCache);
+                if (!geoPromise) {
+                    geoPromise = (async () => {
+                        let geo = {};
+                        try {
+                            const d = await fetchJson('https://ipwho.is/');
+                            if (d && d.success !== false) {
+                                geo = { ip: d.ip, city: d.city, region: d.region, country: d.country, isp: d.connection && (d.connection.isp || d.connection.org) };
+                            }
+                        } catch (e) {}
+                        if (!geo.ip) {
+                            try {
+                                const d = await fetchJson('https://ipapi.co/json/');
+                                if (d && !d.error) geo = { ip: d.ip, city: d.city, region: d.region, country: d.country_name, isp: d.org };
+                            } catch (e) {}
+                        }
+                        geoCache = geo;
+                        if (geo.ip) store('sessionStorage', 'trackGeo', JSON.stringify(geo));
+                        return geo;
+                    })();
+                }
+                return geoPromise;
+            }
+
+            function payload(event, detail, extra) {
+                return Object.assign({
+                    event, detail: detail || '',
+                    visitorId, sessionId,
+                    page: location.href.split('#')[0],
+                    referrer: document.referrer || '(direct)',
+                    screen: screen.width + 'x' + screen.height,
+                    language: navigator.language || '',
+                    timezone: (Intl.DateTimeFormat().resolvedOptions().timeZone) || '',
+                    userAgent: navigator.userAgent
+                }, deviceInfo(), extra || {});
+            }
+
+            async function send(event, detail) {
+                if (!CUSTOM_TRACKING_URL || optedOut()) return;
+                try {
+                    const geo = await getGeo();
+                    fetch(CUSTOM_TRACKING_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        keepalive: true,
+                        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+                        body: JSON.stringify(payload(event, detail, { geo }))
+                    }).catch(() => {});
+                } catch (e) { /* tracking must never break the page */ }
+            }
+
+            // Time on page: sent once when the visitor leaves or switches away.
+            const startedAt = Date.now();
+            let leaveSent = false;
+            function sendLeave() {
+                if (leaveSent || !CUSTOM_TRACKING_URL || optedOut()) return;
+                leaveSent = true;
+                const body = JSON.stringify(payload('page_leave', '', {
+                    geo: geoCache || {},
+                    duration: Math.round((Date.now() - startedAt) / 1000)
+                }));
+                try {
+                    if (!(navigator.sendBeacon && navigator.sendBeacon(CUSTOM_TRACKING_URL, new Blob([body], { type: 'text/plain' })))) {
+                        fetch(CUSTOM_TRACKING_URL, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' }, body }).catch(() => {});
+                    }
+                } catch (e) {}
+            }
+            document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'hidden') sendLeave(); });
+            window.addEventListener('pagehide', sendLeave);
+
+            window.addEventListener('load', () => send('page_view', document.title));
+            return { send };
+        })();
+
         // ===== Visitor analytics (GoatCounter: https://alfredbot.goatcounter.com) =====
         function slugify(text) {
             return (text || 'untitled').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
         }
         function trackEvent(path, title) {
+            // Custom Google Sheet tracking
+            const kind = path.split('/')[0];
+            const customEvent = kind === 'video' ? 'video_play'
+                : kind === 'github' ? 'github_click'
+                : kind === 'filter' ? 'filter'
+                : path === 'insights/unlocked' ? 'insights_unlock'
+                : path === 'insights/failed-login' ? 'insights_failed_login' : null;
+            if (customEvent) Tracker.send(customEvent, title);
+
+            // GoatCounter
             try {
                 if (window.goatcounter && typeof window.goatcounter.count === 'function') {
                     window.goatcounter.count({ path: path, title: title, event: true });
