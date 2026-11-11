@@ -552,7 +552,7 @@ analysis, process design, intelligent automation, data analytics, and GenAI     
             <div class="max-w-xs mx-auto relative">
                 <select 
                     id="category-select" 
-                    onchange="filterShowcase(this.value)"
+                    onchange="filterShowcase(this.value); trackEvent('filter/' + this.value, 'Filter: ' + this.options[this.selectedIndex].text)"
                     class="w-full px-4 py-2.5 bg-zinc-900 border border-zinc-700 rounded-xl text-xs font-semibold tracking-wider text-white uppercase focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition appearance-none cursor-pointer pr-10 shadow-lg">
                     <option value="all" id="opt-all" class="bg-zinc-900 text-white">SHOW ALL</option>
                     <option value="api" id="opt-api" class="bg-zinc-900 text-white">API</option>
@@ -2183,8 +2183,10 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                     err.hidden = true;
                     form.reset();
                     setInsightsLocked(false);
+                    trackEvent('insights/unlocked', 'Insights unlocked');
                 } else {
                     err.hidden = false;
+                    trackEvent('insights/failed-login', 'Insights: wrong password');
                     const box = document.getElementById('insights-lock');
                     box.classList.remove('ins-shake'); void box.offsetWidth; box.classList.add('ins-shake');
                     document.getElementById('ins-pass').select();
@@ -2195,6 +2197,18 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 document.getElementById('ins-user').focus();
             });
         });
+
+        // ===== Visitor analytics (GoatCounter: https://alfredbot.goatcounter.com) =====
+        function slugify(text) {
+            return (text || 'untitled').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+        }
+        function trackEvent(path, title) {
+            try {
+                if (window.goatcounter && typeof window.goatcounter.count === 'function') {
+                    window.goatcounter.count({ path: path, title: title, event: true });
+                }
+            } catch (e) { /* analytics must never break the page */ }
+        }
 
         // ===== Card layout + carousel (built from the existing card markup) =====
         const PILL_COLORS = ['pill-pink', 'pill-blue', 'pill-orange'];
@@ -2234,6 +2248,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 footer.className = 'card-footer';
                 const link = card.querySelector('a[href*="github.com"]');
                 if (link) {
+                    link.addEventListener('click', () => trackEvent('github/' + slugify(title), 'GitHub opened: ' + title));
                     link.className = 'card-link';
                     link.title = 'View Source & Documentation on GitHub';
                     link.setAttribute('aria-label', 'View source and documentation on GitHub: ' + title);
@@ -2253,7 +2268,10 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                     playBtn.className = 'card-play';
                     playBtn.setAttribute('aria-label', 'Play video: ' + title);
                     playBtn.innerHTML = '<i class="fas fa-play"></i><span>Video</span>';
-                    playBtn.addEventListener('click', () => openVideoModal(video.getAttribute('src'), title));
+                    playBtn.addEventListener('click', () => {
+                        trackEvent('video/' + slugify(title), 'Video played: ' + title);
+                        openVideoModal(video.getAttribute('src'), title);
+                    });
                     leftGroup.appendChild(playBtn);
                 }
                 footer.appendChild(leftGroup);
@@ -2688,5 +2706,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             sections.forEach(sec => observer.observe(sec));
         });
     </script>
+    <!-- GoatCounter analytics: page views + events (dashboard: https://alfredbot.goatcounter.com) -->
+    <script data-goatcounter="https://alfredbot.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </body>
 </html>
