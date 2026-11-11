@@ -1902,7 +1902,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             </div>
 
             <!-- Insights lock (browser-side gate; see INSIGHTS_CREDENTIAL_HASH in the script) -->
-            <div id="insights-lock" class="glass-card rounded-2xl p-8 max-w-md mx-auto text-center">
+            <div id="insights-lock" hidden class="glass-card rounded-2xl p-8 max-w-md mx-auto text-center">
                 <div class="ins-lock-icon"><i class="fas fa-lock"></i></div>
                 <h3 class="text-lg font-bold text-white mb-1">Insights are locked</h3>
                 <p class="text-sm text-zinc-400 mb-6">Sign in to view the project insights.</p>
@@ -1920,7 +1920,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 </form>
             </div>
 
-            <div id="insights-content" hidden>
+            <div id="insights-content">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div class="glass-card rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-white mb-1">Projects by technology</h3>
@@ -1949,7 +1949,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 </table>
             </div>
             <div class="text-center mt-6">
-                <button type="button" id="insights-logout" class="card-more"><i class="fas fa-lock mr-1"></i> Lock Insights</button>
+                <button type="button" id="insights-logout" class="card-more" hidden><i class="fas fa-lock mr-1"></i> Lock Insights</button>
             </div>
             </div>
         </div>
@@ -1993,7 +1993,7 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
             <div class="flex items-center space-x-2">
                 <p>&copy; 2026 AUTOMATION PLAYGROUND.</p>
             </div>
-            <!-- <p class="text-zinc-500 max-w-md md:text-left">This site records anonymous visit statistics, including IP address and approximate location, to understand which projects are viewed.</p> -->
+            <p class="text-zinc-500 max-w-md md:text-left">This site records anonymous visit statistics, including IP address and approximate location, to understand which projects are viewed.</p>
             <div class="flex items-center space-x-6 text-lg">
                 <a href="https://github.com/bacdillon" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-300 transition text-white" title="GitHub">
                     <i class="fab fa-github"></i>
@@ -2150,6 +2150,8 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
         // Note: this is a browser-side gate on a static site, not server-grade security.
         const INSIGHTS_CREDENTIAL_HASH = '6baeda18c5c461cc8be4ce8007960d99e51045bbbd00fd7f26c976bd9427d8bb';
         const INSIGHTS_SESSION_KEY = 'insightsUnlocked';
+        // Insights login on/off. false = Insights shown to everyone, login hidden. Set to true to require the login again.
+        const INSIGHTS_LOCK_ENABLED = false;
 
         async function sha256Hex(text) {
             const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
@@ -2168,7 +2170,8 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
 
         document.addEventListener('DOMContentLoaded', () => {
             const form = document.getElementById('insights-login');
-            if (!form) return;
+            if (!form || !INSIGHTS_LOCK_ENABLED) return; // login disabled: leave Insights open
+            document.getElementById('insights-logout').hidden = false;
             let remembered = false;
             try { remembered = sessionStorage.getItem(INSIGHTS_SESSION_KEY) === INSIGHTS_CREDENTIAL_HASH; } catch (e) {}
             setInsightsLocked(!remembered);
