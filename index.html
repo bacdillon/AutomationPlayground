@@ -44,6 +44,7 @@
             --accent: #4f6bed;
             --accent-soft: #e3e9fd;
             --line: rgba(79, 107, 237, 0.14);
+            --surface: #f4f6ff;
         }
 
         body {
@@ -102,7 +103,7 @@ ul li::before {
 
         /* White Card Design (light carousel style) */
         .glass-card {
-            background: #ffffff;
+            background: var(--surface);
             border: 1.5px solid transparent;
             border-radius: 12px !important;
             box-shadow: 0 12px 32px -16px rgba(60, 80, 170, 0.35);
@@ -283,18 +284,18 @@ ul li::before {
         section.border-t { border-top-color: transparent !important; }
 
         nav.sticky {
-            background: rgba(255, 255, 255, 0.75) !important;
+            background: rgba(244, 246, 255, 0.85) !important;
             box-shadow: 0 8px 28px -18px rgba(60, 80, 170, 0.45) !important;
         }
-        #mobile-menu, #mobile-menu-btn { background: #ffffff !important; }
+        #mobile-menu, #mobile-menu-btn { background: var(--surface) !important; }
         #category-select, #category-select option {
-            background: #ffffff !important;
+            background: var(--surface) !important;
             color: var(--ink) !important;
         }
         #category-select { border-color: rgba(79, 107, 237, 0.3) !important; box-shadow: 0 8px 20px -14px rgba(60, 80, 170, 0.5) !important; }
         #category-select:focus { border-color: var(--accent) !important; --tw-ring-color: var(--accent); }
         #filter-status-bar { background: transparent !important; border: none !important; }
-        #no-results .bg-zinc-900 { background: #ffffff !important; }
+        #no-results .bg-zinc-900 { background: var(--surface) !important; }
         #no-results button { background: var(--accent) !important; color: #ffffff !important; }
 
         /* Keep dark overlays readable */
@@ -397,7 +398,7 @@ ul li::before {
             border: 1.5px solid var(--accent);
             border-radius: 50%;
             color: var(--accent) !important;
-            background: #ffffff;
+            background: var(--surface);
             transition: background 0.25s ease, color 0.25s ease;
         }
         .showcase-card .card-arrow i { transform: rotate(-45deg); font-size: 0.85rem; color: inherit; }
@@ -415,6 +416,31 @@ ul li::before {
         .card-play span, .card-play i { color: inherit !important; }
         .card-play i { font-size: 0.7rem; }
         .card-play:hover, .card-play:focus-visible { background: #c0307f; color: #ffffff; outline: none; }
+        /* Insights lock */
+        .ins-lock-icon {
+            width: 52px; height: 52px; margin: 0 auto 14px;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: var(--accent-soft); color: var(--accent); font-size: 1.2rem;
+        }
+        .ins-lock-icon i { color: var(--accent); }
+        .ins-field { display: block; }
+        .ins-field span { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 6px; }
+        .ins-field input {
+            width: 100%; height: 42px; padding: 0 14px;
+            border: 1.5px solid rgba(79, 107, 237, 0.25); border-radius: 10px;
+            background: #fff; color: var(--ink); font-size: 0.9rem; outline: none;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .ins-field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(79, 107, 237, 0.18); }
+        .ins-error { font-size: 0.8rem; color: #c0307f !important; }
+        .ins-login-btn {
+            width: 100%; height: 44px; margin-top: 6px; border: none; border-radius: 10px; cursor: pointer;
+            background: var(--accent); color: #fff !important; font-weight: 600; font-size: 0.9rem;
+            transition: filter 0.2s ease;
+        }
+        .ins-login-btn:hover { filter: brightness(1.08); }
+        .ins-shake { animation: insShake 0.35s; }
+        @keyframes insShake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
         .card-more {
             font-size: 0.8rem; font-weight: 500;
             color: var(--muted);
@@ -1875,6 +1901,26 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                 </div>
             </div>
 
+            <!-- Insights lock (browser-side gate; see INSIGHTS_CREDENTIAL_HASH in the script) -->
+            <div id="insights-lock" class="glass-card rounded-2xl p-8 max-w-md mx-auto text-center">
+                <div class="ins-lock-icon"><i class="fas fa-lock"></i></div>
+                <h3 class="text-lg font-bold text-white mb-1">Insights are locked</h3>
+                <p class="text-sm text-zinc-400 mb-6">Sign in to view the project insights.</p>
+                <form id="insights-login" class="space-y-3 text-left" autocomplete="on">
+                    <label class="ins-field">
+                        <span>Username</span>
+                        <input id="ins-user" name="username" type="text" autocomplete="username" required>
+                    </label>
+                    <label class="ins-field">
+                        <span>Password</span>
+                        <input id="ins-pass" name="password" type="password" autocomplete="current-password" required>
+                    </label>
+                    <p id="ins-login-error" class="ins-error" role="alert" hidden>Incorrect username or password.</p>
+                    <button type="submit" class="ins-login-btn">Unlock Insights</button>
+                </form>
+            </div>
+
+            <div id="insights-content" hidden>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-8">
                 <div class="glass-card rounded-2xl p-6">
                     <h3 class="text-lg font-bold text-white mb-1">Projects by technology</h3>
@@ -1901,6 +1947,10 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
                     </thead>
                     <tbody id="ins-table-body" class="text-zinc-200"></tbody>
                 </table>
+            </div>
+            <div class="text-center mt-6">
+                <button type="button" id="insights-logout" class="card-more"><i class="fas fa-lock mr-1"></i> Lock Insights</button>
+            </div>
             </div>
         </div>
     </section>
@@ -2090,6 +2140,61 @@ The Hair for Hope Virtual Assistant is a conversational AI agent that answers qu
         }
 
         document.addEventListener('DOMContentLoaded', buildInsights);
+
+        // ===== Insights lock =====
+        // SHA-256 of "username:password". Default is admin:changeme — replace it with your own.
+        // To make a new one, open the browser console on any https page and run:
+        //   crypto.subtle.digest('SHA-256', new TextEncoder().encode('myuser:mypassword'))
+        //     .then(b => console.log([...new Uint8Array(b)].map(x => x.toString(16).padStart(2,'0')).join('')))
+        // Note: this is a browser-side gate on a static site, not server-grade security.
+        const INSIGHTS_CREDENTIAL_HASH = '6baeda18c5c461cc8be4ce8007960d99e51045bbbd00fd7f26c976bd9427d8bb';
+        const INSIGHTS_SESSION_KEY = 'insightsUnlocked';
+
+        async function sha256Hex(text) {
+            const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(text));
+            return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+        }
+
+        function setInsightsLocked(locked) {
+            document.getElementById('insights-lock').hidden = !locked;
+            document.getElementById('insights-content').hidden = locked;
+            try {
+                if (locked) sessionStorage.removeItem(INSIGHTS_SESSION_KEY);
+                else sessionStorage.setItem(INSIGHTS_SESSION_KEY, INSIGHTS_CREDENTIAL_HASH);
+            } catch (e) { /* storage unavailable: stays unlocked for this page view only */ }
+            if (!locked) { try { buildInsights(); } catch (e) {} }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('insights-login');
+            if (!form) return;
+            let remembered = false;
+            try { remembered = sessionStorage.getItem(INSIGHTS_SESSION_KEY) === INSIGHTS_CREDENTIAL_HASH; } catch (e) {}
+            setInsightsLocked(!remembered);
+
+            form.addEventListener('submit', async e => {
+                e.preventDefault();
+                const user = document.getElementById('ins-user').value.trim();
+                const pass = document.getElementById('ins-pass').value;
+                const err = document.getElementById('ins-login-error');
+                let ok = false;
+                try { ok = (await sha256Hex(user + ':' + pass)) === INSIGHTS_CREDENTIAL_HASH; } catch (e2) {}
+                if (ok) {
+                    err.hidden = true;
+                    form.reset();
+                    setInsightsLocked(false);
+                } else {
+                    err.hidden = false;
+                    const box = document.getElementById('insights-lock');
+                    box.classList.remove('ins-shake'); void box.offsetWidth; box.classList.add('ins-shake');
+                    document.getElementById('ins-pass').select();
+                }
+            });
+            document.getElementById('insights-logout').addEventListener('click', () => {
+                setInsightsLocked(true);
+                document.getElementById('ins-user').focus();
+            });
+        });
 
         // ===== Card layout + carousel (built from the existing card markup) =====
         const PILL_COLORS = ['pill-pink', 'pill-blue', 'pill-orange'];
